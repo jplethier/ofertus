@@ -1,0 +1,122 @@
+<!-- principal --> 
+<div class="main span8"> 
+  <div class="main">
+    <div class="dealsMap">
+      <div class="default_window grey_background dealsList" id="sitesPanelView">
+        <div class="content">
+          <div class="content defaultDeal">
+  				  <div class="up"></div> 
+	    		  <div class="middle" id="tabAreaId" style="min-height: 50px;">
+              <% @deals.each_with_index do |deal, index| %>
+                <%= render :partial => 'deals/deal', :locals => {:deal => deal, :index => index} %>
+              <% end %>
+            </div>
+          </div> 
+	    	  <div class="down"></div> 
+	      </div>
+	    </div> 
+    </div>
+  </div>
+  <!-- /janela CONTEÚDO --> 
+</div>
+
+<div class="side span4">
+  <div class="default_window white_background">
+    <div class="title">
+      <h3><%= @user.name %></h3>
+    </div>
+    <div class="content">
+      <div class="profile">
+        <div class="row-fluid">
+          <div class="span6">
+            <div class="userPicture"> 
+              <% if @user.provider? %>
+                <%= image_tag(@user.facebook_profile_picture, :alt => @user.username, :title => @user.username) %>
+              <% else %>
+                <%= image_tag(@user.gravatar_url, :alt => @user.username, :title => @user.username) %>  
+              <% end %>
+            </div>
+            <div class="edit_user">
+              <% if current_user == @user %>
+                <%= link_to "Editar meus dados", edit_user_registration_path %>
+              <% end %>
+            </div>
+          </div>
+          <div class="span6">
+            <strong class="title">Um pouco sobre mim</strong> 
+            <div class="aboutMe"> 
+              <p><%= @user.deals.count %> <%= I18n.t("models.user.shared_deals") %></p><br/>
+              <p><%= @user.followers.count %> <%= I18n.t("models.user.followers") %></p><br/>
+              <p><%= I18n.t("models.user.following") %> <%= @user.following.count %> <%= I18n.t "users" %> </p><br/>
+              <% if (user_signed_in? && (current_user == @user || @user.follow?(current_user))) %>
+                <p>Email: <%= @user.email if @user.email %></p><br/>
+              <% end %>
+            </div>
+            <% if user_signed_in? && current_user != @user %>
+              <div class="interactions"> 
+                <% if current_user.follow? @user %>
+                  <div class="unfollow">
+                    <%= link_to I18n.t("actions.unfollow"), unfollow_user_path(@user.username), :class => :unfollow %>
+                  </div>
+                <% else %>
+                  <div class="follow">
+                    <%= link_to I18n.t("actions.follow"), follow_user_path(@user.username), :class => :follow %>
+                  </div>
+                <% end %>
+                </li>
+              </div> 
+            <% else %>
+              <% if @user.credit < 30.00 %>
+                <span class="credit unavailable"><%= number_to_currency @user.credit %></span>
+              <% else %>
+                <span class="credit available"><%= number_to_currency @user.credit %></span>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </div>
+  <div class="default_window white_background">
+    <div class="title">
+      <h3>Melhores Ofertas</h3>
+    </div>
+    <div class="content">
+      <div class="best">
+        <div class="small_deal">
+          <% @best_deals.each do |deal| %>
+            <%= render :partial => 'deals/side_deal', :locals => {:deal => deal} %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="default_window white_background">
+    <div class="title">
+      <h3>Ofertas Mais Comentadas</h3>
+    </div>
+    <div class="content">
+      <div class="most_commented">
+        <div class="small_deal">
+          <% @most_comment_deals.each do |deal| %>
+            <%= render :partial => 'deals/side_deal', :locals => {:deal => deal} %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="default_window white_background">
+    <div class="title">
+      <h3>Últimas Ofertas Compartilhadas</h3>
+    </div>
+    <div class="content">
+      <div class="newest">
+        <div class="small_deal">
+          <% @newest_deals.each do |deal| %>
+            <%= render :partial => 'deals/side_deal', :locals => {:deal => deal} %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

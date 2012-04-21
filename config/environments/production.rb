@@ -69,7 +69,7 @@ DealWitMe::Application.configure do
     :authentication => :plain,
     :domain => 'ofertus.com.br', #ENV['GMAIL_SMTP_USER'],
     :user_name => 'contato@ofertus.com.br', #ENV['GMAIL_SMTP_USER'],
-    :password => '123ofertus', #ENV['GMAIL_SMTP_PASSWORD'],
+    :password => '123OfertuS', #ENV['GMAIL_SMTP_PASSWORD'],
     :enable_starttls_auto => true
   }
 

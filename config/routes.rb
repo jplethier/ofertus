@@ -1,5 +1,7 @@
 DealWitMe::Application.routes.draw do
 
+  mount RailsBlogEngine::Engine => "/blog"
+
   #TODO: Alterar as rotas, deveriam ser páginas estáticas
   get "pages/whoarewe"
   get "pages/help"

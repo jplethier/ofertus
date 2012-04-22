@@ -65,6 +65,39 @@ ActiveRecord::Schema.define(:version => 20120309190510) do
 
   add_index "deals", ["city_id"], :name => "index_deals_on_city_id"
 
+  create_table "rails_blog_engine_comments", :force => true do |t|
+    t.integer  "post_id"
+    t.string   "author_byline"
+    t.string   "author_email"
+    t.string   "author_url"
+    t.string   "author_ip"
+    t.string   "author_user_agent"
+    t.boolean  "author_can_post"
+    t.string   "referrer"
+    t.string   "state"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rails_blog_engine_comments", ["author_email"], :name => "index_rails_blog_engine_comments_on_author_email"
+  add_index "rails_blog_engine_comments", ["post_id"], :name => "index_rails_blog_engine_comments_on_post_id"
+
+  create_table "rails_blog_engine_posts", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "state"
+    t.datetime "published_at"
+    t.string   "permalink"
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.string   "author_byline"
+  end
+
+  add_index "rails_blog_engine_posts", ["permalink"], :name => "index_rails_blog_engine_posts_on_permalink"
+
   create_table "relationships", :force => true do |t|
     t.integer  "followed_id", :null => false
     t.integer  "follower_id", :null => false

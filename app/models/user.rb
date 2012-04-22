@@ -75,6 +75,10 @@ class User < ActiveRecord::Base
   def password_required?
     (provider.nil? || !password.blank?) && super
   end
+
+  def blog_admin?
+    true
+  end
   
   protected
 

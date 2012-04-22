@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html lang="pt-br" dir="ltr" xml:lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <title><%= title %></title>
+    <title><%= app_helpers.title %></title>
 
     <!-- TODO: META -->
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
@@ -58,10 +58,10 @@
 					<div class="intern">
             <div id="global_nav" class="span6">
   						<ul class="globalNavigation ">
-                <li><%= link_to_active I18n.t("actions.home"), root_path %></li>
-                <li><%= link_to_active I18n.t("actions.todays_offers"), deals_today_path %></li>
-                <li><%= link_to_active I18n.t("actions.search_users"), users_path %></li>
-                <li><%= link_to_active I18n.t("actions.how_it_works"), pages_how_it_works_path %></li>
+                <li><%= link_to I18n.t("actions.home"), app_helpers.root_path %></li>
+                <li><%= link_to I18n.t("actions.todays_offers"), app_helpers.deals_today_path %></li>
+                <li><%= link_to I18n.t("actions.search_users"), app_helpers.users_path %></li>
+                <li><%= link_to I18n.t("actions.how_it_works"), app_helpers.pages_how_it_works_path %></li>
                 <li><%= link_to 'Blog', 'http://www.dealwit.us', :target => '_blank' %></li>
   						</ul>
             </div>
@@ -75,7 +75,7 @@
         <div class="logo container-fluid">
           <div class="content row-fluid">
             <div id="logo" class="span4">
-              <%= link_to "OfertuS", root_path, :class => "logo" %>
+              <%= link_to "OfertuS", app_helpers.root_path, :class => "logo" %>
             </div>
             <div id="social" class="span2">
               <div class="fb-like" data-href="https://www.facebook.com/OfertUs" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true" data-font="arial"></div>
@@ -90,7 +90,7 @@
             </div>
             <% if user_signed_in? %>
               <div id="share_deals" class="span4">
-                <form action="<%= share_deals_path %>" method="get" class="share_offer_url">
+                <form action="<%= app_helpers.share_deals_path %>" method="get" class="share_offer_url">
                   <fieldset>
                     <legend>Compartilhar</legend>
                     <%= text_field_tag :share, params[:share], :title => "Compartilhe uma oferta" %>
@@ -223,7 +223,7 @@
             <ul class="first span2">
               <li class="title">Sobre OfertuS</li>
               <li><a href="/pages/whoarewe"><%= I18n.t("actions.who_are_we") %></a></li>
-              <li><%= link_to I18n.t("actions.how_it_works"), pages_how_it_works_path %></li>
+              <li><%= link_to I18n.t("actions.how_it_works"), app_helpers.pages_how_it_works_path %></li>
             </ul>
 
             <ul class="second span2">
@@ -328,13 +328,13 @@
               <li><a href="http://www.dealwit.us/" target="_blank"><%= I18n.t("actions.follow_our_blog") %></a></li><br/>
               <% if user_signed_in? %>
                   <!-- TODO: Menu logado -->
-                  <li><%= link_to I18n.t("actions.my_profile"), user_path(current_user.username), :class => "specialLink" %></li>
-                  <li><%= link_to I18n.t("actions.share_an_offer"), new_deal_path, :class => "specialLink" %></li>
-                  <li><%= link_to I18n.t("actions.logout"), destroy_user_session_path, :class => "specialLink" %></li>
+                  <li><%= link_to I18n.t("actions.my_profile"), app_helpers.user_path(current_user.username), :class => "specialLink" %></li>
+                  <li><%= link_to I18n.t("actions.share_an_offer"), app_helpers.new_deal_path, :class => "specialLink" %></li>
+                  <li><%= link_to I18n.t("actions.logout"), app_helpers.destroy_user_session_path, :class => "specialLink" %></li>
                 </ul>
               <% else %>
-                  <li><%= link_to I18n.t("actions.sign_up"), new_user_registration_path, :class => "specialLink" %></li>
-                  <li><%= link_to I18n.t("actions.sign_in"), new_user_session_path, :class => "specialLink" %></li>
+                  <li><%= link_to I18n.t("actions.sign_up"), app_helpers.new_user_registration_path, :class => "specialLink" %></li>
+                  <li><%= link_to I18n.t("actions.sign_in"), app_helpers.new_user_session_path, :class => "specialLink" %></li>
               <% end %>
             </ul>
           </div>

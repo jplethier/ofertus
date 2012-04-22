@@ -28,4 +28,4 @@ $(document).ready(function() {
 
 var hideFlashes = function() {
   $('#flash_notice, #flash_warning, #flash_error').fadeOut(1500);
-}
+}//= require rails_blog_engine

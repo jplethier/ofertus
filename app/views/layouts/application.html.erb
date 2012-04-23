@@ -58,7 +58,6 @@
 					<div class="intern">
             <div id="global_nav" class="span6">
   						<ul class="globalNavigation ">
-                <%= current_user.username %>
                 <li><%= link_to I18n.t("actions.home"), app_helpers.root_path, :class => "#{ @current_tab == 'active_deals' ? 'active' : ''}", :id => "home_link" %></li>
                 <li><%= link_to I18n.t("actions.todays_offers"), app_helpers.deals_today_path, :class => "#{ @current_tab == 'today_deals' ? 'active' : ''}" %></li>
                 <li><%= link_to I18n.t("actions.search_users"), app_helpers.users_path, :class => "#{ @current_tab == 'users' ? 'active' : ''}" %></li>

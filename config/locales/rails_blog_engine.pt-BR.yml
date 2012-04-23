@@ -1,0 +1,15 @@
+pt-BR:
+  rails_blog_engine:
+    blog:
+      title: "Blog"
+  activerecord:
+    attributes:
+      rails_blog_engine/comment:    
+        author_byline: "Nome"
+        author_email: "Email"
+        author_url: "Site/Blog"
+        body: "Comentário"
+  helpers:
+    submit:
+      comment:
+        create: "Comentar"

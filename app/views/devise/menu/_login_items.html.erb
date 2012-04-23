@@ -2,8 +2,8 @@
   <ul class="userNavigation">
     <li>Olá <%= current_user.name %></li>
     <!-- TODO: Menu logado -->
-    <li><%= link_to I18n.t("actions.my_profile"), app_helpers.user_path(current_user.username) %></li>
-    <li><%= link_to I18n.t("actions.share_an_offer"), app_helpers.new_deal_path %></li>
+    <li><%= link_to I18n.t("actions.my_profile"), app_helpers.user_path(current_user.username), :class => "#{ @current_tab == 'my_profile' ? 'active' : ''}" %></li>
+    <li><%= link_to I18n.t("actions.share_an_offer"), app_helpers.new_deal_path, :class => "#{ @current_tab == 'new_deal' ? 'active' : ''}" %></li>
     <li><%= link_to I18n.t("actions.logout"), app_helpers.destroy_user_session_path %></li>
   </ul>
 <% else %>

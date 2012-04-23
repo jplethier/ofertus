@@ -1,7 +1,7 @@
 #coding: UTF-8
 class ApplicationController < ActionController::Base
   # before_filter :go_to_facebook
-  before_filter :fill_deals_lists, :delete_facebook_data
+  before_filter :fill_deals_lists, :delete_facebook_data, :set_current_tab
 
   protect_from_forgery
 
@@ -17,6 +17,20 @@ class ApplicationController < ActionController::Base
 
   def failure
     redirect_to root_path, :alert => "Não foi possível efetuar o login via facebook."
+  end
+
+  def set_current_tab
+    controller = params[:controller]
+    if controller == 'deals'
+      @current_tab = 'active_deals' if params[:action] == 'index'
+      @current_tab = 'today_deals' if params[:action] == 'today'
+      @current_tab = 'new_deal' if params[:action] == 'new'
+    elsif controller = 'users'
+      @current_tab = 'users' if params[:action] == 'index'
+      @current_tab = 'my_profile' if params[:action] == 'show' && current_user.username == params[:id]
+    else
+      @current_tab = controller
+    end
   end
 
   private

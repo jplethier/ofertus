@@ -49,7 +49,7 @@ class User < ActiveRecord::Base
   end
 
   def self.by_username(username)
-    where(:username => username).first
+    User.find_by_username(username)
   end
 
   def self.search(search)
@@ -58,11 +58,8 @@ class User < ActiveRecord::Base
 
   def self.find_for_facebook_oauth(access_token, signed_in_resource=nil)
     data = access_token.info
-    if user = User.where(:email => data.email).first
+    if user = User.find_by_email(data.email)
       user.update_attributes!(:name => data.name, :avatar_url => data.image, :access_token => access_token.credentials.token)
-      puts "INICIO INICIO ACCESS_TOKEN INICIO INICIO"
-      puts access_token
-      puts "FIM FIM ACCESS_TOKEN FIM FIM"
       user
     end
   end

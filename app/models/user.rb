@@ -74,7 +74,7 @@ class User < ActiveRecord::Base
   end
 
   def blog_admin?
-    true
+    self.admin
   end
   
   protected

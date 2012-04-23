@@ -211,6 +211,8 @@ class Share
       end
     rescue Errno::ENOENT => wrong_link_exception
       @deal = Deal.new
+    rescue RuntimeError => rte
+      @deal = Deal.new :link => link
     end
 
     @deal

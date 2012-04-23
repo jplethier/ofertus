@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
       @current_tab = 'active_deals' if params[:action] == 'index'
       @current_tab = 'today_deals' if params[:action] == 'today'
       @current_tab = 'new_deal' if params[:action] == 'new'
-    elsif controller = 'users'
+    elsif controller == 'users'
       @current_tab = 'users' if params[:action] == 'index'
       @current_tab = 'my_profile' if params[:action] == 'show' && current_user && current_user.username == params[:id]
     else

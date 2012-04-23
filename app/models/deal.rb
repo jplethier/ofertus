@@ -59,6 +59,7 @@ class Deal < ActiveRecord::Base
   after_validation :calculate_discount, :if => "real_price? and price? and not on_sale?"
   before_validation :prices_to_number, :if => "not on_sale?"
   before_create :add_affiliate_code_to_link
+  before_create :set_default_date
 
   attr_accessor :price_mask, :real_price_mask
   attr_accessible :address, :category, :city_id, :company, :description, :discount, :end_date, :image_url, :kind, :link, :price, :price_mask, :real_price, :real_price_mask, :title, :user_id
@@ -141,6 +142,10 @@ class Deal < ActiveRecord::Base
   def prices_to_number
     self.price = to_number(self.price_mask) if self.price_mask
     self.real_price = to_number(self.real_price_mask) if self.real_price_mask
+  end
+
+  def set_default_date
+    self.end_date = Date.today if self.end_date.nil?
   end
 
   def add_affiliate_code_to_link

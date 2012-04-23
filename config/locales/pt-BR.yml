@@ -239,7 +239,7 @@
         category: "Categoria"
         city: "Cidade"
         city_id: "Cidade"
-        company: "Empresa"
+        company: "Empresa/Site"
         description: "Descrição"
         discount: "Desconto"
         end_date: "Data de Validade"

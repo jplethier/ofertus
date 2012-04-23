@@ -103,6 +103,20 @@ describe Deal do
         end
       end
 
+      describe "date" do
+        it "should be today if nil" do
+          deal.end_date = nil
+          deal.save
+          deal.end_date.should == Date.today
+        end
+
+        it "should save if don't nil" do
+          deal.end_date = Date.tomorrow
+          deal.save
+          deal.end_date.should == Date.tomorrow
+        end
+      end
+
       describe "#image_url" do
 
         it "should not be required" do

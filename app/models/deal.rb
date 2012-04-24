@@ -58,6 +58,7 @@ class Deal < ActiveRecord::Base
 
   after_validation :calculate_discount, :if => "real_price? and price? and not on_sale?"
   before_validation :prices_to_number, :if => "not on_sale?"
+  before_validation :set_national_offer, :if => "self.city_id.nil?"
   before_create :add_affiliate_code_to_link
   before_create :set_default_date
 
@@ -155,6 +156,10 @@ class Deal < ActiveRecord::Base
       self.link = add_cultura_affiliate_code(self.link)
       puts self.link
     end
+  end
+
+  def set_national_offer
+    self.city_id = City.find_by_name('Oferta Nacional') if self.city_id.nil?
   end
 
   private

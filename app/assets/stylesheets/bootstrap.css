@@ -2807,6 +2807,11 @@ button.btn.small, input[type="submit"].btn.small {
 }
 .pagination span, .pagination em {
   float: left;
+  padding: 0 14px;
+  line-height: 34px;
+  text-decoration: none;
+  border: 1px solid #ddd;
+  border-left-width: 0;
 }
 .pagination li:last-child a {
   -webkit-border-radius: 0 3px 3px 0;

@@ -2805,8 +2805,7 @@ button.btn.small, input[type="submit"].btn.small {
   -moz-border-radius: 3px 0 0 3px;
   border-radius: 3px 0 0 3px;
 }
-
-.pagination span {
+.pagination span, .pagination em {
   float: left;
 }
 .pagination li:last-child a {

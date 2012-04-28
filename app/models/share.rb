@@ -16,7 +16,11 @@ class Share
   XPATH_TITLE = 'title'
 
   AMERICANAS = "americanas.com"
+  APPLE = "apple.com"
+  CAMISETERIA = "camiseteria.com"
+  CARREFOUR = "carrefour.com.br"
   COMPRA_FACIL = "comprafacil.com"
+  DUKS = "duks.com.br"
   FASTSHOP = "fastshop.com.br"
   GROUPON = "groupon.com"
   HOTEL_URBANO = "hotelurbano.com.br"

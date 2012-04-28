@@ -53,6 +53,28 @@ class Share
     "UTILIDADES DOMÉSTICAS" => Deal::CATEGORY_HOME_AND_APPLIANCE  
   }
 
+  CARREFOUR_CATEGORIES = {
+    "Automotivo" => Deal::CATEGORY_CAR,
+    "Bebês" => Deal::CATEGORY_KIDS,
+    "Beleza e Saúde" => Deal::CATEGORY_BEAUTY_AND_HEALTH,
+    "Brinquedos" => Deal::CATEGORY_KIDS,
+    "Cama, Mesa e Banho" => Deal::CATEGORY_HOME_AND_APPLIANCE,
+    "Cine e Foto" => Deal::CATEGORY_ELECTRONICS,
+    "Eletrodomésticos" => Deal::CATEGORY_HOME_AND_APPLIANCE,
+    "Eletroportáteis" => Deal::CATEGORY_ELECTRONICS,
+    "Esporte e Lazer" => Deal::CATEGORY_FITNESS,
+    "Ferramentas" => Deal::CATEGORY_OTHER,
+    "Games" => Deal::CATEGORY_KIDS,
+    "Imagem" => Deal::CATEGORY_ELECTRONICS,
+    "Informática" => Deal::CATEGORY_COMPUTER,
+    "Móveis e Decoração" => Deal::CATEGORY_HOME_AND_APPLIANCE,
+    "Perfumes e Cosméticos" => Deal::CATEGORY_BEAUTY_AND_HEALTH,
+    "Som" => Deal::CATEGORY_ELECTRONICS,
+    "Tapetes e Cortinas" => Deal::CATEGORY_HOME_AND_APPLIANCE,
+    "Telefonia" => Deal::CATEGORY_ELECTRONICS,
+    "Utilidades Domésticas" => Deal::CATEGORY_HOME_AND_APPLIANCE
+  }
+
   COMPRAFACIL_CATEGORIES = {
     "Ar & Ventilação" => Deal::CATEGORY_HOME_AND_APPLIANCE,
     "Automotivos" => Deal::CATEGORY_CAR,
@@ -186,6 +208,8 @@ class Share
     begin
       if @deal.link.match(AMERICANAS)
         populate_americanas_deal(@deal)
+      elsif @deal.link.match(CARREFOUR)
+        populate_carrefour_deal(@deal)
       elsif @deal.link.match(COMPRA_FACIL)
         populate_comprafacil_deal(@deal)
       elsif @deal.link.match(FASTSHOP)
@@ -253,6 +277,39 @@ class Share
     #else
     #  deal.kind = Deal::KIND_ON_SALE
     #end
+  end
+
+  def self.populate_carrefour_deal(deal)
+    page = open_page(deal.link)
+
+    
+    if page.at_css(".breadcrumb").at_xpath(".//h1").try(:text) && page.at_css(".valorPor").try(:text) && page.at_css("#visao-geral").try(:text)
+      deal.title = page.at_css(".breadcrumb").at_xpath(".//h1").try(:text).try(:strip)[0,255]
+      deal.price_mask = page.at_css(".valorPor").try(:text).split(" ")[2]
+      deal.real_price_mask = page.at_css(".valorDe").try(:text).split(" ")[2]
+      deal.description = page.at_css("#visao-geral").try(:text).try(:strip)[0,1200]
+      deal.category = CARREFOUR_CATEGORIES[page.at_css(".breadcrumb").at_xpath(".//strong").try(:text).split(" ")[2]]
+      deal.image_url = page.at_css(".viewBoxMedia").at_xpath(".//img")[:src]
+    end
+    deal.company = "Carrefour"
+    #if deal.price
+      deal.kind = Deal::KIND_OFFER
+    #else
+    #  deal.kind = Deal::KIND_ON_SALE
+    #end
+
+    puts "-"*100
+    puts "INICIO DA BUSCA NA PAGINA"
+    puts "-"*100
+    puts "TITULO = " + page.at_css(".breadcrumb").at_xpath(".//h1").try(:text).try(:strip)[0,255]
+    puts "PRECO PROMOCIONAL = " + page.at_css(".valorPor").try(:text).split(" ")[2]
+    puts "PRECO REAL = " + page.at_css(".valorDe").try(:text).split(" ")[2]
+    puts "DESCRICAO = " + page.at_css("#visao-geral").try(:text).try(:strip)[0,1200]
+    puts "CATEGORIA = " + page.at_css(".breadcrumb").at_xpath(".//strong").try(:text).split(" ")[2]
+    puts "LINK DA IMAGEM = " + page.at_css(".viewBoxMedia").at_xpath(".//img")[:src]
+    puts "-"*100
+    puts "FIM DA BUSCA NA PAGINA"
+    puts "-"*100
   end
 
   def self.populate_comprafacil_deal(deal)

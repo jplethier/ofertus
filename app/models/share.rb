@@ -289,6 +289,7 @@ class Share
     deal.real_price_mask = page.at_css(".valorDe").try(:text).split(" ")[2] if page.at_css(".valorDe").try(:text)
     deal.description = page.at_css("#visao-geral").try(:text).try(:strip)[0,1200] if page.at_css("#visao-geral").try(:text)
     deal.category = CARREFOUR_CATEGORIES[page.at_css(".breadcrumb").at_xpath(".//strong").try(:text).split(" ")[2]] if page.at_css(".breadcrumb").at_xpath(".//strong").try(:text)
+    deal.image_url = page.at_css(".lp-prod").at_xpath(".//img")[:src] if page.at_css(".lp-prod")
     deal.image_url = page.at_css(".viewBoxMedia").at_xpath(".//img")[:src] if page.at_css(".viewBoxMedia")
     deal.company = "Carrefour"
     #if deal.price

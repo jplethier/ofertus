@@ -283,16 +283,12 @@ class Share
 
   def self.populate_carrefour_deal(deal)
     page = open_page(deal.link)
-
-    
-    if page.at_css(".breadcrumb").at_xpath(".//h1").try(:text) && page.at_css(".valorPor").try(:text) && page.at_css("#visao-geral").try(:text)
-      deal.title = page.at_css(".breadcrumb").at_xpath(".//h1").try(:text).try(:strip)[0,255]
-      deal.price_mask = page.at_css(".valorPor").try(:text).split(" ")[2]
-      deal.real_price_mask = page.at_css(".valorDe").try(:text).split(" ")[2]
-      deal.description = page.at_css("#visao-geral").try(:text).try(:strip)[0,1200]
-      deal.category = CARREFOUR_CATEGORIES[page.at_css(".breadcrumb").at_xpath(".//strong").try(:text).split(" ")[2]]
-      deal.image_url = page.at_css(".viewBoxMedia").at_xpath(".//img")[:src]
-    end
+    deal.title = page.at_css(".breadcrumb").at_xpath(".//h1").try(:text).try(:strip)[0,255] if page.at_css(".breadcrumb").at_xpath(".//h1").try(:text)
+    deal.price_mask = page.at_css(".valorPor").try(:text).split(" ")[2] if page.at_css(".valorPor").try(:text)
+    deal.real_price_mask = page.at_css(".valorDe").try(:text).split(" ")[2] if page.at_css(".valorDe").try(:text)
+    deal.description = page.at_css("#visao-geral").try(:text).try(:strip)[0,1200] if page.at_css("#visao-geral").try(:text)
+    deal.category = CARREFOUR_CATEGORIES[page.at_css(".breadcrumb").at_xpath(".//strong").try(:text).split(" ")[2]] if page.at_css(".breadcrumb").at_xpath(".//strong").try(:text)
+    deal.image_url = page.at_css(".viewBoxMedia").at_xpath(".//img")[:src] if page.at_css(".viewBoxMedia")
     deal.company = "Carrefour"
     #if deal.price
       deal.kind = Deal::KIND_OFFER

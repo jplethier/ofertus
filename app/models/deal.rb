@@ -40,7 +40,7 @@ class Deal < ActiveRecord::Base
   validates :company,     :presence => true
   validates :description, :presence => true
   validates :discount,    :presence => true,      :if => "on_sale?"
-  validates :end_date,    :date => {:after_or_equal_to => Date.today},  :allow_nil => true
+  validates :end_date,    :presence => true,      :date => {:after_or_equal_to => Date.today}
   validates :image_url,   :format => /(^$)|(^https?:\/\/.+)/
   validates :kind,        :presence => true,      :inclusion => KINDS
   validates :link,        :presence => true,      :uniqueness => true,  :format => /^https?:\/\/.+/
@@ -60,7 +60,7 @@ class Deal < ActiveRecord::Base
   before_validation :prices_to_number, :if => "not on_sale?"
   before_validation :set_national_offer, :if => "self.city_id.nil?"
   before_create :add_affiliate_code_to_link
-  before_create :set_default_date
+  before_validation :set_default_date, :if => "self.end_date.nil?"
 
   attr_accessor :price_mask, :real_price_mask
   attr_accessible :address, :category, :city_id, :company, :description, :discount, :end_date, :image_url, :kind, :link, :price, :price_mask, :real_price, :real_price_mask, :title, :user_id
@@ -73,7 +73,7 @@ class Deal < ActiveRecord::Base
   scope :most_commented, order("(select count(comments.id) from comments where comments.commentable_id = deals.id) DESC")
 
   scope :today, where("deals.created_at >= ?", Date.today)
-  scope :active, where("deals.end_date >= ? OR deals.end_date is null", Date.today)
+  scope :active, where("deals.end_date >= ?", Date.today)
   scope :voted, where("(deals.up_votes + deals.down_votes) > 0")
 
 

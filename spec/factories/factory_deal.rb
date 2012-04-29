@@ -13,6 +13,7 @@ FactoryGirl.define do
     up_votes = 0
     down_votes = 0
     image_url = "http://F_IMAGE"
+    end_date = Date.today
 
     city
     user

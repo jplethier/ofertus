@@ -26,7 +26,7 @@ class DealsController < AuthorizedController
       if @deal.save
         if current_user.provider? && current_user.facebook_share_offer
           me = FbGraph::User.me(current_user.access_token)
-          me.feed!( :message => current_user.name + " acabou de compartilhar uma oferta no OfertuS", :link => deal_url(@deal), :description => @deal.description)
+          me.feed!( :message => current_user.name + " acabou de compartilhar uma oferta no OfertuS", :link => deal_url(@deal), :description => @deal.description, :picture => (@deal.image_url ? @deal.image_url : "") )
         end
         redirect_to root_path, :notice => "Oferta criada com sucesso!"
       else

@@ -37,7 +37,7 @@ DealWitMe::Application.routes.draw do
     end
   end
 
-  match '/mu-4b4c57f5-b0d80846-731c8e63-0f3bcb00', :to => "pages#blitz"
+  # match '/mu-4b4c57f5-b0d80846-731c8e63-0f3bcb00', :to => "pages#blitz"
 
   match '/deals/today/:category', :to => "deals#today"
   match '/deals/active/:category', :to => "deals#index"

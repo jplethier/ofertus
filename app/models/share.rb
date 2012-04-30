@@ -132,9 +132,9 @@ class Share
       elsif @deal.link.match(FASTSHOP)
         @deal = FastShop.fill_deal_fields(link)
       elsif @deal.link.match(GROUPON)
-        populate_groupon_deal(@deal)
+        @deal = Groupon.fill_deal_fields(link)
       elsif @deal.link.match(HOTEL_URBANO)
-        populate_hotelurbano_deal(@deal)
+        @deal = HotelUrbano.fill_deal_fields(link)
       elsif @deal.link.match(LEADER)
         populate_leader_deal(@deal)
       elsif @deal.link.match(LIVRARIA_CULTURA)
@@ -177,44 +177,6 @@ class Share
 
     deal.title = page.at_css(XPATH_TITLE).try(:text).try(:strip)[0,255]
     
-  end
-
-  def self.populate_groupon_deal(deal)
-    page = open_page(deal.link)
-
-    deal.title = page.at_css("#contentDealTitle").try(:text).try(:strip)[0,255]
-    deal.price_mask = page.at_css(".noWrap").try(:text).try(:strip)[3..-1].try(:strip)
-    #deal.real_price_mask = page.at_css(".regular").try(:text).try(:strip)[6..-1].try(:strip)
-    deal.description = page.at_css(".contentDealDescriptionFacts").try(:text).try(:strip)[0,1200]
-    deal.company = "Groupon"
-    deal.image_url = page.at_css(".nobg").at_xpath(".//img")[:src].try(:strip)
-    #TODO: O método consegue setar city_id da oferta, mas não consegue exibir corretamente já na tela de cadastro de nova oferta
-    #deal.city = City.find_by_name(page.at_css("#headerCityButton").try(:text).try(:strip))
-    #if deal.city
-    #  deal.city_id = deal.city.id
-    #end
-    deal.kind = Deal::KIND_DAILY_DEAL
-  end
-
-  def self.populate_hotelurbano_deal(deal)
-    page = open_page(deal.link)
-
-    if page.at_css("title").try(:text) && page.at_css("#{preco-oferta}").try(:text) && page.at_css("#que-saber").try(:text)
-      deal.title = page.at_css("title").try(:text).try(:strip)[0,255]
-      precos = page.at_css("#preco-oferta").try(:text).try(:strip).split("R$").map(&:strip)
-      deal.price_mask = precos[2]
-      deal.real_price_mask = precos[1]
-      deal.description = page.at_css("#que-saber").try(:text).try(:strip)[0,1200]
-      deal.category = Deal::CATEGORY_TRAVEL
-      deal.company = "Hotel Urbano"
-      deal.image_url = page.at_css("#imagem-oferta").at_xpath(".//img")[:src].try(:strip)
-    #  #TODO: O método consegue setar city_id da oferta, mas não consegue exibir corretamente já na tela de cadastro de nova oferta
-    #  deal.city = City.find_by_name(page.at_css("#headerCityButton").try(:text).try(:strip))
-    #  if deal.city
-    #    deal.city_id = deal.city.id
-    #  end
-    end
-    deal.kind = Deal::KIND_DAILY_DEAL
   end
 
   def self.populate_leader_deal(deal)

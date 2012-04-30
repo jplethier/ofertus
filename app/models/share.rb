@@ -34,50 +34,6 @@ class Share
   SEPHA = "sepha.com.br"
   SUBMARINO = "submarino.com"
 
-  COMPRAFACIL_CATEGORIES = {
-    "Ar & Ventilação" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Automotivos" => Deal::CATEGORY_CAR,
-    "Brinquedos" => Deal::CATEGORY_KIDS,
-    "Bebês" => Deal::CATEGORY_KIDS,
-    "Cama & Banho" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Celulares" => Deal::CATEGORY_ELECTRONICS,
-    "Cine & Foto" => Deal::CATEGORY_ELECTRONICS,
-    "Colchões" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Computadores" => Deal::CATEGORY_COMPUTER,
-    "Eletrodomésticos" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Eletrônicos" => Deal::CATEGORY_ELECTRONICS,
-    "Eletroportáteis" => Deal::CATEGORY_ELECTRONICS,
-    "Esportes & Lazer" => Deal::CATEGORY_FITNESS,
-    "Ferramentas" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Fitness" => Deal::CATEGORY_FITNESS,
-    "Games" => Deal::CATEGORY_KIDS,
-    "Home Center" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Industriais" => Deal::CATEGORY_OTHER,
-    "Informática" => Deal::CATEGORY_COMPUTER,
-    "Malas" => Deal::CATEGORY_OTHER,
-    "Móveis & Estofados" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Perfumes" => Deal::CATEGORY_BEAUTY_AND_HEALTH,
-    "Relógios" => Deal::CATEGORY_OTHER,
-    "Saúde & Beleza" => Deal::CATEGORY_BEAUTY_AND_HEALTH,
-    "Telefonia" => Deal::CATEGORY_ELECTRONICS,
-    "Tênis" => Deal::CATEGORY_BEAUTY_AND_HEALTH,
-    "U. Domésticas" => Deal::CATEGORY_HOME_AND_APPLIANCE
-  }
-
-  FASTSHOP_CATEGORIES = {
-    "Áudio" => Deal::CATEGORY_ELECTRONICS,
-    "Vídeo" => Deal::CATEGORY_ELECTRONICS,
-    "Cine e Foto" => Deal::CATEGORY_ELECTRONICS,
-    "Eletrodomésticos" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Portáteis" => Deal::CATEGORY_ELECTRONICS,
-    "Utensílios Domésticos" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Informática" => Deal::CATEGORY_COMPUTER,
-    "Telefonia" => Deal::CATEGORY_ELECTRONICS,
-    "Apple" => Deal::CATEGORY_COMPUTER,
-    "Games" => Deal::CATEGORY_KIDS,
-    "Tablet" => Deal::CATEGORY_ELECTRONICS
-  }
-
   LEADER_CATEGORIES = {
     "Bebês" => Deal::CATEGORY_KIDS,
     "Beleza & Saúde" => Deal::CATEGORY_BEAUTY_AND_HEALTH,
@@ -166,15 +122,15 @@ class Share
 
     begin
       if @deal.link.match(AMERICANAS)
-        @deal = Americanas.fill_deal_fields(@deal.link)
+        @deal = Americanas.fill_deal_fields(link)
       elsif @deal.link.match(CARREFOUR)
-        @deal = Carrefour.fill_deal_fields(@deal.link)
+        @deal = Carrefour.fill_deal_fields(link)
       elsif @deal.link.match(COMPRA_FACIL)
-        populate_comprafacil_deal(@deal)
+        @deal = CompraFacil.fill_deal_fields(link)
       elsif @deal.link.match(DUKS)
-        populate_duks_deal(@deal)
+        @deal = Duks.fill_deal_fields(link)
       elsif @deal.link.match(FASTSHOP)
-        populate_fastshop_deal(@deal)
+        @deal = FastShop.fill_deal_fields(link)
       elsif @deal.link.match(GROUPON)
         populate_groupon_deal(@deal)
       elsif @deal.link.match(HOTEL_URBANO)
@@ -221,79 +177,6 @@ class Share
 
     deal.title = page.at_css(XPATH_TITLE).try(:text).try(:strip)[0,255]
     
-  end
-
-  def self.populate_comprafacil_deal(deal)
-    page = open_page(deal.link)
-
-    
-    if page.at_css(".produto-titulo").try(:text) && page.at_css(".produto-de").try(:text) && page.at_css("#produto-caracteristicas").try(:text)
-      deal.title = page.at_css(".produto-titulo").try(:text).try(:strip)[0,255]
-      deal.price_mask = page.at_css(".produto-por").try(:text).try(:strip)[7..-1].try(:strip)
-      deal.real_price_mask = page.at_css(".produto-de").try(:text).try(:strip)[6..-1].try(:strip)
-      deal.description = page.at_css("#produto-caracteristicas").try(:text).try(:strip)[0,1200]
-      deal.category = COMPRAFACIL_CATEGORIES[page.at_css("#breadCrumb").at_xpath(".//ul/li/a").try(:text).try(:strip)]
-      deal.image_url = page.at_css(".imagens-maisInfo").at_xpath(".//img")[:src].try(:strip)
-    end
-    deal.company = "Compra Fácil"
-    #if deal.price
-      deal.kind = Deal::KIND_OFFER
-    #else
-    #  deal.kind = Deal::KIND_ON_SALE
-    #end
-  end
-
-  def self.populate_duks_deal(deal)
-    page = open_page(deal.link)
-
-    
-    if page.at_css(".EstNomeProd").try(:text) && page.at_css(".Pink").at_xpath(".//b").try(:text) && page.at_css("#CommentsFB").try(:text)
-      deal.title = page.at_css(".EstNomeProd").try(:text).try(:strip)[0,255]
-      deal.price_mask = page.at_css(".Pink").at_xpath(".//b").try(:text)[3..-1]
-      deal.real_price_mask = page.at_css(".Pink").at_xpath(".//strike").try(:text)[3..-1]
-      deal.description = page.at_css("#CommentsFB").try(:text).try(:strip)[0,1200]
-      deal.image_url = "http://www.duks.com.br" + page.at_css(".MagicZoom").at_xpath(".//img")[:src][2..-1]
-    end
-    deal.category = Deal::CATEGORY_BEAUTY_AND_HEALTH
-    deal.company = "Duks Perfumaria"
-    #if deal.price
-      deal.kind = Deal::KIND_OFFER
-    #else
-    #  deal.kind = Deal::KIND_ON_SALE
-    #end
-
-    # puts "-"*100
-    # puts "INICIO DA BUSCA NA PAGINA"
-    # puts "-"*100
-    # puts "TITULO = " + page.at_css(".EstNomeProd").try(:text).try(:strip)[0,255]
-    # puts "PRECO PROMOCIONAL = " + page.at_css(".Pink").at_xpath(".//b").try(:text)[3..-1]
-    # puts "PRECO REAL = " + page.at_css(".Pink").at_xpath(".//strike").try(:text)[3..-1]
-    # puts "DESCRICAO = " + page.at_css("#CommentsFB").try(:text).try(:strip)[0,1200]
-    # # puts "CATEGORIA = " + page.at_css(".breadcrumb").at_xpath(".//strong").try(:text).split(" ")[2]
-    # puts "LINK DA IMAGEM = " + "http://www.duks.com.br" + page.at_css(".MagicZoom").at_xpath(".//img")[:src][2..-1]
-    # puts "-"*100
-    # puts "FIM DA BUSCA NA PAGINA"
-    # puts "-"*100
-  end
-
-  def self.populate_fastshop_deal(deal)
-    page = open_page(deal.link)
-
-    
-    if page.at_css("h1.name").try(:text) && page.at_css(".price").try(:text) && page.at_css("#divDescr1").try(:text)
-      deal.title = page.at_css("h1.name").try(:text).try(:strip)[0,255]
-      deal.price_mask = page.at_css(".price").try(:text).split(" ")[5]
-      deal.real_price_mask = page.at_css(".price").try(:text).split(" ")[2]
-      deal.description = page.at_css("#divDescr1").try(:text).try(:strip)[0,1200]
-      deal.category = FASTSHOP_CATEGORIES[page.at_css(".breadcrumb").try(:text).try(:strip).split(" ")[1]]
-      deal.image_url = page.at_css(".photo").at_xpath(".//input")[:src]
-    end
-    deal.company = "Fast Shop"
-    #if deal.price
-      deal.kind = Deal::KIND_OFFER
-    #else
-    #  deal.kind = Deal::KIND_ON_SALE
-    #end
   end
 
   def self.populate_groupon_deal(deal)

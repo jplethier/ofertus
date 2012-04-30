@@ -31,6 +31,7 @@ class Share
   PEIXE_URBANO = "peixeurbano.com"
   PONTO_FRIO = "pontofrio.com"
   SARAIVA = "saraiva.com"
+  SEPHA = "sepha.com.br"
   SUBMARINO = "submarino.com"
 
   AMERICANAS_CATEGORIES = {
@@ -234,6 +235,8 @@ class Share
         populate_pontofrio_deal(@deal)
       elsif @deal.link.match(SARAIVA)
         populate_saraiva_deal(@deal)
+      elsif @deal.link.match(SEPHA)
+        populate_sepha_deal(@deal)
       elsif @deal.link.match(SUBMARINO)
         populate_submarino_deal(@deal)
       else
@@ -383,19 +386,6 @@ class Share
     #else
     #  deal.kind = Deal::KIND_ON_SALE
     #end
-
-    #puts "-"*100
-    #puts "INICIO DA BUSCA NA PAGINA"
-    #puts "-"*100
-    #puts "TITULO = " + page.at_css("h1.name").try(:text).try(:strip)[0,255]
-    #puts "PRECO PROMOCIONAL = " + page.at_css(".price").try(:text).split(" ")[5]
-    #puts "PRECO REAL = " + page.at_css(".price").try(:text).split(" ")[2]
-    #puts "DESCRICAO = " + page.at_css("#divDescr1").try(:text).try(:strip)[0,1200]
-    #puts "CATEGORIA = " + FASTSHOP_CATEGORIES[page.at_css(".breadcrumb").try(:text).try(:strip).split(" ")[1]].to_s
-    #puts "LINK DA IMAGEM = " + page.at_css(".photo").at_xpath(".//input")[:src]
-    #puts "-"*100
-    #puts "FIM DA BUSCA NA PAGINA"
-    #puts "-"*100
   end
 
   def self.populate_groupon_deal(deal)
@@ -580,6 +570,37 @@ class Share
     #  deal.kind = Deal::KIND_ON_SALE
     #end
   end
+
+  def self.populate_sepha_deal(deal)
+    page = open_page(deal.link)
+
+    deal.title = page.at_css(".infoDescricao").at_xpath("h1").try(:text).try(:strip)[0,255] if page.at_css(".infoDescricao") && page.at_css(".infoDescricao").at_xpath("h1")
+    deal.price_mask = page.at_css(".precoPromocao").try(:text).split(" ")[1] if page.at_css(".precoPromocao")
+    deal.real_price_mask = page.at_css(".precoPromocaoNormal").try(:text).split(" ")[2] if page.at_css(".precoPromocaoNormal")
+    deal.description = page.at_css("#produto_descricao_principal").try(:text).try(:strip)[0,1200] if page.at_css("#produto_descricao_principal")
+    deal.category = Deal::CATEGORY_BEAUTY_AND_HEALTH
+    deal.image_url = page.at_css("#produto_imagem_descricao").at_xpath(".//img")[:src].try(:strip) if page.at_css("#produto_imagem_descricao") && page.at_css("#produto_imagem_descricao").at_xpath(".//img")
+    deal.company = "Sepha"
+    #if deal.price
+      deal.kind = Deal::KIND_OFFER
+    #else
+    #  deal.kind = Deal::KIND_ON_SALE
+    #end
+
+    # puts "-"*100
+    # puts "INICIO DA BUSCA NA PAGINA"
+    # puts "-"*100
+    # puts "TITULO = " + page.at_css(".infoDescricao").at_xpath(".//h1").try(:text).try(:strip)[0,255]
+    # puts "PRECO PROMOCIONAL = " + page.at_css(".precoPromocao").try(:text).split(" ")[1]
+    # puts "PRECO REAL = " + page.at_css(".precoPromocaoNormal").try(:text).split(" ")[2]
+    # puts "DESCRICAO = " + page.at_css("#produto_descricao_principal").try(:text).try(:strip)[0,1200]
+    # puts "CATEGORIA = " + FASTSHOP_CATEGORIES[page.at_css(".breadcrumb").try(:text).try(:strip).split(" ")[1]].to_s
+    # puts "LINK DA IMAGEM = " + page.at_css("#produto_imagem_descricao").at_xpath(".//img")[:src].try(:strip)
+    # binding.pry
+    # puts "-"*100
+    # puts "FIM DA BUSCA NA PAGINA"
+    # puts "-"*100
+  end  
 
   def self.populate_submarino_deal(deal)
     page = open_page(deal.link)

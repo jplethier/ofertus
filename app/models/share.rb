@@ -98,7 +98,7 @@ class Share
       elsif @deal.link.match(MAGAZINE)
         @deal = Magazine.fill_deal_fields(link)
       elsif @deal.link.match(NETSHOES)
-        populate_netshoes_deal(@deal)
+        @deal = Netshoes.fill_deal_fields(link)
       elsif @deal.link.match(PEIXE_URBANO)
         populate_peixeurbano_deal(@deal)
       elsif @deal.link.match(PONTO_FRIO)
@@ -132,26 +132,6 @@ class Share
     page = open_page(deal.link)
 
     deal.title = page.at_css(XPATH_TITLE).try(:text).try(:strip)[0,255]
-  end
-
-  def self.populate_netshoes_deal(deal)
-    page = open_page(deal.link)
-
-    
-    if page.at_css(".h1.titProduct").try(:text) &&  page.at_css(".txtFeatures").try(:text)
-      deal.title = page.at_css("h1.titProduct").try(:text).try(:strip)[0,255]
-    #  deal.price_mask = page.at_css(".prodPor").try(:text).try(:strip)[7..-1].try(:strip)
-    #  deal.real_price_mask = page.at_css(".prodDe").try(:text).try(:strip)[6..-1].try(:strip)
-      deal.description = page.at_css(".txtFeatures").try(:text).try(:strip)[0,1200]
-      deal.image_url = page.at_css(".lstImages").at_xpath(".//img")[:src].sub("thumb","zoom")
-    end
-    deal.company = "Netshoes"
-    deal.category = Deal::CATEGORY_CLOTHES
-    #if deal.price
-      deal.kind = Deal::KIND_OFFER
-    #else
-    #  deal.kind = Deal::KIND_ON_SALE
-    #end
   end
 
   def self.populate_peixeurbano_deal(deal)

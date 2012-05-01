@@ -414,8 +414,8 @@ describe Deal do
 
       describe "pt-BR" do
         
-        specify "RESTAURANT: should be equal 'Restaurantes'" do
-          Deal.i18n_category(Deal::CATEGORY_RESTAURANT).should == 'Restaurantes'
+        specify "RESTAURANT: should be equal 'Alimentação'" do
+          Deal.i18n_category(Deal::CATEGORY_RESTAURANT).should == 'Alimentação'
         end
 
         specify "BEAUTY AND HEALTH: should be equal 'Beleza e Saúde'" do

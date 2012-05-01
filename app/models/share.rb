@@ -34,29 +34,6 @@ class Share
   SEPHA = "sepha.com.br"
   SUBMARINO = "submarino.com"
 
-  MAGAZINE_CATEGORIES = {
-    "Automotivo" => Deal::CATEGORY_CAR,
-    "Bebês" => Deal::CATEGORY_KIDS,
-    "Beleza e Saúde" => Deal::CATEGORY_BEAUTY_AND_HEALTH,
-    "Brinquedos" => Deal::CATEGORY_KIDS,
-    "Cama, Mesa e Banho" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Casa e Jardim" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Celulares e Telefones" => Deal::CATEGORY_ELECTRONICS,
-    "Cine e Foto" => Deal::CATEGORY_ELECTRONICS,
-    "Eletrodomésticos" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Eletrônicos" => Deal::CATEGORY_ELECTRONICS,
-    "Eletroportáteis" => Deal::CATEGORY_ELECTRONICS,
-    "Esporte e Lazer" => Deal::CATEGORY_FITNESS,
-    "Ferramentas e Segurança" => Deal::CATEGORY_OTHER,
-    "Informática" => Deal::CATEGORY_COMPUTER,
-    "Informática Acessórios" => Deal::CATEGORY_COMPUTER,
-    "Instrumentos Musicais" => Deal::CATEGORY_OTHER,
-    "Móveis" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Perfumaria e Cosméticos" => Deal::CATEGORY_BEAUTY_AND_HEALTH,
-    "Relógios" => Deal::CATEGORY_OTHER,
-    "Utilidades Domésticas" => Deal::CATEGORY_HOME_AND_APPLIANCE
-  }
-
   PONTO_FRIO_CATEGORIES = {
     "Automotivo" => Deal::CATEGORY_CAR,
     "Bebês" => Deal::CATEGORY_KIDS,
@@ -117,9 +94,9 @@ class Share
       elsif @deal.link.match(LEADER)
         @deal = Leader.fill_deal_fields(link)
       elsif @deal.link.match(LIVRARIA_CULTURA)
-        populate_livrariacultura_deal(@deal)
+        @deal = LivrariaCultura.fill_deal_fields(link)
       elsif @deal.link.match(MAGAZINE)
-        populate_magazine_deal(@deal)
+        @deal = Magazine.fill_deal_fields(link)
       elsif @deal.link.match(NETSHOES)
         populate_netshoes_deal(@deal)
       elsif @deal.link.match(PEIXE_URBANO)
@@ -155,47 +132,6 @@ class Share
     page = open_page(deal.link)
 
     deal.title = page.at_css(XPATH_TITLE).try(:text).try(:strip)[0,255]
-    
-  end
-
-  def self.populate_livrariacultura_deal(deal)
-    page = open_page(deal.link)
-
-    
-    if page.at_css("h2.resenha").try(:text) && page.at_css("div.resenha").try(:text)
-      deal.title = page.at_css("h2.resenha").try(:text).try(:strip)[0,255]
-    #  deal.price_mask = page.at_css(".sale").try(:text).try(:strip)[7..-1].try(:strip)
-    #  deal.real_price_mask = page.at_css(".regular").try(:text).try(:strip)[6..-1].try(:strip)
-      deal.description = page.at_css("div.resenha").try(:text).try(:strip)[0,1200]
-      deal.image_url = page.at_css(".boxImg2").at_xpath(".//img")[:src].try(:strip)
-    end
-    deal.category = Deal::CATEGORY_CULTURE
-    deal.company = "Livraria Cultura"
-    #if deal.price
-      deal.kind = Deal::KIND_OFFER
-    #else
-    #  deal.kind = Deal::KIND_ON_SALE
-    #end
-  end
-
-  def self.populate_magazine_deal(deal)
-    page = open_page(deal.link)
-
-    
-    if page.at_css(".description").try(:text) && page.at_css(".prodPor").try(:text) && page.at_css("#descricaoProduto").try(:text)
-      deal.title = page.at_css(".description").try(:text).try(:strip)[0,255]
-      deal.price_mask = page.at_css(".prodPor").try(:text).try(:strip)[7..-1].try(:strip)
-      deal.real_price_mask = page.at_css(".prodDe").try(:text).try(:strip)[6..-1].try(:strip)
-      deal.description = page.at_css("#descricaoProduto").try(:text).try(:strip)[0,1200]
-      deal.category = MAGAZINE_CATEGORIES[page.at_css("#breadCrumb").try(:text).try(:strip).split("›").map(&:strip)[1].chop]
-      deal.image_url = page.at_css(".imagem_produto").at_xpath(".//img")[:src].try(:strip)
-    end
-    deal.company = "Magazine Luiza"
-    #if deal.price
-      deal.kind = Deal::KIND_OFFER
-    #else
-    #  deal.kind = Deal::KIND_ON_SALE
-    #end
   end
 
   def self.populate_netshoes_deal(deal)

@@ -111,7 +111,7 @@
             <ul class="menu row-fluid">
               <% if controller_name == 'deals' && action_name ==  'today' %>
                 <div class="span1" >
-                  <li class="restaurant"><a href="/deals/today/restaurant" title="Visualizar a categoria Restaurantes"><%= Deal.i18n_category(Deal::CATEGORY_RESTAURANT) %></a></li>
+                  <li class="restaurant"><a href="/deals/today/restaurant" title="Visualizar a categoria Alimentação"><%= Deal.i18n_category(Deal::CATEGORY_RESTAURANT) %></a></li>
                 </div>
                 <div class="span1" >
                   <li class="beauty-health"><a href="/deals/today/beauty_and_health" title="Visualizar a categoria Beleza e saúde"><%= Deal.i18n_category(Deal::CATEGORY_BEAUTY_AND_HEALTH) %></a></li>
@@ -148,7 +148,7 @@
                 </div>
               <% else %>
                 <div class="span1" >
-                  <li class="restaurant"><a href="/deals/active/restaurant" title="Visualizar a categoria Restaurantes"><%= Deal.i18n_category(Deal::CATEGORY_RESTAURANT) %></a></li>
+                  <li class="restaurant"><a href="/deals/active/restaurant" title="Visualizar a categoria Alimentação"><%= Deal.i18n_category(Deal::CATEGORY_RESTAURANT) %></a></li>
                 </div>
                 <div class="span1" >
                   <li class="beauty-health"><a href="/deals/active/beauty_and_health" title="Visualizar a categoria Beleza e saúde"><%= Deal.i18n_category(Deal::CATEGORY_BEAUTY_AND_HEALTH) %></a></li>

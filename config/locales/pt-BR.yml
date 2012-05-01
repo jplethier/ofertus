@@ -268,7 +268,7 @@
   models:
     deal:
       category:
-        '1': "Restaurantes"
+        '1': "Alimentação"
         '2': "Beleza e Saúde"
         '3': "Eletrônicos"
         '4': "Cultura"

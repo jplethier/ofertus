@@ -72,8 +72,8 @@ class Deal < ActiveRecord::Base
   scope :best_deals, order("(deals.up_votes / (deals.up_votes + deals.down_votes)) DESC")
   scope :most_commented, order("(select count(comments.id) from comments where comments.commentable_id = deals.id) DESC")
 
-  scope :today, where("deals.created_at >= ?", Date.today)
-  scope :active, where("deals.end_date >= ?", Date.today)
+  scope :today, where("deals.created_at >= ?", Date.today + 3.hours)
+  scope :active, where("deals.end_date >= ?", Date.today + 3.hours)
   scope :voted, where("(deals.up_votes + deals.down_votes) > 0")
 
 
@@ -146,7 +146,7 @@ class Deal < ActiveRecord::Base
   end
 
   def set_default_date
-    self.end_date = Date.today if self.end_date.nil?
+    self.end_date = (Date.today + 3.hours) if self.end_date.nil?
   end
 
   def add_affiliate_code_to_link

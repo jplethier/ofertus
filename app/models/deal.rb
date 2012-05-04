@@ -72,8 +72,8 @@ class Deal < ActiveRecord::Base
   scope :best_deals, order("(deals.up_votes / (deals.up_votes + deals.down_votes)) DESC")
   scope :most_commented, order("(select count(comments.id) from comments where comments.commentable_id = deals.id) DESC")
 
-  scope :today, where("deals.created_at >= ?", Time.zone.today)
-  scope :active, where("deals.end_date >= ?", Time.zone.today)
+  scope :today, where("deals.created_at >= ?", Time.zone.now.beginning_of_day)
+  scope :active, where("deals.end_date >= ?", Time.zone.now.beginning_of_day)
   scope :voted, where("(deals.up_votes + deals.down_votes) > 0")
 
 
@@ -147,8 +147,9 @@ class Deal < ActiveRecord::Base
 
   def set_default_date
     puts "-"*500
-    puts Time.zone.now
-    self.end_date = Time.zone.now if self.end_date.nil?
+    puts Time.zone.now.beginning_of_day
+    binding.pry 
+    self.end_date = Time.zone.now.beginning_of_day if self.end_date.nil?
     puts self.end_date
     puts "-"*500
   end

@@ -146,7 +146,11 @@ class Deal < ActiveRecord::Base
   end
 
   def set_default_date
+    puts "-"*500
+    puts Time.zone.now.to_date
     self.end_date = Time.zone.now.to_date if self.end_date.nil?
+    puts self.end_date
+    puts "-"*500
   end
 
   def add_affiliate_code_to_link

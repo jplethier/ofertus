@@ -147,8 +147,8 @@ class Deal < ActiveRecord::Base
 
   def set_default_date
     puts "-"*500
-    puts Time.zone.today
-    self.end_date = Time.zone.today if self.end_date.nil?
+    puts Time.zone.now
+    self.end_date = Time.zone.now if self.end_date.nil?
     puts self.end_date
     puts "-"*500
   end

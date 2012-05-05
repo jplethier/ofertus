@@ -156,7 +156,7 @@ class Deal < ActiveRecord::Base
       self.link = add_cultura_affiliate_code(self.link)
     elsif (self.link.match(Share::SARAIVA) || self.link.match(Share::APPLE) || self.link.match(Share::CARREFOUR) ||
             self.link.match(Share::CAMISETERIA) || self.link.match(Share::DUKS) || self.link.match(Share::SEPHA) ||
-            self.link.match(Share::DAFITI))
+            self.link.match(Share::DAFITI) || self.link.match(Share::POLISHOP))
       self.link = lomadee_link(self.link)
     end
   end

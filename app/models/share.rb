@@ -30,6 +30,7 @@ class Share
   MAGAZINE = "magazineluiza.com.br"
   NETSHOES = "netshoes.com.br"
   PEIXE_URBANO = "peixeurbano.com"
+  POLISHOP = "polishop.com.br"
   PONTO_FRIO = "pontofrio.com"
   SARAIVA = "saraiva.com"
   SEPHA = "sepha.com.br"
@@ -86,7 +87,7 @@ class Share
         @deal = CompraFacil.fill_deal_fields(link)
       elsif @deal.link.match(DAFITI)
         # TODO: preencher os campos automaticamente da dafiti
-        populate_deal(@deal)
+        @deal = fill_deal_fields(link)
       elsif @deal.link.match(DUKS)
         @deal = Duks.fill_deal_fields(link)
       elsif @deal.link.match(FASTSHOP)
@@ -114,7 +115,7 @@ class Share
       elsif @deal.link.match(SUBMARINO)
         populate_submarino_deal(@deal)
       else
-        populate_deal(@deal)
+        @deal = fill_deal_fields(link)
       end
     rescue Errno::ENOENT => wrong_link_exception
       @deal = Deal.new
@@ -132,10 +133,13 @@ class Share
     page
   end
 
-  def self.populate_deal(deal)
-    page = open_page(deal.link)
+  def self.fill_deal_fields(link)
+    page = open_page(link)
 
+    deal = Deal.new :link => link
     deal.title = page.at_css(XPATH_TITLE).try(:text).try(:strip)[0,255]
+
+    deal
   end
 
   def self.populate_pontofrio_deal(deal)

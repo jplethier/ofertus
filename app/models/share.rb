@@ -20,6 +20,7 @@ class Share
   CAMISETERIA = "camiseteria.com"
   CARREFOUR = "carrefour.com.br"
   COMPRA_FACIL = "comprafacil.com"
+  DAFITI = "dafiti.com.br"
   DUKS = "duks.com.br"
   FASTSHOP = "fastshop.com.br"
   GROUPON = "groupon.com"
@@ -83,6 +84,9 @@ class Share
         @deal = Carrefour.fill_deal_fields(link)
       elsif @deal.link.match(COMPRA_FACIL)
         @deal = CompraFacil.fill_deal_fields(link)
+      elsif @deal.link.match(DAFITI)
+        # TODO: preencher os campos automaticamente da dafiti
+        populate_deal(@deal)
       elsif @deal.link.match(DUKS)
         @deal = Duks.fill_deal_fields(link)
       elsif @deal.link.match(FASTSHOP)
@@ -100,7 +104,7 @@ class Share
       elsif @deal.link.match(NETSHOES)
         @deal = Netshoes.fill_deal_fields(link)
       elsif @deal.link.match(PEIXE_URBANO)
-        populate_peixeurbano_deal(@deal)
+        @deal = PeixeUrbano.fill_deal_fields(link)
       elsif @deal.link.match(PONTO_FRIO)
         populate_pontofrio_deal(@deal)
       elsif @deal.link.match(SARAIVA)
@@ -132,31 +136,6 @@ class Share
     page = open_page(deal.link)
 
     deal.title = page.at_css(XPATH_TITLE).try(:text).try(:strip)[0,255]
-  end
-
-  def self.populate_peixeurbano_deal(deal)
-    page = open_page(deal.link)
-
-    deal.title = page.at_css(XPATH_TITLE).try(:text).try(:strip)[0,255]
-    if page.at_css(".new_price").try(:text)
-      deal.price_mask = page.at_css(".new_price").try(:text).try(:strip)[2..-1].try(:strip)
-      if not deal.price_mask.match(",")
-        deal.price_mask = deal.price_mask + ",00"
-      end
-      deal.real_price_mask = page.at_css(".old_price").try(:text).try(:strip)[2..-1].try(:strip)
-      if not deal.real_price_mask.match(",")
-        deal.real_price_mask = deal.real_price_mask + ",00"
-      end
-      deal.description = page.at_css(".deal_details").try(:text).try(:strip)[0,1200]
-      deal.company = page.at_css("#CompanyName").try(:text).try(:strip)
-      deal.image_url = page.at_css(".deal_photo").at_xpath(".//img")["src"].try(:strip)
-    #TODO: O método consegue setar city_id da oferta, mas não consegue exibir corretamente já na tela de cadastro de nova oferta
-    #  deal.city = City.find_by_name(page.at_css("#city_name").try(:text).try(:strip))
-    #  if deal.city
-    #    deal.city_id = deal.city.id
-    #  end
-    end
-    deal.kind = Deal::KIND_DAILY_DEAL
   end
 
   def self.populate_pontofrio_deal(deal)

@@ -18,6 +18,11 @@
   position: relative;
  }
 
+.rails_blog_engine_post h1 a {
+  color: #333;
+  font-size: 30px;
+}
+
 .rails_blog_engine_comment {
   border: 1px solid #DDD;
   border-radius: 5px;

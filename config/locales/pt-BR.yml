@@ -251,6 +251,11 @@
         title: "Título"
 
     errors:
+      models:
+        deal:
+          attributes:
+            end_date:
+              after_or_equal_to: "A data de validade deve ser posterior ou igual ao dia de hoje"
       template:
         header:
           one: "Não foi possível gravar %{model}: 1 erro"

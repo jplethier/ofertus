@@ -49,44 +49,44 @@ class Share
   }
 
   def self.create_deal(link)
-    @deal = Deal.new :link => link
 
     begin
-      if @deal.link.match(AMERICANAS)
+      if link.match(AMERICANAS)
         @deal = Americanas.fill_deal_fields(link)
-      elsif @deal.link.match(CARREFOUR)
+      elsif link.match(CARREFOUR)
         @deal = Carrefour.fill_deal_fields(link)
-      elsif @deal.link.match(COMPRA_FACIL)
+      elsif link.match(COMPRA_FACIL)
         @deal = CompraFacil.fill_deal_fields(link)
-      elsif @deal.link.match(DAFITI)
-        # TODO: preencher os campos automaticamente da dafiti
-        @deal = fill_deal_fields(link)
-      elsif @deal.link.match(DUKS)
+      elsif link.match(DAFITI)
+        @deal = Dafiti.fill_deal_fields(link)
+      elsif link.match(DUKS)
         @deal = Duks.fill_deal_fields(link)
-      elsif @deal.link.match(FASTSHOP)
+      elsif link.match(FASTSHOP)
         @deal = FastShop.fill_deal_fields(link)
-      elsif @deal.link.match(GROUPON)
+      elsif link.match(GROUPON)
         @deal = Groupon.fill_deal_fields(link)
-      elsif @deal.link.match(HOTEL_URBANO)
+      elsif link.match(HOTEL_URBANO)
         @deal = HotelUrbano.fill_deal_fields(link)
-      elsif @deal.link.match(LEADER)
+      elsif link.match(LEADER)
         @deal = Leader.fill_deal_fields(link)
-      elsif @deal.link.match(LIVRARIA_CULTURA)
+      elsif link.match(LIVRARIA_CULTURA)
         @deal = LivrariaCultura.fill_deal_fields(link)
-      elsif @deal.link.match(MAGAZINE)
+      elsif link.match(MAGAZINE)
         @deal = Magazine.fill_deal_fields(link)
-      elsif @deal.link.match(NETSHOES)
+      elsif link.match(NETSHOES)
         @deal = Netshoes.fill_deal_fields(link)
-      elsif @deal.link.match(PEIXE_URBANO)
+      elsif link.match(PEIXE_URBANO)
         @deal = PeixeUrbano.fill_deal_fields(link)
-      elsif @deal.link.match(PONTO_FRIO)
+      elsif link.match(POLISHOP)
+        @deal = Polishop.fill_deal_fields(link)
+      elsif link.match(PONTO_FRIO)
         @deal = PontoFrio.fill_deal_fields(link)
-      elsif @deal.link.match(SARAIVA)
+      elsif link.match(SARAIVA)
         @deal = Saraiva.fill_deal_fields(link)
-      elsif @deal.link.match(SEPHA)
+      elsif link.match(SEPHA)
         @deal = Sepha.fill_deal_fields(link)
-      elsif @deal.link.match(SUBMARINO)
-        populate_submarino_deal(@deal)
+      elsif link.match(SUBMARINO)
+        @deal = Submarino.fill_deal_fields(link)
       else
         @deal = fill_deal_fields(link)
       end
@@ -113,26 +113,7 @@ class Share
     deal.title = page.at_css(XPATH_TITLE).try(:text).try(:strip)[0,255]
 
     deal
-  end
-
-  def self.populate_submarino_deal(deal)
-    page = open_page(deal.link)
-
-    deal.title = page.at_css(XPATH_TITLE).try(:text).try(:strip)[0,255]
-    if page.at_css(".for").try(:text) && page.at_css(".ficheTechnique").try(:text)
-      deal.price_mask = page.at_css(".for").try(:text).try(:strip)[7..-1].try(:strip)
-      deal.real_price_mask = page.at_css(".from").try(:text).try(:strip)[6..-1].try(:strip)
-      deal.description = page.at_css(".ficheTechnique").try(:text).try(:strip)[0,1200]
-      #deal.category = PONTO_FRIO_CATEGORIES[page.at_css(".selected").try(:text).try(:strip)]
-      deal.image_url = page.at_css("#baseImg")[:src].try(:strip)
-    end
-    deal.company = "Submarino"
-    #if deal.price
-      deal.kind = Deal::KIND_OFFER
-    #else
-    #  deal.kind = Deal::KIND_ON_SALE
-    #end
-  end  
+  end 
 
   private
 

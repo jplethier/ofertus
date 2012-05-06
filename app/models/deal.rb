@@ -40,7 +40,7 @@ class Deal < ActiveRecord::Base
   validates :company,     :presence => true
   validates :description, :presence => true
   validates :discount,    :presence => true,      :if => "on_sale?"
-  validates :end_date,    :presence => true,      :date => {:after_or_equal_to => Time.zone.now.to_date}
+  validates :end_date,    :presence => true,      :date => {:after_or_equal_to => Time.zone.now.beginning_of_day}
   validates :image_url,   :format => /(^$)|(^https?:\/\/.+)/
   validates :kind,        :presence => true,      :inclusion => KINDS
   validates :link,        :presence => true,      :uniqueness => true,  :format => /^https?:\/\/.+/

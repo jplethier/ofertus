@@ -10,6 +10,7 @@
               <% @deals.each_with_index do |deal, index| %>
                 <%= render :partial => 'deals/deal', :locals => {:deal => deal, :index => index} %>
               <% end %>
+              <%= will_paginate @deals %>
             </div>
           </div> 
 	    	  <div class="down"></div> 

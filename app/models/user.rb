@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
 
   before_validation :set_credit_to_zero
 
+  scope :order_by_deals, order("(select count(deals.id) from deals where deals.user_id = users.id) desc")
+
   # Virtual attribute for authenticating by either username or email
   attr_accessor :login
 

@@ -64,12 +64,13 @@ class UsersController < ApplicationController
   private
 
   def find_user_with_deals
-    @deals = Deal.by_username_and_following(params[:id])
+    @deals = Deal.by_username_and_following(params[:id]).paginate(:page => params[:page])
   end
 
   def find_users
     @users = User.paginate(:page => params[:page])
     @users = @users.search(params[:search].gsub(" ", "%")) if params[:search]
+    @users_with_more_deals = User.order_by_deals.limit(5)
   end
 
   def store_location

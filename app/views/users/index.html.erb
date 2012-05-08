@@ -38,5 +38,49 @@
       </form>
     </div>
   </div>
+  <div class="default_window white_background">
+    <div class="title">
+      <h3>Usuários com mais ofertas compartilhadas</h3>
+    </div>
+    <div class="content">
+      <div class="best">
+        <div class="small_user">
+          <% @users_with_more_deals.each_with_index do |user, index| %>
+            <div class="side_user">
+              <% if index == 0 %>
+                <div class="side_user_info_first">
+                  <div class="picture">
+                    <% if user.provider? %>
+                      <%= link_to(image_tag(user.facebook_profile_picture("square"), :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture") %>
+                    <% else %>
+                      <%= link_to(image_tag(user.gravatar_url(:size => 50), :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture") %>
+                    <% end %>
+                  </div>
+                  <div class="infos">
+                    <p><strong><%= link_to user.name, user_path(user.username) %></strong></p>
+                    <p><strong><%= user.deals.length %> </strong> ofertas compartilhadas!</p>
+                  </div>
+                </div>
+              <% else %>
+                <div class="side_user_info">
+                  <div class="picture">
+                    <% if user.provider? %>
+                      <%= link_to(image_tag(user.facebook_profile_picture("square"), :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture") %>
+                    <% else %>
+                      <%= link_to(image_tag(user.gravatar_url(:size => 50), :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture") %>
+                    <% end %>
+                  </div>
+                  <div class="infos">
+                    <p><strong><%= user.name %></strong></p>
+                    <p><strong><%= user.deals.length %> </strong> ofertas compartilhadas!</p>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 

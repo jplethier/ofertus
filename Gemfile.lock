@@ -31,6 +31,9 @@ GEM
       multi_json (~> 1.0)
     acts_as_commentable (3.0.1)
     addressable (2.2.6)
+    airbrake (3.0.9)
+      activesupport
+      builder
     arel (2.2.1)
     attr_required (0.0.3)
     awesome_print (1.0.2)
@@ -293,6 +296,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_commentable
+  airbrake
   awesome_print
   cancan
   capybara

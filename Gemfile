@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'acts_as_commentable'
+gem 'airbrake'
 gem 'cancan'
 gem 'coffee-script'
 gem 'dalli'

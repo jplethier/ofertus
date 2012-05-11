@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   def follow
     unless current_user.follow? @user
       current_user.follow! @user
-      if current_user.provider? && current_user.facebook_follow_user
+      if current_user.provider? && current_user.facebook_follow_user && FbGraph::User.me(current_user.access_token).permissions.include?(:status_update)
         me = FbGraph::User.me(current_user.access_token)
         me.feed!(:message => current_user.name + " está seguindo as ofertas de " + @user.name + " no OfertuS", :link => user_url(@user), :picture => "http://www.ofertus.com.br/assets/logo_home.png")
       end

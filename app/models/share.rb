@@ -23,6 +23,8 @@ class Share
   DAFITI = "dafiti.com.br"
   DUKS = "duks.com.br"
   FASTSHOP = "fastshop.com.br"
+  FNAC = "fnac.com.br"
+  GIRAFA = "girafa.com.br"
   GROUPON = "groupon.com"
   HOTEL_URBANO = "hotelurbano.com.br"
   LEADER = "leader.com.br"
@@ -63,6 +65,10 @@ class Share
         @deal = Duks.fill_deal_fields(link)
       elsif link.match(FASTSHOP)
         @deal = FastShop.fill_deal_fields(link)
+      elsif link.match(FNAC)
+        @deal = Fnac.fill_deal_fields(link)
+      elsif link.match(GIRAFA)
+        @deal = Girafa.fill_deal_fields(link)
       elsif link.match(GROUPON)
         @deal = Groupon.fill_deal_fields(link)
       elsif link.match(HOTEL_URBANO)

@@ -64,7 +64,9 @@ class UsersController < ApplicationController
   private
 
   def find_user_with_deals
-    @deals = Deal.by_username_and_following(params[:id]).paginate(:page => params[:page])
+    if User.find_by_username(params[:id])
+      @deals = Deal.by_username_and_following(params[:id]).paginate(:page => params[:page])
+    end
   end
 
   def find_users

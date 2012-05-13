@@ -38,5 +38,9 @@ class Ability
       can :manage, Comment
       can [:upvote, :downvote, :unvote], Deal
     end
+
+    # if user.admin?
+    #   can :manage, RailsBlogEnginePost
+    # end
   end
 end

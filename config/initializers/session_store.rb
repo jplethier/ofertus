@@ -1,6 +1,7 @@
 # Be sure to restart your server when you modify this file.
 
-DealWitMe::Application.config.session_store :cookie_store, :key => '_DealWitMe_session'
+# DealWitMe::Application.config.session_store :cookie_store, :key => '_ofertus_session'
+DealWitMe::Application.config.action_controller.session_store = :active_record_store
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information

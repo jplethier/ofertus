@@ -38,6 +38,15 @@ Feature: Show Users
       When I go to followed_user's page
       Then I should see a link to "followed_user's unfollow page"
 
+    Scenario: Viewing my credit
+      Given I go to my_user's page
+      Then I should see my credit
+
+    Scenario: Viewing my credit
+      Given one user with an username "another_user" exists and I follow him
+      And I go to another_user's page
+      Then I should not see his credit
+
     @wip
     Scenario: Not viewing the follow link on my user page
       Given I am on my_user's page

@@ -119,3 +119,21 @@ end
 When /^I fill in the users search field with "([^"]*)"$/ do |search|
   fill_in "search", :with => search
 end
+
+Then /^I should see my credit$/ do
+  if page.respond_to? :should
+    #TODO: refatorar para melhorar e usar somente a classe credit para o teste
+    page.should have_xpath("//span[@class='credit unavailable']")
+  else
+    assert page.has_xpath?("//span[@class='credit unavailable']")
+  end
+end
+
+Then /^I should not see his credit$/ do
+  if page.respond_to? :should
+    #TODO: refatorar para melhorar e usar somente a classe credit para o teste
+    page.should have_no_xpath("span[@class='credit unavailable']")
+  else
+    assert page.has_no_xpath?("span[@class='credit unavailable']")
+  end
+end

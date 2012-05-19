@@ -1,5 +1,7 @@
 DealWitMe::Application.routes.draw do
 
+  mount Ckeditor::Engine => '/ckeditor'
+
   mount RailsBlogEngine::Engine => "/blog"
 
   #TODO: Alterar as rotas, deveriam ser páginas estáticas

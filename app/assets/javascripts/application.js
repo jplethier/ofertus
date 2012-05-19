@@ -8,6 +8,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.maskMoney
+//= require ckeditor/init
 //= require_tree .
 
 $(document).ready(function() {

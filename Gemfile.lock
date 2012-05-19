@@ -49,6 +49,10 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.0)
       ffi (~> 1.0.6)
+    ckeditor (3.7.1)
+      mime-types
+      orm_adapter
+    cocaine (0.2.1)
     coderay (1.0.5)
     coffee-script (2.2.0)
       coffee-script-source
@@ -154,6 +158,12 @@ GEM
     orm_adapter (0.0.6)
     paper_trail (2.6.0)
       rails (~> 3)
+    paperclip (3.0.4)
+      activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      cocaine (>= 0.0.2)
+      mime-types
     pg (0.12.2)
     polyglot (0.3.3)
     pry (0.9.8.1)
@@ -300,6 +310,7 @@ DEPENDENCIES
   awesome_print
   cancan
   capybara
+  ckeditor
   coffee-script
   cucumber-rails
   dalli
@@ -321,6 +332,7 @@ DEPENDENCIES
   omniauth
   omniauth-facebook
   paper_trail
+  paperclip
   pg
   pry
   rails (= 3.1.1)

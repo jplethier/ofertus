@@ -38,7 +38,7 @@ class Deal < ActiveRecord::Base
 
   validates :category,    :presence => true,      :inclusion => CATEGORIES
   validates :company,     :presence => true
-  validates :description, :presence => true
+  validates :description, :presence => true,      :length => { :maximum => 5000 }
   validates :discount,    :presence => true,      :if => "on_sale?"
   validates :end_date,    :presence => true,      :date => {:after_or_equal_to => Time.zone.now.beginning_of_day}
   validates :image_url,   :format => /(^$)|(^https?:\/\/.+)/

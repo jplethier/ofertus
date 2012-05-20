@@ -10,7 +10,11 @@
           <ol>
             <li>
               <%= f.label :email %>
-              <%= f.text_field :email %>
+              <% if @user.provider? %>
+                <%= @user.email %>
+              <% else %>
+                <%= f.text_field :email %>
+              <% end %>
             </li>
 
             <li>

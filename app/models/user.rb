@@ -75,6 +75,11 @@ class User < ActiveRecord::Base
     (provider.nil? || !password.blank?) && super
   end
 
+  #TODO: testar
+  def email_required?
+    provider.nil?
+  end
+
   def blog_admin?
     self.admin
   end

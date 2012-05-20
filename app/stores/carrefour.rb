@@ -33,7 +33,7 @@ class Carrefour
     deal.title = page.at_css(".breadcrumb").at_xpath(".//h1").try(:text).try(:strip)[0,255] if page.at_css(".breadcrumb") && page.at_css(".breadcrumb").at_xpath(".//h1").try(:text)
     deal.price_mask = page.at_css(".valorPor").try(:text).split(" ")[2] if page.at_css(".valorPor").try(:text)
     deal.real_price_mask = page.at_css(".valorDe").try(:text).split(" ")[2] if page.at_css(".valorDe").try(:text)
-    deal.description = page.at_css("#visao-geral").try(:text).try(:strip)[0,1200] if page.at_css("#visao-geral").try(:text)
+    deal.description = page.at_css("#visao-geral") if page.at_css("#visao-geral")
     deal.category = CATEGORIES[page.at_css(".breadcrumb").at_xpath(".//strong").try(:text).split(" ")[2]] if page.at_css(".breadcrumb") && page.at_css(".breadcrumb").at_xpath(".//strong").try(:text)
     deal.image_url = page.at_css(".lp-prod").at_xpath(".//img")[:src] if page.at_css(".lp-prod")
     deal.image_url = page.at_css(".viewBoxMedia").at_xpath(".//img")[:src] if page.at_css(".viewBoxMedia")

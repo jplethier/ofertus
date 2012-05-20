@@ -14,7 +14,7 @@ class PeixeUrbano
       if not deal.real_price_mask.match(",")
         deal.real_price_mask = deal.real_price_mask + ",00"
       end
-      deal.description = page.at_css(".deal_details").try(:text).try(:strip)[0,1200]
+      deal.description = page.at_css(".deal_details")
       deal.company = page.at_css("#CompanyName").try(:text).try(:strip)
       deal.image_url = page.at_css(".deal_photo").at_xpath(".//img")["src"].try(:strip)
     #TODO: O método consegue setar city_id da oferta, mas não consegue exibir corretamente já na tela de cadastro de nova oferta

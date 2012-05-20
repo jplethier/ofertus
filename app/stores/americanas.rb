@@ -31,7 +31,7 @@ class Americanas
     deal.title = page.at_css("title").try(:text).try(:strip)[0,255]
     deal.price_mask = page.at_css(".sale").try(:text).try(:strip)[7..-1].try(:strip) if page.at_css(".sale") && page.at_css(".sale").try(:text)
     deal.real_price_mask = page.at_css(".regular").try(:text).try(:strip)[6..-1].try(:strip) if page.at_css(".regular") && page.at_css(".regular").try(:text)
-    deal.description = page.at_css(".infoProdBox").try(:text).try(:strip)[0,1200] if page.at_css(".infoProdBox")
+    deal.description = page.at_css(".infoProdBox") if page.at_css(".infoProdBox")
     deal.category = CATEGORIES[page.at_css(".category").try(:text).try(:strip).sub(">","")] if page.at_css(".category")
     deal.image_url = page.at_css("#imgProduto")["src"].try(:strip) if page.at_css("#imgProduto")
     deal.company = "Americanas"

@@ -21,10 +21,12 @@ class Share
   CARREFOUR = "carrefour.com.br"
   COMPRA_FACIL = "comprafacil.com"
   DAFITI = "dafiti.com.br"
+  DISANTINNI = "disantinni.com.br"
   DUKS = "duks.com.br"
   FASTSHOP = "fastshop.com.br"
   FNAC = "fnac.com.br"
   GIRAFA = "girafa.com.br"
+  GIULIANA_FLORES = "giulianaflores.com.br"
   GROUPON = "groupon.com"
   HOTEL_URBANO = "hotelurbano.com.br"
   LEADER = "leader.com.br"
@@ -61,6 +63,8 @@ class Share
         @deal = CompraFacil.fill_deal_fields(link)
       elsif link.match(DAFITI)
         @deal = Dafiti.fill_deal_fields(link)
+      elsif link.match(DISANTINNI)
+        @deal = Disantinni.fill_deal_fields(link)
       elsif link.match(DUKS)
         @deal = Duks.fill_deal_fields(link)
       elsif link.match(FASTSHOP)
@@ -69,6 +73,8 @@ class Share
         @deal = Fnac.fill_deal_fields(link)
       elsif link.match(GIRAFA)
         @deal = Girafa.fill_deal_fields(link)
+      elsif link.match(GIULIANA_FLORES)
+        @deal = GiulianaFlores.fill_deal_fields(link)
       elsif link.match(GROUPON)
         @deal = Groupon.fill_deal_fields(link)
       elsif link.match(HOTEL_URBANO)

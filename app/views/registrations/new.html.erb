@@ -10,8 +10,9 @@
           <ol>
             <li>
               <%= f.label :email %>
-              <% if @user.provider? %>
-                <%= @user.email %>
+              <% if resource.provider? %>
+                <%= resource.email %>
+                <%= f.hidden_field :email %>
               <% else %>
                 <%= f.text_field :email %>
               <% end %>

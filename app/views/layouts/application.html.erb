@@ -89,21 +89,15 @@
                 <g:plusone annotation="inline"></g:plusone>
               </div>
             </div>
-            <% if user_signed_in? %>
-              <div id="share_deals" class="span4">
-                <form action="<%= app_helpers.share_deals_path %>" method="get" class="share_offer_url">
-                  <fieldset>
-                    <legend>Compartilhar</legend>
-                    <%= text_field_tag :share, params[:share], :title => "Compartilhe uma oferta" %>
-                    <button id="share" type="submit" title="Compartilhar">Compartilhar</button>
-                  </fieldset>
-                </form>
-              </div>
-            <% else %>
-              <div id="login_facebook" class="span4">
-                <%= link_to "entre com sua conta do facebook", "/users/auth/facebook", :class => "facebook_login_button" %>
-              </div>
-            <% end %>
+            <div id="share_deals" class="span4">
+              <form action="<%= app_helpers.share_deals_path %>" method="get" class="share_offer_url">
+                <fieldset>
+                  <legend>Compartilhar</legend>
+                  <%= text_field_tag :share, params[:share], :title => "Compartilhe uma oferta" %>
+                  <button id="share" type="submit" title="Compartilhar">Compartilhar</button>
+                </fieldset>
+              </form>
+            </div>
           </div>
         </div>
 
@@ -189,6 +183,8 @@
           </div>
         </div>
       </div>
+      <% unless user_signed_in? %>
+      <% end %>
 
       <!--  CORPO -->
       <div id="body">

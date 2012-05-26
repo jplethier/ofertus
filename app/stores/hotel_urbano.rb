@@ -14,7 +14,7 @@ class HotelUrbano
       deal.price_mask = precos[2].match(",") ? precos[2] : (precos[2] + ",00")
       deal.real_price_mask = precos[1].match(",") ? precos[1] : (precos[1] + ",00")
     end
-    deal.description = page.at_css("#que-saber") if page.at_css("#que-saber")
+    deal.description = page.at_css("#que-saber").to_s.truncate(4000) if page.at_css("#que-saber")
     deal.category = Deal::CATEGORY_TRAVEL
     deal.company = "Hotel Urbano"
     deal.image_url = page.at_css("#imagem-oferta").at_xpath(".//img")[:src].try(:strip) if page.at_css("#imagem-oferta") && page.at_css("#imagem-oferta").at_xpath(".//img")

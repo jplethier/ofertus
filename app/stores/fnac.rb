@@ -22,7 +22,7 @@ class Fnac
     deal.title = page.at_css("#nomeProduto").try(:text).try(:strip)[0,255] if page.at_css("#nomeProduto")
     deal.price_mask = page.at_css('#spanValorAtual').try(:text).split(" ")[2] if page.at_css('#spanValorAtual')
     deal.real_price_mask = page.at_css('#spanValorBase').try(:text).split(" ")[2] if page.at_css('#spanValorBase')
-    deal.description = page.at_css("#conteudoDescricao") if page.at_css("#conteudoDescricao")
+    deal.description = page.at_css("#conteudoDescricao").to_s.truncate(4000) if page.at_css("#conteudoDescricao")
     deal.category = CATEGORIES[page.at_css(".cat.atual").at_xpath("span").try(:text).try(:strip)] if page.at_css(".cat.atual") && page.at_css(".cat.atual").at_xpath("span")
     deal.image_url = page.at_css(".fotoGrande")[:src].try(:strip) if page.at_css(".fotoGrande")
     deal.company = "FNAC"

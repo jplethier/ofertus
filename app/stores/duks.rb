@@ -11,7 +11,7 @@ class Duks
     deal.title = page.at_css(".EstNomeProd").try(:text).try(:strip)[0,255] if page.at_css(".EstNomeProd") && page.at_css(".EstNomeProd").try(:text)
     deal.price_mask = page.at_css(".Pink").at_xpath(".//b").try(:text)[3..-1] if page.at_css(".Pink") && page.at_css(".Pink").at_xpath(".//b") && page.at_css(".Pink").at_xpath(".//b").try(:text)
     deal.real_price_mask = page.at_css(".Pink").at_xpath(".//strike").try(:text)[3..-1] if page.at_css(".Pink") && page.at_css(".Pink").at_xpath(".//strike") && page.at_css(".Pink").at_xpath(".//strike").try(:text)
-    deal.description = page.at_css("#CommentsFB") if page.at_css("#CommentsFB")
+    deal.description = page.at_css("#CommentsFB").to_s.truncate(4000) if page.at_css("#CommentsFB")
     deal.image_url = "http://www.duks.com.br" + page.at_css(".MagicZoom").at_xpath(".//img")[:src][2..-1] if page.at_css(".MagicZoom") && page.at_css(".MagicZoom").at_xpath(".//img")
     deal.category = Deal::CATEGORY_BEAUTY_AND_HEALTH
     deal.company = "Duks Perfumaria"

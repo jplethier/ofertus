@@ -41,7 +41,7 @@ class CompraFacil
     deal.title = page.at_css(".produto-titulo").try(:text).try(:strip)[0,255] if page.at_css(".produto-titulo") && page.at_css(".produto-titulo").try(:text)
     deal.price_mask = page.at_css(".produto-por").try(:text).try(:strip)[7..-1].try(:strip) if page.at_css(".produto-por") && page.at_css(".produto-por").try(:text)
     deal.real_price_mask = page.at_css(".produto-de").try(:text).try(:strip)[6..-1].try(:strip) if page.at_css(".produto-de") && page.at_css(".produto-de").try(:text)
-    deal.description = page.at_css("#produto-caracteristicas") if page.at_css("#produto-caracteristicas")
+    deal.description = page.at_css("#produto-caracteristicas").to_s.truncate(4000) if page.at_css("#produto-caracteristicas")
     deal.category = CATEGORIES[page.at_css("#breadCrumb").at_xpath(".//ul/li/a").try(:text).try(:strip)] if page.at_css("#breadCrumb") && page.at_css("#breadCrumb").at_xpath(".//ul/li/a") && page.at_css("#breadCrumb").at_xpath(".//ul/li/a").try(:text)
     deal.image_url = page.at_css(".imagens-maisInfo").at_xpath(".//img")[:src].try(:strip) if page.at_css(".imagens-maisInfo") && page.at_css(".imagens-maisInfo").at_xpath(".//img")
     deal.company = "Compra Fácil"

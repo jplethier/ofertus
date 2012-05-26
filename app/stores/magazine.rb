@@ -31,7 +31,7 @@ class Magazine
     deal.title = page.at_css(".description").try(:text).try(:strip)[0,255] if page.at_css(".description") && page.at_css(".description").try(:text)
     deal.price_mask = page.at_css(".prodPor").try(:text).try(:strip)[7..-1].try(:strip) if page.at_css(".prodPor") && page.at_css(".prodPor").try(:text)
     deal.real_price_mask = page.at_css(".prodDe").try(:text).try(:strip)[6..-1].try(:strip) if page.at_css(".prodDe") && page.at_css(".prodDe").try(:text)
-    deal.description = page.at_css("#descricaoProduto") if page.at_css("#descricaoProduto")
+    deal.description = page.at_css("#descricaoProduto").to_s.truncate(4000) if page.at_css("#descricaoProduto")
     deal.category = CATEGORIES[page.at_css("#breadCrumb").try(:text).try(:strip).split("›").map(&:strip)[1].chop] if page.at_css("#breadCrumb") && page.at_css("#breadCrumb").try(:text)
     deal.image_url = page.at_css(".imagem_produto").at_xpath(".//img")[:src].try(:strip) if page.at_css(".imagem_produto") && page.at_css(".imagem_produto").at_xpath(".//img")
     deal.company = "Magazine Luiza"

@@ -10,7 +10,7 @@ class Dafiti
       deal.price_mask = precos[3].try(:strip).split(' ')[1]
       deal.real_price_mask = precos[1].try(:strip).split(' ')[1]
     end
-    deal.description = page.at_css(".productdescription") if page.at_css(".productdescription")
+    deal.description = page.at_css(".productdescription").to_s.truncate(4000) if page.at_css(".productdescription")
     deal.category = Deal::CATEGORY_CLOTHES
     deal.image_url = page.at_css("#product-image-image")[:src].try(:strip) if page.at_css("#product-image-image")
     deal.company = "Dafiti"

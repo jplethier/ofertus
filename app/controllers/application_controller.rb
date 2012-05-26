@@ -15,6 +15,14 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, :alert => exception.message
   end
 
+  def error_routing
+    redirect_to root_url, :alert => I18n.t("exceptions.page_does_not_exists")
+  end
+
+  rescue_from ActiveRecord::RecordNotFound do
+    redirect_to root_url, :alert => I18n.t('exceptions.record_not_found')
+  end
+
   def failure
     redirect_to root_path, :alert => "Não foi possível efetuar o login via facebook."
   end
@@ -59,5 +67,4 @@ class ApplicationController < ActionController::Base
   # def go_to_facebook
   #   redirect_to "https://www.facebook.com/OfertUs/app_151503908244383" if Rails.env == "production"
   # end
-
 end

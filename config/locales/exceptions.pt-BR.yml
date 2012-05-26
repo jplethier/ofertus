@@ -1,0 +1,4 @@
+"pt-BR":
+  exceptions:
+    record_not_found: "O registro que você tentou visualizar não existe."
+    page_does_not_exists: "A página que você tentou acessar não existe."

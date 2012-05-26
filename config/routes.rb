@@ -43,9 +43,11 @@ DealWitMe::Application.routes.draw do
 
   match '/deals/today/:category', :to => "deals#today"
   match '/deals/active/:category', :to => "deals#index"
-  match '/auth/failure' => 'applications#failure'
+  match '/auth/failure' => 'application#failure'
 
   root :to => "deals#index"
+
+  match "*a", :to => "application#error_routing"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

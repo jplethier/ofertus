@@ -100,6 +100,11 @@ GEM
       json (>= 1.4.6)
     gravtastic (3.2.6)
     haml (3.1.4)
+    haml-rails (0.3.4)
+      actionpack (~> 3.0)
+      activesupport (~> 3.0)
+      haml (~> 3.0)
+      railties (~> 3.0)
     hashie (1.2.0)
     heroku (2.19.2)
       launchy (>= 0.3.2)
@@ -320,6 +325,8 @@ DEPENDENCIES
   factory_girl_rails (>= 1.1.beta1)
   fb_graph
   gravtastic
+  haml
+  haml-rails
   heroku
   jquery-rails
   json

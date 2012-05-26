@@ -10,6 +10,8 @@ gem 'date_validator'
 gem 'devise', '>= 1.4.2'
 gem 'fb_graph'
 gem 'gravtastic'
+gem 'haml'
+gem "haml-rails"
 gem 'heroku'
 gem 'jquery-rails'
 gem 'json'

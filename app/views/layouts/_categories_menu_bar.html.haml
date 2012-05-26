@@ -1,0 +1,125 @@
+.categories
+  .content.container-fluid
+    %ul.menu.row-fluid
+      - if controller_name == 'deals' && action_name ==  'today'
+        .span1
+          %li.restaurant
+            %a{ :href => "/deals/today/restaurant", :title => "Visualizar a categoria Alimentação" }
+              = Deal.i18n_category(Deal::CATEGORY_RESTAURANT)
+        
+        .span1
+          %li.beauty-health
+            %a{ :href => "/deals/today/beauty_and_health", :title => "Visualizar a categoria Beleza e saúde" }
+              = Deal.i18n_category(Deal::CATEGORY_BEAUTY_AND_HEALTH)
+
+        .span1
+          %li.electronics
+            %a{ :href => "/deals/today/electronics", :title => "Visualizar a categoria Eletrônicos"}
+              = Deal.i18n_category(Deal::CATEGORY_ELECTRONICS) 
+        
+        .span1
+          %li.culture
+            %a{ :href => "/deals/today/culture", :title => "Visualizar a categoria Cultura"}
+              = Deal.i18n_category(Deal::CATEGORY_CULTURE)
+
+        .span1
+          %li.home
+            %a{ :href => "/deals/today/home_and_appliance", :title => "Visualizar a categoria Eletrodomésticos"}
+              = Deal.i18n_category(Deal::CATEGORY_HOME_AND_APPLIANCE) 
+
+        .span1
+          %li.fitness
+            %a{ :href => "/deals/today/fitness", :title => "Visualizar a categoria Esporte e Lazer"}
+              = Deal.i18n_category(Deal::CATEGORY_FITNESS) 
+
+        .span1
+          %li.computer
+            %a{ :href => "/deals/today/computer", :title => "Visualizar a categoria Informática"}
+              = Deal.i18n_category(Deal::CATEGORY_COMPUTER) 
+        
+        .span1
+          %li.clothes
+            %a{ :href => "/deals/today/clothes", :title => "Visualizar a categoria Vestuário"}
+              = Deal.i18n_category(Deal::CATEGORY_CLOTHES) 
+        
+        .span1
+          %li.travel
+            %a{ :href => "/deals/today/travel", :title => "Visualizar a categoria Viagens"}
+              = Deal.i18n_category(Deal::CATEGORY_TRAVEL)
+        
+        .span1
+          %li.kids
+            %a{ :href => "/deals/today/kids", :title => "Visualizar a categoria Infantil"}
+              = Deal.i18n_category(Deal::CATEGORY_KIDS)
+        
+        .span1
+          %li.car
+            %a{ :href => "/deals/today/car", :title => "Visualizar a categoria Artigos automotivos"}
+              = Deal.i18n_category(Deal::CATEGORY_CAR) 
+        
+        .span1
+          %li.others
+            %a{ :href => "/deals/today/others", :title => "Visualizar a categoria Diversos"}
+              = Deal.i18n_category(Deal::CATEGORY_OTHER) 
+        
+      - else
+        .span1
+          %li.restaurant
+            %a{:href => "/deals/active/restaurant", :title => "Visualizar a categoria Alimentação"}
+              = Deal.i18n_category(Deal::CATEGORY_RESTAURANT) 
+        
+        .span1
+          %li.beauty-health
+            %a{ :href => "/deals/active/beauty_and_health", :title => "Visualizar a categoria Beleza e saúde"}
+              = Deal.i18n_category(Deal::CATEGORY_BEAUTY_AND_HEALTH) 
+        
+        .span1
+          %li.electronics
+            %a{ :href => "/deals/active/electronics", :title => "Visualizar a categoria Eletrônicos"}
+              = Deal.i18n_category(Deal::CATEGORY_ELECTRONICS) 
+        
+        .span1
+          %li.culture
+            %a{ :href => "/deals/active/culture", :title => "Visualizar a categoria Cultura"}
+              = Deal.i18n_category(Deal::CATEGORY_CULTURE) 
+        
+        .span1
+          %li.home
+            %a{ :href => "/deals/active/home_and_appliance", :title => "Visualizar a categoria Eletrodomésticos"}
+              = Deal.i18n_category(Deal::CATEGORY_HOME_AND_APPLIANCE) 
+        
+        .span1
+          %li.fitness
+            %a{ :href => "/deals/active/fitness", :title => "Visualizar a categoria Esporte e Lazer"}
+              = Deal.i18n_category(Deal::CATEGORY_FITNESS) 
+        
+        .span1
+          %li.computer
+            %a{ :href => "/deals/active/computer", :title => "Visualizar a categoria Informática"}
+              = Deal.i18n_category(Deal::CATEGORY_COMPUTER) 
+        
+        .span1
+          %li.clothes
+            %a{ :href => "/deals/active/clothes", :title => "Visualizar a categoria Vestuário"}
+              = Deal.i18n_category(Deal::CATEGORY_CLOTHES) 
+        
+        .span1
+          %li.travel
+            %a{ :href => "/deals/active/travel", :title => "Visualizar a categoria Viagens"}
+              = Deal.i18n_category(Deal::CATEGORY_TRAVEL) 
+        
+        .span1
+          %li.kids
+            %a{ :href => "/deals/active/kids", :title => "Visualizar a categoria Infantil"}
+              = Deal.i18n_category(Deal::CATEGORY_KIDS) 
+        
+        .span1
+          %li.car
+            %a{ :href => "/deals/active/car", :title => "Visualizar a categoria Artigos automotivos"}
+              = Deal.i18n_category(Deal::CATEGORY_CAR) 
+        
+        .span1
+          %li.others
+            %a{ :href => "/deals/active/others", :title => "Visualizar a categoria Diversos"}
+              = Deal.i18n_category(Deal::CATEGORY_OTHER) 
+  

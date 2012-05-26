@@ -53,60 +53,62 @@ class Share
   }
 
   def self.create_deal(link)
-    begin
-      if link.match(AMERICANAS)
-        @deal = Americanas.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(CARREFOUR)
-        @deal = Carrefour.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(COMPRA_FACIL)
-        @deal = CompraFacil.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(DAFITI)
-        @deal = Dafiti.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(DISANTINNI)
-        @deal = Disantinni.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(DUKS)
-        @deal = Duks.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(FASTSHOP)
-        @deal = FastShop.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(FNAC)
-        @deal = Fnac.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(GIRAFA)
-        @deal = Girafa.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(GIULIANA_FLORES)
-        @deal = GiulianaFlores.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(GROUPON)
-        @deal = Groupon.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(HOTEL_URBANO)
-        @deal = HotelUrbano.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(LEADER)
-        @deal = Leader.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(LIVRARIA_CULTURA)
-        @deal = LivrariaCultura.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(MAGAZINE)
-        @deal = Magazine.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(NETSHOES)
-        @deal = Netshoes.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(PEIXE_URBANO)
-        @deal = PeixeUrbano.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(POLISHOP)
-        @deal = Polishop.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(PONTO_FRIO)
-        @deal = PontoFrio.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(SARAIVA)
-        @deal = Saraiva.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(SEPHA)
-        @deal = Sepha.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      elsif link.match(SUBMARINO)
-        @deal = Submarino.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-      else
-        @deal = fill_deal_fields(URI.parse(URI.encode(link.strip)))
+    @deal = Deal.new
+    unless link.nil? || link.empty?
+      begin
+        if link.match(AMERICANAS)
+          @deal = Americanas.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(CARREFOUR)
+          @deal = Carrefour.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(COMPRA_FACIL)
+          @deal = CompraFacil.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(DAFITI)
+          @deal = Dafiti.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(DISANTINNI)
+          @deal = Disantinni.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(DUKS)
+          @deal = Duks.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(FASTSHOP)
+          @deal = FastShop.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(FNAC)
+          @deal = Fnac.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(GIRAFA)
+          @deal = Girafa.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(GIULIANA_FLORES)
+          @deal = GiulianaFlores.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(GROUPON)
+          @deal = Groupon.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(HOTEL_URBANO)
+          @deal = HotelUrbano.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(LEADER)
+          @deal = Leader.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(LIVRARIA_CULTURA)
+          @deal = LivrariaCultura.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(MAGAZINE)
+          @deal = Magazine.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(NETSHOES)
+          @deal = Netshoes.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(PEIXE_URBANO)
+          @deal = PeixeUrbano.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(POLISHOP)
+          @deal = Polishop.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(PONTO_FRIO)
+          @deal = PontoFrio.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(SARAIVA)
+          @deal = Saraiva.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(SEPHA)
+          @deal = Sepha.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(SUBMARINO)
+          @deal = Submarino.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        else
+          @deal = fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        end
+      rescue Errno::ENOENT => wrong_link_exception
+        @deal = Deal.new
+      rescue RuntimeError => rte
+        @deal = Deal.new :link => link
       end
-    rescue Errno::ENOENT => wrong_link_exception
-      @deal = Deal.new
-    rescue RuntimeError => rte
-      @deal = Deal.new :link => link
     end
-
     @deal
   end
 

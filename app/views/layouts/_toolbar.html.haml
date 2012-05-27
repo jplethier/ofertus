@@ -1,0 +1,12 @@
+.admin.row-fluid
+  .intern
+    #global_nav.span6
+      %ul.globalNavigation
+        %li= link_to I18n.t("actions.home"), app_helpers.root_path, :class => "#{ @current_tab == 'active_deals' ? 'active' : ''}", :id => "home_link" 
+        %li= link_to I18n.t("actions.todays_offers"), app_helpers.deals_today_path, :class => "#{ @current_tab == 'today_deals' ? 'active' : ''}" 
+        %li= link_to I18n.t("actions.search_users"), app_helpers.users_path, :class => "#{ @current_tab == 'users' ? 'active' : ''}" 
+        %li= link_to I18n.t("actions.how_it_works"), app_helpers.pages_how_it_works_path, :class => "#{ @current_tab == 'pages' ? 'active' : ''}" 
+        %li= link_to 'Blog', '/blog', :class => "#{ @current_tab == 'posts' ? 'active' : ''}" 
+    
+    #user_nav.span6
+      = render 'devise/menu/login_items' 

@@ -58,38 +58,10 @@
 				<%= render 'layouts/toolbar' %>
 
         <!-- TODO: CATEGORIAS -->
-        <div class="logo container-fluid">
-          <div class="content row-fluid">
-            <div id="logo" class="span4">
-              <%= link_to "OfertuS", app_helpers.root_path, :class => "logo" %>
-            </div>
-            <div id="social" class="span2">
-              <div class="fb-like" data-href="https://www.facebook.com/OfertUs" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true" data-font="arial"></div>
-              <div class="twitter-follow-button">
-                <a href="https://twitter.com/OfertuS" class="twitter-follow-button" data-lang="pt">Siga @OfertuS</a>
-                <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
-              </div>
-                <!-- Coloque esta tag onde você deseja que o botão +1 seja renderizado -->
-              <div class="plus_one">
-                <g:plusone annotation="inline"></g:plusone>
-              </div>
-            </div>
-            <div id="share_deals" class="span4">
-              <form action="<%= app_helpers.share_deals_path %>" method="get" class="share_offer_url">
-                <fieldset>
-                  <legend>Compartilhar</legend>
-                  <%= text_field_tag :share, params[:share], :title => "Compartilhe uma oferta" %>
-                  <button id="share" type="submit" title="Compartilhar">Compartilhar</button>
-                </fieldset>
-              </form>
-            </div>
-          </div>
-        </div>
+        <%= render 'layouts/logo_header' %>
 
         <%= render 'layouts/categories_menu_bar' %>
       </div>
-      <% unless user_signed_in? %>
-      <% end %>
 
       <!--  CORPO -->
       <div id="body">
@@ -109,11 +81,6 @@
         <div class="container-fluid">
           <div class="row-fluid">
             <%= yield %>
-            
-              <%- if controller_name != 'sessions' && controller_name != 'pages' %>
-                
-              <%- end %>
-            </div>
           </div>
         </div>
       </div>

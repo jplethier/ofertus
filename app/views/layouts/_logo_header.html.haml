@@ -1,0 +1,24 @@
+.logo.container-fluid
+  .content.row-fluid
+    #logo.span4
+      = link_to "OfertuS", app_helpers.root_path, :class => "logo" 
+    
+    #social.span2
+      :plain
+        <div class="fb-like" data-href="https://www.facebook.com/OfertUs" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true" data-font="arial"></div>
+      .twitter-follow-button
+        :plain
+          <a href="https://twitter.com/OfertuS" class="twitter-follow-button" data-lang="pt">Siga @OfertuS</a>
+          <script src="//platform.twitter.com/widgets.js" type="text/javascript"></script>
+      
+      .plus_one
+        :plain
+          <g:plusone annotation="inline"></g:plusone>
+
+    #share_deals.span4
+      %form{ :action => "#{app_helpers.share_deals_path}", :method => "get.share_offer_url", :class => "share_offer_url" }
+        %fieldset
+          %legend Compartilhar
+          = text_field_tag :share, params[:share], :title => "Compartilhe uma oferta", :id => "share"
+          %button{ :id => "share", :type => "submit", :title => "Compartilhar"} Compartilhar
+        

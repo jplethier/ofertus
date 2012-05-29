@@ -1,0 +1,28 @@
+.span12
+  .window.bigWindow
+    #who_are_we_title.middle
+      %h1 Como Funciona?
+  				
+  .bigWindow
+    .window.menu
+      #who_are_we_text.middle.about
+        .whoAreWe
+          #how_it_works.how
+            %p
+              O OfertuS é uma nova forma de compartilhar ofertas e ao mesmo tempo ganhar por isso. Através de parcerias com lojas virtuais, permite que os usuários ganhem comissões ao compartilharem ofertas com seus amigos, sem que seja necessário ter um site.
+            %p
+              Funciona do seguinte modo: basta compartilhar qualquer oferta disponível na internet em nossa plataforma e divulgar para o máximo de pessoas possível. Pronto, agora é só deixar que seus amigos façam o trabalho.
+            %p
+              A cada compra feita através do link de sua oferta, você pode receber uma comissão. Você pode compartilhar qualquer oferta, mas por enquanto as comissões estão restritas aos sites parceiros, que estão listados nesta página. A equipe OfertuS trabalha continuamente para adicionar mais parceiros.
+            %p
+              As comissões variam de acordo com cada parceiro, assim como suas regras. Na tabela que se encontra no final dessa página, são exibidas as informações de cada uma das loas virtuais com que o OfertuS trabalha atualmente. Para que o usuário tenha sua comissão contabilizada, é necessário que a oferta compartilhada seja de algum dos links encontrados na coluna 'Link' na tabela abaixo.
+            = image_tag "how_it_works.png"
+            %h3
+              Como compartilhar?
+            %p
+              Para cadastrar uma oferta, basta você estar registrado no site (você pode ter um cadastro OfertuS – se ainda não tem, clique aqui – ou pode se registrar pelo Facebook), copiar o link de uma oferta qualquer que tenha gostado, e colar na caixa Compartilhar, na parte de cima da página. Ao pressionar o botão compartilhar, você será direcionado para uma área de edição da oferta, onde poderá inserir qualquer outra informação que julgar necessária.
+            %p
+              O OfertuS dá o poder de escolha aos usuários e permite ranquear as ofertas. Se a oferta compartilhada for boa e estiver com as informações corretas, nós damos destaque. Se não, ela poderá ser avaliada pelos usuários, o que tem efeito na credibilidade de quem a postou. Portanto, encorajamos os usuários a conferir os dados inseridos antes de compartilhar.
+            %p
+              Também damos destaque aos usuários que mais compartilham ofertas. Nosso intuito é premiar os maiores compartilhadores pela fidelidade à plataforma. Então não perca tempo. Compartilhe com seus amigos e ganhe!
+            = render 'partnership_table'

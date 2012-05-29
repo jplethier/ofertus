@@ -31,14 +31,14 @@ class Deal < ActiveRecord::Base
   KIND_DAILY_DEAL = 2
   KIND_ON_SALE = 3
 
-  KINDS = [ KIND_OFFER, KIND_DAILY_DEAL, KIND_ON_SALE]
+  KINDS = [ KIND_OFFER, KIND_DAILY_DEAL, KIND_ON_SALE ]
 
   belongs_to :city
   belongs_to :user
 
   validates :category,    :presence => true,      :inclusion => CATEGORIES
   validates :company,     :presence => true
-  validates :description, :presence => true,      :length => { :maximum => 5000 }
+  validates :description, :presence => true,      :length => { :maximum => 7000 }
   validates :discount,    :presence => true,      :if => "on_sale?"
   validates :end_date,    :presence => true,      :date => {:after_or_equal_to => Time.zone.now.beginning_of_day}
   validates :image_url,   :format => /(^$)|(^https?:\/\/.+)/

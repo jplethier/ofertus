@@ -1,0 +1,63 @@
+.offer
+  .deal 
+    %strong.deal_title= link_to truncate_title(deal.title), deal_path(deal), :title => deal.title
+    .deal_left 
+      - unless deal.image_url.nil? || deal.image_url.empty?  
+        = link_to(image_tag(deal.image_url, :alt => deal.image_url, :title => deal.title), deal_path(deal), :class => "deal_picture")  
+      - else  
+        = link_to(image_tag(asset_path('no_picture_big.png'), :alt => "Oferta sem imagem", :title => deal.title), deal_path(deal), :class => "deal_picture")  
+      
+      / - if user_signed_in?  
+      /   .votes 
+      /     = link_to "Gostei!", upvote_deal_path(deal), :class => "like"
+      /     = link_to "Não Gostei!", downvote_deal_path(deal), :class => "dislike"
+    
+    %ul
+      %li.deal_user 
+        %strong Compartilhada por:
+        = link_to deal.user.name, user_path(deal.user.username)
+      %li.deal_category
+        %strong Categoria:
+        = Deal.i18n_category(deal.category)
+      %li.deal_company 
+        %strong Empresa: 
+        = deal.company
+      %li.deal_city 
+        %strong Válida para:
+        = deal.city.name
+
+    .button 
+      = link_to 'Saiba mais', deal_path(deal), :class => "button" 
+    
+    %ul.discount 
+      %li.average 
+        %span Avaliação
+        - if deal.average  
+          - if deal.average >= 50  
+            %strong.positive= deal.average
+          - else  
+            %strong.negative= deal.average
+
+        - else  
+          %strong.none= "-"
+
+      - if (deal.real_price && deal.price)  
+        %li.deal_real_price 
+          %span 
+            Preço original
+          %strong= number_to_currency deal.real_price
+        %li.deal_price 
+          %span
+            Preço oferta
+          %strong= number_to_currency deal.price
+
+      %li.deal_discount 
+        %span Desconto
+        %strong= deal.discount.to_i
+      %li.deal_date
+        %span Válida até
+        %strong 
+          - if deal.end_date?  
+            = l deal.end_date.to_date  
+          - else  
+            = "-"

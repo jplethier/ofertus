@@ -9,7 +9,7 @@
       
 
       %ul.second.span2
-        %li.titleCategorias 
+        %li.title Categorias 
         %li
           - if controller_name == 'deals' && action_name ==  'today' 
             %a{ :href => "/deals/today/restaurant" }= Deal.i18n_category(Deal::CATEGORY_RESTAURANT)
@@ -52,7 +52,7 @@
             %a{ :href => "/deals/active/fitness" }= Deal.i18n_category(Deal::CATEGORY_FITNESS)  
 
       %ul.third.span2
-        %li.titleCategorias 
+        %li.title Categorias 
         %li
           - if controller_name == 'deals' && action_name ==  'today' 
             %a{ :href => "/deals/today/computer" }= Deal.i18n_category(Deal::CATEGORY_COMPUTER)  
@@ -94,13 +94,13 @@
             %a{ :href => "/deals/active/others" }= Deal.i18n_category(Deal::CATEGORY_OTHER)  
 
       %ul.fourth.span2
-        %li.titleInformações 
+        %li.title Informações 
         %li
           %a{ :href => "/pages/help" }= I18n.t("actions.help")   
       
 
       %ul.fifth.span2
-        %li.titleContato 
+        %li.title Contato 
         %li
           %a{ :href => "http://ofertus.uservoice.com/", :target => "_blank" }= I18n.t("actions.talk_with_us")   
         %li

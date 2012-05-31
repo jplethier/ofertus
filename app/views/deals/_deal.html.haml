@@ -53,11 +53,11 @@
 
       %li.deal_discount 
         %span Desconto
-        %strong= deal.discount.to_i
+        %strong= "#{deal.discount.to_i}%"
       %li.deal_date
         %span Válida até
         %strong 
           - if deal.end_date?  
-            = l deal.end_date.to_date  
+            = l deal.end_date.to_date
           - else  
             = "-"

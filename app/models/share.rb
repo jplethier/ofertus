@@ -31,6 +31,7 @@ class Share
   HOTEL_URBANO = "hotelurbano.com.br"
   LEADER = "leader.com.br"
   LIVRARIA_CULTURA = "livrariacultura.com.br"
+  LOJAS_MM = "lojasmm.com"
   MAGAZINE = "magazineluiza.com.br"
   NETSHOES = "netshoes.com.br"
   PEIXE_URBANO = "peixeurbano.com"
@@ -84,6 +85,8 @@ class Share
           @deal = Leader.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(LIVRARIA_CULTURA)
           @deal = LivrariaCultura.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(LOJAS_MM)
+          @deal = LojasMm.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(MAGAZINE)
           @deal = Magazine.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(NETSHOES)

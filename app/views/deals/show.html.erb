@@ -50,7 +50,7 @@
           <% end %>
 
           <div class="go_to_website">
-            <%= link_to "Ir para o site", @deal.link, :class => "button" %>
+            <%= link_to "Ir para o site", @deal.link, :class => "button", :target => "_blank" %>
           </div>
           <div class="dealInfo">
             <li><strong>Em: </strong><span class="deal_category"><%= Deal.i18n_category(@deal.category) %></span></li>

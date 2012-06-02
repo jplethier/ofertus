@@ -40,6 +40,7 @@ class Share
   SARAIVA = "saraiva.com"
   SEPHA = "sepha.com.br"
   SUBMARINO = "submarino.com"
+  TOY_MANIA = "toymania.com.br"
 
   CATEGORIES = {
     "bares-e-baladas" => Deal::CATEGORY_RESTAURANT,
@@ -103,6 +104,8 @@ class Share
           @deal = Sepha.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(SUBMARINO)
           @deal = Submarino.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(TOY_MANIA)
+          @deal = ToyMania.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         else
           @deal = fill_deal_fields(URI.parse(URI.encode(link.strip)))
         end

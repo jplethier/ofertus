@@ -33,6 +33,7 @@ class Share
   LIVRARIA_CULTURA = "livrariacultura.com.br"
   LOJAS_MM = "lojasmm.com"
   MAGAZINE = "magazineluiza.com.br"
+  MOBLY = "mobly.com.br"
   NETSHOES = "netshoes.com.br"
   PEIXE_URBANO = "peixeurbano.com"
   POLISHOP = "polishop.com.br"
@@ -90,6 +91,8 @@ class Share
           @deal = LojasMm.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(MAGAZINE)
           @deal = Magazine.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(MOBLY)
+          @deal = Mobly.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(NETSHOES)
           @deal = Netshoes.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(PEIXE_URBANO)

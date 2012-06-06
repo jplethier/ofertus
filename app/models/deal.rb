@@ -158,7 +158,8 @@ class Deal < ActiveRecord::Base
             self.link.match(Share::CAMISETERIA) || self.link.match(Share::DUKS) || self.link.match(Share::SEPHA) ||
             self.link.match(Share::DAFITI) || self.link.match(Share::POLISHOP) || self.link.match(Share::GIRAFA) ||
             self.link.match(Share::FNAC) || self.link.match(Share::AMERICANAS) || self.link.match(Share::GIULIANA_FLORES) ||
-            self.link.match(Share::DISANTINNI) || self.link.match(Share::LOJAS_MM) || self.link.match(Share::TOY_MANIA))
+            self.link.match(Share::DISANTINNI) || self.link.match(Share::LOJAS_MM) || self.link.match(Share::TOY_MANIA) ||
+            self.link.match(Share::MOBLY))
       self.link = lomadee_link(self.link)
     end
   end

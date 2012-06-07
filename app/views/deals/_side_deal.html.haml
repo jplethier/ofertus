@@ -38,4 +38,4 @@
           %strong= number_to_currency deal.price
       %li.deal_discount 
         %span Desconto
-        %strong= deal.discount.to_i
+        %strong= "#{deal.discount.to_i.to_s}%"

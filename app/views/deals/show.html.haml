@@ -1,0 +1,138 @@
+.span12
+  / PRINCIPAL
+  .main.dealPage
+    / pagina oferta
+    .defaulWindow.dealPage
+      = render 'shared/add_this'
+      / titulo
+      .title
+        %h1.deal_title= @deal.title
+        %strong Compartilhada por:
+        = link_to @deal.user.username, user_path(@deal.user.username)
+
+      / detalhes
+      .details
+        .deal_picture
+          %div
+            - if @deal.image_url
+              = link_to(image_tag(@deal.image_url, :alt => @deal.image_url, :title => @deal.title, :size => '10px'), deal_path(@deal), :class => "foto")
+            - else
+              = link_to(image_tag(asset_path('no_picture_big.png'), :alt => "Oferta sem imagem", :title => @deal.title, :size => '10px'), deal_path(@deal), :class => "foto")
+
+        .discount
+          .bigTicket.special.discountTicket
+            %strong.deal_discount= "#{@deal.discount.to_i.to_s}%"
+
+          - if @deal.price?
+            .from
+              %span de:
+              %strong.deal_real_price
+                = number_to_currency @deal.real_price, :format => "<span>%u</span>%n", :separator => ","
+
+            .for
+              %span por:
+              %strong.deal_price= number_to_currency @deal.price, :format => "<span>%u</span>%n", :separator => ","
+
+          .go_to_website= link_to "Ir para o site", @deal.link, :class => "button", :target => "_blank"
+
+          .dealInfo
+            %li
+              %strong Em:
+              %span.deal_category= Deal.i18n_category(@deal.category)
+
+            %li
+              %strong Válida para:
+              %span.deal_city= @deal.city.name
+
+          - if user_signed_in?
+            .votes
+              .like
+                - if current_user.up_voted? @deal
+                  = link_to 'Gostei!(Desfazer)', unvote_deal_path(@deal), :class => "like"
+                - else
+                  = link_to 'Gostei!', upvote_deal_path(@deal), :class => "like"
+
+                .likes
+                  - if @deal.up_votes <= 1
+                    %span= "#{@deal.up_votes.to_s} gostou!"
+                  - else
+                    %span= "#{@deal.up_votes.to_s} gostaram!"
+
+              .dislike 
+                - if current_user.down_voted? @deal
+                  = link_to 'Não Gostei!(Desfazer)', unvote_deal_path(@deal), :class => "dislike"
+                - else
+                  = link_to 'Não gostei!', downvote_deal_path(@deal), :class => "dislike"
+
+                .dislikes
+                  - if @deal.down_votes <= 1
+                    %span= "#{@deal.down_votes.to_s} não gostou!"
+                  - else
+                    %span= "#{@deal.down_votes.to_s} não gostaram!"
+
+      / detalhes
+      .info
+        .title
+          %h2 Descrição da Oferta
+
+        .content
+          %p= @deal.description.html_safe
+
+  .row-fluid
+    #comments.content.span8
+      /janela CONTEÚDO 
+      .default_window.comments_window
+        .comment_list#tabAreaId{ :style => "min-height: 150px;" } 
+          .briefWindow.opinions 
+            .upBar 
+              %h4= I18n.t("comments") 
+              .topic.newTopic
+                - if can? :manage, @comment
+                  .new_comment
+                    = form_for([@deal,@comment]) do |f|
+                      = f.text_area :comment, :class => "TextArea"
+                      %br
+                      = f.submit I18n.t("actions.comment"), :class => :button
+
+            - if not @deal.comments.empty?
+              .content
+                - @deal.comments.each do |comment|
+                  = render :partial => 'comments/comment', :locals => {:comment => comment}
+
+            - else
+              .withoutContent
+                %h4 Não há comentários cadastrados para essa oferta ainda. Seja o primeiro a dar sua opinião escrevendo seu comentário no campo acima.
+
+            .downBar
+              / paginacao 
+
+    #comments_side.side.span4
+      .default_window.white_background
+        .title
+          %h3 Melhores Ofertas
+
+        .content
+          .best
+            .small_deal
+              - @best_deals.each do |deal|
+                = render :partial => 'deals/side_deal', :locals => {:deal => deal}
+
+      .default_window.white_background
+        .title
+          %h3 Ofertas Mais Comentadas
+
+        .content
+          .most_commented
+            .small_deal
+              - @most_comment_deals.each do |deal|
+                = render :partial => 'deals/side_deal', :locals => {:deal => deal}
+
+      .default_window.white_background
+        .title
+          %h3 Últimas Ofertas Compartilhadas
+
+        .content
+          .newest
+            .small_deal
+              - @newest_deals.each do |deal|
+                = render :partial => 'deals/side_deal', :locals => {:deal => deal}

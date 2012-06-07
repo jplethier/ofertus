@@ -1,0 +1,61 @@
+.span8
+  .default_window.page_title.grey_background
+    %h1 Ofertas Ativas
+  .main
+    .dealsMap
+      #dealsList.default_window.grey_background.dealsList
+        .content
+          .content.defaultDeal
+            .zero-PagingTable
+              .zero-PagingTableGrid
+                - @deals.each_with_index do |deal, index|
+                  = render :partial => 'deals/deal', :locals => {:deal => deal, :index => index}
+                
+                = will_paginate @deals
+
+.side.span4
+  .default_window.white_background
+    .title
+      %h3 Opções de Busca
+      - "Parâmetro: #{params[:search_order]}"
+      - "Parâmetro: #{params[:search_city]}"
+
+    .content
+      %form{ :id => "search_form", :action => deals_path, :method => "get", :class => "search"}
+        %fieldset
+          %legend Buscar
+          = text_field_tag :search, params[:search]
+          %button#search{:type => "submit"} Buscar
+
+        = select_tag "search_order", search_options(params[:search_order])
+        = select_tag "search_city", search_city_options(params[:search_city])
+
+  .default_window.white_background
+    .title
+      %h3 Melhores Ofertas
+
+    .content
+      .best
+        .small_deal
+          - @best_deals.each do |deal|
+            = render :partial => 'deals/side_deal', :locals => {:deal => deal}
+
+  .default_window.white_background
+    .title
+      %h3 Ofertas Mais Comentadas
+
+    .content
+      .most_commented
+        .small_deal
+          - @most_comment_deals.each do |deal|
+            = render :partial => 'deals/side_deal', :locals => {:deal => deal}
+
+  .default_window.white_background
+    .title
+      %h3 Últimas Ofertas Compartilhadas
+
+    .content
+      .newest
+        .small_deal
+          - @newest_deals.each do |deal|
+            = render :partial => 'deals/side_deal', :locals => {:deal => deal}

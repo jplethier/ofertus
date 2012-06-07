@@ -34,9 +34,9 @@
         %span Avaliação
         - if deal.average  
           - if deal.average >= 50  
-            %strong.positive= deal.average
+            %strong.positive= "#{deal.average.to_s}%"
           - else  
-            %strong.negative= deal.average
+            %strong.negative= "#{deal.average.to_s}%"
 
         - else  
           %strong.none= "-"

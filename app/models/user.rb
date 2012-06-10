@@ -71,6 +71,7 @@ class User < ActiveRecord::Base
     User.new(:email => user_info.email, :name => user_info.name, :username => user_info.nickname, :provider => "facebook", :uid => data.uid, :avatar_url => user_info.image, :confirmed_at => Date.today, :access_token => data.credentials.token)
   end
 
+  #TODO: testar e consertar
   def password_required?
     (provider.nil? || !password.blank?) && super
   end

@@ -1,0 +1,33 @@
+.span12
+  #edit_user_window.window.medium_window.row
+    .middle.newProfile
+      %h1 OfertuS
+      %h3 Preencha os campos abaixo
+      = link_to "entre com sua conta do facebook", user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
+      .row-fluid
+        = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+          .span5
+            %ol
+              %li
+                = f.label :login
+                = f.text_field :login
+              %li
+                = f.label :password
+                = f.password_field :password
+              %li
+                - if devise_mapping.rememberable?
+                  = f.label :remember_me, 'Mantenha-me Conectado'
+                  = f.check_box :remember_me
+          
+          .button.span2
+            = f.submit I18n.t("actions.sign_in"), :type=>"image", :src=> asset_path('botao.png'), :alt=> "Confirmar"
+
+      .row-fluid
+        .span12
+          = render :partial => "devise/shared/links"
+
+:plain
+  <script>
+    $('#user_login').coolinput('username')
+    $('#user_password').coolinput('*****')
+  </script>

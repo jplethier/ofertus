@@ -1,0 +1,21 @@
+.span12
+  #edit_user_window.window.medium_window.row
+    .middle.newProfile#userCreateAreaId
+
+      %h1 OfertuS
+      %h3 Reenviar e-mail de confirmação
+
+      .row-fluid
+        = form_for(resource, :as => resource_name, :url => confirmation_path(resource_name), :html => { :method => :post }) do |f|
+          .span5
+            %ol
+              %li
+                = f.label :email
+                = f.email_field :email
+              
+          .password_button.span2
+            = f.submit I18n.t("actions.send_confirmation"), :type=>"image", :src=> asset_path('botao.png'), :alt=> "Confirmar"
+
+      .row-fluid
+        .span12
+          = render :partial => "devise/shared/links"

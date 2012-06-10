@@ -1,0 +1,13 @@
+- if user_signed_in?
+  %ul.userNavigation
+    %li
+      Olá
+      = current_user.name
+    %li= link_to I18n.t("actions.my_profile"), app_helpers.user_path(current_user.username), :class => "#{ @current_tab == 'my_profile' ? 'active' : ''}"
+    %li= link_to I18n.t("actions.share_an_offer"), app_helpers.new_deal_path, :class => "#{ @current_tab == 'new_deal' ? 'active' : ''}"
+    %li= link_to I18n.t("actions.logout"), app_helpers.destroy_user_session_path
+- else
+  %ul.userNavigation
+    %li Olá, seja bem-vindo
+    %li= link_to I18n.t("actions.sign_up"), app_helpers.new_user_registration_path
+    %li= link_to I18n.t("actions.sign_in"), app_helpers.new_user_session_path

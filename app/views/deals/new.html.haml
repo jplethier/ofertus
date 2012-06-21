@@ -63,7 +63,7 @@
               = f.label :city_id
               = f.select(:city_id, unsorted_grouped_options_for_select(@cities_state_hash), {:include_blank => 'Selecione'})
 
-          / TODO: Transformar o botão igual ao link -->
+          / TODO: Transformar o botão igual ao link
           .button
             = f.submit I18n.t("actions.share"), :type=>"image", :src=> asset_path('botao.png'), :alt=> "Confirmar"
 

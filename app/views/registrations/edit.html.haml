@@ -1,0 +1,81 @@
+.span12
+  #edit_user_window.window.medium_window
+    .middle.newProfile#userCreateAreaId
+      %div
+        %h1 OfertuS
+        %h3 Edite suas informações
+
+        = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+          %ol
+            .user_data
+              %li
+                - if resource.provider?
+                  .user_picture
+                    = image_tag resource.facebook_profile_picture
+                
+                - else
+                  .user_picture 
+                    = image_tag resource.gravatar_url
+                  
+                  .edit_user_picture
+                    %a{ :href => "http://gravatar.com/emails/", :target => "_blank" }
+                      = I18n.t('actions.edit_picture')
+
+              %li
+                = f.label :email
+                - if resource.provider?
+                  = resource.email
+                - else
+                  = f.text_field :email
+
+              %li
+                = f.label :username
+                = f.text_field :username
+                %span.limite
+                  Limite
+                  %strong 20
+                  caracteres
+
+              %li
+                = f.label :name
+                = f.text_field :name
+              
+              - if resource.password_required?
+                %li
+                  = f.label :password
+                  %i (deixe em branco se não quiser alterar)
+                  = f.password_field :password
+                  %span.limite
+                    Mínimo
+                    %strong 6
+                    caracteres
+
+                %li
+                  = f.label :password_confirmation
+                  = f.password_field :password_confirmation
+                
+                %li
+                  = f.label :current_password
+                  %i (para confirmar as alterações, é preciso informar sua senha atual)
+                  = f.password_field :current_password
+
+            - if resource.provider
+              .facebook_permissions
+                %li
+                  = f.label :facebook_share_offer
+                  = f.check_box :facebook_share_offer
+
+                %li
+                  = f.label :facebook_vote_offer
+                  = f.check_box :facebook_vote_offer
+                
+                %li
+                  = f.label :facebook_follow_user
+                  = f.check_box :facebook_follow_user
+
+          / TODO: Transformar o botão igual ao link
+          / <a tabindex="11" class="perfil" href="javascript:;">Atualizar</a>
+          .button= f.submit "Atualizar", :type=>"image", :src=> asset_path('botao.png'), :alt=> "Confirmar"
+
+        %p= link_to "Cancelar minha conta", registration_path(resource_name), :confirm => "Tem certeza?", :method => :delete
+        = link_to "Voltar", :back

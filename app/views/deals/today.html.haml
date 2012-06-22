@@ -10,9 +10,13 @@
             .zero-PagingTable 
               .zero-PagingTableGrid 
                 - @deals.each_with_index do |deal, index|  
-                  = render :partial => 'deals/deal', :locals => {:deal => deal, :index => index}  
+                  = render :partial => 'deals/deal', :locals => {:deal => deal, :index => index}
 
-                = will_paginate @deals  
+                - if @deals.total_pages == 1 || params[:page].to_i == @deals.total_pages
+                  %a{ :href => "#{deals_path}?show_olders=true" }
+                    = t('actions.show_olders_deals')
+                    
+                = will_paginate @deals
                
 .side.span4 
   .default_window.white_background 

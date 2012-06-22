@@ -95,11 +95,15 @@ class DealsController < AuthorizedController
     @deals = @deals.search(params[:search]) if params[:search]
     @deals = @deals.by_cities(params[:search_city]) if params[:search_city] && not(params[:search_city].empty?)
 
-    case action_name
-    when "index"
-      @deals = @deals.active
-    when "today"
-      @deals = @deals.today
+    if params[:show_olders]
+      @deals = @deals.all
+    else
+      case action_name
+      when "index"
+        @deals = @deals.active
+      when "today"
+        @deals = @deals.today
+      end
     end
   end
 

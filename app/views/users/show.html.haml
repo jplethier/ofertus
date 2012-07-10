@@ -1,0 +1,94 @@
+.main.span8 
+  .main
+    .dealsMap
+      .default_window.grey_background.dealsList#sitesPanelView
+        .content
+          .content.defaultDeal
+            .up 
+            .middle#tabAreaId{ :style => "min-height: 50px;" }
+              - @deals.each_with_index do |deal, index|
+                = render :partial => 'deals/deal', :locals => {:deal => deal, :index => index}
+
+              = will_paginate @deals
+
+          .down 
+
+.side.span4
+  .default_window.white_background
+    .title
+      %h3= @user.name
+
+    .content
+      .profile
+        .row-fluid
+          .span6
+            .userPicture 
+              - if @user.provider?
+                = image_tag(@user.facebook_profile_picture, :alt => @user.username, :title => @user.username)
+              - else
+                = image_tag(@user.gravatar_url, :alt => @user.username, :title => @user.username)
+
+            .edit_user
+              - if current_user == @user
+                = link_to "Editar meus dados", edit_user_registration_path
+
+          .span6
+            %strong.title Um pouco sobre mim 
+            .aboutMe
+              %p= "#{@user.deals.count} #{t('models.user.shared_deals')}"
+              %br
+              %p= "#{@user.followers.count} #{t('models.user.followers')}"
+              %br
+              %p= "#{t('models.user.following')} #{@user.following.count} #{t('users')}"
+              %br
+              - if (user_signed_in? && (current_user == @user || @user.follow?(current_user)))
+                %p
+                  Email: 
+                  = @user.email if @user.email
+                %br
+
+            - if user_signed_in? && current_user != @user
+              .interactions
+                - if current_user.follow? @user
+                  .unfollow
+                    = link_to I18n.t("actions.unfollow"), unfollow_user_path(@user.username), :class => :unfollow
+
+                - else
+                  .follow
+                    = link_to I18n.t("actions.follow"), follow_user_path(@user.username), :class => :follow
+
+            - elsif user_signed_in?
+              - if @user.credit < 30.00
+                %span.credit.unavailable= number_to_currency @user.credit
+              - else
+                %span.credit.available= number_to_currency @user.credit
+
+  .default_window.white_background
+    .title
+      %h3 Melhores Ofertas
+    
+    .content
+      .best
+        .small_deal
+          - @best_deals.each do |deal|
+            = render :partial => 'deals/side_deal', :locals => {:deal => deal}
+
+  .default_window.white_background
+    .title
+      %h3 Ofertas Mais Comentadas
+
+    .content
+      .most_commented
+        .small_deal
+          - @most_comment_deals.each do |deal|
+            = render :partial => 'deals/side_deal', :locals => {:deal => deal}
+
+  .default_window.white_background
+    .title
+      %h3 Últimas Ofertas Compartilhadas
+
+    .content
+      .newest
+        .small_deal
+          - @newest_deals.each do |deal|
+            = render :partial => 'deals/side_deal', :locals => {:deal => deal}

@@ -1,0 +1,35 @@
+.user
+  .left_panel
+    - if user.provider?
+      = link_to(image_tag(user.facebook_profile_picture, :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture")
+    - else
+      = link_to(image_tag(user.gravatar_url, :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture")
+
+  %strong.user_name= link_to user.name, user_path(user.username), :title => user.name
+  %ul
+    %li.user_username
+      %strong Username:
+      = user.username
+    %li.user_deals
+      %strong= user.deals.length
+      ofertas compartilhadas!
+    %li.user_following
+      Seguindo
+      %strong= user.following.length
+      usuários!
+    %li.user_followers
+      %strong= user.followers.length
+      seguidores!
+
+  .button
+    = link_to t('buttons.user_profile'), user_path(user.username), :class => "button"
+
+  - if user_signed_in? && current_user != user
+    .interactions
+      - if current_user.follow? user
+        .unfollow
+          = link_to I18n.t("actions.unfollow"), unfollow_user_path(user.username), :class => :unfollow
+        
+      - else
+        .follow
+          = link_to I18n.t("actions.follow"), follow_user_path(user.username), :class => :follow

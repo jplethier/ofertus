@@ -1,0 +1,66 @@
+.span8
+  .default_window.page_title.grey_background
+    %h1= t('strings.users')
+
+  .main
+    .users_map
+      .default_window.grey_background.users_list#users_list
+        .content
+          .content.default_user
+            .zero-PagingTable
+              .zero-PagingTableGrid
+                - @users.each_with_index do |user, index|
+                  = render :partial => 'users/user', :locals => {:user => user, :index => index}
+
+                = will_paginate @users
+
+.side.span4
+  .default_window.white_background
+    .title
+      %h3= t('strings.search_options')
+
+    .content
+      %form#search_form.search{ :action => users_path, :method => "get" }
+        %fieldset
+          %legend= t('strings.to_search')
+          = text_field_tag :search, params[:search]
+          %button#search{ :type => "submit" }= t('buttons.search')
+
+  .default_window.white_background
+    .title
+      %h3= t('strings.users_with_more_deals')
+
+    .content
+      .best
+        .small_user
+          - @users_with_more_deals.each_with_index do |user, index|
+            .side_user
+              - if index == 0
+                .side_user_info_first
+                  .picture
+                    - if user.provider?
+                      = link_to(image_tag(user.facebook_profile_picture("square"), :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture")
+                    - else
+                      = link_to(image_tag(user.gravatar_url(:size => 50), :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture")
+
+                  .infos
+                    %p
+                      %strong= link_to user.name, user_path(user.username)
+                    %p
+                      %strong= user.deals.length
+                      ofertas compartilhadas!
+
+              - else
+                .side_user_info
+                  .picture
+                    - if user.provider?
+                      = link_to(image_tag(user.facebook_profile_picture("square"), :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture")
+                    - else
+                      = link_to(image_tag(user.gravatar_url(:size => 50), :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture")
+
+                  .infos
+                    %p
+                      %strong= user.name
+                    %p
+                      %strong= user.deals.length
+                      ofertas compartilhadas!

@@ -2,7 +2,15 @@ DealWitMe::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
-  mount RailsBlogEngine::Engine => "/blog"
+  # mount RailsBlogEngine::Engine => "/blog"
+
+  namespace :blog do 
+    resources :blog_posts do
+      resources :blog_comments
+    end
+
+    root :to => "blog_posts#index"
+  end
 
   #TODO: Alterar as rotas, deveriam ser páginas estáticas
   get "pages/whoarewe"

@@ -11,7 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121125111960) do
+ActiveRecord::Schema.define(:version => 20121125111962) do
+
+  create_table "blog_comments", :force => true do |t|
+    t.string   "title",      :limit => 50
+    t.string   "email"
+    t.string   "name"
+    t.string   "site"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blog_posts", :force => true do |t|
+    t.string   "title",           :limit => 150
+    t.string   "url"
+    t.text     "content"
+    t.integer  "number_of_reads",                :default => 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "cities", :force => true do |t|
     t.string   "name",       :null => false

@@ -1,7 +1,7 @@
 .logo.container-fluid
   .content.row-fluid
     #logo.span4
-      = link_to "OfertuS", app_helpers.root_path, :class => "logo" 
+      = link_to "OfertuS", root_path, :class => "logo" 
     
     #social.span2
       :plain
@@ -16,7 +16,7 @@
           <g:plusone annotation="inline"></g:plusone>
 
     #share_deals.span4
-      %form{ :action => "#{app_helpers.share_deals_path}", :method => "get.share_offer_url", :class => "share_offer_url" }
+      %form{ :action => "#{share_deals_path}", :method => "get.share_offer_url", :class => "share_offer_url" }
         %fieldset
           %legend Compartilhar
           = text_field_tag :share, params[:share], :title => "Compartilhe uma oferta", :id => "share"

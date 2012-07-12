@@ -5,7 +5,7 @@
         %li.title Sobre OfertuS 
         %li
           %a{ :href => "/pages/whoarewe" }= I18n.t("actions.who_are_we")   
-        %li= link_to I18n.t("actions.how_it_works"), app_helpers.pages_how_it_works_path  
+        %li= link_to I18n.t("actions.how_it_works"), pages_how_it_works_path  
       
 
       %ul.second.span2
@@ -108,12 +108,12 @@
         %br
         - if user_signed_in? 
           
-          %li= link_to I18n.t("actions.my_profile"), app_helpers.user_path(current_user.username), :class => "specialLink"
-          %li= link_to I18n.t("actions.share_an_offer"), app_helpers.new_deal_path, :class => "specialLink"
-          %li= link_to I18n.t("actions.logout"), app_helpers.destroy_user_session_path, :class => "specialLink"
+          %li= link_to I18n.t("actions.my_profile"), user_path(current_user.username), :class => "specialLink"
+          %li= link_to I18n.t("actions.share_an_offer"), new_deal_path, :class => "specialLink"
+          %li= link_to I18n.t("actions.logout"), destroy_user_session_path, :class => "specialLink"
         - else
-          %li= link_to I18n.t("actions.sign_up"), app_helpers.new_user_registration_path, :class => "specialLink"
-          %li= link_to I18n.t("actions.sign_in"), app_helpers.new_user_session_path, :class => "specialLink"
+          %li= link_to I18n.t("actions.sign_up"), new_user_registration_path, :class => "specialLink"
+          %li= link_to I18n.t("actions.sign_in"), new_user_session_path, :class => "specialLink"
 
   .socialMenu
     .intern

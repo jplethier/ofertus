@@ -1,1 +1,7 @@
-Exibir post
+.span8
+  .default_window.page_title.grey_background
+    %h1= @blog_post.title
+    - if user_signed_in? && current_user.blog_admin?
+      = link_to "Novo post", "/blog/edit/#{@blog_post.title}"
+  .main.default_window.grey_background
+    = @blog_post.content.html_safe

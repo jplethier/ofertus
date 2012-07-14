@@ -10,7 +10,8 @@ DealWitMe::Application.routes.draw do
     end
 
     match '/new', :to => "blog_posts#new"
-    match '/:post_name', :to => "blog_posts#show"
+    match '/edit/:post_title', :to => "blog_posts#edit"
+    match '/:post_title', :to => "blog_posts#show"
     root :to => "blog_posts#index"
   end
 

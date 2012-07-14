@@ -10,11 +10,7 @@ class Blog::BlogPostsController < ApplicationController
   end
 
   def show
-    binding.pry
-    if params[:post_name] == 'new'
-      redirect_to new_blog_blog_post_path
-    else
-    end
+    @blog_post = BlogPost.find_by_title(params[:post_title])
   end
 
   def create
@@ -23,6 +19,20 @@ class Blog::BlogPostsController < ApplicationController
       redirect_to blog_root_path
     else
       render 'new'
+    end
+  end
+
+  def edit
+    @blog_post = BlogPost.find_by_title(params[:post_title])
+  end
+
+  def update
+    @blog_post = BlogPost.find(params[:id])
+    if BlogPost.update(@blog_post, params[:blog_post])
+      redirect_to blog_root_path
+    else
+      binding.pry
+      render 'edit'
     end
   end
 

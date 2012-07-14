@@ -2,7 +2,7 @@
   .default_window.page_title.grey_background
     %h1 Blog
     - if user_signed_in? && current_user.blog_admin?
-      = link_to "Novo post", new_blog_blog_post_path
+      = link_to "Novo post", "/blog/new"
   .main.default_window.grey_background
     - @blog_posts.each do |post|
       .post_title

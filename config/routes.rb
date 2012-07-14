@@ -9,7 +9,8 @@ DealWitMe::Application.routes.draw do
       resources :blog_comments
     end
 
-    match '/blog/:name', :to => "blog_posts#show"
+    match '/new', :to => "blog_posts#new"
+    match '/:post_name', :to => "blog_posts#show"
     root :to => "blog_posts#index"
   end
 

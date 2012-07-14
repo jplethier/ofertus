@@ -11,16 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121125111962) do
+ActiveRecord::Schema.define(:version => 20121125111963) do
 
   create_table "blog_comments", :force => true do |t|
-    t.string   "title",      :limit => 50
+    t.string   "title",        :limit => 50
     t.string   "email"
     t.string   "name"
     t.string   "site"
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "blog_post_id"
+    t.integer  "user_id"
   end
 
   create_table "blog_posts", :force => true do |t|
@@ -30,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20121125111962) do
     t.integer  "number_of_reads",                :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "cities", :force => true do |t|

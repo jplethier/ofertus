@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem 'acts_as_commentable'
 gem 'airbrake'
+gem 'annotate', ">= 2.5.0.pre1"
 gem 'cancan'
 gem 'ckeditor'
 gem 'coffee-script'

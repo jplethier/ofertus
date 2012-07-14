@@ -10,11 +10,13 @@ class Blog::BlogPostsController < ApplicationController
   end
 
   def show
-    @blog_post = BlogPost.find_by_title(params[:post_title])
+    @blog_post = BlogPost.find_by_url(params[:post_title])
+
   end
 
   def create
     @blog_post = BlogPost.new(params[:blog_post])
+    @blog_post.user = current_user
     if @blog_post.save!
       redirect_to blog_root_path
     else
@@ -23,7 +25,7 @@ class Blog::BlogPostsController < ApplicationController
   end
 
   def edit
-    @blog_post = BlogPost.find_by_title(params[:post_title])
+    @blog_post = BlogPost.find_by_url(params[:post_title])
   end
 
   def update

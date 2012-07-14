@@ -34,6 +34,8 @@ GEM
     airbrake (3.0.9)
       activesupport
       builder
+    annotate (2.5.0.pre1)
+      rake
     arel (2.2.1)
     attr_required (0.0.3)
     awesome_print (1.0.2)
@@ -284,6 +286,7 @@ PLATFORMS
 DEPENDENCIES
   acts_as_commentable
   airbrake
+  annotate (>= 2.5.0.pre1)
   awesome_print
   cancan
   capybara

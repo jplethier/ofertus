@@ -19,7 +19,7 @@ describe BlogComment do
   end
 
   describe "Validations" do
-
+  end
 
   pending "add some examples to (or delete) #{__FILE__}"
 end

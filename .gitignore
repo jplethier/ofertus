@@ -46,6 +46,7 @@ tmp/*
 /spec/routing
 /spec/views
 /specifications
+/public/ckeditor_assets
 
 # scm revert files
 **.orig

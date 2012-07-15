@@ -2,8 +2,8 @@
 
 FactoryGirl.define do
   factory :blog_post do
-    title "MyString"
-    url "MyString"
+    title "Titulo"
+    url "titulo"
     content "MyText"
     number_of_reads 1
 

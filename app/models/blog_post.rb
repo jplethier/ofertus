@@ -8,7 +8,7 @@ class BlogPost < ActiveRecord::Base
   validates :title,   :presence => true, :length => { :maximum => 100 }
   validates :content, :presence => true, :length => { :maximum => 10000 }
   validates :user,    :presence => true
-  validates :url,     :presence => true, :format => /^[^.\/A-Z à-üÀ-Ü]$/
+  validates :url,     :presence => true, :format => /^[^.\/A-Z à-üÀ-Ü]*$/
 
   def create_post_url
     self.url = self.title.parameterize

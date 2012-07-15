@@ -1,3 +1,4 @@
+# coding: UTF-8
 require 'spec_helper'
 
 describe BlogPost do
@@ -5,8 +6,7 @@ describe BlogPost do
   subject { blog_post }
 
   its(:save) { should be_true }
-  its(:switched_on?) { should be_true }
-
+  
   it { should respond_to :user }
 
   describe "Accessibility" do
@@ -49,7 +49,30 @@ describe BlogPost do
     end
 
     describe "url should not contain illegal characters" do
-      pending "add url tests here"
+      it "url with space should not be valid" do
+        blog_post.url = 'titulo do post'
+        blog_post.should_not be_valid
+      end
+
+      it "url with accent should not be valid" do
+        blog_post.url = 'título'
+        blog_post.should_not be_valid
+      end
+
+      it "url with . should not be vlaid" do
+        blog_post.url = 'titulo.do.post'
+        blog_post.should_not be_valid
+      end
+
+      it "url with / should not be valid" do
+        blog_post.url = 'titulo/do/post'
+        blog_post.should_not be_valid
+      end
+
+      it "url with capital letters should not be valid" do
+        blog_post.url = 'TITULO'
+        blog_post.should_not be_valid
+      end
     end
 
     pending "add more validations tests"

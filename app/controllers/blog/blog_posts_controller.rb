@@ -1,5 +1,6 @@
 # coding: UTF-8
-class Blog::BlogPostsController < ApplicationController
+class Blog::BlogPostsController < AuthorizedController
+  skip_before_filter :authenticate_user!, :only => [:index, :show]
 
   def index
     @blog_posts = BlogPost.all  

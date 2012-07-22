@@ -1,0 +1,10 @@
+"pt-BR":
+  unauthorized:
+    manage:
+      all: "Not authorized to %{action} %{subject}."
+      user: "Não é permitido alterar dados de outros usuários."
+      blog_post: "Não é permitido incluir ou alterar posts do blog"
+      comment: "Para comentar é necessário estar logado."
+      deal: "Para compartilhar uma oferta, é necessário estar logado." 
+    update:
+      project: "Not allowed to update this project."

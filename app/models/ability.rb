@@ -31,6 +31,8 @@ class Ability
     can :read, User
     can :read, Deal
     can :read, Comment
+    can :read, BlogPost
+    can :read, BlogComment
 
     unless user.guest?
       can :manage, Deal, :user_id => user.id
@@ -39,8 +41,8 @@ class Ability
       can [:upvote, :downvote, :unvote], Deal
     end
 
-    # if user.admin?
-    #   can :manage, RailsBlogEnginePost
-    # end
+    if user.admin?
+      can :manage, BlogPost
+    end
   end
 end

@@ -6,23 +6,23 @@ class Carrefour
 
   CATEGORIES = {
     "Automotivo" => Deal::CATEGORY_CAR,
-    "Bebês" => Deal::CATEGORY_KIDS,
+    "Bebês" => Deal::CATEGORY_OTHER,
     "Beleza e Saúde" => Deal::CATEGORY_BEAUTY_AND_HEALTH,
-    "Brinquedos" => Deal::CATEGORY_KIDS,
+    "Brinquedos" => Deal::CATEGORY_OTHER,
     "Cama, Mesa e Banho" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Cine e Foto" => Deal::CATEGORY_ELECTRONICS,
+    "Cine e Foto" => Deal::CATEGORY_COMPUTER,
     "Eletrodomésticos" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Eletroportáteis" => Deal::CATEGORY_ELECTRONICS,
-    "Esporte e Lazer" => Deal::CATEGORY_FITNESS,
+    "Eletroportáteis" => Deal::CATEGORY_COMPUTER,
+    "Esporte e Lazer" => Deal::CATEGORY_ENTERTAINMENT,
     "Ferramentas" => Deal::CATEGORY_OTHER,
-    "Games" => Deal::CATEGORY_KIDS,
-    "Imagem" => Deal::CATEGORY_ELECTRONICS,
+    "Games" => Deal::CATEGORY_OTHER,
+    "Imagem" => Deal::CATEGORY_COMPUTER,
     "Informática" => Deal::CATEGORY_COMPUTER,
     "Móveis e Decoração" => Deal::CATEGORY_HOME_AND_APPLIANCE,
     "Perfumes e Cosméticos" => Deal::CATEGORY_BEAUTY_AND_HEALTH,
-    "Som" => Deal::CATEGORY_ELECTRONICS,
+    "Som" => Deal::CATEGORY_COMPUTER,
     "Tapetes e Cortinas" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Telefonia" => Deal::CATEGORY_ELECTRONICS,
+    "Telefonia" => Deal::CATEGORY_COMPUTER,
     "Utilidades Domésticas" => Deal::CATEGORY_HOME_AND_APPLIANCE
   }
 

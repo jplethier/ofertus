@@ -5,23 +5,23 @@ require 'open-uri'
 class Leader
 
   CATEGORIES = {
-    "Bebês" => Deal::CATEGORY_KIDS,
+    "Bebês" => Deal::CATEGORY_OTHER,
     "Beleza & Saúde" => Deal::CATEGORY_BEAUTY_AND_HEALTH,
-    "Brinquedos" => Deal::CATEGORY_KIDS,
+    "Brinquedos" => Deal::CATEGORY_OTHER,
     "Calçados e Acessórios" => Deal::CATEGORY_CLOTHES,
     "Cama, Mesa e Banho" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Cine e Foto" => Deal::CATEGORY_ELECTRONICS,
+    "Cine e Foto" => Deal::CATEGORY_COMPUTER,
     "Eletrodomésticos" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Eletrônicos" => Deal::CATEGORY_ELECTRONICS,
-    "Esporte e Lazer" => Deal::CATEGORY_FITNESS,
-    "Eletroportáteis" => Deal::CATEGORY_ELECTRONICS,
-    "Games" => Deal::CATEGORY_KIDS,
+    "Eletrônicos" => Deal::CATEGORY_COMPUTER,
+    "Esporte e Lazer" => Deal::CATEGORY_ENTERTAINMENT,
+    "Eletroportáteis" => Deal::CATEGORY_COMPUTER,
+    "Games" => Deal::CATEGORY_OTHER,
     "Informática" => Deal::CATEGORY_COMPUTER,
     "Moda" => Deal::CATEGORY_CLOTHES,
     "Mode Íntima" => Deal::CATEGORY_CLOTHES,
     "Móveis" => Deal::CATEGORY_HOME_AND_APPLIANCE,
     "Relógios" => Deal::CATEGORY_OTHER,
-    "Telefonia" => Deal::CATEGORY_ELECTRONICS,
+    "Telefonia" => Deal::CATEGORY_COMPUTER,
     "Utilidades Domésticas" => Deal::CATEGORY_HOME_AND_APPLIANCE
   }
 

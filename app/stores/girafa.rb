@@ -2,14 +2,14 @@
 class Girafa    
 
   CATEGORIES = {
-    "Cine/Foto" => Deal::CATEGORY_ELECTRONICS,
-    "Eletronicos" => Deal::CATEGORY_ELECTRONICS,
+    "Cine/Foto" => Deal::CATEGORY_COMPUTER,
+    "Eletronicos" => Deal::CATEGORY_COMPUTER,
     "Eletroportáteis" => Deal::CATEGORY_HOME_AND_APPLIANCE,
     "Eletroomésticos" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Games" => Deal::CATEGORY_KIDS,
+    "Games" => Deal::CATEGORY_OTHER,
     "Informática" => Deal::CATEGORY_COMPUTER,
     "Saúde e beleza" => Deal::CATEGORY_BEAUTY_AND_HEALTH,
-    "Telefonia" => Deal::CATEGORY_ELECTRONICS
+    "Telefonia" => Deal::CATEGORY_COMPUTER
   }
 
   def self.fill_deal_fields(link)

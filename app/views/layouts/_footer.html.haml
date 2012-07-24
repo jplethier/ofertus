@@ -26,9 +26,9 @@
          
         %li
           - if controller_name == 'deals' && action_name ==  'today' 
-            %a{ :href => "/deals/today/electronics" }= Deal.i18n_category(Deal::CATEGORY_ELECTRONICS)  
+            %a{ :href => "/deals/today/electronics" }= Deal.i18n_category(Deal::CATEGORY_COMPUTER)  
           - else 
-            %a{ :href => "/deals/active/electronics" }= Deal.i18n_category(Deal::CATEGORY_ELECTRONICS)  
+            %a{ :href => "/deals/active/electronics" }= Deal.i18n_category(Deal::CATEGORY_COMPUTER)  
           
          
         %li
@@ -47,9 +47,9 @@
          
         %li
           - if controller_name == 'deals' && action_name ==  'today' 
-            %a{ :href => "/deals/today/fitness" }= Deal.i18n_category(Deal::CATEGORY_FITNESS)  
+            %a{ :href => "/deals/today/fitness" }= Deal.i18n_category(Deal::CATEGORY_ENTERTAINMENT)  
           - else 
-            %a{ :href => "/deals/active/fitness" }= Deal.i18n_category(Deal::CATEGORY_FITNESS)  
+            %a{ :href => "/deals/active/fitness" }= Deal.i18n_category(Deal::CATEGORY_ENTERTAINMENT)  
 
       %ul.third.span2
         %li.title Categorias 
@@ -75,9 +75,9 @@
          
         %li
           - if controller_name == 'deals' && action_name ==  'today' 
-            %a{ :href => "/deals/today/kids" }= Deal.i18n_category(Deal::CATEGORY_KIDS)  
+            %a{ :href => "/deals/today/kids" }= Deal.i18n_category(Deal::CATEGORY_OTHER)  
           - else 
-            %a{ :href => "/deals/active/kids" }= Deal.i18n_category(Deal::CATEGORY_KIDS)  
+            %a{ :href => "/deals/active/kids" }= Deal.i18n_category(Deal::CATEGORY_OTHER)  
           
          
         %li

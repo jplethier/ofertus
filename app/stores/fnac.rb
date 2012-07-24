@@ -3,16 +3,16 @@ class Fnac
 
   CATEGORIES = {
     "Filmes e TV" => Deal::CATEGORY_CULTURE,
-    "Foto" => Deal::CATEGORY_ELECTRONICS,
-    "Games" => Deal::CATEGORY_KIDS,
-    "Infantil" => Deal::CATEGORY_KIDS,
-    "Imagem" => Deal::CATEGORY_ELECTRONICS,
+    "Foto" => Deal::CATEGORY_COMPUTER,
+    "Games" => Deal::CATEGORY_OTHER,
+    "Infantil" => Deal::CATEGORY_OTHER,
+    "Imagem" => Deal::CATEGORY_COMPUTER,
     "Informática" => Deal::CATEGORY_COMPUTER,
     "Livros" => Deal::CATEGORY_CULTURE,
     "Música" => Deal::CATEGORY_CULTURE,
     "Serviços" => Deal::CATEGORY_OTHER,
     "Som" => Deal::CATEGORY_CULTURE,
-    "Telefonia" => Deal::CATEGORY_ELECTRONICS
+    "Telefonia" => Deal::CATEGORY_COMPUTER
   }
 
   def self.fill_deal_fields(link)

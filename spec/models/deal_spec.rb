@@ -300,7 +300,7 @@ describe Deal do
 
   describe "Categories" do
     it "CATEGORIES should return all categories" do
-      Deal::CATEGORIES.should =~ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      Deal::CATEGORIES.should =~ [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
     end
 
     specify "RESTAURANT: should be equal 1" do
@@ -311,44 +311,40 @@ describe Deal do
       Deal::CATEGORY_BEAUTY_AND_HEALTH.should == 2
     end
 
-    specify "ELECTRONICS: should be equal 3" do
-      Deal::CATEGORY_ELECTRONICS.should == 3
+    specify "CULTURE: should be equal 3" do
+      Deal::CATEGORY_CULTURE.should == 3
     end
 
-    specify "CULTURE: should be equal 4" do
-      Deal::CATEGORY_CULTURE.should == 4
+    specify "HOME_AND_APPLIANCE: should be equal 4" do
+      Deal::CATEGORY_HOME_AND_APPLIANCE.should == 4
     end
 
-    specify "HOME_AND_APPLIANCE: should be equal 5" do
-      Deal::CATEGORY_HOME_AND_APPLIANCE.should == 5
+    specify "COMPUTER: should be equal 5" do
+      Deal::CATEGORY_COMPUTER.should == 5
     end
 
-    specify "FITNESS: should be equal 6" do
-      Deal::CATEGORY_FITNESS.should == 6
+    specify "CLOTHES: should be equal 6" do
+      Deal::CATEGORY_CLOTHES.should == 6
     end
 
-    specify "COMPUTER: should be equal 7" do
-      Deal::CATEGORY_COMPUTER.should == 7
+    specify "TRAVEL: should be equal 7" do
+      Deal::CATEGORY_TRAVEL.should == 7
     end
 
-    specify "CLOTHES: should be equal 8" do
-      Deal::CATEGORY_CLOTHES.should == 8
+    specify "CAR: should be equal 8" do
+      Deal::CATEGORY_CAR.should == 8
     end
 
-    specify "TRAVEL: should be equal 9" do
-      Deal::CATEGORY_TRAVEL.should == 9
+    specify "OTHER: should be equal 9" do
+      Deal::CATEGORY_OTHER.should == 9
     end
 
-    specify "KIDS: should be equal 10" do
-      Deal::CATEGORY_KIDS.should == 10
+    specify "HOME_AND_DECORATION: should be equal 10" do
+      Deal::CATEGORY_HOME_AND_DECORATION.should == 10
     end
 
-    specify "CAR: should be equal 11" do
-      Deal::CATEGORY_CAR.should == 11
-    end
-
-    specify "OTHER: should be equal 12" do
-      Deal::CATEGORY_OTHER.should == 12
+    specify "ENTERTAINMENT: should be equal 11" do
+      Deal::CATEGORY_ENTERTAINMENT.should == 11
     end
 
     describe "categories dictionary" do
@@ -361,20 +357,12 @@ describe Deal do
         Deal::CATEGORIES_DICTIONARY["beauty_and_health"].should == Deal::CATEGORY_BEAUTY_AND_HEALTH
       end
 
-      it "should return CATEGORY_ELECTRONICS if we pass 'eletrocnics' to the dictionary" do
-        Deal::CATEGORIES_DICTIONARY["electronics"].should == Deal::CATEGORY_ELECTRONICS
-      end
-
       it "should return CATEGORY_CULTURE if we pass 'culture' to the dictionary" do
         Deal::CATEGORIES_DICTIONARY["culture"].should == Deal::CATEGORY_CULTURE
       end
 
       it "should return CATEGORY_HOME_AND_APPLIANCE if we pass 'home_and_appliance' to the dictionary" do
         Deal::CATEGORIES_DICTIONARY["home_and_appliance"].should == Deal::CATEGORY_HOME_AND_APPLIANCE
-      end
-
-      it "should return CATEGORY_FITNESS if we pass 'fitness' to the dictionary" do
-        Deal::CATEGORIES_DICTIONARY["fitness"].should == Deal::CATEGORY_FITNESS
       end
 
       it "should return CATEGORY_COMPUTER if we pass 'computer' to the dictionary" do
@@ -389,16 +377,20 @@ describe Deal do
         Deal::CATEGORIES_DICTIONARY["travel"].should == Deal::CATEGORY_TRAVEL
       end
 
-      it "should return CATEGORY_KIDS if we pass 'kids' to the dictionary" do
-        Deal::CATEGORIES_DICTIONARY["kids"].should == Deal::CATEGORY_KIDS
-      end
-
       it "should return CATEGORY_CAR if we pass 'car' to the dictionary" do
         Deal::CATEGORIES_DICTIONARY["car"].should == Deal::CATEGORY_CAR
       end
 
       it "should return CATEGORY_OTHER if we pass 'others' to the dictionary" do
         Deal::CATEGORIES_DICTIONARY["others"].should == Deal::CATEGORY_OTHER
+      end
+
+      it "should return CATEGORY_HOME_AND_DECORATION if we pass 'home_and_decoration' to the dictionary" do
+        Deal::CATEGORIES_DICTIONARY["home_and_decoration"].should == Deal::CATEGORY_HOME_AND_DECORATION
+      end
+
+      it "should return CATEGORY_ENTERTAINMENT if we pass 'entertainment' to the dictionary" do
+        Deal::CATEGORIES_DICTIONARY["entertainment"].should == Deal::CATEGORY_ENTERTAINMENT
       end
     end
 
@@ -422,44 +414,40 @@ describe Deal do
           Deal.i18n_category(Deal::CATEGORY_BEAUTY_AND_HEALTH).should == 'Beleza e Saúde'
         end
 
-        specify "ELETRONICS: should be equal 'Eletrônicos'" do
-          Deal.i18n_category(Deal::CATEGORY_ELECTRONICS).should == 'Eletrônicos'
-        end
-
-        specify "CULTURE: should be equal 'Cultura'" do
-          Deal.i18n_category(Deal::CATEGORY_CULTURE).should == 'Cultura'
+        specify "CULTURE: should be equal 'Livros, Música e Filmes'" do
+          Deal.i18n_category(Deal::CATEGORY_CULTURE).should == 'Livros, Músicas e Filmes'
         end
 
         specify "HOME AND APPLIANCE: should be equal 'Eletrodomésticos'" do
           Deal.i18n_category(Deal::CATEGORY_HOME_AND_APPLIANCE).should == 'Eletrodomésticos'
         end
 
-        specify "FITNESS: should be equal 'Esportes e Lazer'" do
-          Deal.i18n_category(Deal::CATEGORY_FITNESS).should == 'Esportes e Lazer'
+        specify "COMPUTER: should be equal 'Tecnologia'" do
+          Deal.i18n_category(Deal::CATEGORY_COMPUTER).should == 'Tecnologia'
         end
 
-        specify "COMPUTER: should be equal 'Informática'" do
-          Deal.i18n_category(Deal::CATEGORY_COMPUTER).should == 'Informática'
-        end
-
-        specify "CLOTHES: should be equal 'Vestuário'" do
-          Deal.i18n_category(Deal::CATEGORY_CLOTHES).should == 'Vestuário'
+        specify "CLOTHES: should be equal 'Vestuário e Acessórios'" do
+          Deal.i18n_category(Deal::CATEGORY_CLOTHES).should == 'Vestuário e Acessórios'
         end
 
         specify "TRAVEL: should be equal 'Viagens'" do
           Deal.i18n_category(Deal::CATEGORY_TRAVEL).should == 'Viagens'
         end
 
-        specify "KIDS: should be equal 'Infantil'" do
-          Deal.i18n_category(Deal::CATEGORY_KIDS).should == 'Infantil'
-        end
-
-        specify "CAR: should be equal 'Artigos e peças automotivas'" do
-          Deal.i18n_category(Deal::CATEGORY_CAR).should == 'Artigos automotivos'
+        specify "CAR: should be equal 'Automotivos'" do
+          Deal.i18n_category(Deal::CATEGORY_CAR).should == 'Automotivos'
         end
         
         specify "OTHER: should be equal 'Diversos'" do
           Deal.i18n_category(Deal::CATEGORY_OTHER).should == 'Diversos'
+        end
+
+        specify "ENTERTAINMENT: should be equal 'Entretenimento e Lazer'" do
+          Deal.i18n_category(Deal::CATEGORY_ENTERTAINMENT).should == 'Entretenimento e Lazer'
+        end
+
+        specify "HOME_AND_DECORATION: should be equal 'Casa e Decoração'" do
+          Deal.i18n_category(Deal::CATEGORY_HOME_AND_DECORATION).should == 'Casa e Decoração'
         end
       end
     end

@@ -3,16 +3,16 @@ class PontoFrio
 
   CATEGORIES = {
     "Automotivo" => Deal::CATEGORY_CAR,
-    "Bebês" => Deal::CATEGORY_KIDS,
+    "Bebês" => Deal::CATEGORY_OTHER,
     "Beleza & Saúde" => Deal::CATEGORY_BEAUTY_AND_HEALTH,
-    "Brinquedos" => Deal::CATEGORY_KIDS,
+    "Brinquedos" => Deal::CATEGORY_OTHER,
     "Cama, Mesa e Banho" => Deal::CATEGORY_HOME_AND_APPLIANCE,
     "Cine & Foto" => Deal::CATEGORY_CULTURE,
     "DVDs e Blu-Ray" => Deal::CATEGORY_CULTURE,
     "Eletrodomésticos" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Eletrônicos" => Deal::CATEGORY_ELECTRONICS,
+    "Eletrônicos" => Deal::CATEGORY_COMPUTER,
     "Eletroportáteis" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Esporte & Lazer" => Deal::CATEGORY_FITNESS,
+    "Esporte & Lazer" => Deal::CATEGORY_ENTERTAINMENT,
     "Ferramentas" => Deal::CATEGORY_OTHER,
     "Flores" => Deal::CATEGORY_OTHER,
     "Futebol" => Deal::CATEGORY_OTHER,
@@ -23,7 +23,7 @@ class PontoFrio
     "Móveis" => Deal::CATEGORY_HOME_AND_APPLIANCE,
     "Papelaria" => Deal::CATEGORY_OTHER,
     "Perfumaria" => Deal::CATEGORY_BEAUTY_AND_HEALTH,
-    "Telefones & Celulares" => Deal::CATEGORY_ELECTRONICS,
+    "Telefones & Celulares" => Deal::CATEGORY_COMPUTER,
     "Relógios" => Deal::CATEGORY_OTHER,
     "Utilidades Domésticas" => Deal::CATEGORY_HOME_AND_APPLIANCE
   }

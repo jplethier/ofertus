@@ -46,8 +46,8 @@ class Share
   CATEGORIES = {
     "bares-e-baladas" => Deal::CATEGORY_RESTAURANT,
     "cursos-e-aulas" => Deal::CATEGORY_CULTURE,
-    "entretenimento" => Deal::CATEGORY_FITNESS,
-    "esporte" => Deal::CATEGORY_FITNESS,
+    "entretenimento" => Deal::CATEGORY_ENTERTAINMENT,
+    "esporte" => Deal::CATEGORY_ENTERTAINMENT,
     "hoteis-e-viagens" => Deal::CATEGORY_TRAVEL,
     "produtos" => nil,
     "restaurantes" => Deal::CATEGORY_RESTAURANT,

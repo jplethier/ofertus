@@ -5,17 +5,17 @@ require 'open-uri'
 class FastShop
 
   CATEGORIES = {
-    "Áudio" => Deal::CATEGORY_ELECTRONICS,
-    "Vídeo" => Deal::CATEGORY_ELECTRONICS,
-    "Cine e Foto" => Deal::CATEGORY_ELECTRONICS,
+    "Áudio" => Deal::CATEGORY_COMPUTER,
+    "Vídeo" => Deal::CATEGORY_COMPUTER,
+    "Cine e Foto" => Deal::CATEGORY_COMPUTER,
     "Eletrodomésticos" => Deal::CATEGORY_HOME_AND_APPLIANCE,
-    "Portáteis" => Deal::CATEGORY_ELECTRONICS,
+    "Portáteis" => Deal::CATEGORY_COMPUTER,
     "Utensílios Domésticos" => Deal::CATEGORY_HOME_AND_APPLIANCE,
     "Informática" => Deal::CATEGORY_COMPUTER,
-    "Telefonia" => Deal::CATEGORY_ELECTRONICS,
+    "Telefonia" => Deal::CATEGORY_COMPUTER,
     "Apple" => Deal::CATEGORY_COMPUTER,
-    "Games" => Deal::CATEGORY_KIDS,
-    "Tablet" => Deal::CATEGORY_ELECTRONICS
+    "Games" => Deal::CATEGORY_OTHER,
+    "Tablet" => Deal::CATEGORY_COMPUTER
   }
 
   def self.fill_deal_fields(link)

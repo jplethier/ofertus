@@ -1,17 +1,29 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html lang="pt-br" dir="ltr" xml:lang="pt-br" xmlns="http://www.w3.org/1999/xhtml">
+<!doctype html>
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!-- Consider adding a manifest.appcache: h5bp.com/d/Offline -->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
   <head>
     <title><%= title %></title>
 
     <!-- TODO: META -->
-    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
-    <meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8,FF=3,OtherUA=4,chrome=1">
     <meta http-equiv="content-style-type" content="text/css" />
     <meta name="keywords" content="serviços, produtos, satisfação, consumidores, clientes, ofertas, descontos, compartilhar, opniões, avaliações, dicas, dúvidas, fórum.  " />
     <meta name="description" 	content="Compartilhe, descubra, comente e opine sobre ofertas com seus amigos no OfertuS." />
     <meta name="author" content="OfertuS" />
     <meta name="gwt:property"	content="locale=pt_BR" />
     <meta name="gwt:property"	content="cityZero=1" />
+    <meta name="author" content="">
+    <meta name="google-site-verification" content="-8kM4fbW8HeMpYmGMeoVoiCUkOywzHOEy1tSeIcLgX0" />  
+    <meta name="logged" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->        
     <!-- /META -->
 
     <link rel="icon" href="http://www.ofertus.com.br/imagens/favicon.png" />
@@ -52,14 +64,34 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div id="page">
-      <div id="header" class="container-fluid" >
-        <!-- TODO: Menu -->
-				<%= render 'layouts/toolbar' %>
+    <div id="all">
+      <div id="header">
+        <div id="menu-top">
+          <%= render "layouts/toolbar" %>
+        </div>
 
-        <!-- TODO: CATEGORIAS -->
-        <%= render 'layouts/logo_header' %>
+        <h1 class="logo">
+          <%= link_to 'ofertus', root_path %>
+        </h1>
+        <div id="menu-login">
+          <%= render 'devise/menu/login_items' %>
+        </div>
 
+        <div id="icon-redes">
+          <a href="" class="bt-face"></a>
+          <a href="" class="bt-twitter"></a>
+          <a href="" class="bt-google"></a>
+        </div>
+        <a href="javascript:;" class="bt-compartilhe-off"></a>
+      </div><!--/header-->
+      <div id="box-compartilhe">
+        <div class="border-input-busca">
+          <input type="text" value="copie a url da ofertas aqui para compartilhar!" class="resetValue input-tx" />
+          <input type="submit" value="Ok" class="submit" />
+        </div>
+        <div class="clear"></div>
+      </div>
+      <div id="categorias-home">
         <%= render 'layouts/categories_menu_bar' %>
       </div>
 
@@ -77,8 +109,6 @@
             <div class="alert alert-success" style="opacity: 1; " id="flash_notice" ><p><%= msg %></p></div>
           <% end %>
         <%- end -%>
-
-        <%= render 'layouts/cta_americanas' %>
     
         <div class="container-fluid">
           <div class="row-fluid">

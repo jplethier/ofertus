@@ -1,13 +1,22 @@
 "pt-BR":
   strings:
     about_the_site: "Sobre a plataforma"
+    active_offers: 'Ofertas Ativas'
+    category: "Categoria: %{category}"
+    city: "Válida para: %{city}"
+    company: "Empresa: %{company}"
     creating_a_profile: "Criando meu perfil"
+    discount: "Desconto %{discount}"
+    end_date: "Válida até %{end_date}"
     getting_paid: "Recebendo comissão sobre as ofertas compartilhadas"
     help_informations: "Informações - Ajuda"
     interation_with_offers: "Interação com as Ofertas"
     making_friends: "Interação entre os usuários"
+    offer_price: "Preço oferta<span>%{price}</span>"
+    original_price: "Preço original<span>%{price}</span>"
     search_options: "Opções de Busca"
     security: "Segurança"
+    shared_by: "Compartilhada por:"
     sharing_offers: "Compartilhando Ofertas"
     talk_with_us: "Fale Conosco"
     to_search: "Buscar"

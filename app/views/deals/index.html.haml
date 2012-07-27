@@ -1,20 +1,14 @@
-.span8
-  .default_window.page_title.grey_background
-    %h1 Ofertas Ativas
-  .main
-    .dealsMap
-      #dealsList.default_window.grey_background.dealsList
-        .content
-          .content.defaultDeal
-            .zero-PagingTable
-              .zero-PagingTableGrid
-                - @deals.each_with_index do |deal, index|
-                  = render :partial => 'deals/deal', :locals => {:deal => deal, :index => index}
-                
-                - if @deals.total_pages == 1 || params[:page].to_i == @deals.total_pages
-                  %a{ :href => "#{deals_path}?show_olders=true" }
-                    = t('actions.show_olders_deals')
-                = will_paginate @deals
+.col-left
+  .ttGlHome
+    %h2= t('strings.active_offers')
+  .list-conteudo
+    - @deals.each_with_index do |deal, index|
+      = render :partial => 'deals/deal', :locals => {:deal => deal, :index => index}
+    - if @deals.total_pages == 1 || params[:page].to_i == @deals.total_pages
+      %a{ :href => "#{deals_path}?show_olders=true" }
+        = t('actions.show_olders_deals')
+      .pagination
+        = will_paginate @deals
 
 .side.span4
   .default_window.white_background

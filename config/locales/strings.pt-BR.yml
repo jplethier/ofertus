@@ -2,6 +2,7 @@
   strings:
     about_the_site: "Sobre a plataforma"
     active_offers: 'Ofertas Ativas'
+    best_deals: "Melhores Ofertas"
     category: "Categoria: %{category}"
     city: "Válida para: %{city}"
     company: "Empresa: %{company}"
@@ -11,7 +12,9 @@
     getting_paid: "Recebendo comissão sobre as ofertas compartilhadas"
     help_informations: "Informações - Ajuda"
     interation_with_offers: "Interação com as Ofertas"
+    last_shared: 'Últimas ofertas'
     making_friends: "Interação entre os usuários"
+    most_commented: "+ Comentadas"
     offer_price: "Preço oferta<span>%{price}</span>"
     original_price: "Preço original<span>%{price}</span>"
     search_options: "Opções de Busca"

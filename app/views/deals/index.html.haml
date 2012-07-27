@@ -1,4 +1,4 @@
-.col-left
+#col-left
   .ttGlHome
     %h2= t('strings.active_offers')
   .list-conteudo
@@ -10,49 +10,41 @@
       .pagination
         = will_paginate @deals
 
-.side.span4
-  .default_window.white_background
-    .title
-      %h3 Opções de Busca
+#col-right
+  .list-box-sidebar#busca-home
+    .ttGlHome
+      %h2= t('strings.search_options')
       - "Parâmetro: #{params[:search_order]}"
       - "Parâmetro: #{params[:search_city]}"
 
-    .content
-      %form{ :id => "search_form", :action => deals_path, :method => "get", :class => "search"}
-        %fieldset
-          %legend Buscar
-          = text_field_tag :search, params[:search]
-          %button#search{:type => "submit"} Buscar
+    %form{ :id => "search_form", :action => deals_path, :method => "get", :class => "search"}
+      .border-input-busca
+        = text_field_tag :search, params[:search], :class => "input-tx"
+        %input{ :type => "submit", :value => "", :class => "submit"}
 
+      .border-input-busca.select
         = select_tag "search_order", search_options(params[:search_order])
+
+      .border-input-busca.select
         = select_tag "search_city", search_city_options(params[:search_city])
 
-  .default_window.white_background
-    .title
-      %h3 Melhores Ofertas
+  .list-box-sidebar
+    .ttGlHome
+      %h2= t('strings.best_offers')
 
-    .content
-      .best
-        .small_deal
-          - @best_deals.each do |deal|
-            = render :partial => 'deals/side_deal', :locals => {:deal => deal}
+    - @best_deals.each do |deal|
+      = render :partial => 'deals/side_deal', :locals => {:deal => deal}
 
-  .default_window.white_background
-    .title
-      %h3 Ofertas Mais Comentadas
+  .list-box-sidebar
+    .ttGlHome
+      %h2= t('strings.most_commented')
 
-    .content
-      .most_commented
-        .small_deal
-          - @most_comment_deals.each do |deal|
-            = render :partial => 'deals/side_deal', :locals => {:deal => deal}
+    - @most_comment_deals.each do |deal|
+      = render :partial => 'deals/side_deal', :locals => {:deal => deal}
 
-  .default_window.white_background
-    .title
-      %h3 Últimas Ofertas Compartilhadas
+  .list-box-sidebar.sidebar-last
+    .ttGlHome
+      %h2= t('strings.last_shared')
 
-    .content
-      .newest
-        .small_deal
-          - @newest_deals.each do |deal|
-            = render :partial => 'deals/side_deal', :locals => {:deal => deal}
+    - @newest_deals.each do |deal|
+      = render :partial => 'deals/side_deal', :locals => {:deal => deal}

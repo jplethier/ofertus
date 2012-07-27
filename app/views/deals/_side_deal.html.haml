@@ -1,41 +1,22 @@
-.offer
-  .deal 
-    - if deal.image_url  
-      = link_to(image_tag(deal.image_url, :alt => deal.image_url, :title => deal.title), deal_path(deal), :class => "deal_picture")  
-    - else  
-      = link_to(image_tag(asset_path('no_picture_small.png'), :alt => "Oferta sem imagem", :title => deal.title), deal_path(deal), :class => "deal_picture")  
-  
-    .dealDate 
-      - if deal.end_date?  
-        = l deal.end_date.to_date  
-      - else  
-        Não informado
+%h3
+  = link_to truncate_side_title(deal.title), deal_path(deal), :title => deal.title
+.left
+  %h4= t('strings.original_price', :price => number_to_currency(deal.real_price)).html_safe
+  .preco-off
+    %h4= t('strings.offer_price', :price => number_to_currency(deal.price)).html_safe
 
-    %strong.deal_title
-      = link_to truncate_side_title(deal.title), deal_path(deal), :title => deal.title
-    %ul
-      %li.deal_user
-        %strong 
-          Compartilhada por:
-        = link_to deal.user.name, user_path(deal.user.username)
-      %li.average
-        - if deal.average  
-          - if deal.average >= 50  
-            %strong.positive
-              = deal.average
-          - else  
-            %strong.negative
-              = deal.average
+.right
+  - if deal.image_url  
+    = link_to(image_tag(deal.image_url, :alt => deal.image_url, :title => deal.title), deal_path(deal), :class => "deal_picture")  
+  - else  
+    = link_to(image_tag(asset_path('no_picture_small.png'), :alt => "Oferta sem imagem", :title => deal.title), deal_path(deal), :class => "deal_picture")
 
-    %ul.discount 
-      - if (deal.real_price && deal.price)  
-        %li.deal_real_price
-          %span
-            Preço original
-          %strong= number_to_currency deal.real_price
-        %li.deal_price
-          %span Preço oferta
-          %strong= number_to_currency deal.price
-      %li.deal_discount 
-        %span Desconto
-        %strong= "#{deal.discount.to_i.to_s}%"
+/     %ul
+/       %li.average
+/         - if deal.average  
+/           - if deal.average >= 50  
+/             %strong.positive
+/               = deal.average
+/           - else  
+/             %strong.negative
+/               = deal.average

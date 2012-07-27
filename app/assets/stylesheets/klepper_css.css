@@ -170,7 +170,7 @@ body { font:12px Arial, sans-serif; *font-size:small; font-family: 'GothamLight'
 
 
 
-#footer { background:#f6f5f4 url(../img/bg-ft.jpg) repeat-x; width:100%; padding:30px 0; }
+#footer { background:#f6f5f4 url(bg-ft.jpg) repeat-x; width:100%; padding:30px 0; }
 #ft-center { width:1020px; margin:0 auto; overflow:hidden; }
 #ft-center .left { width:210px; min-height:295px; margin-right:40px; border-right:1px solid #e2e1e0; }
 #ft-center .left ul li { line-height:28px; }
@@ -208,7 +208,7 @@ body { font:12px Arial, sans-serif; *font-size:small; font-family: 'GothamLight'
 .list-usuarios .left { width:210px; margin-right:30px; }
 .list-usuarios h3 { font-size:30px; margin-bottom:25px; padding:5px 0 0 0; }
 .list-usuarios ul li { font-size:12px; line-height:18px; }
-.list-usuarios .view-profile { display: block; text-align:center; float:right; width:196px; padding:8px 0; color: #b2ea71; text-transform: uppercase; font-size:16px; text-decoration:none; background: url(../img/bg-view-profile.png) no-repeat;  }
+.list-usuarios .view-profile { display: block; text-align:center; float:right; width:196px; padding:8px 0; color: #b2ea71; text-transform: uppercase; font-size:16px; text-decoration:none; background: url(bg-view-profile.png) no-repeat;  }
 
 .ranking-usuarios .list-ranking { overflow: hidden; margin-bottom:10px; }
 .ranking-usuarios .left { margin-right:10px; }
@@ -230,7 +230,7 @@ body { font:12px Arial, sans-serif; *font-size:small; font-family: 'GothamLight'
 .right-detalhe-comment-off { float:right; width:270px; }
 .comment-off { background:#f6f6f6; margin-bottom:10px;}
 .comment-off textarea { border:0; background:#FFF; height:73px; margin-bottom:10px; text-transform:uppercase; font-size:11px; color: #666; padding:11px 5px 10px; width:220px; }
-.comment-off .bt-comentar { text-indent:-4999px; width:103px; height:28px; float:right; border:none; background: url(../img/bt-comentar.png) no-repeat; }
+.comment-off .bt-comentar { text-indent:-4999px; width:103px; height:28px; float:right; border:none; background: url(bt-comentar.png) no-repeat; }
 
 #ct-comment-off { background:#f6f6f6; padding: 20px 20px 10px; }
 #ct-comment-off .list-comment-off { background:#FFF; overflow: hidden; margin-bottom:10px; }
@@ -243,8 +243,8 @@ body { font:12px Arial, sans-serif; *font-size:small; font-family: 'GothamLight'
 
 .share-off span { display:block; color: #565656; padding-left:16px; margin-bottom:5px; font-size:10px; }
 .share-off span a { color: #1e1e1e; text-decoration:none; font-size:11px; }
-.share-off .gostei { background: url(../img/gostei.png) no-repeat 0 1px; }
-.share-off .nao-gostei { background: url(../img/nao-gostei.png) no-repeat 0 2px; }
+.share-off .gostei { background: url(gostei.png) no-repeat 0 1px; }
+.share-off .nao-gostei { background: url(nao-gostei.png) no-repeat 0 2px; }
 
 
 
@@ -257,10 +257,10 @@ body { font:12px Arial, sans-serif; *font-size:small; font-family: 'GothamLight'
 /* Info Help */
 .info-help h3 { margin-bottom:10px; font-size:18px; padding:0; }
 .info-help .list-help { margin-bottom: 25px; }
-.info-help .list-help a { padding-left: 23px; line-height:18px; font-size:14px; color: #000; text-decoration:none; display: block; margin-bottom:10px; background: url(../img/bt-menos-slide.png) no-repeat;  }
+.info-help .list-help a { padding-left: 23px; line-height:18px; font-size:14px; color: #000; text-decoration:none; display: block; margin-bottom:10px; background: url(bt-menos-slide.png) no-repeat;  }
 .info-help .list-help .slide { display: none; background:#f6f6f6; padding:10px; }
 .info-help .list-help .slide p { color: #3a3939; margin-bottom:0; line-height:18px; }
-.info-help .list-help .bt-mais-slide { background: url(../img/bt-mais-slide.png) no-repeat; }
+.info-help .list-help .bt-mais-slide { background: url(bt-mais-slide.png) no-repeat; }
 
 
 /* Blog */
@@ -274,14 +274,14 @@ body { font:12px Arial, sans-serif; *font-size:small; font-family: 'GothamLight'
 .comment-blog span { color:#000; text-transform:uppercase; font-size:12px; float:left; margin:0 25px 0 0; }
 .comment-blog a { width:16px; height:16px; display:inline-block; margin:-1px 4px 0 0; float: left; text-indent:-4999px; }
 .comment-blog .compartilhe { margin-right:10px; }
-.comment-blog .facebook { background: url(../img/facebook-blog.png) no-repeat; }
-.comment-blog .twitter { background: url(../img/twitter-blog.png) no-repeat; }
-.comment-blog .orkut { background: url(../img/orkut-blog.png) no-repeat; }
+.comment-blog .facebook { background: url(facebook-blog.png) no-repeat; }
+.comment-blog .twitter { background: url(twitter-blog.png) no-repeat; }
+.comment-blog .orkut { background: url(orkut-blog.png) no-repeat; }
 
 
 
 .posts-lidos .list-ranking { overflow: hidden; margin-bottom:10px; }
-.posts-lidos .left { margin:3px 11px 0 0; width:32px; height:32px; line-height:32px; text-align:center; font-size:14px; color: #fff; background: url(../img/bg-posts-lidos.png) no-repeat; }
+.posts-lidos .left { margin:3px 11px 0 0; width:32px; height:32px; line-height:32px; text-align:center; font-size:14px; color: #fff; background: url(bg-posts-lidos.png) no-repeat; }
 .posts-lidos h3 { margin:0; padding-top:0; }
 .posts-lidos h3 a { font-size:18px; }
 .posts-lidos a { font-size:12px; text-decoration:none; color: #000; }
@@ -295,7 +295,7 @@ body { font:12px Arial, sans-serif; *font-size:small; font-family: 'GothamLight'
 #commentform input[type="text"], #commentform textarea { background:#F3F3F3; border: 1px solid #FFFFFF; color: #666666; font: 11px verdana,arial; padding: 10px; width: 211px; }
 #commentform textarea { height: 150px; width: 697px !important; }
 #commentform .form-submit { float:right; }
-#commentform #submit { height: 28px; text-indent:-4999px; border:none; width: 163px; background: url(../img/bt-publicar-comentario.png) no-repeat; }
+#commentform #submit { height: 28px; text-indent:-4999px; border:none; width: 163px; background: url(bt-publicar-comentario.png) no-repeat; }
 
 
 
@@ -307,14 +307,14 @@ body { font:12px Arial, sans-serif; *font-size:small; font-family: 'GothamLight'
 .page-login .user-senha { background:#FFF; width:297px; margin:4px 0 10px; border: 1px solid #dcdcdc; padding:13px; }
 .page-login .checkbox-login { float: left; color: #8f8f8f; padding-top:10px; margin-right:0; font-size:11px; line-height:15px; }
 .page-login .checkbox-login input { float: left; margin-right:5px; }
-.page-login .bt-entrar { width:126px; height:35px; float:right; border:none; background: url(../img/bt-entrar.png) no-repeat; }
+.page-login .bt-entrar { width:126px; height:35px; float:right; border:none; background: url(bt-entrar.png) no-repeat; }
 .page-login p.last { margin-right:0; }
 
 .page-login .left { width:449px; float:left; margin-bottom:15px; }
 .page-login .left p { margin-right:0; }
 .page-login .left p span { display: block; color: #666; margin-top:-9px; font-size:11px; text-align:right; }
 .page-login a { display: block; color: #4a4a4a; font-size:12px; line-height:20px; }
-.page-login .bt-confirmar { width:136px; height:35px; float:right; border:none; background: url(../img/bt-confirmar.png) no-repeat; }
+.page-login .bt-confirmar { width:136px; height:35px; float:right; border:none; background: url(bt-confirmar.png) no-repeat; }
 
 .page-login .ct-edit .user-senha { width:420px; }
 .page-login .right { width:150px; padding-top:20px; }

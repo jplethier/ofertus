@@ -84,6 +84,7 @@
         </div>
         <a href="javascript:;" class="bt-compartilhe-off"></a>
       </div><!--/header-->
+
       <div id="box-compartilhe">
         <div class="border-input-busca">
           <input type="text" value="copie a url da ofertas aqui para compartilhar!" class="resetValue input-tx" />
@@ -91,6 +92,7 @@
         </div>
         <div class="clear"></div>
       </div>
+
       <div id="categorias-home">
         <%= render 'layouts/categories_menu_bar' %>
         <div class="clear"></div>
@@ -114,44 +116,43 @@
         <%= yield %>
         <div class="clear"></div>
       </div>
+    </div>
+    <%= render 'layouts/footer' %>
 
-      <!--  RODAPÉ -->
-      <%= render 'layouts/footer' %>
-
-      <div id="blocker">
-      </div>
-      <div id="popup">
-        <div class="main_popup">
-        </div>
+    <div id="blocker">
+    </div>
+    <div id="popup">
+      <div class="main_popup">
       </div>
     </div>
-  </div>
+    <!--  RODAPÉ -->
+      
 
-  <!-- User Voice -->
-  <script type="text/javascript">
-    var uvOptions = {};
-    (function() {
-      var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
-      uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/KhjBP9Wz0hWPZKkPOj6DbQ.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
-    })();
-  </script>
-  <!-- User Voice -->
-  
-  <script>
-    $('#share').coolinput('Copie a url da oferta aqui para compartilhar!');
-  </script>
-  
-  <!-- Coloque esta chamada de renderização conforme necessário -->
-  <script type="text/javascript">
-    window.___gcfg = {lang: 'pt-BR'};
+    <!-- User Voice -->
+    <script type="text/javascript">
+      var uvOptions = {};
+      (function() {
+        var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+        uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/KhjBP9Wz0hWPZKkPOj6DbQ.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+      })();
+    </script>
+    <!-- User Voice -->
+    
+    <script>
+      $('#share').coolinput('Copie a url da oferta aqui para compartilhar!');
+    </script>
+    
+    <!-- Coloque esta chamada de renderização conforme necessário -->
+    <script type="text/javascript">
+      window.___gcfg = {lang: 'pt-BR'};
 
-    (function() {
-      var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-      po.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-    })();
-  </script>
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/plusone.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();
+    </script>
 
   </body>
 </html>

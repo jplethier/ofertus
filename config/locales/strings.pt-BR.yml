@@ -16,6 +16,7 @@
     following_x_users: "Seguindo %{x} usuários!"
     getting_paid: "Recebendo comissão sobre as ofertas compartilhadas"
     help_informations: "Informações - Ajuda"
+    how_it_works: 'Como funciona?'
     interation_with_offers: "Interação com as Ofertas"
     last_shared: 'Últimas ofertas'
     making_friends: "Interação entre os usuários"
@@ -33,4 +34,5 @@
     users_offers: 'Ofertas'
     users_with_more_deals: "Ranking de usuários"
     x_shared_offers: "%{x} ofertas compartilhadas!"
+    who_are_we: 'Quem somos?'
     withdraw_credit: "Resgatar saldo"

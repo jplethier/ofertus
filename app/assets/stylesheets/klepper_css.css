@@ -168,55 +168,6 @@ body { font:12px Arial, sans-serif; *font-size:small; font-family: 'GothamLight'
 #busca-home select { width:265px; padding:4px 10px; font-size:11px; color: #666; }
 #busca-home .border-input-busca.select { margin-bottom:10px; }
 
-
-
-#footer { background:#f6f5f4 url(bg-ft.jpg) repeat-x; width:100%; padding:30px 0; }
-#ft-center { width:1020px; margin:0 auto; overflow:hidden; }
-#ft-center .left { width:210px; min-height:295px; margin-right:40px; border-right:1px solid #e2e1e0; }
-#ft-center .left ul li { line-height:28px; }
-#ft-center .left ul li a { color: #333; font-size:14px; text-transform:uppercase; text-decoration:none; }
-
-#ft-center h3 { color: #333; font-weight:normal; padding-top:15px; text-transform:uppercase; font-style:italic; font-size:20px; margin-bottom:10px; }
-
-#ft-center .first-left { min-height:200px; float: left; width:315px; border-right: 1px solid #b4b4b4; padding-right:40px; margin-right:40px; }
-#ft-center .first-left p { font-family:"Trebuchet MS"; color: #333; }
-#ft-center .cat-left, #ft-center .cat-last { border:none; }
-#ft-center .crie-perfil { color: #333; text-transform:uppercase; margin-right:10px; font-size:14px; }
-
-
-#ft-copy { background:transparent; padding:15px 0 12px; overflow:hidden; }
-#ft-copy #ct-copy { width:1020px; margin:0 auto; }
-#ft-copy ul li { float: left; border-right: 1px solid #999; line-height:11px; padding-top:1px; padding-right:10px; margin-right:10px; }
-#ft-copy ul li a { font-size:11px; color: #666; text-decoration:none; text-transform:uppercase; }
-#ft-copy ul li.last { border:none; }
-#ft-copy .klepper { float:right; color: #838383; text-decoration:none; font-size:10px; text-transform:uppercase; font-style:italic; }
-
-
-
-/* User */
-#box-user { }
-#box-user h3 { font-size:16px; font-weight: normal; margin-bottom:7px; }
-#box-user .left-user { float: left; width:150px; }
-#box-user .right-user { float: right; width:108px; }
-#box-user .right-user p { font-size:13px; margin-bottom:10px; line-height:16px; }
-#box-user .right-user h4 { text-align:center; font-size:16px; margin-bottom:12px; line-height:20px; }
-#box-user .right-user h4 span { display: block; font-size:18px; }
-#box-user .right-user h4 .red { color: #ff6162; }
-#box-user .right-user h4 .gren { color: #B2EA71; }
-#box-user .right-user a, #box-user .left-user a { display: block; font-size:14px; text-align:center; text-decoration:underline; color: #333; }
-
-.list-usuarios .left { width:210px; margin-right:30px; }
-.list-usuarios h3 { font-size:30px; margin-bottom:25px; padding:5px 0 0 0; }
-.list-usuarios ul li { font-size:12px; line-height:18px; }
-.list-usuarios .view-profile { display: block; text-align:center; float:right; width:196px; padding:8px 0; color: #b2ea71; text-transform: uppercase; font-size:16px; text-decoration:none; background: url(bg-view-profile.png) no-repeat;  }
-
-.ranking-usuarios .list-ranking { overflow: hidden; margin-bottom:10px; }
-.ranking-usuarios .left { margin-right:10px; }
-.ranking-usuarios h3 { margin:0; padding-top:4px; }
-.ranking-usuarios h3 a { font-size:18px; }
-.ranking-usuarios a { font-size:12px; text-decoration:none; color: #000; }
-
-
 /* Detalhe Oferta */
 #sem-col { width:100%; padding-bottom:40px; }
 .detalhe-oferta, .como-funciona { float:none; border:0; padding:0; position:relative; }

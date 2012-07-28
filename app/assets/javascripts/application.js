@@ -9,6 +9,8 @@
 //= require jquery-ui
 //= require jquery.maskMoney
 //= require ckeditor/init
+//= require popup
+//= require script
 //= require_tree .
 
 $(document).ready(function() {

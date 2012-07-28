@@ -1,0 +1,23 @@
+/* User */
+#box-user { }
+#box-user h3 { font-size:16px; font-weight: normal; margin-bottom:7px; }
+#box-user .left-user { float: left; width:150px; }
+#box-user .right-user { float: right; width:108px; }
+#box-user .right-user p { font-size:13px; margin-bottom:10px; line-height:16px; }
+#box-user .right-user h4 { text-align:center; font-size:16px; margin-bottom:12px; line-height:20px; }
+#box-user .right-user h4 span { display: block; font-size:18px; }
+#box-user .right-user h4 .red { color: #ff6162; }
+#box-user .right-user h4 .gren { color: #B2EA71; }
+#box-user .right-user a, #box-user .left-user a { display: block; font-size:14px; text-align:center; text-decoration:underline; color: #333; }
+
+.list-usuarios .left { width:210px; margin-right:30px; }
+.list-usuarios h3 { font-size:30px; margin-bottom:25px; padding:5px 0 0 0; }
+.list-usuarios h3 a { font-size:30px; margin-bottom:25px; padding:5px 0 0 0; font-family: 'GothamLight', 'Arial'; font-size: 30px; color: #444; }
+.list-usuarios ul li { font-size:12px; line-height:18px; }
+.list-usuarios .view-profile { display: block; text-align:center; float:right; width:196px; padding:8px 0; color: #b2ea71; text-transform: uppercase; font-size:16px; text-decoration:none; background: url(bg-view-profile.png) no-repeat;  }
+
+.ranking-usuarios .list-ranking { overflow: hidden; margin-bottom:10px; }
+.ranking-usuarios .left { margin-right:10px; }
+.ranking-usuarios h3 { margin:0; padding-top:4px; }
+.ranking-usuarios h3 a { font-size:18px; }
+.ranking-usuarios a { font-size:12px; text-decoration:none; color: #000; }

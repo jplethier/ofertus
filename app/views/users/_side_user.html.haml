@@ -1,0 +1,11 @@
+.list-ranking
+  .left
+    - if user.provider?
+      = link_to(image_tag(user.facebook_profile_picture("square"), :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture")
+    - else
+      = link_to(image_tag(user.gravatar_url(:size => 50), :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture")
+  %h3
+    %a{ :href => ""}= link_to user.name, user_path(user.username)
+  %a{ :href => "" }
+    = user.deals.length
+    ofertas compartilhadas!

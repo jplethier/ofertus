@@ -2,11 +2,12 @@
   strings:
     about_the_site: "Sobre a plataforma"
     active_offers: 'Ofertas Ativas'
-    best_deals: "Melhores Ofertas"
+    best_offers: "Melhores Ofertas"
     category: "Categoria: %{category}"
     city: "Válida para: %{city}"
     company: "Empresa: %{company}"
     creating_a_profile: "Criando meu perfil"
+    day_offers: "Ofertas do Dia"
     discount: "Desconto %{discount}"
     end_date: "Válida até %{end_date}"
     getting_paid: "Recebendo comissão sobre as ofertas compartilhadas"

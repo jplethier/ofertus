@@ -1,4 +1,4 @@
-- if controller_name == 'deals' && action_name ==  'today'
+- if today?
   .icon.cat-item1
     %a{ :href => "/deals/today/computer" }
     %span{ :style => "opacity: 0;" }= Deal.i18n_category(Deal::CATEGORY_COMPUTER)
@@ -30,7 +30,7 @@
     %a{ :href => "/deals/today/clothes" }
     %span= Deal.i18n_category(Deal::CATEGORY_CLOTHES)
   .icon.cat-item11
-    %a{ :href => "/deals/today/other" }
+    %a{ :href => "/deals/today/others" }
     %span= Deal.i18n_category(Deal::CATEGORY_OTHER)
 - else
   .icon.cat-item1
@@ -64,5 +64,5 @@
     %a{ :href => "/deals/active/clothes" }
     %span= Deal.i18n_category(Deal::CATEGORY_CLOTHES)
   .icon.cat-item11
-    %a{ :href => "/deals/active/other" }
+    %a{ :href => "/deals/active/others" }
     %span= Deal.i18n_category(Deal::CATEGORY_OTHER)

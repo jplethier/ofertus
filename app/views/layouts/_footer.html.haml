@@ -4,187 +4,61 @@
       %h3= t('footer.about')
       %ul
         %li
-          %a{ :href => "" } Quem Somos
+          %a{ :href => "/pages/whoarewe" }= t('footer.who_are_we')
         %li
-          %a{ :href => "" } Como Funciona?
+          %a{ :href => "/pages/how_it_works" }= t('footer.how_it_works')
 
     .left.cat-left
       %h3= t('footer.categories')
       %ul
         %li
-          %a{ :href => "" } Alimentação
+          %a{ :href => "#{today? ? 'deals/today/restaurant' : 'deals/active/restaurant'}" }= Deal.i18n_category(Deal::CATEGORY_RESTAURANT)
         %li
-          %a{ :href => "" } Beleza e Saúde
+          %a{ :href => "#{today? ? 'deals/today/beauty_and_health' : 'deals/active/beauty_and_health'}" }= Deal.i18n_category(Deal::CATEGORY_BEAUTY_AND_HEALTH)
         %li
-          %a{ :href => ""} Tecnologia
+          %a{ :href => "#{today? ? 'deals/today/computer' : 'deals/active/computer'}"}= Deal.i18n_category(Deal::CATEGORY_COMPUTER)
         %li
-          %a{ :href => "" } Entretenimento e Lazer
+          %a{ :href => "#{today? ? 'deals/today/entertainment' : 'deals/active/entertainment'}" }= Deal.i18n_category(Deal::CATEGORY_ENTERTAINMENT)
         %li
-          %a{ :href => "" } Eletrodomésticos
+          %a{ :href => "#{today? ? 'deals/today/home_and_appliance' : 'deals/active/home_and_appliance'}" }= Deal.i18n_category(Deal::CATEGORY_HOME_AND_APPLIANCE)
         %li
-          %a{ :href => "" } Viagens
+          %a{ :href => "#{today? ? 'deals/today/travel' : 'deals/active/travel'}" }= Deal.i18n_category(Deal::CATEGORY_TRAVEL)
 
     .left
       %h3 &nbsp;
       %ul
         %li
-          %a{ :href => "" } Casa e decoração
+          %a{ :href => "#{today? ? 'deals/today/home_and_decoration' : 'deals/active/home_and_decoration'}" }= Deal.i18n_category(Deal::CATEGORY_HOME_AND_DECORATION)
         %li
-          %a{ :href => "" } Vestuário e acessórios
+          %a{ :href => "#{today? ? 'deals/today/clothes' : 'deals/active/clothes'}" }= Deal.i18n_category(Deal::CATEGORY_CLOTHES)
         %li
-          %a{ :href => "" } Livros, Músicas e Filmes
+          %a{ :href => "#{today? ? 'deals/today/culture' : 'deals/active/culture'}" }= Deal.i18n_category(Deal::CATEGORY_CULTURE)
         %li
-          %a{ :href => "" } Artigos Automotivos
+          %a{ :href => "#{today? ? 'deals/today/car' : 'deals/active/car'}" }= Deal.i18n_category(Deal::CATEGORY_CAR)
         %li
-          %a{ :href => "" } Diversos
+          %a{ :href => "#{today? ? 'deals/today/others' : 'deals/active/others'}" }= Deal.i18n_category(Deal::CATEGORY_OTHER)
 
     .left.cat-last
       %h3= t('footer.informations')
       %ul
         %li
-          %a{ :href => "" } Ajuda
+          %a{ :href => "/pages/help" }= t('footer.help')
       %br
 
       %h3= t('footer.contact')
       %ul
         %li
-          %a{ :href => "" } Fale Conosco
+          %a{ :href => "http://ofertus.uservoice.com/" }= t('footer.talk_with_us')
         %li
-          %a{ :href => ""} Siga nosso Blog
+          %a{ :href => "http://blog.ofertus.com.br"}= t('footer.follow_our_blog')
       %br
       %br
       %br
 
-      %a.crie-perfil{ :href => "" } Crie seu Perfil
-      %a.crie-perfil{ :href => "" } Entrar
+      %a.crie-perfil{ :href => new_registration_path('user') }= t('footer.signup')
+      %a.crie-perfil{ :href => new_session_path('user') }= t('footer.signin')
 
     .clear
-    
-/ #footer
-/   .intern.bottomMenu.container-fluid
-/     .row-fluid
-/       %ul.first.span2
-/         %li.title Sobre OfertuS 
-/         %li
-/           %a{ :href => "/pages/whoarewe" }= I18n.t("actions.who_are_we")   
-/         %li= link_to I18n.t("actions.how_it_works"), pages_how_it_works_path  
-      
-
-/       %ul.second.span2
-/         %li.title Categorias 
-/         %li
-/           - if controller_name == 'deals' && action_name ==  'today' 
-/             %a{ :href => "/deals/today/restaurant" }= Deal.i18n_category(Deal::CATEGORY_RESTAURANT)
-/           - else 
-/             %a{ :href => "/deals/active/restaurant" }= Deal.i18n_category(Deal::CATEGORY_RESTAURANT)  
-          
-         
-/         %li
-/           - if controller_name == 'deals' && action_name ==  'today' 
-/             %a{ :href => "/deals/today/beauty_and_health" }= Deal.i18n_category(Deal::CATEGORY_BEAUTY_AND_HEALTH)  
-/           - else 
-/             %a{ :href => "/deals/active/beauty_and_health" }= Deal.i18n_category(Deal::CATEGORY_BEAUTY_AND_HEALTH)  
-          
-         
-/         %li
-/           - if controller_name == 'deals' && action_name ==  'today' 
-/             %a{ :href => "/deals/today/electronics" }= Deal.i18n_category(Deal::CATEGORY_COMPUTER)  
-/           - else 
-/             %a{ :href => "/deals/active/electronics" }= Deal.i18n_category(Deal::CATEGORY_COMPUTER)  
-          
-         
-/         %li
-/           - if controller_name == 'deals' && action_name ==  'today' 
-/             %a{ :href => "/deals/today/culture" }= Deal.i18n_category(Deal::CATEGORY_CULTURE)  
-/           - else 
-/             %a{ :href => "/deals/active/culture" }= Deal.i18n_category(Deal::CATEGORY_CULTURE)  
-          
-         
-/         %li
-/           - if controller_name == 'deals' && action_name ==  'today' 
-/             %a{ :href => "/deals/today/home_and_appliance" }= Deal.i18n_category(Deal::CATEGORY_HOME_AND_APPLIANCE)  
-/           - else 
-/             %a{ :href => "/deals/active/home_and_appliance" }= Deal.i18n_category(Deal::CATEGORY_HOME_AND_APPLIANCE)  
-          
-         
-/         %li
-/           - if controller_name == 'deals' && action_name ==  'today' 
-/             %a{ :href => "/deals/today/fitness" }= Deal.i18n_category(Deal::CATEGORY_ENTERTAINMENT)  
-/           - else 
-/             %a{ :href => "/deals/active/fitness" }= Deal.i18n_category(Deal::CATEGORY_ENTERTAINMENT)  
-
-/       %ul.third.span2
-/         %li.title Categorias 
-/         %li
-/           - if controller_name == 'deals' && action_name ==  'today' 
-/             %a{ :href => "/deals/today/computer" }= Deal.i18n_category(Deal::CATEGORY_COMPUTER)  
-/           - else 
-/             %a{ :href => "/deals/active/computer" }= Deal.i18n_category(Deal::CATEGORY_COMPUTER)  
-          
-         
-/         %li
-/           - if controller_name == 'deals' && action_name ==  'today' 
-/             %a{ :href => "/deals/today/clothes" }= Deal.i18n_category(Deal::CATEGORY_CLOTHES)  
-/           - else 
-/             %a{ :href => "/deals/active/clothes" }= Deal.i18n_category(Deal::CATEGORY_CLOTHES)  
-          
-/         %li
-/           - if controller_name == 'deals' && action_name ==  'today' 
-/             %a{ :href => "/deals/today/travel" }= Deal.i18n_category(Deal::CATEGORY_TRAVEL)  
-/           - else 
-/             %a{ :href => "/deals/active/travel" }= Deal.i18n_category(Deal::CATEGORY_TRAVEL)  
-          
-         
-/         %li
-/           - if controller_name == 'deals' && action_name ==  'today' 
-/             %a{ :href => "/deals/today/kids" }= Deal.i18n_category(Deal::CATEGORY_OTHER)  
-/           - else 
-/             %a{ :href => "/deals/active/kids" }= Deal.i18n_category(Deal::CATEGORY_OTHER)  
-          
-         
-/         %li
-/           - if controller_name == 'deals' && action_name ==  'today' 
-/             %a{ :href => "/deals/today/car" }= Deal.i18n_category(Deal::CATEGORY_CAR)  
-/           - else 
-/             %a{ :href => "/deals/active/car" }= Deal.i18n_category(Deal::CATEGORY_CAR)  
-          
-         
-/         %li
-/           - if controller_name == 'deals' && action_name ==  'today' 
-/             %a{ :href => "/deals/today/others" }= Deal.i18n_category(Deal::CATEGORY_OTHER)  
-/           - else 
-/             %a{ :href => "/deals/active/others" }= Deal.i18n_category(Deal::CATEGORY_OTHER)  
-
-/       %ul.fourth.span2
-/         %li.title Informações 
-/         %li
-/           %a{ :href => "/pages/help" }= I18n.t("actions.help")   
-      
-
-/       %ul.fifth.span2
-/         %li.title Contato 
-/         %li
-/           %a{ :href => "http://ofertus.uservoice.com/", :target => "_blank" }= I18n.t("actions.talk_with_us")   
-/         %li
-/           %a{ :href => "http://www.ofertus.com.br/blog" }= I18n.t("actions.follow_our_blog")
-/         %br
-/         - if user_signed_in? 
-          
-/           %li= link_to I18n.t("actions.my_profile"), user_path(current_user.username), :class => "specialLink"
-/           %li= link_to I18n.t("actions.share_an_offer"), new_deal_path, :class => "specialLink"
-/           %li= link_to I18n.t("actions.logout"), destroy_user_session_path, :class => "specialLink"
-/         - else
-/           %li= link_to I18n.t("actions.sign_up"), new_user_registration_path, :class => "specialLink"
-/           %li= link_to I18n.t("actions.sign_in"), new_user_session_path, :class => "specialLink"
-
-/   .socialMenu
-/     .intern
-/       %ul
-/         %li.title Conheça também: 
-/         %li.first
-/           %a{ :href => "http://www.facebook.com/OfertuS", :class => "facebook", :rel => "nofollow", :target => "_blank", :title => "FacebookFacebook"}
-/         %li
-/           %a{ :href => "https://www.facebook.com/OfertUs/app_151503908244383", :class => "twitter", :rel => "nofollow", :target => "_blank", :title => "TwitterTwitter" }
 
 /   .copyright
 /     %ul.intern

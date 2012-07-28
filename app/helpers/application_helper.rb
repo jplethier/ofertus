@@ -21,6 +21,10 @@ module ApplicationHelper
     end
   end
 
+  def today?
+    controller_name == 'deals' && action_name ==  'today'
+  end
+
   # TODO: resolver via js
   # def link_to_active(*args, &block)
   #   if block_given?

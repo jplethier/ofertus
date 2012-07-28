@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   make_voter
 
   devise :confirmable, :database_authenticatable, :omniauthable, :recoverable, :registerable, :rememberable, :trackable, :validatable
-  gravtastic :size => 180, :default => "mm"
+  gravtastic :size => 150, :default => "mm"
   has_paper_trail
 
   has_and_belongs_to_many :cities

@@ -1,5 +1,6 @@
 "pt-BR":
   strings:
+    about_me: 'Um pouco sobre mim'
     about_the_site: "Sobre a plataforma"
     active_offers: 'Ofertas Ativas'
     best_offers: "Melhores Ofertas"
@@ -7,6 +8,7 @@
     city: "Válida para: %{city}"
     company: "Empresa: %{company}"
     creating_a_profile: "Criando meu perfil"
+    credit_x: "Saldo <span>%{x}</span>"
     day_offers: "Ofertas do Dia"
     discount: "Desconto %{discount}"
     end_date: "Válida até %{end_date}"
@@ -28,5 +30,7 @@
     to_search: "Buscar"
     username: "Username: %{username}"
     users: "Usuários"
+    users_offers: 'Ofertas'
     users_with_more_deals: "Ranking de usuários"
     x_shared_offers: "%{x} ofertas compartilhadas!"
+    withdraw_credit: "Resgatar saldo"

@@ -13,7 +13,10 @@
   %h3= link_to truncate_title(deal.title), deal_path(deal), :title => deal.title
 
   .user-off
-    %img{ :src => "http://placehold.it/50x50"}
+    - if deal.user.provider?
+      = link_to(image_tag(deal.user.facebook_profile_picture(:small), :alt => deal.user.username, :title => deal.user.username), user_path(deal.user.username), :class => "user_picture")
+    - else
+      = link_to(image_tag(deal.user.gravatar_url(:size => 50), :alt => deal.user.username, :title => deal.user.username), user_path(deal.user.username), :class => "user_picture")
     %h4= t('strings.shared_by')
     %span= link_to deal.user.name, user_path(deal.user.username)
 

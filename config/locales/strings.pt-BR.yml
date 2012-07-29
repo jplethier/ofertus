@@ -12,6 +12,7 @@
     day_offers: "Ofertas do Dia"
     discount: "Desconto %{discount}"
     end_date: "Válida até %{end_date}"
+    fill_fields: 'Preencha os campos abaixo'
     followed_by_x_users: "%{x} seguidores!"
     following_x_users: "Seguindo %{x} usuários!"
     getting_paid: "Recebendo comissão sobre as ofertas compartilhadas"
@@ -23,6 +24,7 @@
     most_commented: "+ Comentadas"
     offer_price: "Preço oferta<span>%{price}</span>"
     original_price: "Preço original<span>%{price}</span>"
+    remember_me: 'Mantenha-me conectado'
     search_options: "Opções de Busca"
     security: "Segurança"
     shared_by: "Compartilhada por:"

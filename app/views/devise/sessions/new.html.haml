@@ -1,33 +1,43 @@
-.span12
-  #edit_user_window.window.medium_window.row
-    .middle.newProfile
-      %h1 OfertuS
-      %h3 Preencha os campos abaixo
-      = link_to "entre com sua conta do facebook", user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
-      .row-fluid
-        = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-          .span5
-            %ol
-              %li
-                = f.label :login
-                = f.text_field :login
-              %li
-                = f.label :password
-                = f.password_field :password
-              %li
-                - if devise_mapping.rememberable?
-                  = f.label :remember_me, 'Mantenha-me Conectado'
-                  = f.check_box :remember_me
-          
-          .button.span2
-            = f.submit I18n.t("actions.sign_in"), :type=>"image", :src=> asset_path('botao.png'), :alt=> "Confirmar"
+#col-left
+  .ttGlHome
+    %h2= t('strings.login')
 
-      .row-fluid
-        .span12
-          = render :partial => "devise/shared/links"
+  .page-login
+    %h3= t('strings.fill_fields')
+    / .fb-login-button
+    /   = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
 
-:plain
-  <script>
-    $('#user_login').coolinput('username')
-    $('#user_password').coolinput('*****')
-  </script>
+    .ct-inputs-login
+      = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+        %p
+          = f.label :login
+          %br
+          = f.text_field :login, :class => 'user-senha'
+        %p.last
+          = f.label :password
+          %br
+          = f.password_field :password, :class => 'user-senha'
+        .clear
+        - if devise_mapping.rememberable?
+          %p.checkbox-login
+            = f.check_box :remember_me
+            = f.label :remember_me, t('strings.remember_me')
+        / <p class="checkbox-login"><input type="checkbox" value="" name="Checkbox"> Mantenha-me Conectado</p>
+        = f.submit '', :class => 'bt-entrar'
+
+
+    = render :partial => "devise/shared/links"
+
+#col-right
+  .list-box-sidebar.sidebar-last
+    .ttGlHome
+      %h2 facebook
+    
+    %iframe{ :src => "//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fplatform&amp;width=270&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=false&amp;header=false", :scrolling => "no", :frameborder => "0", :style => "border:none; overflow:hidden; width:270px; height:258px;", :allowTransparency => "true" }
+.clear
+
+/ :plain
+/   <script>
+/     $('#user_login').coolinput('username')
+/     $('#user_password').coolinput('*****')
+/   </script>

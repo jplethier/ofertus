@@ -10,7 +10,9 @@
     creating_a_profile: "Criando meu perfil"
     credit_x: "Saldo <span>%{x}</span>"
     day_offers: "Ofertas do Dia"
+    description: "Descrição da Oferta"
     discount: "Desconto %{discount}"
+    downvote: 'Não Gostei!'
     end_date: "Válida até %{end_date}"
     fill_fields: 'Preencha os campos abaixo'
     followed_by_x_users: "%{x} seguidores!"
@@ -32,6 +34,9 @@
     sharing_offers: "Compartilhando Ofertas"
     talk_with_us: "Fale Conosco"
     to_search: "Buscar"
+    undo_downvote: 'Não Gostei!(Desfazer)'
+    undo_upvote: 'Gostei!(Desfazer)'
+    upvote: 'Gostei!'
     username: "Username: %{username}"
     users: "Usuários"
     users_offers: 'Ofertas'

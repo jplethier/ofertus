@@ -1,138 +1,143 @@
-.span12
-  / PRINCIPAL
-  .main.dealPage
-    / pagina oferta
-    .defaulWindow.dealPage
-      = render 'shared/add_this'
-      / titulo
-      .title
-        %h1.deal_title= @deal.title
-        %strong Compartilhada por:
-        = link_to @deal.user.username, user_path(@deal.user.username)
+#sem-col
+  .ttGlHome
+    %h2= Deal.i18n_category(@deal.category)
 
-      / detalhes
-      .details
-        .deal_picture
-          %div
-            - if @deal.image_url
-              = link_to(image_tag(@deal.image_url, :alt => @deal.image_url, :title => @deal.title, :size => '10px'), deal_path(@deal), :class => "foto")
-            - else
-              = link_to(image_tag(asset_path('no_picture_big.png'), :alt => "Oferta sem imagem", :title => @deal.title, :size => '10px'), deal_path(@deal), :class => "foto")
+  .list-conteudo.detalhe-oferta
+    
+    .left.off
+      .col-off
+        - if @deal.price?
+          %h4= t('strings.original_price', :price => number_to_currency(@deal.real_price)).html_safe
 
-        .discount
-          .bigTicket.special.discountTicket
-            %strong.deal_discount= "#{@deal.discount.to_i.to_s}%"
+        .preco-off
+          %h4= t('strings.offer_price', :price => number_to_currency(@deal.price)).html_safe
 
-          - if @deal.price?
-            .from
-              %span de:
-              %strong.deal_real_price
-                = number_to_currency @deal.real_price, :format => "<span>%u</span>%n", :separator => ","
+        %h5= t('strings.discount', :discount => "#{@deal.discount.to_i}%")
+        %h5= t('strings.end_date', :end_date => @deal.end_date? ? l(@deal.end_date.to_date) : "-")
 
-            .for
-              %span por:
-              %strong.deal_price= number_to_currency @deal.price, :format => "<span>%u</span>%n", :separator => ","
+    .left.tx-off
+      %h3
+        %a{ :href => @deal.link, :target => '_blank'}= @deal.title
 
-          .go_to_website= link_to "Ir para o site", @deal.link, :class => "button", :target => "_blank"
+      .user-off
+        - if @deal.user.provider?
+          = link_to(image_tag(@deal.user.facebook_profile_picture(:small), :alt => @deal.user.username, :title => @deal.user.username), user_path(@deal.user.username), :class => "user_picture")
+        - else
+          = link_to(image_tag(@deal.user.gravatar_url(:size => 50), :alt => @deal.user.username, :title => @deal.user.username), user_path(@deal.user.username), :class => "user_picture")
+        %h4= t('strings.shared_by')
+        %span= link_to @deal.user.name, user_path(@deal.user.username)
 
-          .dealInfo
-            %li
-              %strong Em:
-              %span.deal_category= Deal.i18n_category(@deal.category)
+      %ul
+        %li= t('strings.category', :category => Deal.i18n_category(@deal.category))
+        %li= t('strings.company', :company => @deal.company)
+        %li= t('strings.city', :city => @deal.city.name)
 
-            %li
-              %strong Válida para:
-              %span.deal_city= @deal.city.name
+    .share-off
+      - if user_signed_in?
+        %span.gostei
+          - if current_user.up_voted? @deal
+            = link_to t('strings.undo_upvote'), unvote_deal_path(@deal)
+          - else
+            = link_to t('strings.upvote'), upvote_deal_path(@deal)
+          = " - #{@deal.up_votes} gostou!"
+        %span.nao-gostei
+          - if current_user.down_voted? @deal
+            = link_to t('strings.undo_downvote'), unvote_deal_path(@deal)
+          - else
+            = link_to t('strings.downvote'), downvote_deal_path(@deal)
+          = " - #{@deal.down_votes} não gostou!"
 
-          - if user_signed_in?
-            .votes
-              .like
-                - if current_user.up_voted? @deal
-                  = link_to 'Gostei!(Desfazer)', unvote_deal_path(@deal), :class => "like"
-                - else
-                  = link_to 'Gostei!', upvote_deal_path(@deal), :class => "like"
+    .right
+      - if @deal.image_url
+        = image_tag(@deal.image_url, :alt => @deal.image_url, :title => @deal.title, :size => '10px')
+      - else
+        = image_tag(asset_path('no_picture_big.png'), :alt => "Oferta sem imagem", :title => @deal.title, :size => '10px')
 
-                .likes
-                  - if @deal.up_votes <= 1
-                    %span= "#{@deal.up_votes.to_s} gostou!"
-                  - else
-                    %span= "#{@deal.up_votes.to_s} gostaram!"
+  .desc-off
+    %h4= t('strings.description')
+    .tx-desc
+      
 
-              .dislike 
-                - if current_user.down_voted? @deal
-                  = link_to 'Não Gostei!(Desfazer)', unvote_deal_path(@deal), :class => "dislike"
-                - else
-                  = link_to 'Não gostei!', downvote_deal_path(@deal), :class => "dislike"
+  .right-detalhe-comment-off
+  
+    .comment-off
+      %h4 Comentários
+      .tx-desc
+        %textarea
+        %input{ :type => "submit", :class => "bt-comentar"}
+        .clear
 
-                .dislikes
-                  - if @deal.down_votes <= 1
-                    %span= "#{@deal.down_votes.to_s} não gostou!"
-                  - else
-                    %span= "#{@deal.down_votes.to_s} não gostaram!"
+    #ct-comment-off
+      .list-comment-off
+        %img{ :src => "http://placehold.it/50x50" }
+        %p promoção muito boa
+        %span
+          %a{ :href => ""} jplethier
+          em 05/07/2012
 
-      / detalhes
-      .info
-        .title
-          %h2 Descrição da Oferta
+  .clear
+.clear
+/       = render 'shared/add_this'
+/           
+/             .go_to_website= link_to "Ir para o site", @deal.link, :class => "button", :target => "_blank"
+/         .content
+/           %p= @deal.description.html_safe
 
-        .content
-          %p= @deal.description.html_safe
+/   .row-fluid
+/     #comments.content.span8
+/       /janela CONTEÚDO 
+/       .default_window.comments_window
+/         .comment_list#tabAreaId{ :style => "min-height: 150px;" } 
+/           .briefWindow.opinions 
+/             .upBar 
+/               %h4= I18n.t("comments") 
+/               .topic.newTopic
+/                 - if can? :manage, @comment
+/                   .new_comment
+/                     = form_for([@deal,@comment]) do |f|
+/                       = f.text_area :comment, :class => "TextArea"
+/                       %br
+/                       = f.submit I18n.t("actions.comment"), :class => :button
 
-  .row-fluid
-    #comments.content.span8
-      /janela CONTEÚDO 
-      .default_window.comments_window
-        .comment_list#tabAreaId{ :style => "min-height: 150px;" } 
-          .briefWindow.opinions 
-            .upBar 
-              %h4= I18n.t("comments") 
-              .topic.newTopic
-                - if can? :manage, @comment
-                  .new_comment
-                    = form_for([@deal,@comment]) do |f|
-                      = f.text_area :comment, :class => "TextArea"
-                      %br
-                      = f.submit I18n.t("actions.comment"), :class => :button
+/             - if not @deal.comments.empty?
+/               .content
+/                 - @deal.comments.each do |comment|
+/                   = render :partial => 'comments/comment', :locals => {:comment => comment}
 
-            - if not @deal.comments.empty?
-              .content
-                - @deal.comments.each do |comment|
-                  = render :partial => 'comments/comment', :locals => {:comment => comment}
+/             - else
+/               .withoutContent
+/                 %h4 Não há comentários cadastrados para essa oferta ainda. Seja o primeiro a dar sua opinião escrevendo seu comentário no campo acima.
 
-            - else
-              .withoutContent
-                %h4 Não há comentários cadastrados para essa oferta ainda. Seja o primeiro a dar sua opinião escrevendo seu comentário no campo acima.
+/             .downBar
+/               / paginacao 
 
-            .downBar
-              / paginacao 
+/     #comments_side.side.span4
+/       .default_window.white_background
+/         .title
+/           %h3 Melhores Ofertas
 
-    #comments_side.side.span4
-      .default_window.white_background
-        .title
-          %h3 Melhores Ofertas
+/         .content
+/           .best
+/             .small_deal
+/               - @best_deals.each do |deal|
+/                 = render :partial => 'deals/side_deal', :locals => {:deal => deal}
 
-        .content
-          .best
-            .small_deal
-              - @best_deals.each do |deal|
-                = render :partial => 'deals/side_deal', :locals => {:deal => deal}
+/       .default_window.white_background
+/         .title
+/           %h3 Ofertas Mais Comentadas
 
-      .default_window.white_background
-        .title
-          %h3 Ofertas Mais Comentadas
+/         .content
+/           .most_commented
+/             .small_deal
+/               - @most_comment_deals.each do |deal|
+/                 = render :partial => 'deals/side_deal', :locals => {:deal => deal}
 
-        .content
-          .most_commented
-            .small_deal
-              - @most_comment_deals.each do |deal|
-                = render :partial => 'deals/side_deal', :locals => {:deal => deal}
+/       .default_window.white_background
+/         .title
+/           %h3 Últimas Ofertas Compartilhadas
 
-      .default_window.white_background
-        .title
-          %h3 Últimas Ofertas Compartilhadas
-
-        .content
-          .newest
-            .small_deal
-              - @newest_deals.each do |deal|
-                = render :partial => 'deals/side_deal', :locals => {:deal => deal}
+/         .content
+/           .newest
+/             .small_deal
+/               - @newest_deals.each do |deal|
+/                 = render :partial => 'deals/side_deal', :locals => {:deal => deal}

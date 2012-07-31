@@ -1,73 +1,64 @@
-.span8
-  .main
-    .window.medium_window
-      .middle.newProfile#userCreateAreaId
-        %h1 OfertuS
-        %h3 Crie seu perfil preenchendo os campos abaixo e comece a compartilhar ofertas com seus amigos
-        = link_to "entre com sua conta do facebook", user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
+#col-left
+  .ttGlHome
+    %h2= t('strings.new_user')
 
-        = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-          %ol
-            %li
-              = f.label :email
-              - if resource.provider?
-                = resource.email
-                = f.hidden_field :email
-              - else
-                = f.text_field :email
-            %li
-              = f.label :username
-              = f.text_field :username
-              %span.limite
-                Mínimo
-                %strong 5
-                e máximo
-                %strong 20
-                caracteres.
-            %li
-              = f.label :name
-              = f.text_field :name
-            - if @user.password_required?
-              %li
-                = f.label :password
-                = f.password_field :password
-                %span.limite
-                  Mínimo
-                  %strong 6
-                  caracteres.
-              %li
-                = f.label :password_confirmation
-                = f.password_field :password_confirmation              
-            %li
-              %span.agree
-                = check_box_tag(:terms_privacy, :terms_privacy)
-                %label{ :for => "terms_privacy" } 
-                  Concordo com os 
-                  = link_to 'termos de uso', pages_termsofuse_path, :target=> "_blank"
-                  e 
-                  = link_to 'política de privacidade', pages_privacypolicy_path, :target=>"_blank"
-                  do site
-            / TODO: RECAPTCHA
-            /%li
-            /  %label Digite as letras:
-            /  %img{ :src => "../simpleCaptcha", :class => "captcha" }
-            /  %input{ :type => "text", :tabindex => "10", :class => "captcha", :maxlength => "10"}
-          .button= f.submit "Criar perfil", :type=>"image", :src=> asset_path('botao.png'), :alt=> "Confirmar"
-        
-.side.span4
-  .default_window.white_background
-    .title
-      %h3 O Que é o OfertuS?
+  .page-login
+    %h3= t('strings.fill_fields')
+    / .fb-login-button
+    /   = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
 
-    .content
-      %p Um lugar onde podemos compartilhar ofertas e opiniões com nossos amigos.
-      %br
-      %p O objetivo do OfertuS é facilitar o acesso e a busca por ofertas que se encontram espalhadas na rede, permitindo uma interação maior entre os usuários e as ofertas.
-      %br
-      %p
-        %a{ :href => "/users/sign_up" } Crie seu perfil</a> e comece já a compartilhar ofertas com seus amigos.
-      %br
-      %p 
-        Leia mais sobre 
-        %a{ :href => "/pages/whoarewe" } Quem Somos
-        = "."
+    .ct-inputs-login
+      = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+        %p
+          = f.label :email
+          %br
+          - if resource.provider?
+            = f.text_field :email, :class => 'user-senha', :disable => true
+            = f.hidden_field :email
+          - else
+            = f.text_field :email, :class => 'user-senha'
+        .clear
+        %p
+          = f.label :username
+          %br
+          = f.text_field :username, :class => 'user-senha'
+          %span
+            Mínimo 5 e máximo 20 caracteres.
+        .clear
+        %p
+          = f.label :name
+          %br
+          = f.text_field :name, :class => 'user-senha'
+        .clear
+        - if @user.password_required?
+          %p.last
+            = f.label :password
+            %br
+            = f.password_field :password, :class => 'user-senha'
+            %span
+              Mínimo 6 caracteres.
+          .clear
+          %p
+            = f.label :password_confirmation
+            %br
+            = f.password_field :password_confirmation, :class => 'user-senha'
+          .clear
+          
+        %p.checkbox-login{ :style => 'width: 600px' }
+          = check_box_tag(:terms_privacy, :terms_privacy)
+          %label{ :for => "terms_privacy" }
+            Concordo com os 
+            = link_to 'termos de uso', pages_termsofuse_path, :target => '_blank'
+            e 
+            = link_to 'política de privacidade', pages_privacypolicy_path, :target => '_blank'
+            do site.
+
+        %br.clear
+        = f.submit "", :class => 'bt-confirmar'
+
+        / TODO: RECAPTCHA
+        /%li
+        /  %label Digite as letras:
+        /  %img{ :src => "../simpleCaptcha", :class => "captcha" }
+        /  %input{ :type => "text", :tabindex => "10", :class => "captcha", :maxlength => "10"}
+    

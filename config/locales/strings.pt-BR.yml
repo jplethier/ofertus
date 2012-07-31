@@ -22,6 +22,7 @@
     last_shared: 'Últimas ofertas'
     making_friends: "Interação entre os usuários"
     most_commented: "+ Comentadas"
+    new_user: 'Novo Usuário'
     offer_price: "Preço oferta<span>%{price}</span>"
     original_price: "Preço original<span>%{price}</span>"
     remember_me: 'Mantenha-me conectado'

@@ -1,15 +1,11 @@
-.hreview.topic.opinion.answer.happiness
+.list-comment-off
   - if comment.user.provider?
-    = link_to(image_tag(comment.user.facebook_profile_picture("square")), user_path(comment.user.username), :class => "user")
+    = link_to(image_tag(comment.user.facebook_profile_picture("square")), user_path(comment.user.username))
   - else
-    = link_to(image_tag(comment.user.gravatar_url(:size => 39)), user_path(comment.user.username), :class => "user")
-  
-  .comment
-    %p.description.text= comment.comment
-    .details
-      %p.user
-        %span.reviewer
-          = link_to(comment.user.username, user_path(comment.user.username))
-        em
-        = l comment.created_at.to_date
-    .answers
+    = link_to(image_tag(comment.user.gravatar_url(:size => 50)), user_path(comment.user.username))
+
+  %p= comment.comment
+  %span
+    = link_to(comment.user.username, user_path(comment.user.username))
+    em
+    = l comment.created_at.to_date

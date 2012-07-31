@@ -6,6 +6,7 @@
     best_offers: "Melhores Ofertas"
     category: "Categoria: %{category}"
     city: "Válida para: %{city}"
+    comments: 'Comentários'
     company: "Empresa: %{company}"
     creating_a_profile: "Criando meu perfil"
     credit_x: "Saldo <span>%{x}</span>"

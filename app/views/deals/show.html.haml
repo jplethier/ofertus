@@ -61,83 +61,20 @@
   .right-detalhe-comment-off
   
     .comment-off
-      %h4 Comentários
+      %h4= t('strings.comments')
       .tx-desc
-        %textarea
-        %input{ :type => "submit", :class => "bt-comentar"}
+        - if can? :manage, @comment
+          = form_for([@deal,@comment]) do |f|
+            = f.text_area :comment
+            = f.submit t("actions.comment"), :class => 'bt-comentar'
         .clear
 
     #ct-comment-off
-      .list-comment-off
-        %img{ :src => "http://placehold.it/50x50" }
-        %p promoção muito boa
-        %span
-          %a{ :href => ""} jplethier
-          em 05/07/2012
+      = render @deal.comments
 
   .clear
 .clear
 /       = render 'shared/add_this'
 /           
 /             .go_to_website= link_to "Ir para o site", @deal.link, :class => "button", :target => "_blank"
-/         .content
-/           %p= @deal.description.html_safe
-
-/   .row-fluid
-/     #comments.content.span8
-/       /janela CONTEÚDO 
-/       .default_window.comments_window
-/         .comment_list#tabAreaId{ :style => "min-height: 150px;" } 
-/           .briefWindow.opinions 
-/             .upBar 
-/               %h4= I18n.t("comments") 
-/               .topic.newTopic
-/                 - if can? :manage, @comment
-/                   .new_comment
-/                     = form_for([@deal,@comment]) do |f|
-/                       = f.text_area :comment, :class => "TextArea"
-/                       %br
-/                       = f.submit I18n.t("actions.comment"), :class => :button
-
-/             - if not @deal.comments.empty?
-/               .content
-/                 - @deal.comments.each do |comment|
-/                   = render :partial => 'comments/comment', :locals => {:comment => comment}
-
-/             - else
-/               .withoutContent
-/                 %h4 Não há comentários cadastrados para essa oferta ainda. Seja o primeiro a dar sua opinião escrevendo seu comentário no campo acima.
-
-/             .downBar
-/               / paginacao 
-
-/     #comments_side.side.span4
-/       .default_window.white_background
-/         .title
-/           %h3 Melhores Ofertas
-
-/         .content
-/           .best
-/             .small_deal
-/               - @best_deals.each do |deal|
-/                 = render :partial => 'deals/side_deal', :locals => {:deal => deal}
-
-/       .default_window.white_background
-/         .title
-/           %h3 Ofertas Mais Comentadas
-
-/         .content
-/           .most_commented
-/             .small_deal
-/               - @most_comment_deals.each do |deal|
-/                 = render :partial => 'deals/side_deal', :locals => {:deal => deal}
-
-/       .default_window.white_background
-/         .title
-/           %h3 Últimas Ofertas Compartilhadas
-
-/         .content
-/           .newest
-/             .small_deal
-/               - @newest_deals.each do |deal|
-/                 = render :partial => 'deals/side_deal', :locals => {:deal => deal}
+/       

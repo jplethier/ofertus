@@ -18,6 +18,7 @@
     edit_informations: 'Edite suas informações'
     end_date: "Válida até %{end_date}"
     fill_fields: 'Preencha os campos abaixo'
+    fill_fields_to_share: "Compartilhe uma oferta preenchendo os campos abaixo e clicando em 'Confirmar'"
     followed_by_x_users: "%{x} seguidores!"
     following_x_users: "Seguindo %{x} usuários!"
     getting_paid: "Recebendo comissão sobre as ofertas compartilhadas"
@@ -27,6 +28,7 @@
     last_shared: 'Últimas ofertas'
     making_friends: "Interação entre os usuários"
     most_commented: "+ Comentadas"
+    new_offer: 'Nova Oferta'
     new_user: 'Novo Usuário'
     offer_price: "Preço oferta<span>%{price}</span>"
     original_price: "Preço original<span>%{price}</span>"

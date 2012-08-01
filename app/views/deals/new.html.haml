@@ -1,102 +1,78 @@
-.span8
-  .main
-    .window.medium_window
-      #newDealPage.middle.newProfile
-        %h1 OfertuS
-        %h3 Compartilhe uma oferta preenchendo os campos abaixo e clicando em salvar
+#col-left
+  .ttGlHome
+    %h2= t('strings.new_offer')
 
-        = form_for(@deal) do |f|
-          %ol
-            %li
-              = f.label :title
-              = f.text_field :title
-            
-            %li
-              = f.label :kind
-              = f.select :kind, Deal.i18n_kinds, {:include_blank => 'Selecione'}, {'data-switcher' => "1:#li_deal_price,#li_deal_real_price||2:#li_deal_price,#li_deal_real_price||3:#li_deal_discount"}
-
-            %li#li_deal_real_price
-              = f.label :real_price
-              = f.text_field :real_price_mask, :class => "money"
-
-            %li#li_deal_price
-              = f.label :price
-              = f.text_field :price_mask, :class => "money"
-
-            %li#li_deal_discount
-              = f.label :discount
-              = f.text_field :discount
-              %span.tips
-                Somente números
-            
-            %li
-              = f.label :category
-              = f.select :category, Deal.i18n_categories, {:include_blank => 'Selecione'}
-
-            %li
-              = f.label :description
-              = cktext_area :deal, :description, :toolbar => 'Basic'
-
-            %li
-              = f.label :end_date
-              = f.text_field :end_date, :class => "datepicker"
-              %span.tips
-                Informe a data no formato dd/mm/aaaa
-            
-            %li
-              = f.label :link
-              = f.text_field :link
-              %span.tips
-                O link deve ser no formato http:// ou https://
-
-            %li
-              = f.label :image_url
-              = f.text_field :image_url
-              %span.tips
-                O link deve ser no formato http:// ou https://
-              
-            %li
-              = f.label :company 
-              = f.text_field :company
-            
-            %li
-              = f.label :city_id
-              = f.select(:city_id, unsorted_grouped_options_for_select(@cities_state_hash), {:include_blank => 'Selecione'})
-
-          / TODO: Transformar o botão igual ao link
-          .button
-            = f.submit I18n.t("actions.share"), :type=>"image", :src=> asset_path('botao.png'), :alt=> "Confirmar"
-
-.side.span4
-  .default_window.white_background
-    .title
-      %h3 Melhores Ofertas
+  .page-login
+    %h3= t('strings.fill_fields_to_share')
     
-    .content
-      .best
-        .small_deal
-          - @best_deals.each do |deal|
-            = render :partial => 'deals/side_deal', :locals => {:deal => deal}  
-            
-  .default_window.white_background 
-    .title 
-      %h3 Ofertas Mais Comentadas 
+    .ct-inputs-login
+      = form_for(@deal) do |f|
+        %p
+          = f.label :title
+          %br
+          = f.text_field :title, :class => 'user-senha'
+        .clear
+        %p
+          = f.label :kind
+          %br
+          = f.select :kind, Deal.i18n_kinds, {:include_blank => 'Selecione'}, {'data-switcher' => "1:#p_deal_price,#p_deal_real_price||2:#p_deal_price,#p_deal_real_price||3:#p_deal_discount", :class => 'user-senha' }
+        .clear
+        %p#p_deal_real_price
+          = f.label :real_price
+          %br
+          = f.text_field :real_price_mask, :class => "money user-senha"
+        .clear
+        %p#p_deal_price
+          = f.label :price
+          %br
+          = f.text_field :price_mask, :class => "money user-senha"
+        .clear
+        %p#p_deal_discount
+          = f.label :discount
+          %br
+          = f.text_field :discount, :class => "user-senha"
+          %span Somente números
+        .clear
+        %p
+          = f.label :category
+          %br
+          = f.select :category, Deal.i18n_categories, {:include_blank => 'Selecione'}, :class => 'user-senha'
+        .clear
+        %p
+          = f.label :description
+          %br
+          = cktext_area :deal, :description, :toolbar => 'Basic'
+        .clear
+        %p
+          = f.label :end_date
+          %br
+          = f.text_field :end_date, :class => "datepicker user-senha"
+          %span Informe a data no formato dd/mm/aaaa
+        .clear
+        %p
+          = f.label :link
+          %br
+          = f.text_field :link, :class => 'user-senha'
+          %span O link deve ser no formato http:// ou https://
+        .clear
+        %p
+          = f.label :image_url
+          %br
+          = f.text_field :image_url, :class => 'user-senha'
+          %span O link deve ser no formato http:// ou https://
+        .clear
+        %p
+          = f.label :company 
+          %br
+          = f.text_field :company, :class => 'user-senha'
+        .clear
+        %p.last
+          = f.label :city_id
+          %br
+          = f.select(:city_id, unsorted_grouped_options_for_select(@cities_state_hash), {:include_blank => 'Selecione'}, :class => 'user-senha' )
 
-    .content 
-      .most_commented 
-        .small_deal 
-          - @most_comment_deals.each do |deal|  
-            = render :partial => 'deals/side_deal', :locals => {:deal => deal}  
-            
-  .default_window.white_background 
-    .title 
-      %h3 Últimas Ofertas Compartilhadas 
-
-    .content 
-      .newest 
-        .small_deal 
-          - @newest_deals.each do |deal|  
-            = render :partial => 'deals/side_deal', :locals => {:deal => deal}  
+        %br.clear
+        = f.submit "", :class => 'bt-confirmar'
 
 :plain            
   <script type="text/javascript">

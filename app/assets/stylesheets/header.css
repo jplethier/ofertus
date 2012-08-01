@@ -12,8 +12,8 @@
 
 #header #icon-redes { position:absolute; top:67px; right:0; }
 #header #icon-redes a { float: left; width:35px; height:35px; margin-right:4px; background: url(icon-redes.png) no-repeat; }
-#header #icon-redes .bt-face { background-position:0 0; }
-#header #icon-redes .bt-twitter { background-position:-39px 0; }
+#header #icon-redes .bt-twitter { background-position:0 0; }
+#header #icon-redes .bt-face { background-position:-39px 0; }
 #header #icon-redes .bt-google { background-position:-78px 0; margin-right:0; }
 
 

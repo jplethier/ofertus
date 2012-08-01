@@ -1,81 +1,87 @@
-.span12
-  #edit_user_window.window.medium_window
-    .middle.newProfile#userCreateAreaId
-      %div
-        %h1 OfertuS
-        %h3 Edite suas informações
+#col-left
+  .ttGlHome
+    %h2= t('strings.edit')
 
-        = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
-          %ol
-            .user_data
-              %li
-                - if resource.provider?
-                  .user_picture
-                    = image_tag resource.facebook_profile_picture
-                
-                - else
-                  .user_picture 
-                    = image_tag resource.gravatar_url
-                  
-                  .edit_user_picture
-                    %a{ :href => "http://gravatar.com/emails/", :target => "_blank" }
-                      = I18n.t('actions.edit_picture')
+  .page-login
+    %h3= t('strings.edit_informations')
+    
+    .ct-inputs-login.ct-edit
+      = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+        .right
+          - if resource.provider?
+            = image_tag resource.facebook_profile_picture
+          - else
+            = image_tag resource.gravatar_url
+            %a{ :href => "http://gravatar.com/emails/", :target => "_blank" }= t('actions.edit_picture')
 
-              %li
-                = f.label :email
-                - if resource.provider?
-                  = resource.email
-                - else
-                  = f.text_field :email
+        .left
+          %p
+            = f.label :email
+            %br
+            - if resource.provider?
+              = f.text_field :email, :disabled => true, :class => 'user-senha'
+            - else
+              = f.text_field :email, :class => 'user-senha'
 
-              %li
-                = f.label :username
-                = f.text_field :username
-                %span.limite
-                  Limite
-                  %strong 20
-                  caracteres
+          %p
+            = f.label :username
+            %br
+            = f.text_field :username, :class => 'user-senha'
+            %span Limite 20 caracteres
+          
+          %p{ :class => "#{resource.password_required? ? '' : 'last'}" }
+            = f.label :name
+            %br
+            = f.text_field :name, :class => 'user-senha'
 
-              %li
-                = f.label :name
-                = f.text_field :name
-              
-              - if resource.password_required?
-                %li
-                  = f.label :password
-                  %i (deixe em branco se não quiser alterar)
-                  = f.password_field :password
-                  %span.limite
-                    Mínimo
-                    %strong 6
-                    caracteres
+          - if resource.password_required?
+            %p
+              = f.label :password
+              %br
+              = f.password_field :password, :placeholder => 'deixe em branco se não quiser alterar', :class => 'user-senha'
+              %span Mínimo 6 caracteres
 
-                %li
-                  = f.label :password_confirmation
-                  = f.password_field :password_confirmation
-                
-                %li
-                  = f.label :current_password
-                  %i (para confirmar as alterações, é preciso informar sua senha atual)
-                  = f.password_field :current_password
+            %p
+              = f.label :password_confirmation
+              %br
+              = f.password_field :password_confirmation, :class => 'user-senha'
+            
+            %p
+              = f.label :current_password, :placeholder => 'para confirmar as alterações, é preciso informar sua senha atual'
+              %br
+              = f.password_field :current_password
+               
+          = f.submit "", :class => "bt-confirmar"
 
-            - if resource.provider
-              .facebook_permissions
-                %li
-                  = f.label :facebook_share_offer
-                  = f.check_box :facebook_share_offer
+        - if resource.provider
+          %p.checkbox-login
+            = f.label :facebook_share_offer
+            = f.check_box :facebook_share_offer
+          %br.clear
+          %p.checkbox-login
+            = f.label :facebook_vote_offer
+            = f.check_box :facebook_vote_offer
+          %br.clear
+          %p.checkbox-login
+            = f.label :facebook_follow_user
+            = f.check_box :facebook_follow_user
 
-                %li
-                  = f.label :facebook_vote_offer
-                  = f.check_box :facebook_vote_offer
-                
-                %li
-                  = f.label :facebook_follow_user
-                  = f.check_box :facebook_follow_user
 
-          / TODO: Transformar o botão igual ao link
-          / <a tabindex="11" class="perfil" href="javascript:;">Atualizar</a>
-          .button= f.submit "Atualizar", :type=>"image", :src=> asset_path('botao.png'), :alt=> "Confirmar"
+    = link_to "Cancelar minha conta", registration_path(resource_name), :confirm => "Tem certeza?", :method => :delete
+    = link_to "Voltar", :back
 
-        %p= link_to "Cancelar minha conta", registration_path(resource_name), :confirm => "Tem certeza?", :method => :delete
-        = link_to "Voltar", :back
+#col-right
+  .list-box-sidebar#box-user
+    .ttGlHome
+      %h2= @user.name
+    %h3= t('strings.about_me')
+    .left-user
+      - if @user.provider?
+        = image_tag(@user.facebook_profile_picture("normal"), :alt => @user.username, :title => @user.username)
+      - else
+        = image_tag(@user.gravatar_url, :alt => @user.username, :title => @user.username)
+    
+    .right-user
+      %p= t('strings.x_shared_offers', :x => @user.deals.count)
+      %p= t('strings.followed_by_x_users', :x => @user.followers.count)
+      %p= t('strings.following_x_users', :x => @user.following.count)

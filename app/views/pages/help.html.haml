@@ -5,83 +5,102 @@
   .list-conteudo.info-help
     %h3= t('strings.about_the_site')
     .list-help
-      %a.bt-info{ :href => "javascript:;" } Com que frequência o OfertUs me enviará e-mails? Odeio lixo eletrônico!
+      %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Com que frequência o OfertUs me enviará e-mails? Odeio lixo eletrônico!
       .slide
         %p Neste primeiro momento não enviaremos e-mails sobre ofertas para nenhum usuário, se por algum motivo você recebeu algum e-mail sobre ofertas e descontos em nosso nome por favor entre em contato conosco para nos avisar.
     
     %h3= t('strings.creating_a_profile')
     .list-help
-      %a.bt-info{ :href => "javascript:;" } Como faço para me cadastrar no OfertUs?
-      .slide
-        %p Basta acessar o formulário de cadastro de perfil através do link 'Criar Perfil', que pode ser encontrado na parte de cima da página ou no rodapé da página, preencher os campos informados no formulário e salvar o cadastro. Após isso será enviado um e-mail de confirmação para o e-mail informado no formulário com um link para confirmação do cadastro, clique no link recebido e você terá um perfil cadastrado e confirmado no OfertUs.
-      %a.bt-info{ :href => "javascript;;" } Não recebi o e-mail de confirmação, o que faço agora?
-      .slide
-        %p Caso você tenha feito o seu cadastro corretamente e não tenha recebido o e-mail de confirmação do OfertUs, na tela de login, clique no link 'Não recebeu o e-mail de confirmação?', informe seu e-mail na nova página e clique em 'Reenviar' que enviaremos um novo e-mail de confirmação para você.
-      %a.bt-info{ :href => "javascript;;" } Esqueci minha senha, como faço para recuperá-la?
-      .slide
-        %p Basta clicar no link 'Esqueci minha senha' na tela de login, informar o e-mail cadastrado no OfertUs e clicar em 'Enviar' que enviaremos uma nova senha para você poder voltar a acessar o OfertUs sem problemas.
-      %a.bt-info{ :href => "javascript;;" } Como faço para utilizar uma foto minha no meu perfil do OfertUs?
-      .slide
-        %p
-          A plataforma do OfertUs não conta com upload de fotos dos usuários ainda, por isso estamos utilizando um serviço oferecido pelo Gravatar, permitindo nossos usuários a utilizarem as fotos que eles possuem no gravatar. Para tirar dúvidas e mais informações de como esse serviço funciona, visite o site deles 
-          %a{ :href => "http://gravatar.com", :target => "_blank" }
-            clicando aqui
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Como faço para me cadastrar no OfertUs?
+        .slide
+          %p Basta acessar o formulário de cadastro de perfil através do link 'Criar Perfil', que pode ser encontrado na parte de cima da página ou no rodapé da página, preencher os campos informados no formulário e salvar o cadastro. Após isso será enviado um e-mail de confirmação para o e-mail informado no formulário com um link para confirmação do cadastro, clique no link recebido e você terá um perfil cadastrado e confirmado no OfertUs.
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Não recebi o e-mail de confirmação, o que faço agora?
+        .slide
+          %p Caso você tenha feito o seu cadastro corretamente e não tenha recebido o e-mail de confirmação do OfertUs, na tela de login, clique no link 'Não recebeu o e-mail de confirmação?', informe seu e-mail na nova página e clique em 'Reenviar' que enviaremos um novo e-mail de confirmação para você.
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Esqueci minha senha, como faço para recuperá-la?
+        .slide
+          %p Basta clicar no link 'Esqueci minha senha' na tela de login, informar o e-mail cadastrado no OfertUs e clicar em 'Enviar' que enviaremos uma nova senha para você poder voltar a acessar o OfertUs sem problemas.
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Como faço para utilizar uma foto minha no meu perfil do OfertUs?
+        .slide
+          %p
+            A plataforma do OfertUs não conta com upload de fotos dos usuários ainda, por isso estamos utilizando um serviço oferecido pelo Gravatar, permitindo nossos usuários a utilizarem as fotos que eles possuem no gravatar. Para tirar dúvidas e mais informações de como esse serviço funciona, visite o site deles 
+            %a{ :href => "http://gravatar.com", :target => "_blank" }
+              clicando aqui
     %h3= t('strings.sharing_offers')
     .list-help
-      %a.bt-info{ :href => "javascript:;" } Vi uma ótima oferta em um site e gostaria de indicar para meus amigos. O que preciso fazer?
-      .slide
-        %p Para compartilhar uma oferta com seus amigos primeiro é preciso estar logado na plataforma. Após o login, basta clicar no link cadastrar oferta que se encontra no menu superior do OfertUs e preencher o formulário com os dados da oferta.
-      %a.bt-info{ :href => "javascript;;" } Que tipos de ofertas são aceitos no site?
-      .slide
-        %p No OfertUs é possível compartilhar ofertas dos tipos de compras coletivas, liquidação de lojas/sites e ofertas normais.
-      %a.bt-info{ :href => "javascript;;" } Posso fazer divulgação de produtos no OfertUs?
-      .slide
-        %p O OfertUs é uma plataforma para compartilhamento de ofertas espalhadas pela internet, não uma plataforma para vendas de produtos e serviçoes dos usuários, sendo assim não é permitido que seja feita divulgação de produtos e serviços no OfertUs.
-      %a.bt-info{ :href => "javascript;;" } Posso compartilhar minhas ofertas ou ofertas que achei interessantes em outras redes sociais?
-      .slide
-        %p Sim, o OfertUs permite que você compartilhe as ofertas encontradas na nossa plataforma com qualquer outra rede social. Uma forma rápida de fazer isso é através ds botões 'tweet', 'curti', '+1' e 'share' que são encontrados nas páginas das ofertas.
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Vi uma ótima oferta em um site e gostaria de indicar para meus amigos. O que preciso fazer?
+        .slide
+          %p Para compartilhar uma oferta com seus amigos primeiro é preciso estar logado na plataforma. Após o login, basta clicar no link cadastrar oferta que se encontra no menu superior do OfertUs e preencher o formulário com os dados da oferta.
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Que tipos de ofertas são aceitos no site?
+        .slide
+          %p No OfertUs é possível compartilhar ofertas dos tipos de compras coletivas, liquidação de lojas/sites e ofertas normais.
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Posso fazer divulgação de produtos no OfertUs?
+        .slide
+          %p O OfertUs é uma plataforma para compartilhamento de ofertas espalhadas pela internet, não uma plataforma para vendas de produtos e serviçoes dos usuários, sendo assim não é permitido que seja feita divulgação de produtos e serviços no OfertUs.
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Posso compartilhar minhas ofertas ou ofertas que achei interessantes em outras redes sociais?
+        .slide
+          %p Sim, o OfertUs permite que você compartilhe as ofertas encontradas na nossa plataforma com qualquer outra rede social. Uma forma rápida de fazer isso é através ds botões 'tweet', 'curti', '+1' e 'share' que são encontrados nas páginas das ofertas.
     %h3= t('strings.getting_paid')
     .list-help
-      %a.bt-info{ :href => "javascript;;" } Como faço para receber uma comissão de uma oferta que compartilhei no Ofertus?
-      .slide
-        %p Para que o usuário receba uma comissão pela oferta compartilhada, é necessário que essa oferta seja de um site parceiro do Ofertus e que essa oferta seja comprada por um ou mais internautas através do link compartilhado pelo usuário, recebendo assim uma comissão por cada uma desses vendas.
-      %a.bt-info{ :href => "javascript;;" } Quando posso pedir para sacar o dinheiro que ganhei com as comissões dos programas de afiliados?
-      .slide
-        %p O usuário pode pedir para retirar o dinheiro acumulado pelas comissões recebidas quando o seu saldo for superior a R$ 30,00 e não tenha retirado o dinheiro nos últimos 30 dias.
-      %a.bt-info{ :href => "javascript;;" } Quanto ganho de comissão quando alguém compra a oferta que compartilhei aqui no Ofertus?
-      .slide
-        %p
-          A comissão depende da loja a qual essa oferta pertence, e é repassada conforme a tabela abaixo:
-          = render 'partnership_table'
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Como faço para receber uma comissão de uma oferta que compartilhei no Ofertus?
+        .slide
+          %p Para que o usuário receba uma comissão pela oferta compartilhada, é necessário que essa oferta seja de um site parceiro do Ofertus e que essa oferta seja comprada por um ou mais internautas através do link compartilhado pelo usuário, recebendo assim uma comissão por cada uma desses vendas.
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Quando posso pedir para sacar o dinheiro que ganhei com as comissões dos programas de afiliados?
+        .slide
+          %p O usuário pode pedir para retirar o dinheiro acumulado pelas comissões recebidas quando o seu saldo for superior a R$ 30,00 e não tenha retirado o dinheiro nos últimos 30 dias.
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Quanto ganho de comissão quando alguém compra a oferta que compartilhei aqui no Ofertus?
+        .slide
+          %p
+            A comissão depende da loja a qual essa oferta pertence, e é repassada conforme a tabela abaixo:
+            = render 'partnership_table'
     %h3= t('strings.interation_with_offers')
     .list-help
-      %a.bt-info{ :href => "javascript;;" } Como a plataforma diferencia ofertas boas e ruins?
-      .slide
-        %p Para podermos diferenciar as ofertas boas das ruins precisamos da sua ajuda, pois é através dos votos e comentários que determinamos quais são as melhores ofertas compartilhadas no OfertUs. Por isso, se gostou de uma oferta, não deixe de comentar e votar nela, e faça o mesmo com as ofertas que você não gostar.
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Como a plataforma diferencia ofertas boas e ruins?
+        .slide
+          %p Para podermos diferenciar as ofertas boas das ruins precisamos da sua ajuda, pois é através dos votos e comentários que determinamos quais são as melhores ofertas compartilhadas no OfertUs. Por isso, se gostou de uma oferta, não deixe de comentar e votar nela, e faça o mesmo com as ofertas que você não gostar.
     %h3= t('strings.making_friends')
     .list-help
-      %a.bt-info{ :href => "javascript;;" } Como funciona e para que serve seguir as ofertas de outros usuários?
-      .slide
-        %p Para visualizar de forma mais rápida as ofertas cadastradas por um determinado usuário, é possível segui-lo, e com isso ver as ofertas cadastradas por ele diretamente na sua página de perfil.
-      %a.bt-info{ :href => "javascript;;" } Para que serve minha credibilidade e o que a influencia? Como ela reflete na minha rede de relacionamentos?
-      .slide
-        %p A sua credibilidade serve para que os outros usuários possam confiar cada vez mais nas ofertas compartilhadas por você através do OfertUs, possibilitando com isso que suas ofertas sejam vistas por mais usuários e mais usuários passem a te seguir na plataforma. 
-      %a.bt-info{ :href => "javascript;;" } É possível denunciar usuários que estejam agindo contra os príncipios do OfertUs? 
-      .slide
-        %p Não só é possível como a equipe do OfertUs pede sua ajuda para descobrir perfis falsos, maliciosos e outros abusos que podem vir a ocorrer na plataforma. Você pode denunciar todas essas ocorrências nos mandando um e-mail através do contato@ofertus.com.br.
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Como funciona e para que serve seguir as ofertas de outros usuários?
+        .slide
+          %p Para visualizar de forma mais rápida as ofertas cadastradas por um determinado usuário, é possível segui-lo, e com isso ver as ofertas cadastradas por ele diretamente na sua página de perfil.
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Para que serve minha credibilidade e o que a influencia? Como ela reflete na minha rede de relacionamentos?
+        .slide
+          %p A sua credibilidade serve para que os outros usuários possam confiar cada vez mais nas ofertas compartilhadas por você através do OfertUs, possibilitando com isso que suas ofertas sejam vistas por mais usuários e mais usuários passem a te seguir na plataforma. 
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } É possível denunciar usuários que estejam agindo contra os príncipios do OfertUs? 
+        .slide
+          %p Não só é possível como a equipe do OfertUs pede sua ajuda para descobrir perfis falsos, maliciosos e outros abusos que podem vir a ocorrer na plataforma. Você pode denunciar todas essas ocorrências nos mandando um e-mail através do contato@ofertus.com.br.
     %h3= t('strings.security')
     .list-help
-      %a.bt-info{ :href => "javascript;;" } Os links são seguros? Eles podem me redirecionar para sites maliciosos ou vírus?
-      .slide
-        %p A equipe do OfertUs está sempre de olho nos links para verificar a segurança dos mesmo, mesmo assim tenha cuidado ao acessar links cadastrados em ofertas e/ou comentários, e nos avise sobre qualquer suspeita de sites maliciosos e/ou vírus.
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Os links são seguros? Eles podem me redirecionar para sites maliciosos ou vírus?
+        .slide
+          %p A equipe do OfertUs está sempre de olho nos links para verificar a segurança dos mesmo, mesmo assim tenha cuidado ao acessar links cadastrados em ofertas e/ou comentários, e nos avise sobre qualquer suspeita de sites maliciosos e/ou vírus.
     %h3= t('strings.talk_with_us')
     .list-help
-      %a.bt-info{ :href => "javascript;;" } Identifiquei alguns pontos de melhoria na plataforma. Como posso entrar em contato para apontar ideias?
-      .slide
-        %p Sugestões e críticas são muito bem aceitas pela equipe do OfertUs. Para nos mandar sua sugestão/crítica, basta clicar no botão 'feedback' encontrado na parte de baixo da tela e nos dizer o que podemos fazer para atendê-lo melhor.
-      %a.bt-info{ :href => "javascript;;" } Sou uma empresa e gostaria de me tornar um parceiro. O que preciso fazer?Como faço para me cadastrar no OfertUs?
-      .slide
-        %p Entre em contato conoso através do contato@ofertus.com.br.
-      %a.bt-info{ :href => "javascript;;" } Gostaria de tratar sobre um assunto mais específico. Há algum modo de contatar a equipe do OfertUs diretamente?
-      .slide
-        %p Entre em contato conoso através do contato@ofertus.com.br.
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Identifiquei alguns pontos de melhoria na plataforma. Como posso entrar em contato para apontar ideias?
+        .slide
+          %p Sugestões e críticas são muito bem aceitas pela equipe do OfertUs. Para nos mandar sua sugestão/crítica, basta clicar no botão 'feedback' encontrado na parte de baixo da tela e nos dizer o que podemos fazer para atendê-lo melhor.
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Sou uma empresa e gostaria de me tornar um parceiro. O que preciso fazer?Como faço para me cadastrar no OfertUs?
+        .slide
+          %p Entre em contato conoso através do contato@ofertus.com.br.
+      %div
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Gostaria de tratar sobre um assunto mais específico. Há algum modo de contatar a equipe do OfertUs diretamente?
+        .slide
+          %p Entre em contato conoso através do contato@ofertus.com.br.

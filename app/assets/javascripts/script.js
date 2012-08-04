@@ -2,12 +2,11 @@
 // 	$('#box-compartilhe').slideToggle();
 // });
 
-$("#categorias-home a").hover(function(){
-    $(this).parent().find("span").stop().animate({"opacity": 1});
-},function(){
-    $(this).parent().find("span").stop().animate({"opacity": 0});
-});
-
+// $("#categorias-home a").hover(function(){
+//     $(this).parent().find("span").stop().animate({"opacity": 1});
+// },function(){
+//     $(this).parent().find("span").stop().animate({"opacity": 0});
+// });
 
 // $('.slide:first').show().parent().find(".bt-info").addClass("bt-mais-slide");
 // $('.bt-info').click(function() {

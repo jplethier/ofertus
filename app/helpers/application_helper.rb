@@ -21,6 +21,14 @@ module ApplicationHelper
     end
   end
 
+  def title
+    if not @description.nil?
+      @title + " | OfertuS - Compartilhe Boas Ofertas"
+    else
+      "OfertuS - Compartilhe Boas Ofertas"
+    end
+  end
+
   def today?
     controller_name == 'deals' && action_name ==  'today'
   end

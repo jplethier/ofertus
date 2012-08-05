@@ -4,8 +4,8 @@
 
   .page-login
     %h3= t('strings.fill_fields')
-    / .fb-login-button
-    /   = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
+    .fb-login-button
+      = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
 
     .ct-inputs-login
       = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|

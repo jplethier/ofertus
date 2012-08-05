@@ -204,16 +204,6 @@ body { font:12px Arial, sans-serif; *font-size:small; font-family: 'GothamLight'
 .como-funciona h3 { margin-bottom:13px; font-size:18px; padding:0; }
 .como-funciona a { text-decoration:underline; color: #000; }
 
-
-/* Info Help */
-.info-help h3 { margin-bottom:10px; font-size:18px; padding:0; }
-.info-help .list-help { margin-bottom: 25px; }
-.info-help .list-help a { padding-left: 23px; line-height:18px; font-size:14px; color: #000; text-decoration:none; display: block; margin-bottom:10px; background: url(bt-menos-slide.png) no-repeat;  }
-.info-help .list-help .slide { display: none; background:#f6f6f6; padding:10px; }
-.info-help .list-help .slide p { color: #3a3939; margin-bottom:0; line-height:18px; }
-.info-help .list-help .bt-mais-slide { background: url(bt-mais-slide.png) no-repeat; }
-
-
 /* Blog */
 .page-blog span {  color:#a7a7a7; font-size:12px; display: block; margin-bottom:5px; }
 .page-blog span a { text-decoration:underline; color:#a7a7a7; font-size:12px; }

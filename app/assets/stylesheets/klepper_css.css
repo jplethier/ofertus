@@ -166,7 +166,7 @@ body { font:12px Arial, sans-serif; *font-size:small; font-family: 'GothamLight'
 #busca-home .input-tx { text-transform:uppercase; background: #f6f6f6; font-size:11px; color: #666; border:none; float: left; padding:11px 5px 10px; width:220px; }
 #busca-home .submit { width:33px; height:33px; float:right; border:none; background: url(bts-input.gif) no-repeat;  }
 #busca-home select { width:265px; padding:4px 10px; font-size:11px; color: #666; }
-#busca-home .border-input-busca.select { margin-bottom:10px; }
+#busca-home .border-input-busca.select { margin-bottom:10px; width: 100%; }
 
 /* Detalhe Oferta */
 #sem-col { width:100%; padding-bottom:40px; }

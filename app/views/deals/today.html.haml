@@ -23,10 +23,10 @@
         %input{ :type => "submit", :value => "", :class => "submit"}
 
       .border-input-busca.select
-        = select_tag "search_order", search_options(params[:search_order])
+        = select_tag "search_order", search_options(params[:search_order]), :class => 'user-senha'
 
       .border-input-busca.select
-        = select_tag "search_city", search_city_options(params[:search_city])
+        = select_tag "search_city", search_city_options(params[:search_city]), :class => 'user-senha'
 
   .list-box-sidebar
     .ttGlHome

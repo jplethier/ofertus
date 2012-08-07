@@ -21,11 +21,11 @@ module ApplicationHelper
     end
   end
 
-  def title
+  def description
     if not @description.nil?
-      @title + " | OfertuS - Compartilhe Boas Ofertas"
+      @description
     else
-      "OfertuS - Compartilhe Boas Ofertas"
+      "Compartilhe, descubra, comente e opine sobre ofertas com seus amigos no OfertuS."
     end
   end
 

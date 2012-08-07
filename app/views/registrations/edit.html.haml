@@ -34,7 +34,7 @@
             %br
             = f.text_field :name, :class => 'user-senha'
 
-          - if resource.password_required?
+          - unless resource.provider?
             %p
               = f.label :password
               %br
@@ -49,7 +49,7 @@
             %p
               = f.label :current_password, :placeholder => 'para confirmar as alterações, é preciso informar sua senha atual'
               %br
-              = f.password_field :current_password
+              = f.password_field :current_password, :class => 'user-senha'
                
           = f.submit "", :class => "bt-confirmar"
 

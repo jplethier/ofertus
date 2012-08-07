@@ -34,7 +34,6 @@ class Blog::BlogPostsController < AuthorizedController
     if BlogPost.update(@blog_post, params[:blog_post])
       redirect_to blog_root_path
     else
-      binding.pry
       render 'edit'
     end
   end

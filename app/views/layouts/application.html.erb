@@ -87,10 +87,12 @@
       </div><!--/header-->
 
       <div id="box-compartilhe">
-        <div class="border-input-busca">
-          <input type="text" value="copie a url da ofertas aqui para compartilhar!" class="resetValue input-tx" />
-          <input type="submit" value="Ok" class="submit" />
-        </div>
+        <form action="<%= share_deals_path %>" method="get.share_offer_url">
+          <div class="border-input-busca">
+            <%= text_field_tag :share, params[:share], :title => "Compartilhe uma oferta", :placeholder => "copie a url da ofertas aqui para compartilhar!", :class => "resetValue input-tx" %>
+            <button id="share" class="submit" title="Compartilhar" value="OK">OK</button>
+          </div>
+        </form>
         <div class="clear"></div>
       </div>
 
@@ -128,7 +130,6 @@
     </div>
     <!--  RODAPÉ -->
       
-
     <!-- User Voice -->
     <script type="text/javascript">
       var uvOptions = {};

@@ -1,0 +1,3 @@
+describe DealsController do
+  
+end

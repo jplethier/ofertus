@@ -5,13 +5,15 @@ class PeixeUrbano
 
     deal = Deal.new :link => link
     deal.title = page.at_css('title').try(:text).try(:strip)[0,255]
-    if page.at_css(".new_price").try(:text)
-      deal.price_mask = page.at_css(".new_price").try(:text).try(:strip)[2..-1].try(:strip)
-      if not deal.price_mask.match(",")
+    if page.at_css("#discountPrice").try(:text)
+      deal.price_mask = page.at_css("#discountPrice").at_xpath(".//span").try(:text).try(:strip)[2..-1].try(:strip)
+
+      if deal.price_mask && !deal.price_mask.match(",")
         deal.price_mask = deal.price_mask + ",00"
       end
-      deal.real_price_mask = page.at_css(".old_price").try(:text).try(:strip)[2..-1].try(:strip)
-      if not deal.real_price_mask.match(",")
+
+      deal.real_price_mask = page.at_css("#fullPrice").try(:text).try(:strip)[2..-1].try(:strip)
+      if deal.real_price_mask && !deal.real_price_mask.match(",")
         deal.real_price_mask = deal.real_price_mask + ",00"
       end
       deal.description = page.at_css(".deal_details").to_s.truncate(4000)

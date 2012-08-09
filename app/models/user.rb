@@ -47,7 +47,11 @@ class User < ActiveRecord::Base
   end
 
   def facebook_profile_picture(size = "large")
-    FbGraph::User.fetch(uid).picture(size)
+    begin
+      FbGraph::User.fetch(uid).picture(size)
+    rescue Exception
+      nil
+    end
   end
 
   def self.by_username(username)

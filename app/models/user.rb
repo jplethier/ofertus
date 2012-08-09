@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   has_paper_trail
 
   has_and_belongs_to_many :cities
-  has_many :deals
+  has_many :deals,                  :order => "deals.created_at DESC"
   has_many :relationships,          :foreign_key => "follower_id"
   has_many :followers,              :through => :reverse_relationships, :source => :follower
   has_many :following,              :through => :relationships,         :source => :followed

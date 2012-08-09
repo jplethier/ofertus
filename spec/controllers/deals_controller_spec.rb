@@ -15,7 +15,31 @@ describe DealsController do
     it { should render_with_layout(:application) }
     it { should respond_with_content_type(:html) }
   end
-  
+
+  describe "GET 'today'" do
+    before do
+      # sign_in(:user, FactoryGirl.create(:user))
+      get 'today'
+    end
+    
+    it { should respond_with(:success) }
+    it { should render_template(:today) }
+    it { should render_with_layout(:application) }
+    it { should respond_with_content_type(:html) }
+  end
+
+  describe "GET 'show'" do
+    before do
+      # sign_in(:user, FactoryGirl.create(:user))
+      get 'show', :id => 1
+    end
+    
+    it { should respond_with(:success) }
+    it { should render_template(:show) }
+    it { should render_with_layout(:application) }
+    it { should respond_with_content_type(:html) }
+  end
+
   describe "routes" do
     it { should route(:get, "/deals/active/beauty_and_health").to(:controller => :deals, :action => :index, :category => "beauty_and_health") }
     it { should route(:get, "/deals/today").to(:controller => :deals, :action => :today) }

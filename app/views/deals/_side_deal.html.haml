@@ -7,9 +7,9 @@
 
 .right
   - if deal.image_url  
-    = link_to(image_tag(deal.image_url, :alt => deal.image_url, :title => deal.title), deal_path(deal), :class => "deal_picture")  
+    = link_to(image_tag(deal.image_url, :alt => deal.image_url, :title => deal.title), deal_path(deal), :class => "deal_picture_small")  
   - else  
-    = link_to(image_tag(asset_path('no_picture_small.png'), :alt => "Oferta sem imagem", :title => deal.title), deal_path(deal), :class => "deal_picture")
+    / = link_to(image_tag(asset_path('no_picture_big.jpg'), :alt => "Oferta sem imagem", :title => deal.title), deal_path(deal), :class => "deal_picture_small")
 
 /     %ul
 /       %li.average

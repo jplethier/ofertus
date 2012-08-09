@@ -25,7 +25,6 @@ DealWitMe::Application.routes.draw do
   #TODO: Melhorar as rotas do devise:
   #http://bunwich.blogspot.com/2011/07/make-rails-devise-routes-look-better.html
   #get \"users\/show\"
-  get "deals/today"
 
   devise_for :users, :controllers => {:registrations => "registrations", :omniauth_callbacks => "omniauth_callbacks"}
 
@@ -35,6 +34,10 @@ DealWitMe::Application.routes.draw do
       get 'unfollow'
     end
   end
+
+  match '/deals/today/:category', :to => "deals#today"
+  match '/deals/active/:category', :to => "deals#index"
+  match "/deals/today", :to => "deals#today"
 
   resources :deals do
     resources :comments
@@ -52,8 +55,6 @@ DealWitMe::Application.routes.draw do
 
   # match '/mu-4b4c57f5-b0d80846-731c8e63-0f3bcb00', :to => "pages#blitz"
 
-  match '/deals/today/:category', :to => "deals#today"
-  match '/deals/active/:category', :to => "deals#index"
   match '/auth/failure' => 'application#failure'
 
   root :to => "deals#index"

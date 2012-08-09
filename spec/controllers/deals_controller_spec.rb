@@ -21,5 +21,7 @@ describe DealsController do
     it { should route(:get, "/deals/today").to(:controller => :deals, :action => :today) }
     it { should route(:get, "/deals/1").to(:controller => :deals, :action => :show, :id => 1) }
     it { should route(:get, "/deals/today/computer").to(:controller => :deals, :action => :today, :category => :computer) }
+    it { should route(:get, "/deals/new").to(:controller => :deals, :action => :new) }
+    it { should route(:post, "/deals").to(:controller => :deals, :action => :create) }
   end
 end

@@ -15,12 +15,11 @@ DealWitMe::Application.routes.draw do
   #   root :to => "blog_posts#index"
   # end
 
-  #TODO: Alterar as rotas, deveriam ser páginas estáticas
-  get "pages/whoarewe"
-  get "pages/help"
-  get "pages/privacypolicy"
-  get "pages/termsofuse"
-  get "pages/how_it_works"
+  match "whoarewe",       :to => "pages#whoarewe"
+  match "help",           :to => "pages#help"
+  match "privacypolicy",  :to => "pages#privacypolicy"
+  match "termsofuse",     :to => "pages#termsofuse"
+  match "how_it_works",   :to => "pages#how_it_works"
 
   #TODO: Melhorar as rotas do devise:
   #http://bunwich.blogspot.com/2011/07/make-rails-devise-routes-look-better.html

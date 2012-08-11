@@ -30,12 +30,34 @@ describe DealsController do
 
   describe "GET 'show'" do
     before do
-      # sign_in(:user, FactoryGirl.create(:user))
-      get 'show', :id => 1
+      deal = FactoryGirl.create(:deal)
+      get 'show', :id => deal.id
     end
     
     it { should respond_with(:success) }
     it { should render_template(:show) }
+    it { should render_with_layout(:application) }
+    it { should respond_with_content_type(:html) }
+  end
+
+  describe "GET 'today/restaurant'" do
+    before do
+      get 'today', :category => :restaurant
+    end
+    
+    it { should respond_with(:success) }
+    it { should render_template(:today) }
+    it { should render_with_layout(:application) }
+    it { should respond_with_content_type(:html) }
+  end
+
+  describe "GET 'index/computer'" do
+    before do
+      get 'index', :category => :computer
+    end
+    
+    it { should respond_with(:success) }
+    it { should render_template(:index) }
     it { should render_with_layout(:application) }
     it { should respond_with_content_type(:html) }
   end

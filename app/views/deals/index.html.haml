@@ -20,7 +20,7 @@
     %form{ :id => "search_form", :action => deals_path, :method => "get", :class => "search"}
       .border-input-busca
         = text_field_tag :search, params[:search], :class => "input-tx"
-        %input{ :type => "submit", :value => "", :class => "submit"}
+        %input{ :type => "submit", :value => "", :class => "submit", :id => 'search_button'}
 
       .border-input-busca.select
         = select_tag "search_order", search_options(params[:search_order]), :class => 'user-senha'

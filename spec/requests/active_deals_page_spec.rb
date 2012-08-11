@@ -41,4 +41,21 @@ describe "Active Deals Page" do
       end
     end
   end
+
+  describe 'side search' do
+    it "should have title 'Opções de busca'" do
+      within "#col-right #busca-home" do
+        should have_content('Opções de Busca')
+      end
+    end
+
+    it "should have a search form" do
+      within "#col-right" do
+        should have_css("input#search")
+        should have_button("search_button")
+        should have_css("select#search_order")
+        should have_css("select#search_city")
+      end
+    end
+  end
 end

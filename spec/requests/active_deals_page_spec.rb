@@ -57,5 +57,89 @@ describe "Active Deals Page" do
         should have_css("select#search_city")
       end
     end
+
+    it 'search by deal title and find nothing' do
+      active_deal.title = 'Titulo'
+      active_deal.description = 'Descricao'
+      active_deal.save
+      within "#col-right" do
+        fill_in 'search', :with => 'Inexistente'
+        click_button 'search_button'
+      end
+      should have_content('Ofertas Ativas')
+      within "#col-left .list-conteudo" do
+        should_not have_css('.off')
+        should_not have_css('.tx-off')
+        should_not have_css('.right')
+      end
+    end
+
+    it 'search by deal title and find one deal' do
+      active_deal.title = 'Titulo'
+      active_deal.description = 'Descricao'
+      active_deal.save
+      within "#col-right" do
+        fill_in 'search', :with => 'Titulo'
+        click_button 'search_button'
+      end
+      should have_content('Ofertas Ativas')
+      within "#col-left .list-conteudo" do
+        should have_css('.off')
+        should have_css('.tx-off')
+        should have_css('.right')
+        should have_link(active_deal.title, :href => deal_path(active_deal.id))
+      end
+    end
+
+    it 'search by deal description and find one deal' do
+      active_deal.title = 'Titulo'
+      active_deal.description = 'Descricao'
+      active_deal.save
+      within "#col-right" do
+        fill_in 'search', :with => 'Descricao'
+        click_button 'search_button'
+      end
+      should have_content('Ofertas Ativas')
+      within "#col-left .list-conteudo" do
+        should have_css('.off')
+        should have_css('.tx-off')
+        should have_css('.right')
+        should have_link(active_deal.title, :href => deal_path(active_deal.id))
+      end
+    end
+
+    it 'search by part of description and find one deal' do
+      active_deal.title = 'Titulo'
+      active_deal.description = 'Descricao Descricao'
+      active_deal.save
+      within "#col-right" do
+        fill_in 'search', :with => 'Descricao'
+        click_button 'search_button'
+      end
+      should have_content('Ofertas Ativas')
+      within "#col-left .list-conteudo" do
+        should have_css('.off')
+        should have_css('.tx-off')
+        should have_css('.right')
+        should have_link(active_deal.title, :href => deal_path(active_deal.id))
+      end
+    end
+
+    it 'search by part of title and find one deal' do
+      active_deal.title = 'Titulo Titulo'
+      active_deal.description = 'Descricao Descricao'
+      active_deal.save
+      within "#col-right" do
+        fill_in 'search', :with => 'Tit'
+        click_button 'search_button'
+      end
+      should have_content('Ofertas Ativas')
+      within "#col-left .list-conteudo" do
+        should have_css('.off')
+        should have_css('.tx-off')
+        should have_css('.right')
+        should have_link(active_deal.title, :href => deal_path(active_deal.id))
+      end
+    end
   end
 end

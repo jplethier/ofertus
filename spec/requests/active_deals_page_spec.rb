@@ -5,7 +5,7 @@ describe "Active Deals Page" do
   include Warden::Test::Helpers
   Warden.test_mode!
   
-  let(:active_deal) { FactoryGirl.create(:active_deal) }
+  let(:active_deal) { FactoryGirl.create(:active_deal, :image_url => 'http://www.google.com') }
   
   subject { page }
 
@@ -39,6 +39,20 @@ describe "Active Deals Page" do
       within "#col-left .list-conteudo" do
         should_not have_link(inactive_deal.title, :href => deal_path(inactive_deal.id))
       end
+    end
+
+    it "should go to deal's page when I click in deal's title" do
+      within "#col-left .list-conteudo" do
+        click_link active_deal.title
+      end
+      should have_css('#sem-col .detalhe-oferta')
+    end
+
+    it "should go to deal's page when I click in deal's picture" do
+      within "#col-left .list-conteudo" do
+        click_link 'deal_photo'
+      end
+      should have_css('#sem-col .detalhe-oferta')
     end
   end
 

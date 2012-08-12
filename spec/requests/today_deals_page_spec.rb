@@ -13,11 +13,11 @@ describe "Active Deals Page" do
     # login_as FactoryGirl.create(:broker), :scope => :broker
     FactoryGirl.create(:city)
     active_deal.save
-    visit deals_path
+    visit deals_today_path
   end
 
   describe 'deals list' do
-    it {should have_content('Ofertas Ativas')}
+    it {should have_content('Ofertas do Dia')}
     it "should show the active deal" do
       within "#col-left .list-conteudo" do
         should have_link(active_deal.title, :href => deal_path(active_deal.id))
@@ -161,7 +161,7 @@ describe "Active Deals Page" do
     before do
       user = FactoryGirl.create(:user)
       user.up_vote(active_deal)
-      visit deals_path
+      visit deals_today_path
     end
 
     it "should have title 'Melhores Ofertas'" do
@@ -184,7 +184,7 @@ describe "Active Deals Page" do
     before do
       active_deal.comments.build(:comment => 'comentario', :user => FactoryGirl.create(:user))
       active_deal.save
-      visit deals_path
+      visit deals_today_path
     end
 
     it "should have title '+ Comentadas'" do

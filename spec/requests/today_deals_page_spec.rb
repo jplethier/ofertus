@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 require 'spec_helper'
 
-describe "Active Deals Page" do
+describe "Today Deals Page" do
   include Warden::Test::Helpers
   Warden.test_mode!
   

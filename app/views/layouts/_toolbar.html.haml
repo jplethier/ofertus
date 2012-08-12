@@ -4,3 +4,5 @@
   %li= link_to t('actions.search_users'), users_path, :class => "#{@current_tab == 'users' ? 'active' : ''}"
   %li= link_to t('actions.how_it_works'), how_it_works_path, :class => "#{@current_tab == 'pages' ? 'active' : ''}"
   %li= link_to t('actions.blog'), 'http://blog.ofertus.com.br', :class => "#{@current_tab == 'posts' ? 'active' : ''}"
+  %li= auto_discovery_link_tag :atom, "/feed"
+  %li= auto_discovery_link_tag :rss, "/feed.rss"

@@ -21,6 +21,8 @@ DealWitMe::Application.routes.draw do
   match "termsofuse",     :to => "pages#termsofuse"
   match "how_it_works",   :to => "pages#how_it_works"
 
+  match '/deals/feed' => 'deals#feed', :as => :feed, :defaults => { :format => 'atom' }
+
   #TODO: Melhorar as rotas do devise:
   #http://bunwich.blogspot.com/2011/07/make-rails-devise-routes-look-better.html
   #get \"users\/show\"

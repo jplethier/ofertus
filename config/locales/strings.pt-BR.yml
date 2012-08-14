@@ -20,6 +20,7 @@
     fill_fields: 'Preencha os campos abaixo'
     fill_fields_to_share: "Compartilhe uma oferta preenchendo os campos abaixo e clicando em 'Confirmar'"
     followed_by_x_users: "%{x} seguidores!"
+    following_one_user: 'Seguindo 1 usuário!'
     following_x_users: "Seguindo %{x} usuários!"
     getting_paid: "Recebendo comissão sobre as ofertas compartilhadas"
     help_informations: "Informações - Ajuda"
@@ -31,6 +32,7 @@
     new_offer: 'Nova Oferta'
     new_user: 'Novo Usuário'
     offer_price: "Preço oferta<span>%{price}</span>"
+    one_shared_offer: "1 oferta compartilhada!"
     original_price: "Preço original<span>%{price}</span>"
     remember_me: 'Mantenha-me conectado'
     search_options: "Opções de Busca"

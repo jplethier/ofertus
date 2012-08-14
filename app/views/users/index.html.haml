@@ -11,7 +11,7 @@
     .border-input-busca
       %form{ :action => users_path, :method => "get" }
         = text_field_tag :search, params[:search], :class => "input-tx"
-        %button{ :type => "submit", :class => "submit" }= t('buttons.search')
+        %button{ :type => "submit", :class => "submit" }
         
   .list-box-sidebar.ranking-usuarios
     .ttGlHome

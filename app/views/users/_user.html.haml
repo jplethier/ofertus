@@ -10,8 +10,16 @@
 
   %ul
     %li= t('strings.username', :username => user.username)
-    %li= t('strings.x_shared_offers', :x => user.deals.length)
-    %li= t('strings.following_x_users', :x => user.following.length)
+    %li
+      - if user.deals.length == 1
+        = t('strings.one_shared_offer')
+      - else
+        = t('strings.x_shared_offers', :x => user.deals.length)
+    %li
+      - if user.following.length == 1
+        = t('strings.following_one_user')
+      - else
+        = t('strings.following_x_users', :x => user.following.length)
     %li= t('strings.followed_by_x_users', :x => user.followers.length)
   %a{ :href => user_path(user.username), :class => "view-profile" }= t('buttons.user_profile')
 

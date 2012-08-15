@@ -123,17 +123,21 @@ class Share
 
   #Open the link with 'utf-8' encoding.
   def self.open_page(link)
-    page = Nokogiri::HTML(open(link).read) #Nokogiri bug: You need to use .read method in order to use encoding.
+    begin
+      page = Nokogiri::HTML(open(link).read) #Nokogiri bug: You need to use .read method in order to use encoding.
+    rescue OpenURI::HTTPError => http_error
+      return nil
+    end
     page.encoding = 'utf-8'
     page
   end
 
   def self.fill_deal_fields(link)
     page = open_page(link)
-
-    deal = Deal.new :link => link
-    deal.title = page.at_css(XPATH_TITLE).try(:text).try(:strip)[0,255]
-
+    unless page.nil?
+      deal = Deal.new :link => link
+      deal.title = page.at_css(XPATH_TITLE).try(:text).try(:strip)[0,255]
+    end
     deal
   end 
 

@@ -25,17 +25,21 @@ class Americanas
   }
 
   def self.fill_deal_fields(link)
-    deal = Deal.new :link => link
+    deal = Deal.new
     page = Share.open_page(link)
 
-    deal.title = page.at_css("title").try(:text).try(:strip)[0,255]
-    deal.price_mask = page.at_css(".sale").try(:text).try(:strip)[7..-1].try(:strip) if page.at_css(".sale") && page.at_css(".sale").try(:text)
-    deal.real_price_mask = page.at_css(".regular").try(:text).try(:strip)[6..-1].try(:strip) if page.at_css(".regular") && page.at_css(".regular").try(:text)
-    deal.description = page.at_css(".infoProdBox").to_s.truncate(4000) if page.at_css(".infoProdBox")
-    deal.category = CATEGORIES[page.at_css(".category").try(:text).try(:strip).sub(">","")] if page.at_css(".category")
-    deal.image_url = page.at_css("#imgProduto")["src"].try(:strip) if page.at_css("#imgProduto")
-    deal.company = "Americanas"
-    deal.kind = Deal::KIND_OFFER
+    unless page.nil?
+      deal.link = link
+
+      deal.title = page.at_css("title").try(:text).try(:strip)[0,255]
+      deal.price_mask = page.at_css(".sale").try(:text).try(:strip)[7..-1].try(:strip) if page.at_css(".sale") && page.at_css(".sale").try(:text)
+      deal.real_price_mask = page.at_css(".regular").try(:text).try(:strip)[6..-1].try(:strip) if page.at_css(".regular") && page.at_css(".regular").try(:text)
+      deal.description = page.at_css(".infoProdBox").to_s.truncate(4000) if page.at_css(".infoProdBox")
+      deal.category = CATEGORIES[page.at_css(".category").try(:text).try(:strip).sub(">","")] if page.at_css(".category")
+      deal.image_url = page.at_css("#imgProduto")["src"].try(:strip) if page.at_css("#imgProduto")
+      deal.company = "Americanas"
+      deal.kind = Deal::KIND_OFFER
+    end
 
     deal
   end

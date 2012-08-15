@@ -3,13 +3,16 @@ class Polishop
   def self.fill_deal_fields(link)
     page = Share.open_page(link)
 
-    deal = Deal.new :link => link
-    deal.title = page.at_css(".productName").try(:text).try(:strip)[0,255] if page.at_css(".productName")
-    deal.price_mask = page.at_css('.skuBestPrice').try(:text).split(' ')[1] if page.at_css('.skuBestPrice')
-    deal.real_price_mask = page.at_css('.skuListPrice').try(:text).split(' ')[1] if page.at_css('.skuListPrice')
-    deal.description = page.at_css(".productDescription").to_s.truncate(4000) if page.at_css(".productDescription")
-    # deal.category = Deal::CATEGORY_CLOTHES
-    deal.image_url = page.at_css("#image-main")[:src].try(:strip) if page.at_css("#image-main")
+    deal = Deal.new
+    unless page.nil?
+      deal.link = link
+      deal.title = page.at_css(".productName").try(:text).try(:strip)[0,255] if page.at_css(".productName")
+      deal.price_mask = page.at_css('.skuBestPrice').try(:text).split(' ')[1] if page.at_css('.skuBestPrice')
+      deal.real_price_mask = page.at_css('.skuListPrice').try(:text).split(' ')[1] if page.at_css('.skuListPrice')
+      deal.description = page.at_css(".productDescription").to_s.truncate(4000) if page.at_css(".productDescription")
+      # deal.category = Deal::CATEGORY_CLOTHES
+      deal.image_url = page.at_css("#image-main")[:src].try(:strip) if page.at_css("#image-main")
+    end
     deal.company = "Polishop"
     deal.kind = Deal::KIND_OFFER
 

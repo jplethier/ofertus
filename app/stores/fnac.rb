@@ -18,13 +18,17 @@ class Fnac
   def self.fill_deal_fields(link)
     page = Share.open_page(link)
 
-    deal = Deal.new :link => link
-    deal.title = page.at_css("#nomeProduto").try(:text).try(:strip)[0,255] if page.at_css("#nomeProduto")
-    deal.price_mask = page.at_css('#spanValorAtual').try(:text).split(" ")[2] if page.at_css('#spanValorAtual')
-    deal.real_price_mask = page.at_css('#spanValorBase').try(:text).split(" ")[2] if page.at_css('#spanValorBase')
-    deal.description = page.at_css("#conteudoDescricao").to_s.truncate(4000) if page.at_css("#conteudoDescricao")
-    deal.category = CATEGORIES[page.at_css(".cat.atual").at_xpath("span").try(:text).try(:strip)] if page.at_css(".cat.atual") && page.at_css(".cat.atual").at_xpath("span")
-    deal.image_url = page.at_css(".fotoGrande")[:src].try(:strip) if page.at_css(".fotoGrande")
+    deal = Deal.new
+    unless page.nil?
+      deal.link => link
+      deal.title = page.at_css("#nomeProduto").try(:text).try(:strip)[0,255] if page.at_css("#nomeProduto")
+      deal.price_mask = page.at_css('#spanValorAtual').try(:text).split(" ")[2] if page.at_css('#spanValorAtual')
+      deal.real_price_mask = page.at_css('#spanValorBase').try(:text).split(" ")[2] if page.at_css('#spanValorBase')
+      deal.description = page.at_css("#conteudoDescricao").to_s.truncate(4000) if page.at_css("#conteudoDescricao")
+      deal.category = CATEGORIES[page.at_css(".cat.atual").at_xpath("span").try(:text).try(:strip)] if page.at_css(".cat.atual") && page.at_css(".cat.atual").at_xpath("span")
+      deal.image_url = page.at_css(".fotoGrande")[:src].try(:strip) if page.at_css(".fotoGrande")
+    end
+
     deal.company = "FNAC"
     deal.kind = Deal::KIND_OFFER
 

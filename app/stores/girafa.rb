@@ -15,13 +15,16 @@ class Girafa
   def self.fill_deal_fields(link)
     page = Share.open_page(link)
 
-    deal = Deal.new :link => link
-    deal.title = page.at_css(".descricao_produto").at_xpath("h1").try(:text).try(:strip)[0,255] if page.at_css(".descricao_produto") && page.at_css(".descricao_produto").at_xpath("h1")
-    deal.price_mask = page.at_css('#liquido').try(:text) if page.at_css('#liquido')
-    deal.real_price_mask = page.at_css('.preco-cheio').try(:text).split(" ")[1] if page.at_css('.preco-cheio')
-    deal.description = page.at_css("#ct-busca1").to_s.truncate(4000) if page.at_css("#ct-busca1")
-    deal.category = CATEGORIES[page.at_css(".directory").at_xpath("a").try(:text)] if page.at_css(".directory") && page.at_css(".directory").at_xpath("a")
-    deal.image_url = "http://www.girafa.com.br" + page.at_css(".gobig-view").at_xpath("img")[:src].try(:strip) if page.at_css(".gobig-view") && page.at_css(".gobig-view").at_xpath("img")
+    deal = Deal.new
+    unless page.nil?
+      deal.link = link
+      deal.title = page.at_css(".descricao_produto").at_xpath("h1").try(:text).try(:strip)[0,255] if page.at_css(".descricao_produto") && page.at_css(".descricao_produto").at_xpath("h1")
+      deal.price_mask = page.at_css('#liquido').try(:text) if page.at_css('#liquido')
+      deal.real_price_mask = page.at_css('.preco-cheio').try(:text).split(" ")[1] if page.at_css('.preco-cheio')
+      deal.description = page.at_css("#ct-busca1").to_s.truncate(4000) if page.at_css("#ct-busca1")
+      deal.category = CATEGORIES[page.at_css(".directory").at_xpath("a").try(:text)] if page.at_css(".directory") && page.at_css(".directory").at_xpath("a")
+      deal.image_url = "http://www.girafa.com.br" + page.at_css(".gobig-view").at_xpath("img")[:src].try(:strip) if page.at_css(".gobig-view") && page.at_css(".gobig-view").at_xpath("img")
+    end
     deal.company = "Girafa"
     deal.kind = Deal::KIND_OFFER
 

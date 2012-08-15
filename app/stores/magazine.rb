@@ -27,13 +27,16 @@ class Magazine
   def self.fill_deal_fields(link)
     page = Share.open_page(link)
 
-    deal = Deal.new :link => link
-    deal.title = page.at_css(".description").try(:text).try(:strip)[0,255] if page.at_css(".description") && page.at_css(".description").try(:text)
-    deal.price_mask = page.at_css(".prodPor").try(:text).try(:strip)[7..-1].try(:strip) if page.at_css(".prodPor") && page.at_css(".prodPor").try(:text)
-    deal.real_price_mask = page.at_css(".prodDe").try(:text).try(:strip)[6..-1].try(:strip) if page.at_css(".prodDe") && page.at_css(".prodDe").try(:text)
-    deal.description = page.at_css("#descricaoProduto").to_s.truncate(4000) if page.at_css("#descricaoProduto")
-    deal.category = CATEGORIES[page.at_css("#breadCrumb").try(:text).try(:strip).split("›").map(&:strip)[1].chop] if page.at_css("#breadCrumb") && page.at_css("#breadCrumb").try(:text)
-    deal.image_url = page.at_css(".imagem_produto").at_xpath(".//img")[:src].try(:strip) if page.at_css(".imagem_produto") && page.at_css(".imagem_produto").at_xpath(".//img")
+    deal = Deal.new
+    unless page.nil?
+      deal.link = link
+      deal.title = page.at_css(".description").try(:text).try(:strip)[0,255] if page.at_css(".description") && page.at_css(".description").try(:text)
+      deal.price_mask = page.at_css(".prodPor").try(:text).try(:strip)[7..-1].try(:strip) if page.at_css(".prodPor") && page.at_css(".prodPor").try(:text)
+      deal.real_price_mask = page.at_css(".prodDe").try(:text).try(:strip)[6..-1].try(:strip) if page.at_css(".prodDe") && page.at_css(".prodDe").try(:text)
+      deal.description = page.at_css("#descricaoProduto").to_s.truncate(4000) if page.at_css("#descricaoProduto")
+      deal.category = CATEGORIES[page.at_css("#breadCrumb").try(:text).try(:strip).split("›").map(&:strip)[1].chop] if page.at_css("#breadCrumb") && page.at_css("#breadCrumb").try(:text)
+      deal.image_url = page.at_css(".imagem_produto").at_xpath(".//img")[:src].try(:strip) if page.at_css(".imagem_produto") && page.at_css(".imagem_produto").at_xpath(".//img")
+    end
     deal.company = "Magazine Luiza"
     deal.kind = Deal::KIND_OFFER
 

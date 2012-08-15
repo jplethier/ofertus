@@ -38,10 +38,10 @@ describe "Search Users Page" do
       within "#col-left" do
         deal = FactoryGirl.create(:deal, :user => user)
         visit users_path
-        have_css('li', :text => '1 oferta compartilhada!')
+        should have_css('li', :text => '1 oferta compartilhada!')
         another_deal = FactoryGirl.create(:deal, :user => user)
         visit users_path
-        have_css('li', :text => '2 ofertas compartilhadas!')
+        should have_css('li', :text => '2 ofertas compartilhadas!')
       end
     end
 
@@ -81,9 +81,7 @@ describe "Search Users Page" do
         click_button 'search_button'
       end
       should have_content('Usuários')
-      within "#col-left .list-usuarios" do
-        should_not have_css('a.user_picture')
-      end
+      should_not have_css "#col-left .list-usuarios"
     end
 
     it 'search by user and find one user' do

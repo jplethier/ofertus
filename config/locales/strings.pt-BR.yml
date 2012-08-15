@@ -19,9 +19,11 @@
     end_date: "Válida até %{end_date}"
     fill_fields: 'Preencha os campos abaixo'
     fill_fields_to_share: "Compartilhe uma oferta preenchendo os campos abaixo e clicando em 'Confirmar'"
+    followed_by_one_user: "1 seguidor!"
     followed_by_x_users: "%{x} seguidores!"
     following_one_user: 'Seguindo 1 usuário!'
     following_x_users: "Seguindo %{x} usuários!"
+    forgot_password: 'Recuperar senha'
     getting_paid: "Recebendo comissão sobre as ofertas compartilhadas"
     help_informations: "Informações - Ajuda"
     how_it_works: 'Como funciona?'
@@ -35,6 +37,7 @@
     one_shared_offer: "1 oferta compartilhada!"
     original_price: "Preço original<span>%{price}</span>"
     remember_me: 'Mantenha-me conectado'
+    resend_confirmation: 'Reenviar confirmação'
     search_options: "Opções de Busca"
     security: "Segurança"
     shared_by: "Compartilhada por:"

@@ -1,20 +1,25 @@
-.span12
-  #edit_user_window.window.medium_window.row
-    .middle.newProfile#userCreateAreaId
-      %h1 OfertuS
-      %h3 Esqueceu sua senha?
+#col-left
+  .ttGlHome
+    %h2= t('strings.forgot_password')
 
-      .row-fluid
-        = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
-          .span5
-            %ol
-              %li
-                = f.label :email
-                = f.text_field :email
-          
-          .password_button.span2
-            %p= f.submit I18n.t("actions.send_new_password"), :type=>"image", :src=> asset_path('botao.png'), :alt=> "Confirmar"
+  .page-login
+    %h3= t('strings.fill_fields')
+    .ct-inputs-login
+      = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+        %p
+          = f.label :email
+          %br
+          = f.text_field :email, :class => 'user-senha'
+        .clear
+        = f.submit '', :class => 'bt-confirmar'
 
-      .row-fluid
-        .span12
-          = render :partial => "devise/shared/links"
+
+    = render :partial => "devise/shared/links"
+
+#col-right
+  .list-box-sidebar.sidebar-last
+    .ttGlHome
+      %h2 facebook
+    
+    %iframe{ :src => "//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fplatform&amp;width=270&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=false&amp;header=false", :scrolling => "no", :frameborder => "0", :style => "border:none; overflow:hidden; width:270px; height:258px;", :allowTransparency => "true" }
+.clear

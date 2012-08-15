@@ -2,9 +2,8 @@ class PeixeUrbano
 
   def self.fill_deal_fields(link)
     page = Share.open_page(link)
-
     deal = Deal.new :link => link
-    deal.title = page.at_css('title').try(:text).try(:strip)[0,255]
+    deal.title = page.at_css('title').try(:text).try(:strip)[0,255] if page.at_css('title')
     if page.at_css("#discountPrice").try(:text)
       deal.price_mask = page.at_css("#discountPrice").at_xpath(".//span").try(:text).try(:strip)[2..-1].try(:strip)
 

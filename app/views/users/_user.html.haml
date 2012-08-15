@@ -20,7 +20,11 @@
         = t('strings.following_one_user')
       - else
         = t('strings.following_x_users', :x => user.following.length)
-    %li= t('strings.followed_by_x_users', :x => user.followers.length)
+    %li
+      - if user.followers.length == 1
+        = t('strings.followed_by_one_users')
+      - else
+        = t('strings.followed_by_x_users', :x => user.followers.length)
   %a{ :href => user_path(user.username), :class => "view-profile" }= t('buttons.user_profile')
 
 /   - if user_signed_in? && current_user != user

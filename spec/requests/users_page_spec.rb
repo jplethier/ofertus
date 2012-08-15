@@ -29,6 +29,7 @@ describe "Search Users Page" do
           should have_css('li', :text => 'Username: ' + user.username)
           should have_css('li', :text => '0 ofertas compartilhadas!')
           should have_css('li', :text => 'Seguindo 0 usuários!')
+          should have_css('li', :text => '0 seguidores!')
         end
       end
     end
@@ -37,7 +38,6 @@ describe "Search Users Page" do
       within "#col-left .list-usuarios ul" do
         deal = FactoryGirl.create(:deal, :user => user)
         visit users_path
-        binding.pry
         should have_css('li', :text => '1 oferta compartilhada!')
       end
     end

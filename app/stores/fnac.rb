@@ -20,7 +20,7 @@ class Fnac
 
     deal = Deal.new
     unless page.nil?
-      deal.link => link
+      deal.link = link
       deal.title = page.at_css("#nomeProduto").try(:text).try(:strip)[0,255] if page.at_css("#nomeProduto")
       deal.price_mask = page.at_css('#spanValorAtual').try(:text).split(" ")[2] if page.at_css('#spanValorAtual')
       deal.real_price_mask = page.at_css('#spanValorBase').try(:text).split(" ")[2] if page.at_css('#spanValorBase')

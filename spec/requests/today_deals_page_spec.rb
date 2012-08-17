@@ -16,6 +16,8 @@ describe "Today Deals Page" do
     visit deals_today_path
   end
 
+  after { Warden.test_reset! }
+
   describe 'deals list' do
     it {should have_content('Ofertas do Dia')}
     it "should show the active deal" do

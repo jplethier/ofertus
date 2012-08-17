@@ -15,6 +15,8 @@ describe "Search Users Page" do
     visit users_path
   end
 
+  after { Warden.test_reset! }
+
   describe 'users list' do
     it {should have_content('Usuários')}
     it "should show users list" do
@@ -95,6 +97,33 @@ describe "Search Users Page" do
       within "#col-left .list-usuarios" do
         should have_css('a.user_picture')
         should have_link(user.name)
+      end
+    end
+  end
+
+  describe 'side ranking' do
+    it 'should show ranking title' do
+      within '#col-right .ranking-usuarios' do
+        should have_content('Ranking de usuários')
+      end
+    end
+
+    it 'should show users in order of number of shared deals' do
+      another_user = FactoryGirl.create(:user)
+      3.times do
+        FactoryGirl.create(:deal, :user => user)
+      end
+      FactoryGirl.create(:deal, :user => another_user)
+      visit [ users_path, page.driver.request.env['QUERY_STRING'] ].reject(&:blank?).join('?')
+      within '#col-right .ranking-usuarios' do
+        should have_css('.left a img', :src => user.gravatar_url)
+        should have_css('.left a', :href => user_path(user.username))
+        should have_css('h3 a', :href => user_path(user.username))
+        should have_css('a', :text => '3 ofertas compartilhadas!')
+        should have_css('.left a img', :src => another_user.gravatar_url)
+        should have_css('.left a', :href => another_user_path(user.username))
+        should have_css('h3 a', :href => another_user_path(another_user.username))
+        should have_css('a', :text => '1 ofertas compartilhadas!')
       end
     end
   end

@@ -16,6 +16,8 @@ describe "Active Deals Page" do
     visit deals_path
   end
 
+  after { Warden.test_reset! }
+
   describe 'deals list' do
     it {should have_content('Ofertas Ativas')}
     it "should show the active deal" do

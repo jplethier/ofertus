@@ -29,6 +29,13 @@ describe "Search Users Page" do
         should have_css('.detalhe-oferta .off .col-off .preco-off h4', :text => "Preço ofertaR$ #{deal.price.to_s.gsub('.',',')+(deal.price.to_s.split('.')[1].size < 2 ? '0' : '')}")
         should have_css('.detalhe-oferta .off .col-off h5', :text => "Desconto #{deal.discount.to_i}%")
         should have_css('.detalhe-oferta .off .col-off h5', :text => "Válida até #{I18n.l(deal.end_date.to_date)}")
+        should have_css('.detalhe-oferta .tx-off h3 a', :href => deal.link, :text => deal.title)
+        should have_css('.detalhe-oferta .tx-off .user-off a', :href => user_path(deal.user.username))
+        should have_css('.detalhe-oferta .tx-off .user-off a img', :src => deal.user.gravatar_url)
+        should have_css('.detalhe-oferta .tx-off .user-off span a', :href => user_path(deal.user.username))
+        should have_css('.detalhe-oferta .tx-off ul li', :text => "Categoria: #{Deal.i18n_category(deal.category)}")
+        should have_css('.detalhe-oferta .tx-off ul li', :text => "Empresa: #{deal.company}")
+        should have_css('.detalhe-oferta .tx-off ul li', :text => "Válida para: #{deal.city.name}")
       end
     end
   end

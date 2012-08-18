@@ -59,6 +59,13 @@ describe "Search Users Page" do
         should have_css('li', :text => 'Seguindo 09 usuários!')
       end
     end
+
+    it 'should go to user page when I click on user name' do
+      click_on user.name
+      within '#box-user' do
+        should have_content(user.name)
+      end
+    end
   end
 
   describe 'side search' do

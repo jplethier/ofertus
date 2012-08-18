@@ -41,7 +41,7 @@ Given /^I am a user with an (email|username) "([^"]*)"$/ do |property, value|
   step %{I go to the sign in page}
   step %{I fill in "user_login" with "#{@current_user.email}"}
   step %{I fill in "user_password" with "#{@current_user.password}"}
-  step %{I press "Entrar"}
+  step %{I press "Confirmar"}
 end
 
 Given /^I am a user with an (email|username) "([^"]*)" and password "([^"]*)"$/ do |property, value, password|

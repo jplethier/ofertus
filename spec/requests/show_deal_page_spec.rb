@@ -1,16 +1,15 @@
 # -*- encoding : utf-8 -*-
 require 'spec_helper'
 
-describe "Search Users Page" do
+describe "Show deal page" do
   include Warden::Test::Helpers
   Warden.test_mode!
   
-  let(:deal) { FactoryGirl.create(:deal) }
+  let(:deal) { FactoryGirl.create(:deal, :image_url => 'http://www.image.com/image') }
   
   subject { page }
 
   before do
-    # login_as FactoryGirl.create(:broker), :scope => :broker
     deal.save
     visit deal_path(deal)
   end
@@ -36,6 +35,49 @@ describe "Search Users Page" do
         should have_css('.detalhe-oferta .tx-off ul li', :text => "Categoria: #{Deal.i18n_category(deal.category)}")
         should have_css('.detalhe-oferta .tx-off ul li', :text => "Empresa: #{deal.company}")
         should have_css('.detalhe-oferta .tx-off ul li', :text => "Válida para: #{deal.city.name}")
+        should have_css('.detalhe-oferta .right img', :src => deal.image_url)
+      end
+    end
+
+    it 'should show the links to vote if user is logged in' do
+      #ESTÁ DANDO ERRO NO HELPER DO WARDEN, NÃO ESTOU CONSEGUINDO REALIZAR O LOGIN PARA TESTAR CORRETAMENTA
+      login_as FactoryGirl.create(:user), :scope => :user
+      visit deal_path(deal)
+      should have_css('.detalhe-oferta .share-off span.gostei a', :text => 'Gostei!', :href => upvote_deal_path(deal))
+      should have_css('.detalhe-oferta .share-off span.gostei', :text => 'Gostei! - 0 gostou!')
+      should have_css('.detalhe-oferta .share-off span.nao-gostei', :text => 'Não Gostei! - 0 não gostou!')
+      should have_css('.detalhe-oferta .share-off span.nao-gostei a', :text => 'Não Gostei!', :href => downvote_deal_path(deal))
+    end
+
+    it 'should show the deals description' do
+      within '#sem-col .desc-off' do
+        should have_css('h4', :text => 'Descrição da Oferta')
+        within '.tx-desc' do
+          should have_content(deal.description)
+        end
+      end
+    end
+
+    it 'should show the comments' do
+      within '#sem-col .right-detalhe-comment-off' do
+        should have_content('Comentários')
+      end
+    end
+
+    it 'should show the comment form if the user is logged in' do
+      #ESTÁ DANDO ERRO NO HELPER DO WARDEN, NÃO ESTOU CONSEGUINDO REALIZAR O LOGIN PARA TESTAR CORRETAMENTA
+      login_as FactoryGirl.create(:user), :scope => :user
+      visit deal_path(deal)
+      should have_css('textarea#comment_comment')
+      should have_css('input.bt-comentar', :typev => 'submit')
+    end
+
+
+    it 'should show the comments' do
+      within '#sem-col .right-detalhe-comment-off' do
+        should have_content('Comentários')
+        should_not have_css('textarea#comment_comment')
+        should_not have_css('input.bt-comentar', :typev => 'submit')
       end
     end
   end

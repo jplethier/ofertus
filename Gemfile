@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+ruby "1.9.3"
 
 gem 'acts_as_commentable'
 gem 'airbrake'
@@ -29,7 +30,6 @@ gem 'rails', '3.1.1'
 # gem 'rails_blog_engine'
 gem 'resque'
 gem 'sass'
-gem 'simple_cov'
 gem 'uglifier'
 gem 'unicorn'
 gem 'will_paginate', '~> 3.0.0'

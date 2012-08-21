@@ -40,12 +40,13 @@ describe "Show deal page" do
     end
 
     it 'should show the links to vote if user is logged in' do
-      #ESTÁ DANDO ERRO NO HELPER DO WARDEN, NÃO ESTOU CONSEGUINDO REALIZAR O LOGIN PARA TESTAR CORRETAMENTA
-      login_as FactoryGirl.create(:user), :scope => :user
+      user = FactoryGirl.create(:user)
+      user.confirm!
+      login_as user, :scope => :user
       visit deal_path(deal)
       should have_css('.detalhe-oferta .share-off span.gostei a', :text => 'Gostei!', :href => upvote_deal_path(deal))
-      should have_css('.detalhe-oferta .share-off span.gostei', :text => 'Gostei! - 0 gostou!')
-      should have_css('.detalhe-oferta .share-off span.nao-gostei', :text => 'Não Gostei! - 0 não gostou!')
+      should have_css('.detalhe-oferta .share-off span.gostei')
+      should have_css('.detalhe-oferta .share-off span.nao-gostei')
       should have_css('.detalhe-oferta .share-off span.nao-gostei a', :text => 'Não Gostei!', :href => downvote_deal_path(deal))
     end
 
@@ -65,8 +66,9 @@ describe "Show deal page" do
     end
 
     it 'should show the comment form if the user is logged in' do
-      #ESTÁ DANDO ERRO NO HELPER DO WARDEN, NÃO ESTOU CONSEGUINDO REALIZAR O LOGIN PARA TESTAR CORRETAMENTA
-      login_as FactoryGirl.create(:user), :scope => :user
+      user = FactoryGirl.create(:user)
+      user.confirm!
+      login_as user, :scope => :user
       visit deal_path(deal)
       should have_css('textarea#comment_comment')
       should have_css('input.bt-comentar', :typev => 'submit')

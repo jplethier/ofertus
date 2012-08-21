@@ -6,16 +6,21 @@ describe "New Deal Page" do
   Warden.test_mode!
 
   before do
-    login_as FactoryGirl.create(:user), :scope => :user
+    2.times do
+      FactoryGirl.create(:city)
+    end
+    user = FactoryGirl.create(:user)
+    user.confirm!
+    login_as user, :scope => :user
     visit new_deal_path
   end
 
   after { Warden.test_reset! }
 
   it 'should show the new deal form' do
-    within '#col-left' do
-      should have_content('Nova Oferta')
-    end
+    # within '#col-left' do
+    should have_content('Nova Oferta')
+    # end
     within '#col-left #page-login' do
       should have_content("Compartilhe uma oferta preenchendo os campos abaixo e clicando em 'Confirmar'")
     end

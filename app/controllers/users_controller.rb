@@ -65,7 +65,7 @@ class UsersController < ApplicationController
 
   def find_user_with_deals
     if User.find_by_username(params[:id])
-      @deals = Deal.by_username_and_following(params[:id]).paginate(:page => params[:page])
+      @deals = Deal.by_username_and_following(params[:id]).paginate(:page => params[:page]).order('created_at DESC')
     end
   end
 

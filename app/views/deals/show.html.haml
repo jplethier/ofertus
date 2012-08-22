@@ -35,20 +35,20 @@
       .right#go_to_site
         = link_to '', @deal.link, :class => 'go_to_site_button', :target => '_blank'
 
-    .share-off
-      - if user_signed_in?
-        %span.gostei
-          - if current_user.up_voted? @deal
-            = link_to t('strings.undo_upvote'), unvote_deal_path(@deal)
-          - else
-            = link_to t('strings.upvote'), upvote_deal_path(@deal)
-          = " - #{@deal.up_votes} gostou!"
-        %span.nao-gostei
-          - if current_user.down_voted? @deal
-            = link_to t('strings.undo_downvote'), unvote_deal_path(@deal)
-          - else
-            = link_to t('strings.downvote'), downvote_deal_path(@deal)
-          = " - #{@deal.down_votes} não gostou!"
+      .share-off
+        - if user_signed_in?
+          %span.gostei
+            - if current_user.up_voted? @deal
+              = link_to t('strings.undo_upvote'), unvote_deal_path(@deal)
+            - else
+              = link_to t('strings.upvote'), upvote_deal_path(@deal)
+            = " - #{@deal.up_votes} gostou!"
+          %span.nao-gostei
+            - if current_user.down_voted? @deal
+              = link_to t('strings.undo_downvote'), unvote_deal_path(@deal)
+            - else
+              = link_to t('strings.downvote'), downvote_deal_path(@deal)
+            = " - #{@deal.down_votes} não gostou!"
 
     .right
       - if @deal.image_url && !@deal.image_url.empty?

@@ -190,7 +190,7 @@ body { font:12px Arial, sans-serif; *font-size:small; font-family: 'GothamLight'
 #ct-comment-off .list-comment-off span { font-size:12px; color: #999; line-height:22px; }
 #ct-comment-off .list-comment-off span a { font-size:12px; text-decoration:underline; color: #666; }
 
-.share-off { position: absolute; bottom:0; left:157px; }
+.share-off { clear: both; margin-top: 10px; }
 
 .share-off span { display:block; color: #565656; padding-left:16px; margin-bottom:5px; font-size:10px; }
 .share-off span a { color: #1e1e1e; text-decoration:none; font-size:11px; }

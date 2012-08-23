@@ -68,7 +68,7 @@ class Deal < ActiveRecord::Base
   scope :lowest_price, order("deals.price ASC")
   scope :highest_price, order("deals.price DESC")
   scope :highest_discount, order("deals.discount DESC")
-  scope :best_deals, order("(deals.up_votes / (deals.up_votes + deals.down_votes)) DESC")
+  scope :best_deals, order("(deals.up_votes / (deals.up_votes + deals.down_votes)), deals.up_votes DESC")
   scope :most_commented, order("(select count(comments.id) from comments where comments.commentable_id = deals.id) DESC")
 
   scope :today, where("deals.created_at >= ?", Time.zone.now.beginning_of_day)

@@ -125,7 +125,7 @@ body { font:12px Arial, sans-serif; *font-size:small; font-family: 'GothamLight'
 #col-right { float:right; width:270px; }
 
 
-.list-conteudo { overflow:hidden; margin-bottom:30px; padding-bottom:30px; border-bottom:1px dashed #e0e0e0; }
+.list-conteudo { overflow:hidden; margin-bottom:30px; padding-bottom:30px; border-bottom: none; }
 .list-conteudo .right { width:210px; }
 .list-conteudo h3 { padding-bottom:30px;  }
 .list-conteudo h3 a { font-size:22px; font-weight:normal; margin-bottom:0; color: #000; line-height:24px; text-decoration:none; }

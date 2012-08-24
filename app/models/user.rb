@@ -85,7 +85,7 @@ class User < ActiveRecord::Base
     provider.nil?
   end
 
-  def blog_admin?
+  def admin?
     self.admin
   end
   

@@ -43,7 +43,8 @@ class Ability
     end
 
     if user.admin?
-      can :manage, BlogPost
+      can :manage, User
+      can :manage, Deal
     end
   end
 end

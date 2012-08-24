@@ -4,6 +4,7 @@
       %span
         Olá
         = current_user.name
+    %li= link_to t("actions.admin"), admin_root_path, :class => "#{ @current_tab == 'admin' ? 'active' : ''}"
     %li= link_to t("actions.my_profile"), user_path(current_user.username), :class => "#{ @current_tab == 'my_profile' ? 'active' : ''}"
     %li= link_to t("actions.share_an_offer"), new_deal_path, :class => "#{ @current_tab == 'new_deal' ? 'active' : ''}"
     %li= link_to t("actions.logout"), destroy_user_session_path

@@ -2,6 +2,12 @@ DealWitMe::Application.routes.draw do
 
   mount Ckeditor::Engine => '/ckeditor'
 
+  namespace :admin do
+    resources :users
+
+    root :to => "users#index"
+  end
+
   # mount RailsBlogEngine::Engine => "/blog"
 
   # namespace :blog do 

@@ -1,5 +1,6 @@
 "pt-BR":
   actions:
+    admin: 'Área Administrativa'
     blog: "Blog"
     comment: "Comentar"
     didnt_receive_confirmation: "Não recebeu o e-mail com as instruções de confirmação?"

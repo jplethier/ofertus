@@ -1,5 +1,5 @@
 # coding: UTF-8
-class CommentsController < ApplicationController
+class CommentsController < AuthorizedController
 
   def create
     @commentable = Deal.find(params[:deal_id])

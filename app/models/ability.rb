@@ -31,8 +31,6 @@ class Ability
     can :read, User
     can :read, Deal
     can :read, Comment
-    can :read, BlogPost
-    can :read, BlogComment
     can :feed, Deal
 
     unless user.guest?

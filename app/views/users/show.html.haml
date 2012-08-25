@@ -4,7 +4,7 @@
 
   .list-conteudo
     - @deals.each_with_index do |deal, index|
-      = render :partial => 'deals/deal', :locals => {:deal => deal, :index => index}
+      = render :partial => 'deals/deal', :locals => {:deal => deal, :index => index, :old => false}
 
   
   .pagination

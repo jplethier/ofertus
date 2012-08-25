@@ -37,27 +37,31 @@ describe "Search Users Page" do
     end
 
     it 'should show the number of shared deals' do
+      deal = FactoryGirl.create(:deal, :user => user)
+      visit users_path
       within "#col-left" do
-        deal = FactoryGirl.create(:deal, :user => user)
-        visit users_path
         should have_css('li', :text => '1 oferta compartilhada!')
-        another_deal = FactoryGirl.create(:deal, :user => user)
-        visit users_path
+      end
+      another_deal = FactoryGirl.create(:deal, :user => user)
+      visit users_path
+      within '#col-left .list-usuarios ul' do
         should have_css('li', :text => '2 ofertas compartilhadas!')
       end
     end
 
     it 'should show the number of followed users' do
+      followed_user = FactoryGirl.create(:user)
+      user.follow!(followed_user)
+      visit users_path
       within "#col-left .list-usuarios ul" do
-        followed_user = FactoryGirl.create(:user)
-        user.follow!(followed_user)
-        visit users_path
         should have_css('li', :text => 'Seguindo 1 usuário!')
-        another_followed = FactoryGirl.create(:user)
-        user.follow!(another_followed)
-        visit users_path
-        should have_css('li', :text => 'Seguindo 09 usuários!')
       end
+      another_followed = FactoryGirl.create(:user)
+      user.follow!(another_followed)
+      visit users_path
+      within '#col-left .list-usuarios ul' do
+        should have_css('li', :text => 'Seguindo 2 usuários!')
+      end    
     end
 
     it 'should go to user page when I click on user name' do
@@ -121,16 +125,16 @@ describe "Search Users Page" do
         FactoryGirl.create(:deal, :user => user)
       end
       FactoryGirl.create(:deal, :user => another_user)
-      visit [ users_path, page.driver.request.env['QUERY_STRING'] ].reject(&:blank?).join('?')
+      visit users_path
       within '#col-right .ranking-usuarios' do
         should have_css('.left a img', :src => user.gravatar_url)
         should have_css('.left a', :href => user_path(user.username))
         should have_css('h3 a', :href => user_path(user.username))
-        should have_css('a', :text => '3 ofertas compartilhadas!')
-        should have_css('.left a img', :src => another_user.gravatar_url)
-        should have_css('.left a', :href => another_user_path(user.username))
-        should have_css('h3 a', :href => another_user_path(another_user.username))
-        should have_css('a', :text => '1 ofertas compartilhadas!')
+        should have_content('3 ofertas compartilhadas!')
+        should have_css('.left a img', :src => user.gravatar_url)
+        should have_css('.left a', :href => user_path(user.username))
+        should have_css('h3 a', :href => user_path(another_user.username))
+        should have_content('1 ofertas compartilhadas!')
       end
     end
   end

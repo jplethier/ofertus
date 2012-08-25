@@ -1,4 +1,4 @@
-.deal
+%div{ :class => "deal #{old ? 'old_deal' : ''}" }
   .left.off
     .col-off
       - if (deal.real_price && deal.price)
@@ -11,31 +11,40 @@
       %h5= t('strings.end_date', :end_date => deal.end_date? ? l(deal.end_date.to_date) : "-")
 
   .left.tx-off
-    %h3= link_to truncate_title(deal.title), deal_path(deal), :title => deal.title
+    - if old
+      %h3= link_to truncate_title(deal.title, 40), deal_path(deal), :title => deal.title
+    - else
+      %h3= link_to truncate_title(deal.title), deal_path(deal), :title => deal.title
 
-    .user-off
-      - if deal.user.provider?
-        = link_to(image_tag(deal.user.facebook_profile_picture(:small), :alt => deal.user.username, :title => deal.user.username), user_path(deal.user.username), :class => "user_picture")
-      - else
-        = link_to(image_tag(deal.user.gravatar_url(:size => 50), :alt => deal.user.username, :title => deal.user.username), user_path(deal.user.username), :class => "user_picture")
-      %h4= t('strings.shared_by')
-      %span= link_to deal.user.name, user_path(deal.user.username)
+    - if old
+      - unless deal.image_url.nil? || deal.image_url.empty?
+        = link_to(image_tag(deal.image_url, :alt => deal.image_url, :title => deal.title), deal_path(deal), :class => "deal_picture", :id => "deal_photo")
+    - else
+      .user-off
+        - if deal.user.provider?
+          = link_to(image_tag(deal.user.facebook_profile_picture(:small), :alt => deal.user.username, :title => deal.user.username), user_path(deal.user.username), :class => "user_picture")
+        - else
+          = link_to(image_tag(deal.user.gravatar_url(:size => 50), :alt => deal.user.username, :title => deal.user.username), user_path(deal.user.username), :class => "user_picture")
+        %h4= t('strings.shared_by')
+        %span= link_to deal.user.name, user_path(deal.user.username)
 
-    %ul.left
-      %li= t('strings.category', :category => Deal.i18n_category(deal.category))
-      %li= t('strings.company', :company => deal.company)
-      %li= t('strings.city', :city => deal.city.name)
+      %ul.left
+        %li= t('strings.category', :category => Deal.i18n_category(deal.category))
+        %li= t('strings.company', :company => deal.company)
+        %li= t('strings.city', :city => deal.city.name)
 
-    .right#go_to_site{ :style => 'width: 110px;' }
-      = link_to '', deal.link, :class => 'go_to_site_button', :target => '_blank'
-      = link_to t('actions.more_info'), deal_path(deal), :class => 'more_info'
+      .right#go_to_site{ :style => 'width: 110px;' }
+        = link_to '', deal.link, :class => 'go_to_site_button', :target => '_blank'
+        = link_to t('actions.more_info'), deal_path(deal), :class => 'more_info'
 
-  .right
-    - unless deal.image_url.nil? || deal.image_url.empty?  
-      = link_to(image_tag(deal.image_url, :alt => deal.image_url, :title => deal.title), deal_path(deal), :class => "deal_picture", :id => "deal_photo")
-    - else  
-      / = link_to(image_tag(asset_path('no_picture_big.jpg'), :alt => "Oferta sem imagem", :title => deal.title), deal_path(deal), :class => "deal_picture")
-  .clear
+  -unless old
+    .right
+      - unless deal.image_url.nil? || deal.image_url.empty?
+        = link_to(image_tag(deal.image_url, :alt => deal.image_url, :title => deal.title), deal_path(deal), :class => "deal_picture", :id => "deal_photo")
+      - else  
+        / = link_to(image_tag(asset_path('no_picture_big.jpg'), :alt => "Oferta sem imagem", :title => deal.title), deal_path(deal), :class => "deal_picture")
+  - unless old
+    .clear
 
     /   %ul.discount 
     /     %li.average 

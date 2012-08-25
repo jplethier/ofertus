@@ -53,12 +53,8 @@ module DealsHelper
     body.html_safe
   end
 
-  def truncate_title(title)
-    truncate(title, :length => 60)
-  end
-
-  def truncate_side_title(title)
-    truncate(title, :length => 35)
+  def truncate_title(title, length = 60)
+    truncate(title, :length => length)
   end
 
 end

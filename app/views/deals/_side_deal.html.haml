@@ -1,5 +1,5 @@
 %h3
-  = link_to truncate_side_title(deal.title), deal_path(deal), :title => deal.title
+  = link_to truncate_title(deal.title, 35), deal_path(deal), :title => deal.title
 .left
   %h4= t('strings.original_price', :price => number_to_currency(deal.real_price)).html_safe
   .preco-off

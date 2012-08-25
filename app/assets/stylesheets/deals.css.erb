@@ -9,5 +9,14 @@
 
 .deal { border-bottom: 1px dashed #E0E0E0; margin-bottom: 15px; }
 
-a.more_info { color: #444; text-decoration: none; font-family: 'GothamLight', 'Arial';}
-a.more_info:hover { text-decoration: underline; color: #444; font-family: 'GothamLight', 'Arial'; } 
+a.more_info { color: #444; text-decoration: none; font-family: 'GothamLight', 'Arial'; margin-left: 20px; }
+a.more_info:hover { text-decoration: underline; color: #444; font-family: 'GothamLight', 'Arial'; }
+
+.old_deals .ttGlHome { background: gray; }
+.old_deals .ttGlHome h2 { color: gray; }
+
+.old_deal { border-bottom: none !important; margin-left: 10px; margin-right: 10px; display: inline-block;} 
+.old_deal .tx-off { width: 170px !important; }
+.old_deal .tx-off a { color: gray !important; }
+.old_deal .tx-off a img { max-width: 150px; max-height: 150px; }
+.old_deal .off .col-off .preco-off { background: url(<%= asset_path 'bg-preco-off-old.png' %>) no-repeat !important; }

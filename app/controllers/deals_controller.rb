@@ -113,16 +113,14 @@ class DealsController < AuthorizedController
     @deals = @deals.search(params[:search]) if params[:search]
     @deals = @deals.by_cities(params[:search_city]) if params[:search_city] && not(params[:search_city].empty?)
 
-    if params[:show_olders]
-      @deals = @deals.all
-    else
-      case action_name
-      when "index"
-        @deals = @deals.active
-      when "today"
-        @deals = @deals.today
-      end
+    case action_name
+    when "index"
+      @deals = @deals.active
+    when "today"
+      @deals = @deals.today
     end
+    
+    fill_in_old_deals
   end
 
   def populate_cities_name
@@ -147,5 +145,14 @@ class DealsController < AuthorizedController
 
   def define_title
     title = @deal.title
+  end
+
+  def fill_in_old_deals
+    @old_deals = Deal.inactive
+    @old_deals = search_order(@old_deals, params)
+    @old_deals = @old_deals.by_category_string(params[:category]) if params[:category]
+    @old_deals = @old_deals.search(params[:search]) if params[:search]
+    @old_deals = @old_deals.by_cities(params[:search_city]) if params[:search_city] && not(params[:search_city].empty?)
+    @old_deals = @old_deals.limit(3)
   end
 end

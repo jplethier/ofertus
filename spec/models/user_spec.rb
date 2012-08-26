@@ -253,7 +253,7 @@ describe User do
       user.username = 'my_username'
       user.save
       user.reload
-      User.by_username('my username').should == user
+      User.by_username('my_username').should == user
     end
   end
 end

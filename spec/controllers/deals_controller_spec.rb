@@ -35,6 +35,7 @@ describe DealsController do
     end
     
     it { should respond_with(:success) }
+    it { should assign_to(:deal) }
     it { should render_template(:show) }
     it { should render_with_layout(:application) }
     it { should respond_with_content_type(:html) }

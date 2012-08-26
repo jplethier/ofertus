@@ -24,6 +24,7 @@ describe UsersController do
     end
     
     it { should respond_with(:success) }
+    it { should assign_to(:user) }
     it { should render_template(:show) }
     it { should render_with_layout(:application) }
     it { should respond_with_content_type(:html) }

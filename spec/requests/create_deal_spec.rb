@@ -1,4 +1,4 @@
-# -*- encoding : utf-8 -*-
+#coding: UTF-8
 require 'spec_helper'
 
 describe "New Deal Page" do
@@ -6,9 +6,6 @@ describe "New Deal Page" do
   Warden.test_mode!
 
   before do
-    2.times do
-      FactoryGirl.create(:city)
-    end
     user = FactoryGirl.create(:user)
     user.confirm!
     login_as user, :scope => :user
@@ -17,19 +14,21 @@ describe "New Deal Page" do
 
   after { Warden.test_reset! }
 
-  describe 'should show the new deal form' do
+  subject { page }
+
+  describe 'should show the new deal form', :js => true do
     it 'should title "Nova Oferta"' do
       within '#col-left' do
         should have_content('Nova Oferta')
       end
     end
     it "should show subtitle" do
-      within '#col-left #page-login' do
+      within '#col-left .page-login' do
         should have_content("Compartilhe uma oferta preenchendo os campos abaixo e clicando em 'Confirmar'")
       end
     end
     it 'should show the form fields' do
-      within "#col-left #page-login .ct-inputs-login form#new_deal" do
+      within "#col-left .page-login .ct-inputs-login form#new_deal" do
         should have_css('p label', :for => 'deal_title', :text => 'Título')
         should have_css('p input#deal_title.user-senha', :type => :text)
         should have_css('p label', :for => 'deal_kind', :text => 'Tipo')
@@ -38,15 +37,15 @@ describe "New Deal Page" do
         should have_css('p select#deal_kind option', :text => 'Ofertas', :value => "1")
         should have_css('p select#deal_kind option', :text => 'Compras Coletivas', :value => "2")
         should have_css('p select#deal_kind option', :text => 'Liquidação', :value => "3")
-        should_not have_css('p#p_deal_real_price')
-        should_not have_css('p#p_deal_real_price label', :for => 'deal_real_price')
-        should_not have_css('p#p_deal_real_price input#deal_real_price_mask.money.user-senha', :type => :text)
-        should_not have_css('p#p_deal_price')
-        should_not have_css('p#p_deal_price label', :for => 'deal_price')
-        should_not have_css('p#p_deal_price input#deal_price_mask.money.user-senha', :type => :text)
-        should_not have_css('p#p_deal_discount')
-        should_not have_css('p#p_deal_discount label', :for => 'deal_discount')
-        should_not have_css('p#p_deal_discount input#deal_discount.user-senha', :type => :text)
+        should have_css('p#p_deal_real_price', :style => 'display: none;')
+        should have_css('p#p_deal_real_price label', :for => 'deal_real_price', :style => "display: none;")
+        should have_css('p#p_deal_real_price input#deal_real_price_mask.money.user-senha', :type => :text, :style => "display: none;")
+        should have_css('p#p_deal_price', :style => "display: none;")
+        should have_css('p#p_deal_price label', :for => 'deal_price', :style => "display: none;")
+        should have_css('p#p_deal_price input#deal_price_mask.money.user-senha', :type => :text, :style => "display: none;")
+        should have_css('p#p_deal_discount', :style => "display: none;")
+        should have_css('p#p_deal_discount label', :for => 'deal_discount', :style => "display: none;")
+        should have_css('p#p_deal_discount input#deal_discount.user-senha', :type => :text, :style => "display: none;")
         should have_css('p label', :for => 'deal_category', :text => 'Categoria')
         should have_css('p select#deal_category.user-senha')
         should have_css('p select#deal_category option', :text => 'Selecione')
@@ -57,13 +56,13 @@ describe "New Deal Page" do
         should have_css('p select#deal_category option', :text => 'Tecnologia', :value => "5")
         should have_css('p select#deal_category option', :text => 'Vestuário e Acessórios', :value => "6")
         should have_css('p select#deal_category option', :text => 'Viagens', :value => "7")
-        should have_css('p select#deal_category option', :text => 'AUtomotivos', :value => "8")
+        should have_css('p select#deal_category option', :text => 'Automotivos', :value => "8")
         should have_css('p select#deal_category option', :text => 'Diversos', :value => "9")
         should have_css('p select#deal_category option', :text => 'Casa e Decoração', :value => "10")
         should have_css('p select#deal_category option', :text => 'Entretenimento e Lazer', :value => "11")
         should have_css('p label', :for => 'deal_description', :text => 'Descrição')
-        should_not have_css('p textarea#deal_description')
-        should have_css('p span.cke_browser_webkit')
+        should have_css('p textarea#deal_description', :style => "display: none;")
+        should have_css('p span#cke_deal_description')
         should have_css('p label', :for => "deal_end_date", :text => 'Data de Validade')
         should have_css('p input#deal_end_date.datepicker.user-senha.hasDatepicker')
         should have_css('p span', :text => 'Informe a data no formato dd/mm/aaaa')
@@ -75,16 +74,16 @@ describe "New Deal Page" do
         should have_css('p span', :text => 'O link deve ser no formato http:// ou https://')
         should have_css('p label', :for => "deal_company", :text => 'Empresa/Site')
         should have_css('p input#deal_company.user-senha', :type => :text)
-        should_not have_css('p#p_deal_city')
-        should_not have_css('p#p_deal_city label', :for => "deal_city_id")
-        should_not have_css('p#p_deal_city select#deal_city_id')
+        should have_css('p#p_deal_city', :style => "display: none;")
+        should have_css('p#p_deal_city label', :for => "deal_city_id", :style => "display: none;")
+        should have_css('p#p_deal_city select#deal_city_id', :style => "display: none;")
       end
     end
   end
 
   describe 'select type as offers', :js => true do
     it 'should show the price and real_price fields' do
-      select 'deal_kind', :with => 1
+      select 'Ofertas', :from => 'deal_kind'
       should have_css('p#p_deal_real_price')
       should have_css('p#p_deal_real_price label', :for => 'deal_real_price')
       should have_css('p#p_deal_real_price input#deal_real_price_mask.money.user-senha', :type => :text)
@@ -96,7 +95,7 @@ describe "New Deal Page" do
 
   describe 'select type as daily deals', :js => true do
     it 'should show the price and real_price fields' do
-      select 'deal_kind', :with => 2
+      select 'Compras Coletivas', :from => 'deal_kind'
       should have_css('p#p_deal_real_price')
       should have_css('p#p_deal_real_price label', :for => 'deal_real_price')
       should have_css('p#p_deal_real_price input#deal_real_price_mask.money.user-senha', :type => :text)
@@ -111,7 +110,7 @@ describe "New Deal Page" do
 
   describe 'select type as on sale', :js => true do
     it 'should show the price and real_price fields' do
-      select 'deal_kind', :with => 3
+      select 'Liquidação', :from => 'deal_kind'
       should have_css('p#p_deal_discount')
       should have_css('p#p_deal_discount label', :for => 'deal_discount')
       should have_css('p#p_deal_discount input#deal_discount.user-senha', :type => :text)

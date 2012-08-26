@@ -26,30 +26,18 @@ describe Deal do
     end
 
     describe "Validations" do
-      it "should require a category" do
-        deal.category = nil
-        deal.should_not be_valid
-      end
-
-      it "should require a user" do
-        deal.user = nil
-        deal.should_not be_valid
-      end
-
-      it "should require a city" do
+      it { should validate_presence_of :category }
+      it { should validate_presence_of :user }
+      
+      it "should save as national offer when city is nil" do
         deal.city = nil
-        deal.should_not be_valid
+        deal.save
+        deal.reload
+        deal.city.name.should == 'Oferta Nacional'
       end
 
-      it "should require a company" do
-        deal.company = nil
-        deal.should_not be_valid
-      end
-
-      it "should require a descrition" do
-        deal.description = nil
-        deal.should_not be_valid
-      end
+      it { should validate_presence_of :company }
+      it { should validate_presence_of :description }
 
       describe "#end_date" do
         it "should not be before today" do

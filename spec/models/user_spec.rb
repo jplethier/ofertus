@@ -240,11 +240,19 @@ describe User do
 
   describe "afilliate data" do
 
-    it "user without credit iinformation should be saved as 0 credit" do
+    it "user without credit information should be saved as 0 credit" do
       user.credit = nil
       user.save
       user.reload
       user.credit.should == 0.0
+    end
+  end
+
+  describe 'search queries' do
+    it 'my username' do
+      user.username = 'my username'
+      user.save
+      User.by_username('my username').should == user
     end
   end
 end

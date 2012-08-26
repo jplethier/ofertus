@@ -249,9 +249,10 @@ describe User do
   end
 
   describe 'search queries' do
-    it 'my username' do
-      user.username = 'my username'
+    it 'my_username' do
+      user.username = 'my_username'
       user.save
+      user.reload
       User.by_username('my username').should == user
     end
   end

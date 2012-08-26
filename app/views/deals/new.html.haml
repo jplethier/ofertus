@@ -38,7 +38,7 @@
           %br
           = f.select :category, Deal.i18n_categories, {:include_blank => 'Selecione'}, :class => 'user-senha'
         .clear
-        %p
+        %p#p_description
           = f.label :description
           %br
           = cktext_area :deal, :description, :toolbar => 'Basic'

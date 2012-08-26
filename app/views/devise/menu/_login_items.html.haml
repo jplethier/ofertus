@@ -17,6 +17,4 @@
       %span Olá, seja bem-vindo
     %li= link_to t('actions.sign_up'), new_user_registration_path
     %li= link_to t('actions.sign_in'), new_user_session_path
-    %li
-      :plain
-        <div class="fb-login-button" data-show-faces="false" data-width="100" data-max-rows="1"></div>
+    %li= link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"

@@ -165,7 +165,7 @@ class Deal < ActiveRecord::Base
   end
 
   def set_national_offer
-    self.city_id = City.find_by_name('Oferta Nacional') if self.city_id.nil?
+    self.city_id = City.find_by_name('Oferta Nacional').id if self.city_id.nil?
   end
 
   private

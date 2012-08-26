@@ -126,7 +126,7 @@ if City.all.empty?
   end
 end
 
-if User.all.empty?
+if User.all.empty? && Rails.env != 'test'
   fake_users = [
     { :username => "bruno_abreu",     :name => "Bruno Abreu",               :email => "brunoAbreu@oi.com.br" },
     { :username => "manuel_cabral",   :name => "Manuel Cabral",             :email => "manuel555@hotmail.com" },

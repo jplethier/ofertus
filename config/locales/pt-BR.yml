@@ -247,7 +247,9 @@
         kind: "Tipo"
         link: "Link"
         price: "Preço Promocional"
+        price_mask: "Preço Promocional"
         real_price: "Preço Real"
+        real_price_mask: "Preço Real"
         title: "Título"
 
     errors:

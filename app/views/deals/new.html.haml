@@ -18,12 +18,12 @@
           = f.select :kind, Deal.i18n_kinds, {:include_blank => 'Selecione'}, {'data-switcher' => "1:#p_deal_price,#p_deal_real_price||2:#p_deal_price,#p_deal_real_price,#p_deal_city||3:#p_deal_discount", :class => 'user-senha' }
         .clear
         %p#p_deal_real_price
-          = f.label :real_price
+          = f.label :real_price_mask
           %br
           = f.text_field :real_price_mask, :class => "money user-senha"
         .clear
         %p#p_deal_price
-          = f.label :price
+          = f.label :price_mask
           %br
           = f.text_field :price_mask, :class => "money user-senha"
         .clear
@@ -46,7 +46,7 @@
         %p
           = f.label :end_date
           %br
-          = f.text_field :end_date, :class => "datepicker user-senha"
+          = f.text_field :end_date, :class => "datepicker user-senha", :value => l(Date.today)
           %span Informe a data no formato dd/mm/aaaa
         .clear
         %p
@@ -72,7 +72,7 @@
           = f.select(:city_id, unsorted_grouped_options_for_select(@cities_state_hash), {:include_blank => 'Selecione'}, :class => 'user-senha' )
 
         %br.clear
-        = f.submit "", :class => 'bt-confirmar'
+        = f.submit "", :class => 'bt-confirmar', :id => 'confirm'
 
 :plain            
   <script type="text/javascript">

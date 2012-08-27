@@ -68,16 +68,10 @@ describe Deal do
         end
       end
 
-      it "should require a kind" do
-        deal.kind = nil
-        deal.should_not be_valid
-      end
+      it { should validate_presence_of(:kind) }
 
       describe "#link" do
-        it "should be required" do
-          deal.link = nil
-          deal.should_not be_valid
-        end
+        it { should validate_presence_of(:link) }
 
         it "should be unique" do
           duplicated_link = FactoryGirl.create(:deal).link
@@ -105,10 +99,7 @@ describe Deal do
 
       describe "#image_url" do
 
-        it "should not be required" do
-          deal.image_url = ""
-          deal.should be_valid
-        end
+        it { should_not validate_presence_of(:image_url) }
 
         describe "should begin with http:// or https://" do
           it "http://www.ofertus.com.br should be valid" do
@@ -129,10 +120,7 @@ describe Deal do
       end
 
       describe "#title" do
-        it "should require a title" do
-          deal.title = nil
-          deal.should_not be_valid
-        end
+        it { should validate_presence_of(:title) }
 
         it "should not let a title with more then 255 chars" do
           deal.title = "a"*256
@@ -160,22 +148,26 @@ describe Deal do
 
   shared_examples_for "Not On Sale Deals" do
 
-    describe "#real_price" do
-      it "should be greater than price" do
+    describe "validations" do
+      it "real_price should be greater than price" do
         deal.real_price_mask = "2,00"
         deal.price = "1,00"
         deal.should be_valid
       end
-      it "shouldn't be equal to price" do
+      it "real_price shouldn't be equal to price" do
         deal.real_price_mask = "1,00"
         deal.price_mask = "1,00"
         deal.should_not be_valid
       end
-      it "shouldn't be smaller than price" do
+      it "real_price shouldn't be smaller than price" do
         deal.real_price_mask = "1,00"
         deal.price_mask = "2,00"
         deal.should_not be_valid
       end
+
+      it { should validate_presence_of :real_price_mask }
+      it { should validate_presence_of :price_mask }
+      it { should_not validate_presence_of :discount }
     end
   end
 
@@ -186,20 +178,12 @@ describe Deal do
     it_should_behave_like "All Deals"
 
     describe "Validations" do
-      it "should require a discount" do
-        deal.discount = nil
-        deal.should_not be_valid
-      end
+      it { should validate_presence_of(:discount) }
 
-      it "should not require a price" do
-        deal.price_mask = nil
-        deal.should be_valid
-      end
-
-      it "should not require a real price" do
-        deal.real_price_mask = nil
-        deal.should be_valid
-      end
+      it { should_not validate_numericality_of(:real_price) }
+      it { should_not validate_numericality_of(:price) }
+      it { should_not validate_presence_of(:real_price_mask) }
+      it { should_not validate_presence_of(:price_mask) }
     end
   end
 

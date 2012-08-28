@@ -5,6 +5,7 @@
   .list-conteudo.info-help
     %h3= t('strings.about_the_site')
     .list-help
+      <!-- temos que decidir sobre essa questão para poder acertar a resposta dessa pergunta aqui. -->
       %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Com que frequência o OfertUs me enviará e-mails? Odeio lixo eletrônico!
       .slide
         %p Neste primeiro momento não enviaremos e-mails sobre ofertas para nenhum usuário, se por algum motivo você recebeu algum e-mail sobre ofertas e descontos em nosso nome por favor entre em contato conosco para nos avisar.
@@ -14,7 +15,10 @@
       %div
         %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Como faço para me cadastrar no OfertUs?
         .slide
-          %p Basta acessar o formulário de cadastro de perfil através do link 'Criar Perfil', que pode ser encontrado na parte de cima da página ou no rodapé da página, preencher os campos informados no formulário e salvar o cadastro. Após isso será enviado um e-mail de confirmação para o e-mail informado no formulário com um link para confirmação do cadastro, clique no link recebido e você terá um perfil cadastrado e confirmado no OfertUs.
+          %p 
+            Basta acessar o formulário de cadastro de perfil através do link 
+            = link_to 'Criar Perfil', new_user_registration_path
+            , que pode ser encontrado na parte de cima no rodapé da página, preencher os campos informados no formulário e salvar o cadastro. Após isso será enviado um e-mail de confirmação para o e-mail informado no formulário com um link para confirmação do cadastro, clique no link recebido e você terá um perfil cadastrado e confirmado no Ofertus.
       %div
         %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Não recebi o e-mail de confirmação, o que faço agora?
         .slide

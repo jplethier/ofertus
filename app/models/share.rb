@@ -125,7 +125,7 @@ class Share
   def self.open_page(link)
     begin
       page = Nokogiri::HTML(open(link).read) #Nokogiri bug: You need to use .read method in order to use encoding.
-    rescue OpenURI::HTTPError => http_error
+    rescue
       return nil
     end
     page.encoding = 'utf-8'

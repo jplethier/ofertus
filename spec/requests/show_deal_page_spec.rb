@@ -50,6 +50,13 @@ describe "Show deal page" do
       should have_css('.detalhe-oferta .share-off span.nao-gostei a', :text => 'Não Gostei!', :href => downvote_deal_path(deal))
     end
 
+    it 'should not show the links to vote if user is not logged in' do
+      should_not have_css('.detalhe-oferta .share-off span.gostei a', :text => 'Gostei!', :href => upvote_deal_path(deal))
+      should_not have_css('.detalhe-oferta .share-off span.gostei')
+      should_not have_css('.detalhe-oferta .share-off span.nao-gostei')
+      should_not have_css('.detalhe-oferta .share-off span.nao-gostei a', :text => 'Não Gostei!', :href => downvote_deal_path(deal))
+    end
+
     it 'should show the deals description' do
       within '#sem-col .desc-off' do
         should have_css('h4', :text => 'Descrição da Oferta')
@@ -74,6 +81,10 @@ describe "Show deal page" do
       should have_css('input.bt-comentar', :typev => 'submit')
     end
 
+    it 'should not show the comment form if the user is not logged in' do
+      should_not have_css('textarea#comment_comment')
+      should_not have_css('input.bt-comentar', :typev => 'submit')
+    end
 
     it 'should show the comments' do
       within '#sem-col .right-detalhe-comment-off' do

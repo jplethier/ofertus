@@ -5,15 +5,14 @@
   .list-conteudo.info-help
     %h3= t('strings.about_the_site')
     .list-help
-      <!-- temos que decidir sobre essa questão para poder acertar a resposta dessa pergunta aqui. -->
-      %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Com que frequência o OfertUs me enviará e-mails? Odeio lixo eletrônico!
+      %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Com que frequência o Ofertus me enviará e-mails? Odeio lixo eletrônico!
       .slide
-        %p Neste primeiro momento não enviaremos e-mails sobre ofertas para nenhum usuário, se por algum motivo você recebeu algum e-mail sobre ofertas e descontos em nosso nome por favor entre em contato conosco para nos avisar.
+        %p O Ofertus enviará emails periódicos contendo ofertas compartilhadas pelos usuários na plataforma, além de novidades e informações a respeito do Ofertus. No entanto, o Ofertus preza pela liberdade de escolha dos seus usuários, e permite o cancelamento da assinatura dos emails a qualquer momento.
     
     %h3= t('strings.creating_a_profile')
     .list-help
       %div
-        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Como faço para me cadastrar no OfertUs?
+        %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Como faço para me cadastrar no Ofertus?
         .slide
           %p 
             Basta acessar o formulário de cadastro de perfil através do link 
@@ -63,7 +62,6 @@
       %div
         %a.bt-info{ :href => "javascript:;", :onclick => "$(this).parent().find('.slide').slideToggle('slow', function() { $(this).parent().find('.bt-info').toggleClass('bt-mais-slide'); })" } Posso compartilhar minhas ofertas ou ofertas que achei interessantes em outras redes sociais?
         .slide
-          <!-- colocar isso na página das ofertas de volta -->
           %p Sim, o Ofertus permite que você compartilhe as ofertas encontradas na nossa plataforma com qualquer outra rede social. Uma forma rápida de fazer isso é através ds botões 'tweet', 'curti', '+1' e 'share' que são encontrados nas páginas das ofertas.
     %h3= t('strings.getting_paid')
     .list-help

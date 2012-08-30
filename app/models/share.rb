@@ -134,8 +134,8 @@ class Share
 
   def self.fill_deal_fields(link)
     page = open_page(link)
+    deal = Deal.new :link => link
     unless page.nil?
-      deal = Deal.new :link => link
       deal.title = page.at_css(XPATH_TITLE).try(:text).try(:strip)[0,255]
     end
     deal

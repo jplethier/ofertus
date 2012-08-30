@@ -127,7 +127,7 @@ class Deal < ActiveRecord::Base
   end
 
   def already_shared?
-    Deal.by_link(self.link)
+    Deal.by_link(self.link) || self.link.match('ofertus.com.br')
   end
 
   def average

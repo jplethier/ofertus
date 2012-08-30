@@ -20,8 +20,12 @@ class DealsController < AuthorizedController
   def create
     @deal.user = current_user
     if @deal.already_shared?
-      @deal = Deal.by_link(@deal.link)
-      redirect_to deal_path(@deal), :alert => "A oferta abaixo já foi compartilhada por outro usuário"
+      if @deal.link.match('ofertus.com.br')
+        redirect_to @deal.link, :alert => "A oferta abaixo já foi compartilhada por outro usuário"
+      else
+        @deal = Deal.by_link(@deal.link)
+        redirect_to deal_path(@deal), :alert => "A oferta abaixo já foi compartilhada por outro usuário"
+      end
     else
       if @deal.save
         if current_user.provider? && current_user.facebook_share_offer && FbGraph::User.me(current_user.access_token).permissions.include?(:status_update)

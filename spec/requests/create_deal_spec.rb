@@ -134,7 +134,7 @@ describe "New Deal Page" do
     fill_in 'deal_price_mask', :with => '1,00'
     select 'Diversos', :from => 'deal_category'
     fill_in 'deal_description', :with => 'Descrição da oferta'
-    fill_in 'deal_link', :with => 'http://www.ofertus.com.br'
+    fill_in 'deal_link', :with => 'http://www.loja.com.br'
     fill_in 'deal_company', :with => 'Ofertus'
     click_on 'confirm'
     (Deal.count - 1).should == count
@@ -149,7 +149,7 @@ describe "New Deal Page" do
     fill_in 'deal_price_mask', :with => '1,00'
     select 'Diversos', :from => 'deal_category'
     fill_in 'deal_description', :with => 'Descrição da oferta'
-    fill_in 'deal_link', :with => 'http://www.ofertus.com.br'
+    fill_in 'deal_link', :with => 'http://www.loja.com.br'
     fill_in 'deal_company', :with => 'Ofertus'
     click_on 'confirm'
     (Deal.count).should == count
@@ -168,7 +168,7 @@ describe "New Deal Page" do
     fill_in 'deal_price_mask', :with => '1,00'
     select 'Diversos', :from => 'deal_category'
     fill_in 'deal_description', :with => 'Descrição da oferta'
-    fill_in 'deal_link', :with => 'http://www.ofertus.com.br'
+    fill_in 'deal_link', :with => 'http://www.loja.com.br'
     fill_in 'deal_company', :with => 'Ofertus'
     click_on 'confirm'
     (Deal.count).should == count
@@ -187,7 +187,7 @@ describe "New Deal Page" do
     fill_in 'deal_price_mask', :with => '1,00'
     select 'Diversos', :from => 'deal_category'
     fill_in 'deal_description', :with => 'Descrição da oferta'
-    fill_in 'deal_link', :with => 'http://www.ofertus.com.br'
+    fill_in 'deal_link', :with => 'http://www.loja.com.br'
     fill_in 'deal_company', :with => 'Ofertus'
     click_on 'confirm'
     (Deal.count).should == count
@@ -206,7 +206,7 @@ describe "New Deal Page" do
     # fill_in 'deal_price_mask', :with => '1,00'
     select 'Diversos', :from => 'deal_category'
     fill_in 'deal_description', :with => 'Descrição da oferta'
-    fill_in 'deal_link', :with => 'http://www.ofertus.com.br'
+    fill_in 'deal_link', :with => 'http://www.loja.com.br'
     fill_in 'deal_company', :with => 'Ofertus'
     click_on 'confirm'
     (Deal.count).should == count
@@ -225,7 +225,7 @@ describe "New Deal Page" do
     # fill_in 'deal_price_mask', :with => '1,00'
     select 'Diversos', :from => 'deal_category'
     fill_in 'deal_description', :with => 'Descrição da oferta'
-    fill_in 'deal_link', :with => 'http://www.ofertus.com.br'
+    fill_in 'deal_link', :with => 'http://www.loja.com.br'
     fill_in 'deal_company', :with => 'Ofertus'
     click_on 'confirm'
     (Deal.count).should == count
@@ -245,7 +245,7 @@ describe "New Deal Page" do
     # fill_in 'deal_discount', :with => '30'
     select 'Diversos', :from => 'deal_category'
     fill_in 'deal_description', :with => 'Descrição da oferta'
-    fill_in 'deal_link', :with => 'http://www.ofertus.com.br'
+    fill_in 'deal_link', :with => 'http://www.loja.com.br'
     fill_in 'deal_company', :with => 'Ofertus'
     click_on 'confirm'
     (Deal.count).should == count
@@ -265,7 +265,7 @@ describe "New Deal Page" do
     # fill_in 'deal_discount', :with => '30'
     select 'Diversos', :from => 'deal_category'
     fill_in 'deal_description', :with => 'Descrição da oferta'
-    fill_in 'deal_link', :with => 'http://www.ofertus.com.br'
+    fill_in 'deal_link', :with => 'http://www.loja.com.br'
     fill_in 'deal_company', :with => 'Ofertus'
     click_on 'confirm'
     (Deal.count).should == count
@@ -285,7 +285,7 @@ describe "New Deal Page" do
     fill_in 'deal_discount', :with => '30'
     # select 'Diversos', :from => 'deal_category'
     fill_in 'deal_description', :with => 'Descrição da oferta'
-    fill_in 'deal_link', :with => 'http://www.ofertus.com.br'
+    fill_in 'deal_link', :with => 'http://www.loja.com.br'
     fill_in 'deal_company', :with => 'Ofertus'
     click_on 'confirm'
     (Deal.count).should == count
@@ -305,7 +305,7 @@ describe "New Deal Page" do
     fill_in 'deal_discount', :with => '30'
     select 'Diversos', :from => 'deal_category'
     # fill_in 'deal_description', :with => 'Descrição da oferta'
-    fill_in 'deal_link', :with => 'http://www.ofertus.com.br'
+    fill_in 'deal_link', :with => 'http://www.loja.com.br'
     fill_in 'deal_company', :with => 'Ofertus'
     click_on 'confirm'
     (Deal.count).should == count
@@ -325,7 +325,7 @@ describe "New Deal Page" do
     fill_in 'deal_discount', :with => '30'
     select 'Diversos', :from => 'deal_category'
     fill_in 'deal_description', :with => 'Descrição da oferta'
-    # fill_in 'deal_link', :with => 'http://www.ofertus.com.br'
+    # fill_in 'deal_link', :with => 'http://www.loja.com.br'
     fill_in 'deal_company', :with => 'Ofertus'
     click_on 'confirm'
     (Deal.count).should == count
@@ -345,7 +345,7 @@ describe "New Deal Page" do
     fill_in 'deal_discount', :with => '30'
     select 'Diversos', :from => 'deal_category'
     fill_in 'deal_description', :with => 'Descrição da oferta'
-    fill_in 'deal_link', :with => 'http://www.ofertus.com.br'
+    fill_in 'deal_link', :with => 'http://www.loja.com.br'
     # fill_in 'deal_company', :with => 'Ofertus'
     click_on 'confirm'
     (Deal.count).should == count
@@ -365,7 +365,7 @@ describe "New Deal Page" do
     fill_in 'deal_discount', :with => '30'
     select 'Diversos', :from => 'deal_category'
     fill_in 'deal_description', :with => 'Descrição da oferta'
-    fill_in 'deal_link', :with => 'ofertus.com.br'
+    fill_in 'deal_link', :with => 'loja.com.br'
     fill_in 'deal_company', :with => 'Ofertus'
     click_on 'confirm'
     (Deal.count).should == count

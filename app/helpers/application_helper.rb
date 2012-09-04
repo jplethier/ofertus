@@ -15,9 +15,9 @@ module ApplicationHelper
 
   def title
     if not @title.nil?
-      @title + " | OfertuS - Compartilhe Boas Ofertas"
+      @title + " | OfertuS - Compartilhe Ofertas"
     else
-      "OfertuS - Compartilhe Boas Ofertas"
+      "OfertuS - Compartilhe Ofertas e ganhe com isso"
     end
   end
 

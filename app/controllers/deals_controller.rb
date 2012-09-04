@@ -11,7 +11,10 @@ class DealsController < AuthorizedController
       flash.now[:notice] = "Não foi encontrada nenhuma oferta para a cidade selecionada" if @deals.empty? && not(params[:search_city].empty?) && params[:search].empty?
       flash.now[:notice] = "Não foi encontrada nenhuma oferta para a cidade selecionada com '#{params[:search]}'" if @deals.empty? && not(params[:search_city].empty?) && not(params[:search].empty?)
     end
-    @title = Deal.i18n_category(Deal::CATEGORIES_DICTIONARY[params[:category]]) if params[:category]
+    if params[:category]
+      @title = Deal.i18n_category(Deal::CATEGORIES_DICTIONARY[params[:category]])
+      @description = Deal.i18n_category(Deal::CATEGORIES_DICTIONARY[params[:category]])
+    end
   end
 
   def new
@@ -148,7 +151,8 @@ class DealsController < AuthorizedController
   end
 
   def define_title
-    title = @deal.title
+    @title = @deal.title
+    @description = @deal.title
   end
 
   def fill_in_old_deals

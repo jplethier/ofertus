@@ -64,6 +64,7 @@
         = image_tag(@deal.image_url, :alt => @deal.image_url, :title => @deal.title, :size => '10px')
       - else
         / = image_tag(asset_path('no_picture_big.png'), :alt => "Oferta sem imagem", :title => @deal.title, :size => '10px')
+  .clear
 
   .desc-off
     %h4= t('strings.description')

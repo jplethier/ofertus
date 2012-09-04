@@ -1,7 +1,7 @@
 #coding: UTF-8
 class ApplicationController < ActionController::Base
   # before_filter :go_to_facebook
-  before_filter :fill_deals_lists, :delete_facebook_data, :set_current_tab
+  before_filter :delete_facebook_data, :set_current_tab
 
   protect_from_forgery
 
@@ -42,14 +42,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-
-  def fill_deals_lists
-    deals = Deal.active
-    deals = deals.by_cities(user_cities_ids) if user_cities_ids.try(:any?)
-    @best_deals = deals.voted.best_deals.limit(3)
-    @newest_deals = deals.recent.limit(3)
-    @most_comment_deals = deals.most_commented.limit(3)
-  end
 
   def delete_facebook_data
     if session["devise.facebook_data"]

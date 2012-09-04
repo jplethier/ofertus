@@ -3,7 +3,6 @@
     %h2= Deal.i18n_category(@deal.category)
 
   .list-conteudo.detalhe-oferta
-    
     .left.off
       .col-off
         - if @deal.price?
@@ -51,6 +50,14 @@
             = " - #{@deal.down_votes} não gostou!"
 
     .right
+      :plain
+        <span class='st_facebook'></span>
+        <span class='st_twitter'></span>
+        <span class='st_plusone'></span>
+        <span class='st_googleplus'></span>
+        <span class='st_pinterest'></span>
+        <span class='st_email'></span>
+
       - if @deal.image_url && !@deal.image_url.empty?
         = image_tag(@deal.image_url, :alt => @deal.image_url, :title => @deal.title, :size => '10px')
       - else

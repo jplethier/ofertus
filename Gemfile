@@ -11,6 +11,7 @@ gem 'dalli'
 gem 'date_validator'
 gem 'devise', '>= 1.4.2'
 gem 'fb_graph'
+gem "friendly_id", "~> 4.0.1"
 gem 'gravtastic'
 gem 'haml'
 gem "haml-rails"

@@ -1,5 +1,8 @@
 # coding: utf-8
 class Deal < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
   acts_as_commentable
 
   make_voteable

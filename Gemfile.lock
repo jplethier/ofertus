@@ -96,6 +96,7 @@ GEM
       httpclient (>= 2.2.0.2)
       rack-oauth2 (>= 0.9.4)
     ffi (1.1.5)
+    friendly_id (4.0.8)
     gravtastic (3.2.6)
     haml (3.1.4)
     haml-rails (0.3.4)
@@ -287,6 +288,7 @@ DEPENDENCIES
   devise (>= 1.4.2)
   factory_girl_rails (>= 1.1.beta1)
   fb_graph
+  friendly_id (~> 4.0.1)
   gravtastic
   haml
   haml-rails

@@ -48,6 +48,7 @@ class DealsController < AuthorizedController
   def show
     @comment = Comment.new
     @title = @deal.title
+    @description = @deal.title
   end
 
   def today

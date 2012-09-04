@@ -1,7 +1,0 @@
-= form_for @blog_post, :url => (@blog_post.new_record? ? blog_blog_posts_path : blog_blog_post_path(@blog_post)), :html => { :method => (@blog_post.new_record? ? :post : :put)}  do |f|
-  = f.hidden_field :user, current_user
-  = f.text_field :title
-  %br
-  = cktext_area :blog_post, :content
-  %br
-  = f.submit "Confirmar"

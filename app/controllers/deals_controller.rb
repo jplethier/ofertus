@@ -4,6 +4,7 @@ class DealsController < AuthorizedController
   prepend_before_filter :find_deals, :only => [:index, :today]
   before_filter :define_title, :only => :show
   before_filter :populate_cities_name, :only => [:new, :share]
+  before_filter :fill_deals_lists
 
   def index
     if params[:search]
@@ -113,6 +114,14 @@ class DealsController < AuthorizedController
   end
 
   private
+
+  def fill_deals_lists
+    deals = Deal.active
+    deals = deals.by_cities(user_cities_ids) if user_cities_ids.try(:any?)
+    @best_deals = deals.voted.best_deals.limit(3)
+    @newest_deals = deals.recent.limit(3)
+    @most_comment_deals = deals.most_commented.limit(3)
+  end
 
   def find_deals
     @deals = Deal.paginate(:page => params[:page])

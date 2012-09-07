@@ -41,24 +41,22 @@ class Deal < ActiveRecord::Base
   validates :category,        :presence => true,        :inclusion => CATEGORIES
   validates :company,         :presence => true
   validates :description,     :presence => true,        :length => { :maximum => 7000 }
-  validates :discount,        :presence => true,        :if => "on_sale?"
+  validates :discount,        :presence => true,        :if => "on_sale? && new_record?"
   validates :end_date,        :presence => true,        :date => {:after_or_equal_to => Time.zone.now.beginning_of_day}
   validates :image_url,       :format => /(^$)|(^https?:\/\/.+)/
   validates :kind,            :presence => true,        :inclusion => KINDS
   validates :link,            :presence => true,        :uniqueness => true,  :format => /^https?:\/\/.+/
   validates :price,           :numericality => true,    :unless => "on_sale?"
-  validates :price_mask,      :presence => true,        :unless => "on_sale?"
   validates :real_price,      :numericality => true,    :unless => "on_sale?"
   validates :real_price,      :greater_than => :price,  :if => "price? and real_price?"
-  validates :real_price_mask, :presence => true,        :unless => "on_sale?"
 
   validates :title,       :presence => true,      :length => { :maximum => 255 }
   validates :city_id,     :presence => true
   validates :user,        :presence => true
 
   # VALIDAÇÕES PARA A MÁSCARA DE PREÇO
-  validates :price_mask,  :presence => true,      :unless => "on_sale? || price?"
-  validates :real_price_mask,  :presence => true, :unless => "on_sale? || real_price?"
+  validates :price_mask,  :presence => true,      :unless => "on_sale? || price? || !new_record?"
+  validates :real_price_mask,  :presence => true, :unless => "on_sale? || real_price? || !new_record?"
 
   after_validation :calculate_discount, :if => "real_price? and price? and not on_sale?"
   before_validation :prices_to_number, :if => "not on_sale?"

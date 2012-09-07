@@ -1,6 +1,6 @@
 #header { height:165px; position: relative; background: url(bg-header.png) no-repeat 564px 45px; }
-#header .logo { width:378px; float: left; padding-top:66px;  }
-#header .logo a { width:378px; height:44px; display: block; background: url(logo.png) no-repeat; text-indent: -9999999px;}
+#header .logo { width:378px; float: left; padding-top:60px;  }
+#header .logo a { width:378px; height:80px; display: block; background: url(logo_beta.png) no-repeat; text-indent: -9999999px;}
 #header #menu-login { position:absolute; overflow:hidden; top:10px; right:0; }
 #header #menu-login li { float: left; padding:0 16px 0 0;}
 #header #menu-login li span { color: #fff; font-size:11px; font-style:italic; text-transform:uppercase; }

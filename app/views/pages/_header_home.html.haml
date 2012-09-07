@@ -3,8 +3,7 @@
     #slides.left
       .slides_container
         %div
-          %a{ :href => "javascript:;", :onclick => "Popup.open_url('#{show_video_url}')"}
-            %img{ :src => asset_path('foto_1.jpg') }
+          %img{ :src => asset_path('foto_1.jpg') }
         %div
           :plain
             <div style="text-align:center; width:700px; margin-left:auto; margin-right:auto;">
@@ -21,6 +20,9 @@
             <!-- Image map text links - End - -->
 
             </div>
+        %div
+          %a{ :href => "javascript:;", :onclick => "Popup.open_url('#{show_video_url}')"}
+            %img{ :src => asset_path('foto_4.jpg') }
         / %div
         /   %img{ :src => asset_path('foto_3.jpg') }
     #login_home.right

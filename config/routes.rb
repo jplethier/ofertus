@@ -26,6 +26,7 @@ DealWitMe::Application.routes.draw do
   match "privacypolicy",  :to => "pages#privacypolicy"
   match "termsofuse",     :to => "pages#termsofuse"
   match "how_it_works",   :to => "pages#how_it_works"
+  match "show_video",     :to => "pages#show_video", :as => 'show_video'
 
   match '/deals/feed' => 'deals#feed', :as => :feed, :defaults => { :format => 'atom' }
 

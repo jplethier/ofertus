@@ -12,6 +12,10 @@ class PagesController < ApplicationController
     @deals = @deals.active
   end
 
+  def show_video
+    render :layout => false
+  end
+
   def whoarewe
     @description = 'Saiba quem é a equipe que está por trás do Ofertus, e descubro como ele funciona.'
   end

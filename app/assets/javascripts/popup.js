@@ -15,18 +15,17 @@ var Popup = {
 
   open_url : function(url) {    
     $('#blocker').height($(document).height());
+    console.log('hsoihdauisd')
     $('#blocker').show();
     $('#popup .content').html('');
     $('#popup').show();
-    $('#popup .loading').show();    
 
     $.ajax({
       type: 'GET',
       data: {},
       url: url,
       success: function(html) { 
-        $('#popup .content').show().html(html);
-        $('#popup .loading').hide();
+        $('#popup .main_popup').show().html(html);
       }
     });               
   },
@@ -57,7 +56,8 @@ var Popup = {
     
   close : function() {
     $('#blocker').hide();
-    $('#popup').hide();   
+    $('#popup').hide();
+    $('#popup iframe').remove()
 
     return false;
   }

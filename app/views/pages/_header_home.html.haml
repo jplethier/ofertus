@@ -3,7 +3,8 @@
     #slides.left
       .slides_container
         %div
-          %img{ :src => asset_path('foto_1.jpg') }
+          %a{ :href => "javascript:;", :onclick => "Popup.open_url('#{show_video_url}')"}
+            %img{ :src => asset_path('foto_1.jpg') }
         %div
           :plain
             <div style="text-align:center; width:700px; margin-left:auto; margin-right:auto;">

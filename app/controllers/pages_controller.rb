@@ -1,6 +1,17 @@
 #coding: UTF-8
 class PagesController < ApplicationController
 
+  def home
+    @current_tab = 'home'
+    deals = Deal.active
+    @best_deals = deals.voted.best_deals.limit(3)
+    @newest_deals = deals.recent.limit(3)
+    @most_comment_deals = deals.most_commented.limit(3)
+  
+    @deals = Deal.paginate(:page => params[:page])
+    @deals = @deals.active
+  end
+
   def whoarewe
     @description = 'Saiba quem é a equipe que está por trás do Ofertus, e descubro como ele funciona.'
   end

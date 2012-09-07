@@ -11,6 +11,7 @@
 //= require ckeditor/init
 //= require popup
 //= require script
+//= require slides.min.jquery
 //= require_tree .
 
 $(document).ready(function() {
@@ -27,6 +28,17 @@ $(document).ready(function() {
     });
 
     setTimeout(hideFlashes, 2500);
+
+    $("#slides").slides({
+      generatePagination: true,
+      play: 5000,
+      pause: 2500,
+      hoverPause: true,
+      animationComplete: function(current){
+        // Set the slide number as a hash
+        window.location.hash = '#' + current;
+      }
+    });
  });
 
 var hideFlashes = function() {

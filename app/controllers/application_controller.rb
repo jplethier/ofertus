@@ -30,8 +30,7 @@ class ApplicationController < ActionController::Base
   def set_current_tab
     controller = params[:controller]
     if controller == 'deals'
-      @current_tab = 'active_deals' if params[:action] == 'index'
-      @current_tab = 'today_deals' if params[:action] == 'today'
+      @current_tab = 'deals' if params[:action] == 'index'
       @current_tab = 'new_deal' if params[:action] == 'new'
     elsif controller == 'users'
       @current_tab = 'users' if params[:action] == 'index'

@@ -133,7 +133,7 @@ if User.all.empty? && Rails.env != 'test'
     { :username => "mariana_alves",   :name => "Mariana Alves",             :email => "alves_mariana@yahoo.com" },
     { :username => "paula_santos",    :name => "Paula dos Santos",          :email => "paula_21@hotmail.com" },
     { :username => "jpsilva",         :name => "João Paulo da Silva",       :email => "jpsilva@gmail.com" },
-    { :username => "marianamg",      :name => "Mariana Martins Gonçalves", :email => "marianamartins@hotmail.com"},
+    { :username => "marianamg",       :name => "Mariana Martins Gonçalves", :email => "marianamartins@hotmail.com"},
     { :username => "felipeCS",        :name => "Felipe Costa e Silva",      :email => "felipecs@ig.com.br"},
     { :username => "joao_pedro",      :name => "João Pedro Guimarães",      :email => "jpguimaraes_rj@hotmail.com",  },
     { :username => "aline_nascimento",:name => "Aline Nascimento",          :email => "aline_nasc@yahoo.com",  },

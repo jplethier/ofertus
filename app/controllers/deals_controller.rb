@@ -1,7 +1,7 @@
 # coding: UTF-8
 class DealsController < AuthorizedController
-  skip_before_filter :authenticate_user!, :only => [:index, :show, :today, :feed]
-  prepend_before_filter :find_deals, :only => [:index, :today]
+  skip_before_filter :authenticate_user!, :only => [:index, :show, :feed]
+  prepend_before_filter :find_deals, :only => [:index]
   before_filter :define_title, :only => :show
   before_filter :populate_cities_name, :only => [:new, :share]
   before_filter :fill_deals_lists
@@ -50,12 +50,6 @@ class DealsController < AuthorizedController
     @comment = Comment.new
     @title = @deal.title
     @description = @deal.title
-  end
-
-  def today
-    flash.now[:notice] = "Não foi encontrada nenhuma oferta com '#{params[:search]}'" if @deals.empty? && params[:search]
-    @title = "Ofertas do dia"
-    @title = Deal.i18n_category(Deal::CATEGORIES_DICTIONARY[params[:category]]) if params[:category]
   end
 
   def share
@@ -133,8 +127,6 @@ class DealsController < AuthorizedController
     case action_name
     when "index"
       @deals = @deals.active
-    when "today"
-      @deals = @deals.today
     end
     
     fill_in_old_deals

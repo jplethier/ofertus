@@ -1,68 +1,33 @@
-- if today?
-  .icon.cat-item1
-    %a{ :href => "/deals/today/computer", :id => "header_computer" }
-    %span{ :style => "opacity: 0;" }= Deal.i18n_category(Deal::CATEGORY_COMPUTER)
-  .icon.cat-item2
-    %a{ :href => "/deals/today/travel", :id => "header_travel" }
-    %span= Deal.i18n_category(Deal::CATEGORY_TRAVEL)
-  .icon.cat-item3
-    %a{ :href => "/deals/today/culture", :id => "header_culture" }
-    %span= Deal.i18n_category(Deal::CATEGORY_CULTURE)
-  .icon.cat-item4
-    %a{ :href => "/deals/today/restaurant", :id => "header_restaurant" }
-    %span= Deal.i18n_category(Deal::CATEGORY_RESTAURANT)
-  .icon.cat-item5
-    %a{ :href => "/deals/today/home_and_decoration", :id => "header_home" }
-    %span= Deal.i18n_category(Deal::CATEGORY_HOME_AND_DECORATION)
-  .icon.cat-item6
-    %a{ :href => "/deals/today/home_and_appliance", :id => "header_appliance" }
-    %span= Deal.i18n_category(Deal::CATEGORY_HOME_AND_APPLIANCE)
-  .icon.cat-item7
-    %a{ :href => "/deals/today/entertainment", :id => "header_entertainment" }
-    %span= Deal.i18n_category(Deal::CATEGORY_ENTERTAINMENT)
-  .icon.cat-item8
-    %a{ :href => "/deals/today/car", :id => "header_car" }
-    %span= Deal.i18n_category(Deal::CATEGORY_CAR)
-  .icon.cat-item9
-    %a{ :href => "/deals/today/beauty_and_health", :id => "header_beauty" }
-    %span= Deal.i18n_category(Deal::CATEGORY_BEAUTY_AND_HEALTH)
-  .icon.cat-item10
-    %a{ :href => "/deals/today/clothes", :id => "header_clothes" }
-    %span= Deal.i18n_category(Deal::CATEGORY_CLOTHES)
-  .icon.cat-item11
-    %a{ :href => "/deals/today/others", :id => "header_other" }
-    %span= Deal.i18n_category(Deal::CATEGORY_OTHER)
-- else
-  .icon.cat-item1
-    %a{ :href => "/deals/active/computer", :id => "header_computer" }
-    %span= Deal.i18n_category(Deal::CATEGORY_COMPUTER)
-  .icon.cat-item2
-    %a{ :href => "/deals/active/travel", :id => "header_travel" }
-    %span= Deal.i18n_category(Deal::CATEGORY_TRAVEL)
-  .icon.cat-item3
-    %a{ :href => "/deals/active/culture", :id => "header_culture" }
-    %span= Deal.i18n_category(Deal::CATEGORY_CULTURE)
-  .icon.cat-item4
-    %a{ :href => "/deals/active/restaurant", :id => "header_restaurant" }
-    %span= Deal.i18n_category(Deal::CATEGORY_RESTAURANT)
-  .icon.cat-item5
-    %a{ :href => "/deals/active/home_and_decoration", :id => "header_home" }
-    %span= Deal.i18n_category(Deal::CATEGORY_HOME_AND_DECORATION)
-  .icon.cat-item6
-    %a{ :href => "/deals/active/home_and_appliance", :id => "header_appliance" }
-    %span= Deal.i18n_category(Deal::CATEGORY_HOME_AND_APPLIANCE)
-  .icon.cat-item7
-    %a{ :href => "/deals/active/entertainment", :id => "header_entertainment" }
-    %span= Deal.i18n_category(Deal::CATEGORY_ENTERTAINMENT)
-  .icon.cat-item8
-    %a{ :href => "/deals/active/car", :id => "header_car" }
-    %span= Deal.i18n_category(Deal::CATEGORY_CAR)
-  .icon.cat-item9
-    %a{ :href => "/deals/active/beauty_and_health", :id => "header_beauty" }
-    %span= Deal.i18n_category(Deal::CATEGORY_BEAUTY_AND_HEALTH)
-  .icon.cat-item10
-    %a{ :href => "/deals/active/clothes", :id => "header_clothes" }
-    %span= Deal.i18n_category(Deal::CATEGORY_CLOTHES)
-  .icon.cat-item11
-    %a{ :href => "/deals/active/others", :id => "header_others" }
-    %span= Deal.i18n_category(Deal::CATEGORY_OTHER)
+.icon.cat-item1
+  %a{ :href => "/deals/active/computer", :id => "header_computer" }
+  %span= Deal.i18n_category(Deal::CATEGORY_COMPUTER)
+.icon.cat-item2
+  %a{ :href => "/deals/active/travel", :id => "header_travel" }
+  %span= Deal.i18n_category(Deal::CATEGORY_TRAVEL)
+.icon.cat-item3
+  %a{ :href => "/deals/active/culture", :id => "header_culture" }
+  %span= Deal.i18n_category(Deal::CATEGORY_CULTURE)
+.icon.cat-item4
+  %a{ :href => "/deals/active/restaurant", :id => "header_restaurant" }
+  %span= Deal.i18n_category(Deal::CATEGORY_RESTAURANT)
+.icon.cat-item5
+  %a{ :href => "/deals/active/home_and_decoration", :id => "header_home" }
+  %span= Deal.i18n_category(Deal::CATEGORY_HOME_AND_DECORATION)
+.icon.cat-item6
+  %a{ :href => "/deals/active/home_and_appliance", :id => "header_appliance" }
+  %span= Deal.i18n_category(Deal::CATEGORY_HOME_AND_APPLIANCE)
+.icon.cat-item7
+  %a{ :href => "/deals/active/entertainment", :id => "header_entertainment" }
+  %span= Deal.i18n_category(Deal::CATEGORY_ENTERTAINMENT)
+.icon.cat-item8
+  %a{ :href => "/deals/active/car", :id => "header_car" }
+  %span= Deal.i18n_category(Deal::CATEGORY_CAR)
+.icon.cat-item9
+  %a{ :href => "/deals/active/beauty_and_health", :id => "header_beauty" }
+  %span= Deal.i18n_category(Deal::CATEGORY_BEAUTY_AND_HEALTH)
+.icon.cat-item10
+  %a{ :href => "/deals/active/clothes", :id => "header_clothes" }
+  %span= Deal.i18n_category(Deal::CATEGORY_CLOTHES)
+.icon.cat-item11
+  %a{ :href => "/deals/active/others", :id => "header_others" }
+  %span= Deal.i18n_category(Deal::CATEGORY_OTHER)

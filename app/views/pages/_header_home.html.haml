@@ -1,0 +1,42 @@
+#home_header
+  .content
+    #slides.left
+      .slides_container
+        %div
+          %img{ :src => asset_path('foto_1.jpg') }
+        %div
+          :plain
+            <div style="text-align:center; width:700px; margin-left:auto; margin-right:auto;">
+            <img id="Image-Maps_7201209071231113" src="http://www.image-maps.com/uploaded_files/7201209071231113_foto_2.jpg" usemap="#Image-Maps_7201209071231113" border="0" width="700" height="430" alt="" />
+            <map id="_Image-Maps_7201209071231113" name="Image-Maps_7201209071231113">
+            <area shape="rect" coords="127,343,241,388" href="http://www.ofertus.com.br/how_it_works" alt="Saiba mais" title="Saiba mais"    />
+            <area shape="rect" coords="698,428,700,430" href="http://www.image-maps.com/index.php?aff=mapped_users_7201209071231113" alt="Image Map" title="Image Map" />
+            </map>
+            <!-- Image map text links - Start - If you do not wish to have text links under your image map, you can move or delete this DIV -->
+            <div style="text-align:center; font-size:12px; font-family:verdana; margin-left:auto; margin-right:auto; width:700px;">
+              <a style="text-decoration:none; color:black; font-size:12px; font-family:verdana;" href="http://www.ofertus.com.br/how_it_works" title="Saiba mais">Saiba mais</a>
+             |  <a style="text-decoration:none; color:black; font-size:12px; font-family:verdana;" href="http://www.image-maps.com/index.php?aff=mapped_users_7201209071231113" title="Image Map">Image Map</a>
+            </div>
+            <!-- Image map text links - End - -->
+
+            </div>
+        / %div
+        /   %img{ :src => asset_path('foto_3.jpg') }
+    #login_home.right
+      :plain
+        <span class='st_fblike_hcount' displayText='Facebook Like'></span>
+        <span class='st_facebook_hcount' displayText='Facebook'></span>
+        <span class='st_twitter_hcount' displayText='Tweet'></span>
+        <!-- <span class='st_plusone_hcount' displayText='Google +1'></span>
+        <span class='st_googleplus_hcount' displayText='Google +'></span>
+        <span class='st_pinterest_hcount' displayText='Pinterest'></span> -->
+        <br/>
+        <br/>
+        <div class="fb-like-box" data-href="https://www.facebook.com/OfertUs" data-width="292" data-colorscheme="dark" data-show-faces="true" data-stream="false" data-header="true"></div>
+
+      = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
+      .register
+        Ou cadastre-se
+        = link_to 'AQUI', new_user_registration_path
+.clear
+#header_background

@@ -42,9 +42,7 @@ DealWitMe::Application.routes.draw do
     end
   end
 
-  match '/deals/today/:category', :to => "deals#today"
   match '/deals/active/:category', :to => "deals#index"
-  match "/deals/today", :to => "deals#today"
 
   resources :deals do
     resources :comments
@@ -64,7 +62,7 @@ DealWitMe::Application.routes.draw do
 
   match '/auth/failure' => 'application#failure'
 
-  root :to => "deals#index"
+  root :to => "pages#home"
 
   match "*a", :to => "application#error_routing"
 end

@@ -22,7 +22,7 @@ describe "Active Deals Page" do
     it {should have_content('Ofertas Ativas')}
     it "should show the active deal" do
       within "#col-left .list-conteudo" do
-        should have_link(active_deal.title, :href => deal_path(active_deal.id))
+        should have_link(active_deal.title, :href => deal_path(active_deal))
         should have_css('.col-off h4', :text => "Preço originalR$ #{active_deal.real_price.to_s.gsub('.',',')+(active_deal.real_price.to_s.split('.')[1].size < 2 ? '0' : '')}")
         should have_css('.col-off h4', :text => "Preço ofertaR$ #{active_deal.price.to_s.gsub('.',',')+(active_deal.price.to_s.split('.')[1].size < 2 ? '0' : '')}")
         should have_css('.col-off h5', :text => "Desconto #{active_deal.discount.to_i}%")
@@ -39,7 +39,7 @@ describe "Active Deals Page" do
       inactive_deal = FactoryGirl.build(:inactive_deal)
       inactive_deal.save(:validate => false)
       within "#col-left .list-conteudo" do
-        should_not have_link(inactive_deal.title, :href => deal_path(inactive_deal.id))
+        should_not have_link(inactive_deal.title, :href => deal_path(inactive_deal))
       end
     end
 
@@ -103,7 +103,7 @@ describe "Active Deals Page" do
         should have_css('.off')
         should have_css('.tx-off')
         should have_css('.right')
-        should have_link(active_deal.title, :href => deal_path(active_deal.id))
+        should have_link(active_deal.title, :href => deal_path(active_deal))
       end
     end
 
@@ -120,7 +120,7 @@ describe "Active Deals Page" do
         should have_css('.off')
         should have_css('.tx-off')
         should have_css('.right')
-        should have_link(active_deal.title, :href => deal_path(active_deal.id))
+        should have_link(active_deal.title, :href => deal_path(active_deal))
       end
     end
 
@@ -137,7 +137,7 @@ describe "Active Deals Page" do
         should have_css('.off')
         should have_css('.tx-off')
         should have_css('.right')
-        should have_link(active_deal.title, :href => deal_path(active_deal.id))
+        should have_link(active_deal.title, :href => deal_path(active_deal))
       end
     end
 
@@ -154,7 +154,7 @@ describe "Active Deals Page" do
         should have_css('.off')
         should have_css('.tx-off')
         should have_css('.right')
-        should have_link(active_deal.title, :href => deal_path(active_deal.id))
+        should have_link(active_deal.title, :href => deal_path(active_deal))
       end
     end
   end
@@ -174,7 +174,7 @@ describe "Active Deals Page" do
 
     it 'deal with 100% average should appear in best offers list' do
       within "#col-right #best_offers" do
-        should have_link(active_deal.title, :href => deal_path(active_deal.id))
+        should have_link(active_deal.title, :href => deal_path(active_deal))
         should have_css('.left h4', :text => "Preço originalR$ #{active_deal.real_price.to_s.gsub('.',',')+(active_deal.real_price.to_s.split('.')[1].size < 2 ? '0' : '')}")
         should have_css('.left .preco-off h4', :text => "Preço ofertaR$ #{active_deal.price.to_s.gsub('.',',')+(active_deal.price.to_s.split('.')[1].size < 2 ? '0' : '')}")
         should have_css('.right a.deal_picture_small img', :src => active_deal.image_url)
@@ -197,7 +197,7 @@ describe "Active Deals Page" do
 
     it 'deal with 100% average should appear in best offers list' do
       within "#col-right #most_commented_offers" do
-        should have_link(active_deal.title, :href => deal_path(active_deal.id))
+        should have_link(active_deal.title, :href => deal_path(active_deal))
         should have_css('.left h4', :text => "Preço originalR$ #{active_deal.real_price.to_s.gsub('.',',')+(active_deal.real_price.to_s.split('.')[1].size < 2 ? '0' : '')}")
         should have_css('.left .preco-off h4', :text => "Preço ofertaR$ #{active_deal.price.to_s.gsub('.',',')+(active_deal.price.to_s.split('.')[1].size < 2 ? '0' : '')}")
         should have_css('.right a.deal_picture_small img', :src => active_deal.image_url)
@@ -215,7 +215,7 @@ describe "Active Deals Page" do
 
     it 'deal with 100% average should appear in best offers list' do
       within "#col-right #recent_offers" do
-        should have_link(active_deal.title, :href => deal_path(active_deal.id))
+        should have_link(active_deal.title, :href => deal_path(active_deal))
         should have_css('.left h4', :text => "Preço originalR$ #{active_deal.real_price.to_s.gsub('.',',')+(active_deal.real_price.to_s.split('.')[1].size < 2 ? '0' : '')}")
         should have_css('.left .preco-off h4', :text => "Preço ofertaR$ #{active_deal.price.to_s.gsub('.',',')+(active_deal.price.to_s.split('.')[1].size < 2 ? '0' : '')}")
         should have_css('.right a.deal_picture_small img', :src => active_deal.image_url)

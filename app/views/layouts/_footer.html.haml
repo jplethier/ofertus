@@ -14,31 +14,31 @@
       %h3= t('footer.categories')
       %ul
         %li
-          %a{ :href => "#{today? ? 'deals/today/restaurant' : 'deals/active/restaurant'}" }= Deal.i18n_category(Deal::CATEGORY_RESTAURANT)
+          %a{ :href => "deals/active/restaurant" }= Deal.i18n_category(Deal::CATEGORY_RESTAURANT)
         %li
-          %a{ :href => "#{today? ? 'deals/today/beauty_and_health' : 'deals/active/beauty_and_health'}" }= Deal.i18n_category(Deal::CATEGORY_BEAUTY_AND_HEALTH)
+          %a{ :href => "deals/active/beauty_and_health" }= Deal.i18n_category(Deal::CATEGORY_BEAUTY_AND_HEALTH)
         %li
-          %a{ :href => "#{today? ? 'deals/today/computer' : 'deals/active/computer'}"}= Deal.i18n_category(Deal::CATEGORY_COMPUTER)
+          %a{ :href => "deals/active/computer" }= Deal.i18n_category(Deal::CATEGORY_COMPUTER)
         %li
-          %a{ :href => "#{today? ? 'deals/today/entertainment' : 'deals/active/entertainment'}" }= Deal.i18n_category(Deal::CATEGORY_ENTERTAINMENT)
+          %a{ :href => "deals/active/entertainment" }= Deal.i18n_category(Deal::CATEGORY_ENTERTAINMENT)
         %li
-          %a{ :href => "#{today? ? 'deals/today/home_and_appliance' : 'deals/active/home_and_appliance'}" }= Deal.i18n_category(Deal::CATEGORY_HOME_AND_APPLIANCE)
+          %a{ :href => "deals/active/home_and_appliance" }= Deal.i18n_category(Deal::CATEGORY_HOME_AND_APPLIANCE)
         %li
-          %a{ :href => "#{today? ? 'deals/today/travel' : 'deals/active/travel'}" }= Deal.i18n_category(Deal::CATEGORY_TRAVEL)
+          %a{ :href => "deals/active/travel" }= Deal.i18n_category(Deal::CATEGORY_TRAVEL)
 
     .left
       %h3 &nbsp;
       %ul
         %li
-          %a{ :href => "#{today? ? 'deals/today/home_and_decoration' : 'deals/active/home_and_decoration'}" }= Deal.i18n_category(Deal::CATEGORY_HOME_AND_DECORATION)
+          %a{ :href => "deals/active/home_and_decoration" }= Deal.i18n_category(Deal::CATEGORY_HOME_AND_DECORATION)
         %li
-          %a{ :href => "#{today? ? 'deals/today/clothes' : 'deals/active/clothes'}" }= Deal.i18n_category(Deal::CATEGORY_CLOTHES)
+          %a{ :href => "deals/active/clothes" }= Deal.i18n_category(Deal::CATEGORY_CLOTHES)
         %li
-          %a{ :href => "#{today? ? 'deals/today/culture' : 'deals/active/culture'}" }= Deal.i18n_category(Deal::CATEGORY_CULTURE)
+          %a{ :href => "deals/active/culture" }= Deal.i18n_category(Deal::CATEGORY_CULTURE)
         %li
-          %a{ :href => "#{today? ? 'deals/today/car' : 'deals/active/car'}" }= Deal.i18n_category(Deal::CATEGORY_CAR)
+          %a{ :href => "deals/active/car" }= Deal.i18n_category(Deal::CATEGORY_CAR)
         %li
-          %a{ :href => "#{today? ? 'deals/today/others' : 'deals/active/others'}" }= Deal.i18n_category(Deal::CATEGORY_OTHER)
+          %a{ :href => "deals/active/others" }= Deal.i18n_category(Deal::CATEGORY_OTHER)
 
     .left.cat-last
       %h3= t('footer.informations')

@@ -6,3 +6,5 @@
  *= require vendor
  *= require_tree . 
 */
+
+@import 'home_header';

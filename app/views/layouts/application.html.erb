@@ -90,6 +90,7 @@
         <a href="javascript:;" class="bt-compartilhe-off" onclick="$('#box-compartilhe').slideToggle();"></a>
       </div><!--/header-->
 
+
       <div id="box-compartilhe">
         <form action="<%= share_deals_path %>" method="get.share_offer_url">
           <div class="border-input-busca">
@@ -99,6 +100,9 @@
         </form>
         <div class="clear"></div>
       </div>
+      <%- if !user_signed_in? && @current_tab == 'home' -%>
+        <%= render 'header_home' %>
+      <%- end -%>
 
       <div id="categorias-home">
         <%= render 'layouts/categories_menu_bar' %>

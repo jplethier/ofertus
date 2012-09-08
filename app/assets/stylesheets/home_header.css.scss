@@ -115,10 +115,26 @@ body {
 
   #header_background {
     margin-top: 0;
-    height:20px; 
+    height:32px; 
     position: relative; 
     background: url(bg-header.png) no-repeat 564px -90px black;
-    width: 300%;
+    width: 157%;
     margin-left: -300px;
+
+    div {
+      width: 1020px;
+      height: 32px;
+      position: relative;
+      margin: 0 auto;
+
+      .bt-compartilhe-off { 
+        position:absolute; 
+        background: url(bt-compartilhe-off.png) no-repeat; 
+        bottom:0; 
+        right: 0; 
+        width:193px; 
+        height:26px; 
+      }
+    }
   }
 }

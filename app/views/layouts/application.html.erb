@@ -18,7 +18,6 @@
     <meta name="author" content="OfertuS" />
     <meta name="gwt:property"	content="locale=pt_BR" />
     <meta name="gwt:property"	content="cityZero=1" />
-    <meta name="author" content="">
     <meta name="google-site-verification" content="-8kM4fbW8HeMpYmGMeoVoiCUkOywzHOEy1tSeIcLgX0" />  
     <meta name="logged" content="">
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -33,7 +32,6 @@
     <!-- SCRIPTS -->
     <!-- <%= airbrake_javascript_notifier %> -->
     <%= javascript_include_tag "application" %>
-    <script type="text/javascript" src="http://cdn.sublimevideo.net/js/chdf3zz7.js"></script>
     <%= stylesheet_link_tag "application" , :media => "screen"%>
     <!-- /SCRIPTS -->
 
@@ -87,10 +85,15 @@
           <a href="https://www.facebook.com/OfertUs" class="bt-face"></a>
           <!-- <a href="" class="bt-google"></a> -->
         </div>
-        <a href="javascript:;" class="bt-compartilhe-off" onclick="$('#box-compartilhe').slideToggle();"></a>
+        <%- unless !user_signed_in? && @current_tab == 'home' -%>
+          <a href="javascript:;" class="bt-compartilhe-off" onclick="$('#box-compartilhe').slideToggle();"></a>
+        <%- end -%>
       </div><!--/header-->
 
 
+      <%- if !user_signed_in? && @current_tab == 'home' -%>
+        <%= render 'header_home' %>
+      <%- end -%>
       <div id="box-compartilhe">
         <form action="<%= share_deals_path %>" method="get.share_offer_url">
           <div class="border-input-busca">
@@ -100,10 +103,7 @@
         </form>
         <div class="clear"></div>
       </div>
-      <%- if !user_signed_in? && @current_tab == 'home' -%>
-        <%= render 'header_home' %>
-      <%- end -%>
-
+      
       <div id="categorias-home">
         <%= render 'layouts/categories_menu_bar' %>
         <div class="clear"></div>

@@ -8,3 +8,5 @@
       deal: "Para compartilhar uma oferta, é necessário estar logado." 
     update:
       project: "Not allowed to update this project."
+  admin:
+    unauthorized: 'Você não pode acessar essa página.'

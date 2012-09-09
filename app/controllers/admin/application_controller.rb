@@ -9,6 +9,9 @@ class Admin::ApplicationController < AuthorizedController
   end
 
   def verify_admin
-    redirect_to root_path unless current_user.admin?
+    unless current_user.admin?
+      flash[:error] = I18n.t('admin.unauthorized')
+      redirect_to root_path
+    end
   end
 end

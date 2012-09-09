@@ -4,15 +4,16 @@ class Admin::DealsController < Admin::ApplicationController
   end
 
   def show
-    
   end
 
   def edit
-    
   end
 
   def new
-    
+  end
+
+  def active
+    @deals = Deal.active
   end
 
   def favourite

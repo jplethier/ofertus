@@ -1,9 +1,11 @@
 %tr
   %td= deal.title
   %td= deal.user.nil? ? '' : deal.user.username
+  %td= Deal.i18n_category(deal.category)
   %td= deal.real_price
   %td= deal.price
   %td= deal.discount
+  %td= l deal.end_date.to_date
   %td= link_to 'Site', deal.link, :target => '_blank'
   %td
     - if deal.ofertus_top

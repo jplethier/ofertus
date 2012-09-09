@@ -5,6 +5,10 @@ DealWitMe::Application.routes.draw do
   namespace :admin do
     resources :users
     resources :deals do
+      collection do
+        get :active
+      end
+      
       member do
         get :favourite
         get :unfavourite

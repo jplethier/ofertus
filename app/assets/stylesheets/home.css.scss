@@ -7,6 +7,32 @@ body {
       }
     }
 
+    #ofertus_users {
+      h2 {
+        width: 330px;
+        margin: 0 345px; 
+        padding: 0 10px;
+      }
+    }
+
+    .top_user {
+      float: left;
+      width: 300px;
+      border-right: 1px dashed #E0E0E0;
+      margin-left: 33px;
+      padding-right: 33px;
+
+      .left{
+        float: left;
+        margin-left: 10px;
+        
+        h3 {
+          width: 210px;
+          padding-bottom: 10px;
+        }
+      }
+    }
+
     .top_deal {
       width: 300px;
       border-right: 1px dashed #E0E0E0;

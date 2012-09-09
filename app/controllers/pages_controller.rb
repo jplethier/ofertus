@@ -4,6 +4,7 @@ class PagesController < ApplicationController
   def home
     @current_tab = 'home'
     @deals = Deal.active.top.limit(6)
+    @users = User.order('RANDOM()').limit(3)
   end
 
   def show_video

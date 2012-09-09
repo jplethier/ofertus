@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121125111964) do
+ActiveRecord::Schema.define(:version => 20121125111965) do
 
   create_table "blog_comments", :force => true do |t|
     t.string   "title",        :limit => 50
@@ -100,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20121125111964) do
     t.integer  "down_votes",                                :default => 0, :null => false
     t.string   "image_url"
     t.string   "slug"
+    t.boolean  "ofertus_top"
   end
 
   add_index "deals", ["city_id"], :name => "index_deals_on_city_id"

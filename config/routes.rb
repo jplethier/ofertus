@@ -4,7 +4,12 @@ DealWitMe::Application.routes.draw do
 
   namespace :admin do
     resources :users
-    resources :deals
+    resources :deals do
+      member do
+        get :favourite
+        get :unfavourite
+      end
+    end
 
     root :to => "users#index"
   end

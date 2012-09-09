@@ -55,6 +55,8 @@ describe "Acessibility Pages" do
       should have_content('Edite suas informações')
       visit admin_deals_path
       should have_content('Você não pode acessar essa página.')
+      visit active_admin_deals_path
+      should have_content('Você não pode acessar essa página.')
       visit admin_users_path
       should have_content('Você não pode acessar essa página.')
       visit admin_deal_path(deal)
@@ -116,6 +118,8 @@ describe "Acessibility Pages" do
       visit edit_user_registration_path
       should have_content('Para continuar, faça login ou registre-se.')
       visit admin_deals_path
+      should have_content('Para continuar, faça login ou registre-se.')
+      visit active_admin_deals_path
       should have_content('Para continuar, faça login ou registre-se.')
       visit admin_users_path
       should have_content('Para continuar, faça login ou registre-se.')

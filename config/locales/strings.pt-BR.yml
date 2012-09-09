@@ -35,6 +35,7 @@
     new_offer: 'Nova Oferta'
     new_user: 'Novo Usuário'
     offer_price: "Preço oferta<span>%{price}</span>"
+    ofertus_top: 'Favoritas da equipe'
     old_deals: 'Ofertas Passadas'
     one_shared_offer: "1 oferta compartilhada!"
     original_price: "Preço original<span>%{price}</span>"

@@ -36,7 +36,7 @@ class DealsController < AuthorizedController
           me = FbGraph::User.me(current_user.access_token)
           me.feed!( :message => current_user.name + " acabou de compartilhar uma oferta no OfertuS", :link => deal_url(@deal), :description => @deal.description, :picture => (@deal.image_url ? @deal.image_url : "http://www.ofertus.com.br/assets/logo_beta.png") )
         end
-        redirect_to root_path, :notice => "Oferta criada com sucesso!"
+        redirect_to deals_path, :notice => "Oferta criada com sucesso!"
       else
         populate_cities_name
 

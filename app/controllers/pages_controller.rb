@@ -3,13 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @current_tab = 'home'
-    deals = Deal.active
-    @best_deals = deals.voted.best_deals.limit(3)
-    @newest_deals = deals.recent.limit(3)
-    @most_comment_deals = deals.most_commented.limit(3)
-  
-    @deals = Deal.paginate(:page => params[:page])
-    @deals = @deals.active
+    @deals = Deal.active.top.limit(6)
   end
 
   def show_video

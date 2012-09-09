@@ -78,6 +78,7 @@ class Deal < ActiveRecord::Base
   scope :active, where("deals.end_date >= ?", Time.zone.now.beginning_of_day)
   scope :voted, where("(deals.up_votes + deals.down_votes) > 0")
   scope :inactive, where("deals.end_date < ?", Time.zone.now.beginning_of_day)
+  scope :top, where(:ofertus_top => true)
 
 
   def self.by_category(category)

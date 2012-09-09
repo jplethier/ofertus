@@ -1,0 +1,64 @@
+body {
+  #sem-col {
+    #ofertus_top {
+      h2 {
+        margin: 0 365px; 
+        padding: 0 10px;
+      }
+    }
+
+    .top_deal {
+      width: 300px;
+      border-right: 1px dashed #E0E0E0;
+      padding-right: 33px;
+      float: left;
+      margin-left: 33px;
+      margin-bottom: 33px;
+
+      .right {
+        width: 150px;
+      }
+
+      .left {
+        width: 108px;
+
+        h4 {
+          text-align: center;
+          font-size: 8pt;
+          margin-bottom: 7px;
+          text-transform: uppercase;
+          font-weight: normal;
+
+          span {
+            color: #FF6162;
+            display: block;
+            font-size: 14px;
+            text-decoration: line-through;
+          }
+        }
+
+        .preco-off {
+          width: 108px;
+          padding: 38px 0;
+          text-align: center;
+          background: url(bg-preco-off-sidebar.png) no-repeat;
+
+          span {
+            color: #B2EA71;
+            font-size: 17px;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+
+    .first {
+      margin-left: 0;
+    }
+
+    .last {
+      padding-right: 0;
+      border-right: none;
+    }
+  }
+}

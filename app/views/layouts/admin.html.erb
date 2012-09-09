@@ -73,7 +73,7 @@
       </div><!--/header-->
 
       <!--  CORPO -->
-      <div id="main">
+      <div id="admin">
          <!-- TODO: FLASH -->
         <%- flash.each do |name, msg| -%>
           <% if name == :error %>
@@ -100,5 +100,11 @@
       </div>
     </div>
     <!--  RODAPÉ -->
+
+    <script type='text/javascript'>
+      $(document).ready(function() {
+        $('.table').dataTable();
+      });
+    </script>
   </body>
 </html>

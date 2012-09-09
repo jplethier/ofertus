@@ -8,6 +8,7 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require jquery.maskMoney
+//= require jquery.dataTables.min
 //= require ckeditor/init
 //= require popup
 //= require script

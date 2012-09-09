@@ -116,21 +116,21 @@ describe "Acessibility Pages" do
       visit edit_user_registration_path
       should have_content('Para continuar, faça login ou registre-se.')
       visit admin_deals_path
-      should have_content('Você não pode acessar essa página.')
+      should have_content('Para continuar, faça login ou registre-se.')
       visit admin_users_path
-      should have_content('Você não pode acessar essa página.')
+      should have_content('Para continuar, faça login ou registre-se.')
       visit admin_deal_path(deal)
-      should have_content('Você não pode acessar essa página.')
-      visit admin_user_path(current_user)
-      should have_content('Você não pode acessar essa página.')
+      should have_content('Para continuar, faça login ou registre-se.')
+      visit admin_user_path(user)
+      should have_content('Para continuar, faça login ou registre-se.')
       visit new_admin_deal_path
-      should have_content('Você não pode acessar essa página.')
+      should have_content('Para continuar, faça login ou registre-se.')
       visit new_admin_user_path
-      should have_content('Não é permitido alterar dados de outros usuários.')
+      should have_content('Para continuar, faça login ou registre-se.')
       visit edit_admin_deal_path(deal)
-      should have_content('Para compartilhar uma oferta, é necessário estar logado.')
-      visit edit_admin_user_path(current_user)
-      should have_content('Não é permitido alterar dados de outros usuários.')
+      should have_content(' Para continuar, faça login ou registre-se.')
+      visit edit_admin_user_path(user)
+      should have_content('Para continuar, faça login ou registre-se.')
     end
   end
 end

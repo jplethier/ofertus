@@ -1,6 +1,80 @@
 body {
+  #home_actions {
+    margin-top: 10px;
+
+    #box-compartilhe {
+      float: left;
+      display: block;
+      border-right: 1px  dashed #E0E0E0;
+      padding-top: 0;
+      margin-top: 10px;
+      padding-right: 20px;
+
+      .border-input-busca {
+        margin-bottom: 0;
+      }
+    }
+
+    #box-search {
+      width: 470px;
+      float: left;
+      display: block;
+      padding-top: 0;
+      margin-top: 10px;
+      margin-left: 20px;
+
+      .border-input-busca {
+        text-transform: uppercase;
+        font-size: 11px;
+        color: #666;
+        border: none;
+        float: left;
+        padding: 0;
+        width: 238px;
+
+        .input-tx {
+          text-transform: uppercase;
+          background: #F6F6F6;
+          font-size: 11px;
+          color: #666;
+          border: none;
+          float: left;
+          padding: 11px 5px 10px;
+          width: 195px;
+        }
+
+        .submit {
+          width: 33px;
+          height: 35px;
+          float: right;
+          border: none;
+          background: url(bts-input.gif) no-repeat 0px 2px;
+          padding: 1px;
+          background-color: #f6f6f6;
+        }
+      }
+
+      .select {
+        margin: 0;
+        width: 110px;
+        float: left;
+        margin: 5px 3px;
+        
+        select {
+          padding: 3px 5px;
+          font-size: 11px;
+          color: #666;
+          height: 28px;
+          width: 110px
+        }
+      }
+    }
+  }
+
   #sem-col {
     #ofertus_top {
+      margin-top: 30px;
+
       h2 {
         margin: 0 365px; 
         padding: 0 10px;

@@ -1,4 +1,29 @@
 #sem-col
+  #home_actions
+    #box-compartilhe
+      .ttGlHome
+        %h2= t('strings.register_offer')
+      %form{ :action => share_deals_path, :method => "get.share_offer_url"}
+        .border-input-busca
+          = text_field_tag :share, params[:share], :title => "Cadastre uma oferta", :placeholder => "copie a url da ofertas aqui para compartilhar!", :class => "resetValue input-tx"
+          %button#share.submit{ :title => "Compartilhar", :value => "OK" } OK
+
+    #box-search
+      .ttGlHome
+        %h2= t('strings.search_offer')
+      %form{ :id => "search_form", :action => deals_path, :method => "get", :class => "search"}
+        .border-input-busca
+          = text_field_tag :search, params[:search], :class => "input-tx", :placeholder => 'Pesquisa'
+          %input{ :type => "submit", :value => "", :class => "submit", :id => 'search_button'}
+
+        .border-input-busca.select
+          = select_tag "search_order", search_options(params[:search_order]), :class => 'user-senha'
+
+        .border-input-busca.select
+          = select_tag "search_city", search_city_options(params[:search_city]), :class => 'user-senha'
+
+
+  .clear
   .ttGlHome#ofertus_top
     %h2= t('strings.ofertus_top')
   .list-conteudo

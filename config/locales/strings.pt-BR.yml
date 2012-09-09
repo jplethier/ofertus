@@ -39,8 +39,10 @@
     old_deals: 'Ofertas Passadas'
     one_shared_offer: "1 oferta compartilhada!"
     original_price: "Preço original<span>%{price}</span>"
+    register_offer: 'Cadastre uma oferta'
     remember_me: 'Mantenha-me conectado'
     resend_confirmation: 'Reenviar confirmação'
+    search_offer: 'Pesquise uma oferta'
     search_options: "Opções de Busca"
     security: "Segurança"
     shared_by: "Compartilhada por:"

@@ -10,10 +10,12 @@ describe "Acessibility Pages" do
   describe 'as user' do
     let(:current_user) { FactoryGirl.create(:user) }
     let(:another_user) { FactoryGirl.create(:user) }
+    let(:deal) { FactoryGirl.create(:deal) }
 
     subject { page }
     
     before do
+      deal.save
       another_user.save
       current_user.confirm!
       login_as current_user, :scope => :user
@@ -39,6 +41,18 @@ describe "Acessibility Pages" do
       should have_content('Você já possui um perfil no Ofertus')
       visit new_user_password_path
       should have_content('Você já possui um perfil no Ofertus')
+      visit deal_path(deal)
+      should have_content(deal.title)
+      visit upvote_deal_path(deal)
+      should have_content('Voto computado com sucesso')
+      visit downvote_deal_path(deal)
+      should have_content('Voto computado com sucesso')
+      visit unvote_deal_path(deal)
+      should have_content('Voto apagado com sucesso')
+      visit new_deal_path
+      should have_content('Nova Oferta')
+      visit edit_user_registration_path
+      should have_content('Edite suas informações')
     end
   end
 

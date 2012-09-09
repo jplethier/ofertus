@@ -26,7 +26,7 @@
   .clear
   .ttGlHome#ofertus_top
     %h2= t('strings.ofertus_top')
-  .list-conteudo
+  .list-conteudo#home_list
     - @deals.each_with_index do |deal, index|
       %div{ :class => "top_deal #{index == 0 || index == 3 ? 'first' : (index == 2 || index == 5 ? 'last' : '')}" }
         = render :partial => 'deals/side_deal', :locals => {:deal => deal, :index => index }

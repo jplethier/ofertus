@@ -19,7 +19,7 @@
 
 #box-compartilhe { display:none; overflow:hidden; padding-top:10px; }
 #box-compartilhe .border-input-busca { border:3px solid #f6f6f6; overflow:hidden; margin-bottom:20px; float:right; }
-#box-compartilhe .input-tx { background: #f6f6f6; font-family: 'GothamLight'; text-transform:uppercase; font-size:11px; color: #666; border:none; float: left; padding:11px 5px 10px; width:480px; }
+#box-compartilhe .input-tx { background: #f6f6f6; font-family: 'Colaborate-Thin'; text-transform:uppercase; font-size:11px; color: #666; border:none; float: left; padding:11px 5px 10px; width:480px; }
 #box-compartilhe .submit { width:33px; height:33px; text-transform:uppercase; font-weight: normal; float:right; color: #e1e1e1; border:none; background:#000;  }
 
 #header .bt-compartilhe-off { position:absolute; background: url(bt-compartilhe-off.png) no-repeat; bottom:0; right:0; width:193px; height:26px; }

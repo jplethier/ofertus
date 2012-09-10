@@ -11,3 +11,14 @@
   font-weight: normal;
   font-style: normal;
 }
+
+﻿/* @font-face kit by Fonts2u (http://www.fonts2u.com) */ 
+
+@font-face {
+  font-family:"Colaborate-Thin";
+  src:url("ColabThi.eot?") format("eot"),
+      url("ColabThi.woff") format("woff"),
+      url("ColabThi.ttf") format("truetype"),
+      url("ColabThi.svg#Colaborate-Thin") format("svg");
+  font-weight:normal;font-style:normal;
+}

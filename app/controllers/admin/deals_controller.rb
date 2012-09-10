@@ -29,7 +29,7 @@ class Admin::DealsController < Admin::ApplicationController
 
   def unfavourite
     @deal = Deal.find(params[:id])
-    @deal.ofertus_top = true
+    @deal.ofertus_top = false
     if @deal.save(:validate => false)
       flash[:notice] = 'Oferta desmarcada como favorita com sucesso.'
     else

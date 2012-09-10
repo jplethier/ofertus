@@ -65,7 +65,7 @@ class Deal < ActiveRecord::Base
   before_validation :set_default_date, :if => "self.end_date.nil?"
 
   attr_accessor :price_mask, :real_price_mask
-  attr_accessible :address, :category, :city_id, :company, :description, :discount, :end_date, :image_url, :kind, :link, :price, :price_mask, :real_price, :real_price_mask, :title, :user_id
+  attr_accessible :address, :category, :city_id, :company, :description, :discount, :end_date, :image_url, :kind, :link, :price, :price_mask, :real_price, :real_price_mask, :title, :user_id, :ofertus_top
 
   scope :recent, order("deals.created_at DESC")
   scope :lowest_price, order("deals.price ASC")

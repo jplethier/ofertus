@@ -106,7 +106,7 @@ body {
         margin-left: 10px;
         
         h3 {
-          width: 210px;
+          width: 225px;
           padding-bottom: 10px;
         }
       }
@@ -164,6 +164,19 @@ body {
     .last {
       padding-right: 0;
       border-right: none;
+    }
+  }
+
+  .action_btn {
+    margin-top: 10px;
+
+    a.btn_follow_user {
+      text-indent: -9999999999px;
+      background: url(follow_btn.png) no-repeat 0 0;
+      width: 114px;
+      height: 29px;
+      margin: 0 auto;
+      display: block;
     }
   }
 }

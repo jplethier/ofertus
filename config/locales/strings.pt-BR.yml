@@ -39,6 +39,7 @@
     old_deals: 'Ofertas Passadas'
     one_shared_offer: "1 oferta compartilhada!"
     original_price: "Preço original<span>%{price}</span>"
+    paste_deal_url: "copie a url da oferta aqui para compartilhar!"
     register_offer: 'Cadastre uma oferta'
     remember_me: 'Mantenha-me conectado'
     resend_confirmation: 'Reenviar confirmação'

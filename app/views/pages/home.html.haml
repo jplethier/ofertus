@@ -5,7 +5,7 @@
         %h2= t('strings.register_offer')
       %form{ :action => share_deals_path, :method => "get.share_offer_url"}
         .border-input-busca
-          = text_field_tag :share, params[:share], :title => "Cadastre uma oferta", :placeholder => "copie a url da ofertas aqui para compartilhar!", :class => "resetValue input-tx"
+          = text_field_tag :share, params[:share], :title => "Cadastre uma oferta", :placeholder => t('strings.paste_deal_url'), :class => "resetValue input-tx"
           %button#share.submit{ :title => "Compartilhar", :value => "OK" } OK
 
     #box-search

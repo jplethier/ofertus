@@ -183,4 +183,34 @@ body {
       display: block;
     }
   }
+
+  #search_users {
+    width: 290px;
+    margin: 0 auto;
+
+    .border-input-busca {
+      border: 3px solid #F6F6F6;
+      overflow: hidden;
+      margin-bottom: 20px;
+
+      .input-tx {
+        text-transform: uppercase;
+        background: #F6F6F6;
+        font-size: 11px;
+        color: #666;
+        border: none;
+        float: left;
+        padding: 11px 5px 10px;
+        width: 240px;
+      }
+
+      .submit {
+        width: 33px;
+        height: 33px;
+        float: right;
+        border: none;
+        background: url(bts-input.gif) no-repeat;
+      }
+    }
+  }
 }

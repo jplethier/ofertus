@@ -36,3 +36,9 @@
     - @users.each_with_index do |user, index|
       %div{ :class => "top_user #{index == 0 || index == 3 ? 'first' : (index == 2 || index == 5 ? 'last' : '')}" }
         = render 'users/top_user', :user => user, :index => index
+
+  #search_users
+    .border-input-busca
+      %form{ :action => users_path, :method => "get" }
+        = text_field_tag :search, params[:search], :class => "input-tx", :placeholder => 'Ache seus amigos e siga'
+        %button#search_button.submit{ :type => "submit" }

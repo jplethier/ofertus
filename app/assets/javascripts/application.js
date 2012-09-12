@@ -13,6 +13,7 @@
 //= require popup
 //= require script
 //= require slides.min.jquery
+//= require jquery.carouFredSel-5.6.4
 //= require_tree .
 
 $(document).ready(function() {
@@ -38,6 +39,17 @@ $(document).ready(function() {
       animationComplete: function(current){
         // Set the slide number as a hash
         window.location.hash = '#' + current;
+      }
+    });
+
+    $("#partners_list").carouFredSel({
+      circular : false,
+      infinite : false,
+      auto : false,
+      prev : "#partners_list_prev",
+      next : "#partners_list_next",
+      scroll : {
+        items : 1
       }
     });
  });

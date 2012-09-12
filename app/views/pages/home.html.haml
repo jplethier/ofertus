@@ -42,3 +42,23 @@
       %form{ :action => users_path, :method => "get" }
         = text_field_tag :search, params[:search], :class => "input-tx", :placeholder => 'Ache seus amigos e siga'
         %button#search_button.submit{ :type => "submit" }
+        %button#search_button.submit{ :type => "submit" }
+
+  #partners
+    #partners_list
+      %img{ :src => asset_path('partners/americanas.png') }
+      %img{ :src => asset_path('partners/carrefour.png') }
+      %img{ :src => asset_path('partners/comprafacil.png') }
+      %img{ :src => asset_path('partners/dafiti.png') }
+      %img{ :src => asset_path('partners/fnac.png') }
+      %img{ :src => asset_path('partners/girafa.png') }
+      %img{ :src => asset_path('partners/giulianaflores.png') }
+      %img{ :src => asset_path('partners/lojasmm.png') }
+      %img{ :src => asset_path('partners/mobly.png') }
+      %img{ :src => asset_path('partners/polishop.png') }
+      %img{ :src => asset_path('partners/saraiva.png') }
+      %img{ :src => asset_path('partners/toymania.png') }
+
+    .clear_fix
+    = link_to 'Anterior', 'javascript:;', :id => 'partners_list_prev', :class => 'prev'
+    = link_to 'Próximo', 'javascript:;', :id => 'partners_list_next', :class => 'next'

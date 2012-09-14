@@ -43,8 +43,8 @@ $(document).ready(function() {
     });
 
     $("#partners_list").carouFredSel({
-      circular : false,
-      infinite : false,
+      circular : true,
+      infinite : true,
       auto : false,
       prev : "#partners_list_prev",
       next : "#partners_list_next",

@@ -27,6 +27,13 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, :alert => "Não foi possível efetuar o login via facebook."
   end
 
+  def lomadee
+    if params.size > 2
+      #executar codigo para salvar os dados do lomadee no banco
+    end
+    send_file("#{Rails.root}/public/pixel.png", { :type => 'image/png', :disposition => 'inline' })
+  end
+
   def set_current_tab
     controller = params[:controller]
     if controller == 'deals'

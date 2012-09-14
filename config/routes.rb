@@ -1,5 +1,7 @@
 DealWitMe::Application.routes.draw do
 
+  match 'lomadee', :to => 'application#lomadee'
+
   mount Ckeditor::Engine => '/ckeditor'
 
   namespace :admin do

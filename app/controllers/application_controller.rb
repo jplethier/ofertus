@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
     if params.size > 2
       #executar codigo para salvar os dados do lomadee no banco
     end
-    send_file("#{Rails.root}/public/pixel.png", { :type => 'image/png', :disposition => 'inline' })
+    redirect_to "http://www.ofertus.com.br/pixel.png"
   end
 
   def set_current_tab

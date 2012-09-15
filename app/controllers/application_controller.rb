@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
 
   def lomadee
     if params.size > 2
+      Sale.register_lomadee(params)
       #executar codigo para salvar os dados do lomadee no banco
     end
     redirect_to "http://www.ofertus.com.br/pixel.png"

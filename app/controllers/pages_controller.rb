@@ -20,11 +20,11 @@ class PagesController < ApplicationController
   end
 
   def privacypolicy
-    @description = 'Política de Privacidade do Ofertus'
+    @description = 'Política de Privacidade do Ofertus. Saiba como o Ofertus cuida dos dados dos seus usuários.'
   end
 
   def termsofuse
-    @description = 'Termos de uso do Ofertus.'
+    @description = 'Todos os usuários do Ofertus concordam com os Termos de Uso aqui dispostos.'
   end
 
   def how_it_works

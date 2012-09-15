@@ -1,6 +1,7 @@
 # coding: utf-8
 class Sale < ActiveRecord::Base
   attr_protected :id
+  has_paper_trail
 
   belongs_to :user
 

@@ -173,15 +173,15 @@ ActiveRecord::Schema.define(:version => 20121225111967) do
 
   create_table "sales", :force => true do |t|
     t.float    "value"
-    t.integer  "commission"
     t.integer  "store"
     t.string   "affiliate"
     t.string   "country"
-    t.integer  "user"
-    t.integer  "transaction"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_commission"
+    t.integer  "affiliate_transaction"
+    t.integer  "user_id"
+    t.float    "commission"
+    t.float    "user_commission"
   end
 
   create_table "sessions", :force => true do |t|

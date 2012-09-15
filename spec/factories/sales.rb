@@ -1,10 +1,8 @@
-# Read about factories at http://github.com/thoughtbot/factory_girl
-
 FactoryGirl.define do
   factory :sale do
-    product "MyString"
     value 1.5
-    commission 1
+    commission 5
+    user_commission 2.5
     store "MyString"
     affiliate "MyString"
   end

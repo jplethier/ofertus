@@ -1,5 +1,6 @@
 class Product < ActiveRecord::Base
   attr_protected :id
+  has_paper_trail
 
   belongs_to :sale
 

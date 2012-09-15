@@ -5,7 +5,7 @@ DealWitMe::Application.routes.draw do
   match 'lomadee', :to => 'application#lomadee'
 
   mount Ckeditor::Engine => '/ckeditor'
-
+  
   match "whoarewe",       :to => "pages#whoarewe"
   match "help",           :to => "pages#help"
   match "privacypolicy",  :to => "pages#privacypolicy"

@@ -43,6 +43,8 @@ class Ability
     if user.admin?
       can :manage, User
       can :manage, Deal
+      can :manage, Sale
+      can :manage, Product
     end
   end
 end

@@ -6,15 +6,22 @@ describe "Acessibility Pages" do
   Warden.test_mode!
 
   after { Warden.test_reset! }
+
+
+  let(:user) { FactoryGirl.create(:user) }
+  let(:deal) { FactoryGirl.create(:deal) }
+  let(:sale) { FactoryGirl.create(:sale) }
+  let(:product) { FactoryGirl.create(:product) }
+
+  subject { page }
   
   describe 'as user' do
-    let(:current_user) { FactoryGirl.create(:user) }
-    let(:another_user) { FactoryGirl.create(:user) }
-    let(:deal) { FactoryGirl.create(:deal) }
 
-    subject { page }
-    
+    let(:another_user) { FactoryGirl.create(:user) }
+    let(:current_user) { FactoryGirl.create(:user) }
+
     before do
+      sale.save
       deal.save
       another_user.save
       current_user.confirm!
@@ -69,18 +76,30 @@ describe "Acessibility Pages" do
       should have_content('Você não pode acessar essa página.')
       visit edit_admin_user_path(current_user)
       should have_content('Você não pode acessar essa página.')
+      visit new_admin_sale_path
+      should have_content('Não é permitido alterar as vendas.')
+      visit admin_sales_path
+      should have_content('Não é permitido alterar as vendas.')
+      visit edit_admin_sale_path(sale)
+      should have_content('Não é permitido alterar as vendas.')
+      visit admin_sale_path(sale)
+      should have_content('Não é permitido alterar as vendas.')
+      visit new_admin_product_path
+      should have_content('Não é permitido alterar os produtos das vendas.')
+      visit admin_products_path
+      should have_content('Não é permitido alterar os produtos das vendas.')
+      visit edit_admin_product_path(product)
+      should have_content('Não é permitido alterar os produtos das vendas.')
+      visit admin_product_path(product)
+      should have_content('Não é permitido alterar os produtos das vendas.')
     end
   end
 
   describe 'as guest' do
-    let(:user) { FactoryGirl.create(:user) }
-    let(:deal) { FactoryGirl.create(:deal) }
-
-    subject { page }
-
     before do
       user.save
       deal.save
+      sale.save
     end
 
     it 'should be able to see only public pages' do
@@ -130,6 +149,22 @@ describe "Acessibility Pages" do
       visit edit_admin_deal_path(deal)
       should have_content(' Para continuar, faça login ou registre-se.')
       visit edit_admin_user_path(user)
+      should have_content('Para continuar, faça login ou registre-se.')
+      visit new_admin_sale_path
+      should have_content('Para continuar, faça login ou registre-se.')
+      visit admin_sales_path
+      should have_content('Para continuar, faça login ou registre-se.')
+      visit edit_admin_sale_path(sale)
+      should have_content('Para continuar, faça login ou registre-se.')
+      visit admin_sale_path(sale)
+      should have_content('Para continuar, faça login ou registre-se.')
+      visit new_admin_product_path
+      should have_content('Para continuar, faça login ou registre-se.')
+      visit admin_products_path
+      should have_content('Para continuar, faça login ou registre-se.')
+      visit edit_admin_product_path(product)
+      should have_content('Para continuar, faça login ou registre-se.')
+      visit admin_product_path(product)
       should have_content('Para continuar, faça login ou registre-se.')
     end
   end

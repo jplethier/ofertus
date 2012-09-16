@@ -467,4 +467,79 @@ describe Deal do
       end
     end
   end
+
+  describe 'search queries' do
+    let(:deal) { FactoryGirl.build :deal }
+    subject { deal }
+
+    it 'by category' do
+      deal.category = Deal::CATEGORY_RESTAURANT
+      deal.save
+      deal.reload
+      Deal.by_category(Deal::CATEGORY_RESTAURANT).should == [deal]
+      new_deal = FactoryGirl.create(:deal, :category => Deal::CATEGORY_RESTAURANT)
+      Deal.by_category(Deal::CATEGORY_RESTAURANT).recent.should == [new_deal, deal]
+    end
+
+    it 'by category string' do
+      deal.category = Deal::CATEGORY_RESTAURANT
+      deal.save
+      deal.reload
+      Deal.by_category_string('restaurant').should == [deal]
+      new_deal = FactoryGirl.create(:deal, :category => Deal::CATEGORY_RESTAURANT)
+      Deal.by_category_string('restaurant').recent.should == [new_deal, deal]
+    end
+
+    it 'by cities' do
+      deal.city = City.all.first
+      deal.save
+      deal.reload
+      Deal.by_cities([deal.city_id]).should == [deal]
+      new_deal = FactoryGirl.create(:deal)
+      new_deal.city = City.all.second
+      new_deal.save
+      new_deal.reload
+      Deal.by_cities([deal.city_id, new_deal.city_id]).recent.should == [new_deal, deal]
+    end
+
+    it 'by kind' do
+      deal.kind = Deal::KIND_OFFER
+      deal.save
+      deal.reload
+      Deal.by_kind(Deal::KIND_OFFER).should == [deal]
+      new_deal = FactoryGirl.create(:deal, :category => Deal::KIND_OFFER)
+      Deal.by_kind(Deal::KIND_OFFER).recent.should == [new_deal, deal]
+      new_deal.kind = Deal::KIND_DAILY_DEAL
+      new_deal.save
+      new_deal.reload
+      Deal.by_kind(Deal::KIND_OFFER).recent.should == [deal]
+    end
+
+    it 'by link' do
+      deal.link = 'http://www.link.com'
+      deal.save
+      deal.reload
+      Deal.by_link('http://www.link.com').should == deal
+    end
+
+    it 'search' do
+      deal.title = 'oferta'
+      deal.description = 'descricao'
+      deal.save
+      deal.reload
+      Deal.search('ofer').should == [deal]
+      Deal.search('desc').should == [deal]
+      new_deal = FactoryGirl.create(:deal, :description => 'ofelta')
+      Deal.search('ofe').recent.should == [new_deal, deal]
+    end
+
+    it 'already shared?' do
+      new_deal = FactoryGirl.create(:deal, :link => deal.link)
+      new_deal.already_shared?.should be_true
+      new_deal.link = 'http://www.novolink.com.br'
+      new_deal.already_shared?.should_not be_true
+      deal.link = 'http://www.ofertus.com.br/deals/titulo'
+      deal.already_shared?.should be_true
+    end
+  end
 end

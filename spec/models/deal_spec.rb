@@ -541,5 +541,17 @@ describe Deal do
       deal.link = 'http://www.ofertus.com.br/deals/titulo'
       deal.already_shared?.should be_true
     end
+
+    it 'discount to percentage' do
+      deal.real_price = 100.0
+      deal.discount = 50
+      deal.discount_to_percentage.should == 50
+      deal.real_price = 100.0
+      deal.discount = 30
+      deal.discount_to_percentage.should == 30
+      deal.real_price = 20.0
+      deal.discount = 2
+      deal.discount_to_percentage.should == 10
+    end
   end
 end

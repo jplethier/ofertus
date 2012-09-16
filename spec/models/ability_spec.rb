@@ -51,6 +51,15 @@ describe Ability do
         ability.should_not be_able_to(:manage, others_deal)
       end
 
+      it "should not be able to manage other users" do
+        another_user = FactoryGirl.create :user
+        ability.should_not be_able_to(:manage, another_user)
+      end
+
+      it "should be able to manage your own profile data" do
+        ability.should_not be_able_to(:manage, user)
+      end
+
       it "should be able to see todays' deals" do
         ability.should be_able_to(:today, Deal)
       end
@@ -61,6 +70,21 @@ describe Ability do
 
       it "should be able to unfollow another user" do
         ability.should be_able_to(:unfollow, User)
+      end
+    end
+
+    describe 'Admin' do
+      let(:user) { FactoryGirl.create(:user, :admin => true) }
+      let(:ability) { Ability.new(user) }
+
+      it_should_behave_like "All Users"
+
+      it "should be able to manage all deals" do
+        ability.should be_able_to(:manage, Deal)
+      end
+
+      it "should be able to manage all users" do
+        ability.should be_able_to(:manage, User)
       end
     end
   end

@@ -25,7 +25,7 @@ module ApplicationHelper
     if not @description.nil?
       @description
     else
-      "Compartilhe, descubra, comente e opine sobre ofertas com seus amigos no OfertuS."
+      "Compartilhe, descubra, comente e opine sobre ofertas com seus amigos no Ofertus."
     end
   end
 

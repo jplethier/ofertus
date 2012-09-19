@@ -57,7 +57,7 @@ pt-BR:
         click_to_unlock: 'Clique no link abaixo para desbloquear a sua conta:'
         unlock: 'Desbloquear minha conta'
       hello: 'Olá'
-      welcome: 'Bem vindo ao OfertUs,'
+      welcome: 'Bem vindo ao Ofertus,'
     omniauth_callbacks:
       user:
         failure: 'Conta não vinculada ao facebook.'

@@ -6,7 +6,7 @@
 
   %form{ :id => "search_form", :action => deals_path, :method => "get", :class => "search"}
     .border-input-busca
-      = text_field_tag :search, params[:search], :class => "input-tx"
+      = text_field_tag :search, params[:search], :class => "input-tx", :placeholder => 'Pesquisa'
       %input{ :type => "submit", :value => "", :class => "submit", :id => 'search_button'}
 
     .border-input-busca.select

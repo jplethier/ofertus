@@ -7,6 +7,7 @@ class HotelUrbano
   def self.fill_deal_fields(link)
     page = Share.open_page(link)
 
+    deal = Deal.new
     unless page.nil?
       deal.link = link
       deal.title = page.at_css("title").try(:text).try(:strip)[0,255] if page.at_css("title") && page.at_css("title").try(:text)

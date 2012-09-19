@@ -41,14 +41,16 @@ pt-BR:
     mailer:
       confirmation_instructions:
         subject: 'Instruções para confirmação'
-        message: 'Você pode confirmar a sua conta através do link abaixo:'
+        message: '<p>Estamos empolgados para tê-lo como nosso mais novo usuário e esperamos que nossa plataforma seja útil para você descobrir e compartilhar ofertas, além de poder ganhar dinheiro com isso!</p><p>Para ativar sua conta, é necessário confirmar seu cadastro através do link abaixo:<p>'
         confirm: 'Confirmar minha conta'
+        last_instructions: '<p>Se o link acima não funcionar, você também pode escolher receber um novo email de confirmação, através de nosso site ou então entrar em contato conosco através do email [contato@ofertus.com.br].</p><p>Desejamos boas compras e não deixe de compartilhar ofertas!</p><p>Por favor não responda a este e-mail, pois as respostas não são monitoradas.</p><br/><p>Atenciosamente,</p><p>Equipe Ofertus</p>'
       reset_password_instructions:
         subject: 'Instruções para redefinir senha'
-        message: 'Recebemos um pedido para alterar a sua senha, e você pode fazer isso através do link abaixo.'                  
+        message: 'Recebemos um pedido para alterar a sua senha, e você pode fazer isso através do link abaixo.'
         reset: 'Alterar minha senha'
         ignore: 'Se você não fez esta solicitação, por favor ignore este email.'
         wont_change: "Sua senha permanecerá a mesma até que você acesse o link acima e a altere."
+        faq: 'Por favor não responda a este e-mail, pois as respostas não são monitoradas. Para sua segurança, se deseja reportar problemas, use a área de suporte em nosso site. Para perguntas recorrentes, acesse:'
       unlock_instructions:
         subject: 'Instruções de desbloqueio'
         message: 'Sua conta foi bloqueada devido a uma quantidade excessiva de tentativas de login.'

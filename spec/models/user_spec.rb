@@ -1,3 +1,4 @@
+#coding: UTF-8
 require 'spec_helper'
 
 describe User do
@@ -249,11 +250,50 @@ describe User do
   end
 
   describe 'search queries' do
-    it 'my_username' do
+    it 'by username' do
       user.username = 'my_username'
       user.save
       user.reload
       User.by_username('my_username').should == user
+    end
+
+    it 'search' do
+      user.username = 'username'
+      user.save
+      user.reload
+      another_user = FactoryGirl.create(:user, :name => 'name')
+      query = User.search('name')
+      query.count.should == 2
+      query.should =~ [user, another_user]
+      query = User.search('username')
+      query.count.should == 1
+      query.should == [user]
+      query = User.search('not name')
+      query.count.should == 0
+      query.should == []
+    end
+
+    it 'find record' do
+      user.save
+      user.reload
+      User.find_record(user.username).should == user
+      User.find_record(user.email).should == user
+      User.find_record(user.username + 'asd').should == nil
+    end
+
+    it 'find for database authenticate' do
+      user.save
+      user.reload
+      User.find_for_database_authentication(:login => user.username).should == user
+      User.find_for_database_authentication(:login => user.email).should == user
+      User.find_for_database_authentication(:login => "#{user.username}asoihu").should == nil
+    end
+
+    it 'send_reset_password_instructions' do
+      user.save
+      user.reload
+      User.send_reset_password_instructions(:email => user.email).should == user
+      User.send_reset_password_instructions(:email => "#{user.email}abc").errors.messages.should == {:email => ["não encontrado"]}
     end
   end
 end

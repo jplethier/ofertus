@@ -3,7 +3,8 @@
     %h2= t('strings.new_user')
 
   .page-login
-    %h3= t('strings.fill_fields')
+    %h3{ :style => 'margin-bottom: 0;' }= t('strings.fill_fields')
+    %h3{ :style => 'margin-bottom: 0;' }= 'ou'
     .fb-login-button
       = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
 

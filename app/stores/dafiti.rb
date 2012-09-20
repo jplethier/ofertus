@@ -5,13 +5,10 @@ class Dafiti
 
     deal = Deal.new
     unless page.nil?
-     deal.link = link
-      deal.title = page.at_css(".product-detail").at_xpath(".//h3").try(:text).try(:strip)[0,255] if page.at_css(".product-detail") && page.at_css(".product-detail").at_xpath(".//h3")
-      precos = page.at_css('.price-box').at_xpath('.//tbody').try(:text).split(/\n/) if page.at_css('.price-box') && page.at_css('.price-box').at_xpath('.//tbody')
-      if precos
-        deal.price_mask = precos[3].try(:strip).split(' ')[1]
-        deal.real_price_mask = precos[1].try(:strip).split(' ')[1]
-      end
+      deal.link = link
+      deal.title = page.at_css(".product-name").try(:text).try(:strip)[0,255] if page.at_css(".product-name")
+      deal.real_price_mask = page.at_css('.price-up').try(:text).split(' ').last if page.at_css('.price-up')
+      deal.price_mask = page.at_css('.price-to').try(:text).split(' ').last if page.at_css('.price-to')
       deal.description = page.at_css(".productdescription").to_s.truncate(4000) if page.at_css(".productdescription")
       deal.category = Deal::CATEGORY_CLOTHES
       deal.image_url = page.at_css("#product-image-image")[:src].try(:strip) if page.at_css("#product-image-image")

@@ -6,12 +6,12 @@ class Sepha
     deal = Deal.new
     unless page.nil?
       deal.link = link
-      deal.title = page.at_css(".infoDescricao").at_xpath("h1").try(:text).try(:strip)[0,255] if page.at_css(".infoDescricao") && page.at_css(".infoDescricao").at_xpath("h1")
+      deal.title = page.at_css(".nomeProduto").at_xpath("h1").try(:text).try(:strip)[0,255] if page.at_css(".nomeProduto") && page.at_css(".nomeProduto").at_xpath("h1")
       deal.price_mask = page.at_css(".precoPromocao").try(:text).split(" ")[1] if page.at_css(".precoPromocao")
       deal.real_price_mask = page.at_css(".precoPromocaoNormal").try(:text).split(" ")[2] if page.at_css(".precoPromocaoNormal")
-      deal.description = page.at_css("#produto_descricao_principal").to_s.truncate(4000) if page.at_css("#produto_descricao_principal")
+      deal.description = page.at_css(".direitaDescricao").to_s.truncate(4000) if page.at_css(".direitaDescricao")
       deal.category = Deal::CATEGORY_BEAUTY_AND_HEALTH
-      deal.image_url = page.at_css("#produto_imagem_descricao").at_xpath(".//img")[:src].try(:strip) if page.at_css("#produto_imagem_descricao") && page.at_css("#produto_imagem_descricao").at_xpath(".//img")
+      deal.image_url = "http:" + page.at_css("#imagem_descricao")[:src].try(:strip) if page.at_css("#imagem_descricao")
     end
     deal.company = "Sepha"
     deal.kind = Deal::KIND_OFFER

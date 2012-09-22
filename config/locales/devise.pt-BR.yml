@@ -30,7 +30,8 @@ pt-BR:
       confirmed: 'A sua conta foi confirmada com sucesso. Agora está conectado.'
     registrations:
       user:
-        inactive_signed_up: 'A sua conta foi criada com sucesso. No entanto, não foi possível fazer login, pois ela está %{reason}.'
+        signed_up_but_inactive: 'A sua conta foi criada com sucesso. No entanto, não foi possível fazer login, pois você não ativou sua conta'
+        signed_up_but_locked: 'A sua conta foi criada com sucesso. No entanto, não foi possível fazer login, pois ela está bloqueada.'
         signed_up_but_unconfirmed: 'A sua conta foi criada com sucesso. No entanto, não foi possível fazer login, pois ela não foi confirmada ainda.'
       signed_up: 'Fez login com sucesso. Se não autorizado, a confirmação foi enviada por email.'
       updated: 'A sua conta foi atualizada com sucesso.'

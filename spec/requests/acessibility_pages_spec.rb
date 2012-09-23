@@ -77,21 +77,21 @@ describe "Acessibility Pages" do
       visit edit_admin_user_path(current_user)
       should have_content('Você não pode acessar essa página.')
       visit new_admin_sale_path
-      should have_content('Não é permitido alterar as vendas.')
+      should have_content('Você não pode acessar essa página.')
       visit admin_sales_path
-      should have_content('Não é permitido alterar as vendas.')
+      should have_content('Você não pode acessar essa página.')
       visit edit_admin_sale_path(sale)
-      should have_content('Não é permitido alterar as vendas.')
+      should have_content('Você não pode acessar essa página.')
       visit admin_sale_path(sale)
-      should have_content('Não é permitido alterar as vendas.')
+      should have_content('Você não pode acessar essa página.')
       visit new_admin_product_path
-      should have_content('Não é permitido alterar os produtos das vendas.')
+      should have_content('Você não pode acessar essa página.')
       visit admin_products_path
-      should have_content('Não é permitido alterar os produtos das vendas.')
+      should have_content('Você não pode acessar essa página.')
       visit edit_admin_product_path(product)
-      should have_content('Não é permitido alterar os produtos das vendas.')
+      should have_content('Você não pode acessar essa página.')
       visit admin_product_path(product)
-      should have_content('Não é permitido alterar os produtos das vendas.')
+      should have_content('Você não pode acessar essa página.')
     end
   end
 

@@ -11,7 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121125111965) do
+ActiveRecord::Schema.define(:version => 20121225111967) do
+
+  create_table "active_admin_comments", :force => true do |t|
+    t.string   "resource_id",   :null => false
+    t.string   "resource_type", :null => false
+    t.integer  "author_id"
+    t.string   "author_type"
+    t.text     "body"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "namespace"
+  end
+
+  add_index "active_admin_comments", ["author_type", "author_id"], :name => "index_active_admin_comments_on_author_type_and_author_id"
+  add_index "active_admin_comments", ["namespace"], :name => "index_active_admin_comments_on_namespace"
+  add_index "active_admin_comments", ["resource_type", "resource_id"], :name => "index_admin_notes_on_resource_type_and_resource_id"
 
   create_table "blog_comments", :force => true do |t|
     t.string   "title",        :limit => 50
@@ -106,6 +121,16 @@ ActiveRecord::Schema.define(:version => 20121125111965) do
   add_index "deals", ["city_id"], :name => "index_deals_on_city_id"
   add_index "deals", ["slug"], :name => "index_deals_on_slug", :unique => true
 
+  create_table "products", :force => true do |t|
+    t.string   "description"
+    t.string   "category"
+    t.integer  "quantity"
+    t.float    "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "sale_id"
+  end
+
   create_table "rails_blog_engine_comments", :force => true do |t|
     t.integer  "post_id"
     t.string   "author_byline"
@@ -144,6 +169,19 @@ ActiveRecord::Schema.define(:version => 20121125111965) do
     t.integer  "follower_id", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "sales", :force => true do |t|
+    t.float    "value"
+    t.integer  "store"
+    t.string   "affiliate"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "affiliate_transaction"
+    t.integer  "user_id"
+    t.float    "commission"
+    t.float    "user_commission"
   end
 
   create_table "sessions", :force => true do |t|

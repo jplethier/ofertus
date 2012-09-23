@@ -37,4 +37,17 @@ describe Relationship do
       end
     end
   end
+
+  describe 'followed_ids' do
+    let(:follower) { relationship.follower }
+    let(:followed1) { relationship.followed }
+
+    it 'should return the followed id of a follower' do
+      relationship.save
+      Relationship.followed_ids(follower.id).should == [followed1.id]
+      followed2 = FactoryGirl.create(:user)
+      follower.follow! followed2
+      Relationship.followed_ids(follower.id).should =~ [followed1.id, followed2.id]
+    end
+  end
 end

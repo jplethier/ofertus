@@ -553,5 +553,64 @@ describe Deal do
       deal.discount = 2
       deal.discount_to_percentage.should == 10
     end
+
+    describe 'average' do
+      it 'should be nil if deal has no votings' do
+        deal.average.should == nil
+      end
+
+      it 'should return the number of upvotes / total votes' do
+        user = FactoryGirl.create(:user)
+        user2 = FactoryGirl.create(:user)
+        user3 = FactoryGirl.create(:user)
+        user.up_vote(deal)
+        deal.reload
+        deal.average.should == 100
+        user2.down_vote(deal)
+        deal.reload
+        deal.average.should == 50
+        user3.up_vote(deal)
+        deal.reload
+        deal.average.should == 66
+      end
+    end
+
+    describe 'by username and following' do
+      let(:deal1) { FactoryGirl.create(:deal) }
+      let(:deal2) { FactoryGirl.create(:deal) }
+
+      before do
+        deal.save
+      end
+
+      it 'should show only the deals from the user if he follow nobody' do
+        Deal.by_username_and_following(deal.user.username).should == [deal]
+      end
+
+      it 'should show the deals from user and following users' do
+        deal.user.follow! deal1.user
+        Deal.by_username_and_following(deal.user.username).should == [deal, deal1]
+        deal.user.follow! deal2.user
+        Deal.by_username_and_following(deal.user.username).should == [deal, deal1, deal2]
+      end
+    end
+
+    describe 'ofertus top' do
+      it 'favourite' do
+        deal.ofertus_top = false
+        deal.save(:validate => false)
+        deal.favourite!
+        deal.reload
+        deal.ofertus_top.should == true
+      end
+
+      it 'unfavourite' do
+        deal.ofertus_top = true
+        deal.save(:validate => false)
+        deal.unfavourite!
+        deal.reload
+        deal.ofertus_top.should == false
+      end
+    end
   end
 end

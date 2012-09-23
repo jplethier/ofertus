@@ -43,8 +43,8 @@ module DealsHelper
   end
 
   def search_city_options(selected = nil)
-    body = 'Todas'
-    body << content_tag(:option, "Todas Cidades", { :value => "" }, true)
+    # body = 'Todas'
+    body = content_tag(:option, "Todas Cidades", { :value => "" }, true)
     
     City.hash_by_states.each do |group|
       body << content_tag(:optgroup, options_for_select(group[1], selected), :label => group[0])

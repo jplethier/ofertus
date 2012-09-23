@@ -1,0 +1,10 @@
+%tr
+  %td= sale.id
+  %td
+    - if sale.user
+      = sale.user.name
+    - else
+      Ofertus
+  %td= sale.value
+  %td= "#{sale.commission}% - #{sale.commission_value}"
+  %td= "#{sale.user_commission}% - #{sale.user_commission_value}"

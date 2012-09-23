@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 ruby "1.9.3"
 
+gem 'activeadmin'
 gem 'acts_as_commentable'
 gem 'airbrake'
 gem 'annotate', ">= 2.5.0.pre1"
@@ -31,6 +32,7 @@ gem 'rails', '3.1.1'
 # gem 'rails_blog_engine'
 # gem 'resque'
 gem 'sass'
+gem 'sass-rails'
 gem 'uglifier'
 gem 'unicorn'
 gem 'will_paginate', '~> 3.0.0'

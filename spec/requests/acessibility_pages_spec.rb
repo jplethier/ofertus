@@ -55,8 +55,6 @@ describe "Acessibility Pages" do
       should have_content('Edite suas informações')
       visit admin_deals_path
       should have_content('Você não pode acessar essa página.')
-      visit active_admin_deals_path
-      should have_content('Você não pode acessar essa página.')
       visit admin_users_path
       should have_content('Você não pode acessar essa página.')
       visit admin_deal_path(deal)
@@ -66,11 +64,11 @@ describe "Acessibility Pages" do
       visit new_admin_deal_path
       should have_content('Você não pode acessar essa página.')
       visit new_admin_user_path
-      should have_content('Não é permitido alterar dados de outros usuários.')
+      should have_content('Você não pode acessar essa página.')
       visit edit_admin_deal_path(deal)
-      should have_content('Para compartilhar uma oferta, é necessário estar logado.')
+      should have_content('Você não pode acessar essa página.')
       visit edit_admin_user_path(current_user)
-      should have_content('Não é permitido alterar dados de outros usuários.')
+      should have_content('Você não pode acessar essa página.')
     end
   end
 
@@ -118,8 +116,6 @@ describe "Acessibility Pages" do
       visit edit_user_registration_path
       should have_content('Para continuar, faça login ou registre-se.')
       visit admin_deals_path
-      should have_content('Para continuar, faça login ou registre-se.')
-      visit active_admin_deals_path
       should have_content('Para continuar, faça login ou registre-se.')
       visit admin_users_path
       should have_content('Para continuar, faça login ou registre-se.')

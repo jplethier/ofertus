@@ -153,6 +153,16 @@ class Deal < ActiveRecord::Base
     self.end_date = Time.zone.now.beginning_of_day if self.end_date.nil?
   end
 
+  def favourite!
+    self.ofertus_top = true
+    self.save(:validate => false)
+  end
+
+  def unfavourite!
+    self.ofertus_top = false
+    self.save(:validate => false)
+  end
+
   def add_affiliate_code_to_link
     if self.link.match(Share::COMPRA_FACIL)
       self.link = self.link.strip + "&a_aid=OfertuSCF"

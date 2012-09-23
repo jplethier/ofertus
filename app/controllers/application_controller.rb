@@ -55,14 +55,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
-#  def authenticate
-#    return true unless Rails.env == "production"
-#    authenticate_or_request_with_http_basic do |username, password|
-#      username == "dealwitme" && password == "123dealwitme"
-#    end
-#  end
-
-  # def go_to_facebook
-  #   redirect_to "https://www.facebook.com/OfertUs/app_151503908244383" if Rails.env == "production"
-  # end
+  def verify_admin!
+    if current_user
+      unless current_user.admin?
+        flash[:error] = I18n.t('admin.unauthorized')
+        redirect_to root_path
+      end
+    else
+      flash[:error] = I18n.t('devise.failure.unauthenticated')
+      redirect_to root_path
+    end
+  end
 end

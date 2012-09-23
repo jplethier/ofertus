@@ -1,37 +1,10 @@
 DealWitMe::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
   match 'lomadee', :to => 'application#lomadee'
 
   mount Ckeditor::Engine => '/ckeditor'
-
-  namespace :admin do
-    resources :users
-    resources :deals do
-      collection do
-        get :active
-      end
-      
-      member do
-        get :favourite
-        get :unfavourite
-      end
-    end
-
-    root :to => "users#index"
-  end
-
-  # mount RailsBlogEngine::Engine => "/blog"
-
-  # namespace :blog do 
-  #   resources :blog_posts do
-  #     resources :blog_comments
-  #   end
-
-  #   match '/new', :to => "blog_posts#new"
-  #   match '/edit/:post_title', :to => "blog_posts#edit"
-  #   match '/:post_title', :to => "blog_posts#show"
-  #   root :to => "blog_posts#index"
-  # end
 
   match "whoarewe",       :to => "pages#whoarewe"
   match "help",           :to => "pages#help"

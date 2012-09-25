@@ -16,6 +16,8 @@ describe User do
   it { should respond_to :reverse_relationships }
   it { should respond_to :login }
   it { should respond_to :login= }
+  it { should respond_to :sales }
+  it { should have_many :sales }
 
   describe "Accessibility" do
     it { should allow_mass_assignment_of(:email) }

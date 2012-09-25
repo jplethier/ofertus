@@ -223,8 +223,14 @@
       even: "deve ser par"
 
   activerecord:
+    models:
+      deal: 'Ofertas'
+      product: 'Produtos Vendidos'
+      sale: 'Vendas'
+      user: 'Usuários'
     attributes:
       user:
+        avatar_url: Foto do facebook
         credit: "Saldo"
         current_password: "Senha atual"
         facebook_share_offer: "Publicar no facebook ao compartilhar oferta"

@@ -3,7 +3,6 @@ ActiveAdmin.register Deal do
 
   member_action :favourite, :method => :put do
     deal = Deal.find(params[:id])
-    binding.pry
     deal.favourite!
     redirect_to env['HTTP_REFERER'], :notice => "Oferta marcada como favorita!"
   end
@@ -42,5 +41,43 @@ ActiveAdmin.register Deal do
       end
     end
     default_actions
+  end
+
+  show title: :title do |deal|
+    attributes_table do
+      row 'Ativa?' do
+        if deal.end_date.end_of_day > Date.today.beginning_of_day
+          'Sim'
+        else
+          'Nao'
+        end
+      end
+      row 'Foto' do
+        image_tag(deal.image_url)
+      end
+      row :description do
+        deal.description.html_safe
+      end
+      row :price
+      row :real_price
+      row :discount
+      row :user
+      row :link do
+        link_to deal.link, deal.link, target: '_blank'
+      end
+      row :company
+      row :category do
+        Deal.i18n_category(deal.category)
+      end
+      row 'Favorita' do
+        if deal.ofertus_top
+          link_to 'Desmarcar', unfavourite_admin_deal_path(deal), :method => :put
+        else
+          link_to 'Marcar', favourite_admin_deal_path(deal), :method => :put
+        end
+      end
+    end
+
+    active_admin_comments
   end
 end

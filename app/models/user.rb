@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :followers,              :through => :reverse_relationships, :source => :follower
   has_many :following,              :through => :relationships,         :source => :followed
   has_many :reverse_relationships,  :foreign_key => "followed_id",      :class_name => "Relationship"
+  has_many :sales
 
   validates :username,  :presence => true,  :uniqueness => true,  :format => /^[a-zA-Z0-9_]{5,20}$/
   validates :credit,    :presence => true
@@ -23,6 +24,8 @@ class User < ActiveRecord::Base
 
   scope :order_by_deals, order("(select count(deals.id) from deals where deals.user_id = users.id) desc")
   scope :random, order('RANDOM()')
+  scope :facebook_users, where(:provider => "facebook")
+  scope :admin_users, where(:admin => true)
 
   # Virtual attribute for authenticating by either username or email
   attr_accessor :login
@@ -45,6 +48,10 @@ class User < ActiveRecord::Base
 
   def follow?(another_user)
     relationships.exists? :followed_id => another_user.id
+  end
+
+  def method_name
+    
   end
 
   def facebook_profile_picture(size = "large")

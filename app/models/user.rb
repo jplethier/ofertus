@@ -22,6 +22,9 @@ class User < ActiveRecord::Base
 
   before_validation :set_credit_to_zero
 
+  belongs_to :invited_by, :class_name => 'User'
+  has_many :inviteds, :class_name => 'User', :foreign_key => :invited_by_id
+
   scope :order_by_deals, order("(select count(deals.id) from deals where deals.user_id = users.id) desc")
   scope :random, order('RANDOM()')
   scope :facebook_users, where(:provider => "facebook")
@@ -38,6 +41,11 @@ class User < ActiveRecord::Base
     self.new_record?
   end
 
+  def invited_by(username)
+    self.invited_by = User.find_by_username(username)
+    self.save
+  end
+
   def follow!(another_user)
     relationships.create! :followed_id => another_user.id
   end
@@ -48,10 +56,6 @@ class User < ActiveRecord::Base
 
   def follow?(another_user)
     relationships.exists? :followed_id => another_user.id
-  end
-
-  def method_name
-    
   end
 
   def facebook_profile_picture(size = "large")

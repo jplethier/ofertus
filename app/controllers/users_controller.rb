@@ -17,6 +17,11 @@ class UsersController < ApplicationController
     @title = "Buscar Usuários"
   end
 
+  def invite
+    session[:invited_by] = params[:username]
+    redirect_to new_user_registration_path
+  end
+
   #Lembrar de dar Reset Ability (CanCan)
   #def update
   #end

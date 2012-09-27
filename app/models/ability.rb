@@ -32,6 +32,7 @@ class Ability
     can :read, Deal
     can :read, Comment
     can :feed, Deal
+    can :invite, User
 
     unless user.guest?
       can :manage, Deal, :user_id => user.id

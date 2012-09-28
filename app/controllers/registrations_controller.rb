@@ -4,7 +4,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     if not params[:terms_privacy]
-      flash.now[:error] = "Para se cadastrar é necessário concordar com os termos de uso e a política de privacidade do site."
+      flash.now[:error] = I18n.t('strings.you_need_to_agree_with_terms_and_privacy')
       build_resource
       clean_up_passwords(resource)
       respond_with_navigational(resource) { render :new }

@@ -599,6 +599,9 @@ describe Deal do
   end
 
   describe "affiliate" do
+    let(:deal) { FactoryGirl.build :deal }
+    subject { deal }
+    
     it "compra facil links should have '&a_aid=OfertuSCF'" do
       deal.link = "http://www.comprafacil.com.br/comprafacil/Produto.jsf?VP=2883,1237,1237,1237,49169"
       deal.save

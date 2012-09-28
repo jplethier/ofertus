@@ -28,5 +28,19 @@ describe "Signup Page" do
       should have_content('A sua conta foi criada com sucesso. No entanto, não foi possível fazer login, pois ela não foi confirmada ainda.')
       should have_content('Favoritas da equipe')
     end
+
+    it 'without check the terms_privacy should not create a user and show a message error' do
+      count = User.count
+      fill_in 'user_email', :with => 'user@ofertus.com.br'
+      fill_in 'user_username', :with => 'username'
+      fill_in 'user_name', :with => 'Nome'
+      fill_in 'user_password', :with => 'senha1'
+      fill_in 'user_password_confirmation', :with => 'senha1'
+      # check 'terms_privacy'
+      click_on 'signup_btn'
+      (User.count).should == count
+      should have_content('Para se cadastrar é necessário concordar com os termos de uso e a política de privacidade do site.')
+      should have_content('Novo Usuário')
+    end
   end
 end

@@ -38,6 +38,9 @@ describe "Acessibility Pages" do
       visit user_path(another_user.username)
       should have_content('Ofertas')
       should have_content(another_user.name)
+      visit("/invite/#{another_user.username}")
+      current_path.should == root_path
+      should have_content('Você já possui um perfil no Ofertus.')
       visit follow_user_path(another_user.username)
       should have_content("Seguindo: '#{another_user.username}'")
       visit unfollow_user_path(another_user.username)
@@ -118,6 +121,11 @@ describe "Acessibility Pages" do
       should have_content('Não é permitido alterar dados de outros usuários.')
       visit new_user_registration_path
       should have_content('Novo Usuário')
+      visit("/invite/#{user.username}")
+      current_path.should == new_user_registration_path
+      should have_content('Novo Usuário')
+      visit("/invite/#{user.username}asdasd")
+      current_path.should == root_path
       visit new_user_session_path
       should have_content('Login')
       visit new_user_password_path

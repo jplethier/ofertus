@@ -298,4 +298,13 @@ describe User do
       User.send_reset_password_instructions(:email => "#{user.email}abc").errors.messages.should == {:email => ["não encontrado"]}
     end
   end
+
+  it 'set_invited_by' do
+    another_user = FactoryGirl.create(:user)
+    user.set_invited_by(another_user.username)
+    user.reload
+    another_user.inviteds.count.should == 1
+    user.invited_by.should == another_user
+    another_user.inviteds.first.should == user
+  end
 end

@@ -128,22 +128,6 @@ describe Deal do
         end
       end
     end
-
-    describe "affiliate" do
-      it "compra facil links should have '&a_aid=OfertuSCF'" do
-        deal.link = "http://www.comprafacil.com.br/comprafacil/Produto.jsf?VP=2883,1237,1237,1237,49169"
-        deal.save
-        deal.reload
-        deal.link.should match(/&a_aid=OfertuSCF$/)
-      end
-
-      it "livraria cultura links should be like http://www.livrariacultura.com.br/scripts/cultura/externo/index.asp?id_link=9151&tipo=25&nitem=XXXXXXXXXX" do
-        deal.link = "http://www.livrariacultura.com.br/scripts/resenha/resenha.asp?nitem=29279542&sid=7118122301433468644999511"
-        deal.save
-        deal.reload
-        deal.link.should match(/^http:\/\/www.livrariacultura.com.br\/scripts\/cultura\/externo\/index.asp\?id_link=9151&tipo=25&nitem=[1234567890]+/)
-      end
-    end
   end
 
   shared_examples_for "Not On Sale Deals" do
@@ -611,6 +595,22 @@ describe Deal do
         deal.reload
         deal.ofertus_top.should == false
       end
+    end
+  end
+
+  describe "affiliate" do
+    it "compra facil links should have '&a_aid=OfertuSCF'" do
+      deal.link = "http://www.comprafacil.com.br/comprafacil/Produto.jsf?VP=2883,1237,1237,1237,49169"
+      deal.save
+      deal.reload
+      deal.link.should match(/&a_aid=OfertuSCF$/)
+    end
+
+    it "livraria cultura links should be like http://www.livrariacultura.com.br/scripts/cultura/externo/index.asp?id_link=9151&tipo=25&nitem=XXXXXXXXXX" do
+      deal.link = "http://www.livrariacultura.com.br/scripts/resenha/resenha.asp?nitem=29279542&sid=7118122301433468644999511"
+      deal.save
+      deal.reload
+      deal.link.should match(/^http:\/\/www.livrariacultura.com.br\/scripts\/cultura\/externo\/index.asp\?id_link=9151&tipo=25&nitem=[1234567890]+/)
     end
   end
 end

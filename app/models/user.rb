@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   validates :username,  :presence => true,  :uniqueness => true,  :format => /^[a-zA-Z0-9_]{5,20}$/
   validates :credit,    :presence => true
 
-  attr_accessible :access_token, :avatar_url, :credit, :facebook_follow_user, :facebook_vote_offer, :facebook_share_offer, :email, :login, :name, :password, :password_confirmation, :provider, :remember_me, :uid, :username
+  attr_accessible :access_token, :avatar_url, :credit, :facebook_follow_user, :facebook_vote_offer, :facebook_share_offer, :email, :login, :name, :password, :password_confirmation, :provider, :remember_me, :uid, :username, :invited_by_id
 
   before_validation :set_credit_to_zero
 
@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
     self.new_record?
   end
 
-  def invited_by(username)
+  def set_invited_by(username)
     self.invited_by = User.find_by_username(username)
     self.save
   end

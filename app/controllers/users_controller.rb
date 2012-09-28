@@ -18,8 +18,12 @@ class UsersController < ApplicationController
   end
 
   def invite
-    session[:invited_by] = params[:username]
-    redirect_to new_user_registration_path
+    if User.find_by_username(params[:username])
+      session[:invited_by] = params[:username]
+      redirect_to new_user_registration_path
+    else
+      redirect_to root_path
+    end
   end
 
   #Lembrar de dar Reset Ability (CanCan)

@@ -10,6 +10,10 @@
 
     .ct-inputs-login
       = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+        
+        - if session[:invited_by]
+          = f.hidden_field :invited_by_id, value: User.find_by_username(session[:invited_by]).id
+
         %p
           = f.label :email
           %br

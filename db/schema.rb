@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121225111967) do
+ActiveRecord::Schema.define(:version => 20121225111968) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -223,6 +223,7 @@ ActiveRecord::Schema.define(:version => 20121225111967) do
     t.boolean  "facebook_follow_user",                                                :default => true,  :null => false
     t.decimal  "credit",                                :precision => 8, :scale => 2, :default => 0.0,   :null => false
     t.boolean  "admin",                                                               :default => false
+    t.integer  "invited_by_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

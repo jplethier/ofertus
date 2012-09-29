@@ -3,6 +3,7 @@
     admin: 'Área Administrativa'
     blog: "Blog"
     comment: "Comentar"
+    deals: 'Ofertas'
     didnt_receive_confirmation: "Não recebeu o e-mail com as instruções de confirmação?"
     didnt_receive_unlock: "Não recebeu o e-mail com as instruções de desbloqueio?"
     edit_picture: "Editar minha foto"
@@ -15,9 +16,8 @@
     logout: "Sair"
     more_info: 'Saiba mais'
     my_profile: "Meu Perfil"
-    offers: 'Ofertas'
     privacy_policy: "Política de Privacidade"
-    search_users: "Buscar Usuários"
+    search: 'Pesquisa'
     send_confirmation: "Reenvier e-mail de confirmação"
     send_new_password: "Enviar nova senha"
     share: "Compartilhar"
@@ -29,4 +29,5 @@
     terms_of_use: "Termos de Uso"
     today_offers: "Ofertas do Dia"
     unfollow: "Deixar de seguir"
+    users: "Usuários"
     who_are_we: "Quem Somos"

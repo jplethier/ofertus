@@ -14,8 +14,15 @@
 - else
   %ul
     %li
-      %span Olá, seja bem-vindo
-    %li= link_to t('actions.sign_up'), new_user_registration_path
-    %li= link_to t('actions.sign_in'), new_user_session_path
-    - unless @current_tab == 'home'
-      %li= link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
+      %a{ :href => deals_path, :class => "deals_header_btn #{ @current_tab == 'deals' ? 'active' : ''}" }
+        %span= t('actions.deals')
+
+    %li
+      %a{ :href => users_path, :class => "users_header_btn #{ @current_tab == 'deals' ? 'active' : ''}" }
+        %span= t('actions.users')
+
+    %li
+      %a{ :href => deals_path, :class => "search_header_btn #{ @current_tab == 'deals' ? 'active' : ''}" }
+        %span= t('actions.search')
+        
+    %li= link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"

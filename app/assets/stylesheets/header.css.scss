@@ -21,15 +21,16 @@
       }
     }
 
-    #menu-login { 
-      position:absolute;
-      overflow:hidden;
-      top:10px;
-      right:0;
+    #menu-login {
+      float: left;
+      margin-top: 15px;
+      margin-left: 10px;
 
       li {
         float: left;
         padding:0 16px 0 0;
+        display: block;
+        margin-top: 50px;
 
         span {
           color: #fff;
@@ -43,6 +44,45 @@
           font-size:11px;
           text-decoration:none;
           text-transform:uppercase;
+
+          span {
+            color: #999;
+            font-size:11px;
+            text-decoration:none;
+            text-transform:uppercase;
+            font-style: normal;
+          }
+        }
+
+        a.facebook_login_button {
+          text-indent:-15000px;
+          overflow:hidden;
+          display: block;
+          width: 128px;
+          height: 42px;
+          background: image-url('login-facebook.png') no-repeat;
+          position: absolute;
+          top: 30px;
+        }
+
+        a.facebook_login_button:hover {
+          background: image-url('login-facebook-hover.png') no-repeat -6px -6px;
+          margin: 0;
+        }
+
+        a.deals_header_btn {
+          background: image-url('tag.png') no-repeat 9px 0;
+          padding-top: 40px;
+        }
+
+        a.users_header_btn {
+          background: image-url('user.png') no-repeat 13px 0;
+          padding-top: 40px;
+        }
+
+        a.search_header_btn {
+          background: image-url('search.png') no-repeat 9px 0;
+          padding-top: 40px;
         }
       }
     }
@@ -72,7 +112,7 @@
       }
     }
 
-     #icon-redes {
+    #icon-redes {
       position:absolute;
       top:67px;
       right:0;
@@ -89,9 +129,14 @@
         background-position:0 0;
       }
 
-      .bt-face { background-position:-39px 0; }
+      .bt-face {
+        background-position:-39px 0;
+      }
 
-      .bt-google { background-position:-78px 0; margin-right:0; }
+      .bt-google {
+        background-position:-78px 0;
+        margin-right:0;
+      }
     }
 
     .bt-compartilhe-off { 
@@ -137,7 +182,7 @@
       float:right;
       color: #e1e1e1;
       border:none;
-      background:#000;
+      background:#2D2D2D;
     }
   }
 }

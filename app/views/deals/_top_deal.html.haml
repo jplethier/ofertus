@@ -6,8 +6,13 @@
   .details
     %h4= link_to truncate_title(deal.title, 50), deal_path(deal)
     .user_picture
-      %img{ src: deal.user.facebook_profile_picture('small') }
+      %a{ href: user_path(deal.user.username) }
+        %img{ src: deal.user.facebook_profile_picture('small') }
     .user_infos
-      = truncate_name(deal.user.name)
+      = t('strings.shared_by')
+      %br
+      = link_to truncate_name(deal.user.name), user_path(deal.user.username)
 
-  .discount
+  .discount= "#{deal.discount.to_i}%"
+  .clear_right
+  .interactions

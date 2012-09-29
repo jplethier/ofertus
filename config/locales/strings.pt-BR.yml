@@ -19,6 +19,7 @@
     end_date: "Válida até %{end_date}"
     fill_fields: 'Preencha os campos abaixo'
     fill_fields_to_share: "Compartilhe uma oferta preenchendo os campos abaixo e clicando em 'Confirmar'"
+    follow_who_share_good_offers: 'siga quem compartilha boas ofertas'
     followed_by_one_user: "1 seguidor!"
     followed_by_x_users: "%{x} seguidores!"
     following_one_user: 'Seguindo 1 usuário!'
@@ -60,6 +61,6 @@
     users_with_more_deals: "Ranking de usuários"
     x_shared_offers: "%{x} ofertas compartilhadas!"
     who_are_we: 'Quem somos'
-    who_is_using: 'Veja quem já está aqui'
+    who_is_using: 'Quem está aqui'
     withdraw_credit: "Resgatar saldo"
     you_need_to_agree_with_terms_and_privacy: "Para se cadastrar é necessário concordar com os termos de uso e a política de privacidade do site."

@@ -22,7 +22,7 @@ class Sale < ActiveRecord::Base
     sale.commission = 5#Partner.find_by_code(params[:id_programa]).commission
     sale.user_commission = 2.5#Partner.find_by_code(params[:id_programa]).user_commission
     for i in (1..(params.size/4))
-
+      puts 'falta setar os produtos'
     end
     sale.save
     sale

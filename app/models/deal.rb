@@ -11,6 +11,8 @@ class Deal < ActiveRecord::Base
 
   self.per_page = 10
 
+  DEFAULT_IMAGE = 'http://localhost:3000/deal_with_no_image.png'
+
   CATEGORY_RESTAURANT = 1
   CATEGORY_BEAUTY_AND_HEALTH = 2
   CATEGORY_CULTURE = 3
@@ -134,6 +136,11 @@ class Deal < ActiveRecord::Base
 
   def average
     ((self.up_votes * 100)/self.votings.length).to_i if self.votings.length != 0
+  end
+
+  def get_image_url
+    return self.image_url if self.image_url
+    DEFAULT_IMAGE
   end
 
   def discount_to_percentage

@@ -35,10 +35,11 @@
     new_offer: 'Nova Oferta'
     new_user: 'Novo Usuário'
     offer_price: "Preço oferta<span>%{price}</span>"
-    ofertus_top: 'Favoritas da equipe'
+    ofertus_top: 'Favoritas do Ofertus'
     old_deals: 'Ofertas Passadas'
     one_shared_offer: "1 oferta compartilhada!"
     original_price: "Preço original<span>%{price}</span>"
+    our_team_recomendations: 'recomendações da nossa equipe'
     paste_deal_url: "copie a url da oferta aqui para compartilhar!"
     register_offer: 'Cadastre uma oferta'
     remember_me: 'Mantenha-me conectado'

@@ -28,6 +28,7 @@
 
     <link rel="icon" href="http://www.ofertus.com.br/favicon.png" />
     <link rel="shortcut icon" href="http://www.ofertus.com.br/favicon.ico" />
+    <link href='http://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
 
     <!-- SCRIPTS -->
     <!-- <%= airbrake_javascript_notifier %> -->
@@ -72,14 +73,11 @@
     <%- if @current_tab == 'home' -%>
       <%= render 'header_home' %>
     <%- end -%>
+
+    <div class'clear'>
+
     <div id="all">
-
       <div class='content'>
-        <div id="categorias-home">
-          <%= render 'layouts/categories_menu_bar' %>
-          <div class="clear"></div>
-        </div>
-
         <!--  CORPO -->
         <div id="main">
            <!-- TODO: FLASH -->

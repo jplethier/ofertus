@@ -1,6 +1,6 @@
 body {
   #home_list {
-    padding-bottom: 0;
+    padding: 0 30px;
     margin-bottom: 10px;
 
     h3 {
@@ -8,95 +8,7 @@ body {
     }
   }
 
-  #home_actions {
-    margin-top: 0px;
-
-    #box-compartilhe {
-      float: left;
-      display: block;
-      border-right: 1px  dashed #E0E0E0;
-      padding-top: 0;
-      margin-top: 10px;
-      padding-right: 20px;
-
-      .border-input-busca {
-        margin-bottom: 0;
-      }
-    }
-
-    #box-search {
-      width: 470px;
-      float: left;
-      display: block;
-      padding-top: 0;
-      margin-top: 10px;
-      margin-left: 20px;
-
-      .border-input-busca {
-        text-transform: uppercase;
-        font-size: 11px;
-        color: #666;
-        border: none;
-        float: left;
-        padding: 0;
-        width: 238px;
-
-        .input-tx {
-          text-transform: uppercase;
-          background: #F6F6F6;
-          font-size: 11px;
-          color: #666;
-          border: none;
-          float: left;
-          padding: 11px 5px 10px;
-          width: 195px;
-        }
-
-        .submit {
-          width: 33px;
-          height: 35px;
-          float: right;
-          border: none;
-          background: url(bts-input.gif) no-repeat 0px 2px;
-          padding: 1px;
-          background-color: #f6f6f6;
-        }
-      }
-
-      .select {
-        margin: 0;
-        width: 110px;
-        float: left;
-        margin: 5px 3px;
-        
-        select {
-          padding: 3px 5px;
-          font-size: 11px;
-          color: #666;
-          height: 28px;
-          width: 110px
-        }
-      }
-    }
-  }
-
   #sem-col {
-    #ofertus_top {
-      margin-top: 30px;
-
-      h2 {
-        margin: 0 377px; 
-        padding: 0 9px;
-      }
-    }
-
-    #ofertus_users {
-      h2 {
-        width: 302px;
-        margin: 0 359px; 
-        padding: 0 10px;
-      }
-    }
 
     .top_user {
       float: left;
@@ -117,45 +29,46 @@ body {
     }
 
     .top_deal {
-      width: 300px;
-      border-right: 1px dashed #E0E0E0;
-      padding-right: 33px;
+      width: 284px;
+      padding: 10px;
       float: left;
-      margin-left: 33px;
       margin-bottom: 33px;
+      background: image-url('bg_oferta_grande.png') -30px -27px no-repeat;
+      height: 293px;
+      margin-left: 25px;
 
-      .right {
-        width: 150px;
+      .image {
+        height: 200px;
+        margin: 0 auto;
+
+        img {
+          max-height: 200px;
+          max-width: 245px;
+        }
       }
 
-      .left {
-        width: 108px;
+      .details {
+        width: 185px;
+        margin-top: 10px;
 
         h4 {
-          text-align: center;
-          font-size: 8pt;
-          margin-bottom: 7px;
-          text-transform: uppercase;
-          font-weight: normal;
+          height: 35px;
 
-          span {
-            color: #FF6162;
-            display: block;
-            font-size: 14px;
-            text-decoration: line-through;
+          a {
+            font-family: 'Colaborate-Thin';
+            font-size: 15px;
+            text-decoration: none;
+            color: #444;
           }
         }
 
-        .preco-off {
-          width: 108px;
-          padding: 38px 0;
-          text-align: center;
-          background: url(bg-preco-off-sidebar.png) no-repeat;
+        .user_picture {
+          float: left;
+          margin-right: 5px;
+          min-width: 50px;
 
-          span {
-            color: #B2EA71;
-            font-size: 17px;
-            text-decoration: none;
+          img {
+            min-width: 50px;
           }
         }
       }
@@ -163,11 +76,6 @@ body {
 
     .first {
       margin-left: 0;
-    }
-
-    .last {
-      padding-right: 0;
-      border-right: none;
     }
 
     #partners {
@@ -258,19 +166,6 @@ body {
         border: none;
         background: url(bts-input.gif) no-repeat;
       }
-    }
-  }
-
-  .action_btn {
-    margin-top: 10px;
-
-    a.btn_follow_user {
-      text-indent: -9999999999px;
-      background: url(follow_btn.png) no-repeat 0 0;
-      width: 116px;
-      height: 29px;
-      margin: 0 auto;
-      display: block;
     }
   }
 

@@ -67,36 +67,13 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div id="header">
-      <div class='content'>
-        <h1 class="logo">
-          <%= link_to 'ofertus', root_path %>
-        </h1>
+    <%= render 'layouts/header' %>
 
-        <div id="menu-top">
-          <%= render "layouts/toolbar" %>
-        </div>
-
-        <div id="menu-login">
-          <%= render 'devise/menu/login_items' %>
-        </div>
-
-        <div id="icon-redes">
-          <a href="https://twitter.com/#!/ofertusbr" class="bt-twitter"></a>
-          <a href="https://www.facebook.com/OfertUs" class="bt-face"></a>
-          <!-- <a href="" class="bt-google"></a> -->
-        </div>
-        
-        <%- unless @current_tab == 'home' -%>
-          <a href="javascript:;" class="bt-compartilhe-off" onclick="$('#box-compartilhe').slideToggle();"></a>
-        <%- end -%>
-      </div>
-    </div><!--/header-->
+    <%- if @current_tab == 'home' -%>
+      <%= render 'header_home' %>
+    <%- end -%>
     <div id="all">
 
-      <%- if @current_tab == 'home' -%>
-        <% render 'header_home' %>
-      <%- end -%>
 
       <div id="categorias-home">
         <%= render 'layouts/categories_menu_bar' %>

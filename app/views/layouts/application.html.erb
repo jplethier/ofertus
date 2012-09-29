@@ -67,15 +67,16 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div id="all">
-      <div id="header">
+    <div id="header">
+      <div class='content'>
+        <h1 class="logo">
+          <%= link_to 'ofertus', root_path %>
+        </h1>
+
         <div id="menu-top">
           <%= render "layouts/toolbar" %>
         </div>
 
-        <h1 class="logo">
-          <%= link_to 'ofertus', root_path %>
-        </h1>
         <div id="menu-login">
           <%= render 'devise/menu/login_items' %>
         </div>
@@ -89,22 +90,12 @@
         <%- unless @current_tab == 'home' -%>
           <a href="javascript:;" class="bt-compartilhe-off" onclick="$('#box-compartilhe').slideToggle();"></a>
         <%- end -%>
-      </div><!--/header-->
+      </div>
+    </div><!--/header-->
+    <div id="all">
 
       <%- if @current_tab == 'home' -%>
-        <%= render 'header_home' %>
-      <%- end -%>
-
-      <%- unless @current_tab == 'home' -%>
-        <div id="box-compartilhe">
-          <form action="<%= share_deals_path %>" method="get.share_offer_url">
-            <div class="border-input-busca">
-              <%= text_field_tag :share, params[:share], :title => "Cadastre uma oferta", :placeholder => t('strings.paste_deal_url'), :class => "resetValue input-tx" %>
-              <button id="share" class="submit" title="Compartilhar" value="OK">OK</button>
-            </div>
-          </form>
-          <div class="clear"></div>
-        </div>
+        <% render 'header_home' %>
       <%- end -%>
 
       <div id="categorias-home">

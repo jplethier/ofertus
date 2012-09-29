@@ -1,0 +1,143 @@
+#header {
+  height:100px;
+  background: #2d2d2d;
+
+  .content {
+    width:1040px;
+    margin:0 auto;
+    position: relative;
+
+    .logo {
+      width:378px;
+      float: left;
+      padding-top: 10px;
+
+      a {
+        width:378px;
+        height:100px;
+        display: block;
+        background: url(logo.png) no-repeat;
+        text-indent: -15000px;
+      }
+    }
+
+    #menu-login { 
+      position:absolute;
+      overflow:hidden;
+      top:10px;
+      right:0;
+
+      li {
+        float: left;
+        padding:0 16px 0 0;
+
+        span {
+          color: #fff;
+          font-size:11px;
+          font-style:italic;
+          text-transform:uppercase;
+        }
+
+        a {
+          color: #999;
+          font-size:11px;
+          text-decoration:none;
+          text-transform:uppercase;
+        }
+      }
+    }
+
+    #menu-top {
+      float: left;
+      margin-top: 18px;
+      width: 351px;
+      margin-left: -35px;
+
+      ul {
+        padding-left: 0;
+        height: 15px;
+
+        li {
+          float:left;
+
+          a {
+            display:block;
+            padding:0 12px 0 0;
+            color: #999;
+            font-size:11px;
+            text-decoration:none;
+            text-transform:uppercase;
+          }
+        }
+      }
+    }
+
+     #icon-redes {
+      position:absolute;
+      top:67px;
+      right:0;
+
+      a {
+        float: left;
+        width:35px;
+        height:35px;
+        margin-right:4px;
+        background: url(icon-redes.png) no-repeat;
+      }
+
+      .bt-twitter {
+        background-position:0 0;
+      }
+
+      .bt-face { background-position:-39px 0; }
+
+      .bt-google { background-position:-78px 0; margin-right:0; }
+    }
+
+    .bt-compartilhe-off { 
+      position:absolute;
+      background: url(bt-compartilhe-off.png) no-repeat;
+      bottom:0;
+      right:0;
+      width:193px;
+      height:26px;
+    }
+  }
+
+  #box-compartilhe {
+    display: block;
+    padding-top: 10px;
+    background: transparent;
+    width: 340px;
+
+    .border-input-busca {
+      border:3px solid #f6f6f6;
+      overflow:hidden;
+      margin-bottom:20px;
+      float:right;
+    }
+
+    .input-tx {
+      background: #f6f6f6;
+      font-family: 'Colaborate-Thin';
+      text-transform:uppercase;
+      font-size:11px;
+      color: #666;
+      border:none;
+      float: left;
+      padding:11px 5px 10px;
+      width: 291px;
+    }
+
+    .submit {
+      width:33px;
+      height:33px;
+      text-transform:uppercase;
+      font-weight: normal;
+      float:right;
+      color: #e1e1e1;
+      border:none;
+      background:#000;
+    }
+  }
+}

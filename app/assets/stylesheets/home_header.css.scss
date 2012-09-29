@@ -7,16 +7,24 @@ body {
   }
 
   #home_header {
-    background: #F4F4F2;
-    width: 157%;
     height: 450px;
     margin: 0 -300px;
     padding: 10px 0;
+
 
     .content {
       position: relative;
       width: 1024px;
       margin: 0 auto;
+
+      a.facebook_login_button {
+        text-indent:-15000px;
+        overflow:hidden;
+        display: block;
+        width: 256px;
+        height: 38px;
+        background: image-url('home_login_fb.png') no-repeat;
+      }
 
       .pagination {
         background: transparent;
@@ -123,26 +131,8 @@ body {
 
   #header_background {
     margin-top: 0;
-    height:32px; 
+    height:10px;
     position: relative; 
-    background: url(bg-header.png) no-repeat 564px -90px black;
-    width: 157%;
-    margin-left: -300px;
-
-    div {
-      width: 1020px;
-      height: 32px;
-      position: relative;
-      margin: 0 auto;
-
-      .bt-compartilhe-off { 
-        position:absolute; 
-        background: url(bt-compartilhe-off.png) no-repeat; 
-        bottom:0; 
-        right: 0; 
-        width:193px; 
-        height:26px; 
-      }
-    }
+    background: image-url('flag_divisor.png') no-repeat transparent;
   }
 }

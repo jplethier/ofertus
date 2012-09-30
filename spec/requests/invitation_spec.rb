@@ -25,7 +25,7 @@ describe "User invitation" do
       click_on 'signup_btn'
       (User.count - 1).should == count
       should have_content('A sua conta foi criada com sucesso. No entanto, não foi possível fazer login, pois ela não foi confirmada ainda.')
-      should have_content('Favoritas da equipe')
+      should have_content('Favoritas do Ofertus')
       new_user = User.last
       invited_by.inviteds.count.should == 1
       invited_by.inviteds.last.should == new_user

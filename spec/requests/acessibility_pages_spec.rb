@@ -30,7 +30,7 @@ describe "Acessibility Pages" do
 
     it 'should be able to see all but admin pages' do
       visit root_path
-      should have_content('Favoritas da equipe')
+      should have_content('Favoritas do Ofertus')
       visit deals_path
       should have_content('Ofertas')
       visit users_path
@@ -107,7 +107,7 @@ describe "Acessibility Pages" do
 
     it 'should be able to see only public pages' do
       visit root_path
-      should have_content('Favoritas da equipe')
+      should have_content('Favoritas do Ofertus')
       visit deals_path
       should have_content('Ofertas')
       visit users_path

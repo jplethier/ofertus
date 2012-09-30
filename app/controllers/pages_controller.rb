@@ -3,7 +3,7 @@ class PagesController < ApplicationController
 
   def home
     @current_tab = 'home'
-    @deals = Deal.active.top.limit(6)
+    @top_deals = Deal.active.top.limit(6)
     @users = User.random.limit(3)
   end
 

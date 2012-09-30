@@ -75,9 +75,17 @@
           padding-top: 40px;
         }
 
+        a.deals_header_btn:hover {
+          background: image-url('tag_hover.png') no-repeat 3px 2px;
+        }
+
         a.users_header_btn {
           background: image-url('user.png') no-repeat 13px 0;
           padding-top: 40px;
+        }
+
+        a.users_header_btn:hover {
+          background: image-url('user_hover.png') no-repeat;
         }
 
         a.search_header_btn {

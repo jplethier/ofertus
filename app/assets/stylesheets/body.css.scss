@@ -31,7 +31,16 @@ body {
           display: inline-block;
           float: left;
           color: #5D5D5D;
-          font-family: 'Helvetica';
+        }
+
+        a {
+          font-size: 20px;
+          line-height: 35px;
+          display: inline-block;
+          float: left;
+          color: #5D5D5D;
+          text-decoration: none;
+          margin-right: 65px;
         }
       }
     }

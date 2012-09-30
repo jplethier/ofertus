@@ -16,18 +16,34 @@ body {
 
     .top_user {
       float: left;
-      width: 300px;
-      border-right: 1px dashed #E0E0E0;
-      margin-left: 33px;
-      padding-right: 33px;
+      width: 321px;
+      margin-left: 15px;
+      padding-right: 15px;
 
       .left{
         float: left;
         margin-left: 10px;
+
+        a.user_picture {
+
+          img {
+            border: 3px solid white;
+            max-width: 80px;
+            max-height: 80px;
+          }
+        }
         
         h3 {
-          width: 225px;
-          padding-bottom: 10px;
+          width: 215px;
+          padding-bottom: 2px;
+
+          a {
+            font-size: 24px;
+          }
+        }
+
+        span {
+          font-size: 16px;
         }
       }
     }
@@ -37,7 +53,24 @@ body {
       float: left;
       margin-left: 25px;
       position: relative;
-      font-family: 'Helvetica';
+
+      .price_and_discount {
+        position: absolute;
+        top: 0;
+        left: 1px;
+        background-color: rgba(240,240,240,.6);
+        padding: 10px;
+        display: none;
+
+        .price {
+          float: left;
+          color: #5d5d5d;
+
+          span.from {
+            text-decoration: line-through;
+          }
+        }
+      }
     }
 
     .small_deal {
@@ -46,22 +79,10 @@ body {
       height: 203px;
 
       .price_and_discount {
-        position: absolute;
-        top: 0;
-        left: 1px;
-        width: 99%;
+        width: 90%;
         height: 30px;
-        background-color: rgba(240,240,240,.5);
-        padding: 10px;
 
         .price {
-          float: left;
-          font-family: 'Helvetica';
-          color: #5d5d5d;
-
-          span.from {
-            text-decoration: line-through;
-          }
 
           span.by {
             font-size: 16px;
@@ -69,8 +90,17 @@ body {
         }
 
         .discount {
-          float: right;
-          background: image-url('');
+          background: image-url('small_offer_discount.png') no-repeat;
+          width: 28px;
+          height: 24px;
+          position: absolute;
+          top: 4px;
+          right: 5px;
+          padding: 9px 8px;
+          font-family: 'Lobster';
+          font-size: 18px;
+          color: #95A450;
+          text-align: center;
         }
       }
 
@@ -87,7 +117,7 @@ body {
       h4 {
 
         a {
-          font-family: 'Helvetica';
+          font-family: 'Colaborate-Thin';
           font-size: 15px;
           text-decoration: none;
           color: #444;
@@ -105,7 +135,7 @@ body {
           a {
             text-decoration: none;
             color: #444;
-            font-family: 'Helvetica';
+            font-family: 'Colaborate-Thin';
           }
         }
 
@@ -142,6 +172,19 @@ body {
       background: image-url('bg_big_deal.png') -30px -27px no-repeat;
       height: 293px;
 
+      .price_and_discount {
+        width: 93%;
+        height: 22px;
+
+        .price {
+          font-size: 18px;
+
+          span {
+            margin-left: 5px;
+          }
+        }
+      }
+
       .image {
         height: 200px;
         margin: 0 auto;
@@ -161,7 +204,7 @@ body {
           height: 35px;
 
           a {
-            font-family: 'Helvetica';
+            font-family: 'Colaborate-Thin';
             font-size: 15px;
             text-decoration: none;
             color: #444;
@@ -184,7 +227,7 @@ body {
           a {
             text-decoration: none;
             color: #444;
-            font-family: 'Helvetica';
+            font-family: 'Colaborate-Thin';
           }
         }
       }
@@ -198,6 +241,7 @@ body {
         width: 37px;
         height: 36px;
         padding: 17px 15px;
+        text-align: center;
       }
 
       .interactions {
@@ -223,6 +267,12 @@ body {
           padding-left: 16px;
           margin-left: 10px;
         }
+      }
+    }
+
+    .small_deal:hover, .top_deal:hover {
+      .price_and_discount {
+        display: block;
       }
     }
 
@@ -273,8 +323,7 @@ body {
         background: url(partners/next_logo.png) no-repeat;
         right: 5px;
         display: block !important;
-      }
-      
+      } 
     }
   }
 
@@ -294,36 +343,6 @@ body {
   #search_users {
     width: 290px;
     margin: 0 auto 30px;
-
-    .border-input-busca {
-      border: 3px solid #F6F6F6;
-      overflow: hidden;
-      margin-bottom: 20px;
-
-      .input-tx {
-        text-transform: uppercase;
-        background: #F6F6F6;
-        font-size: 11px;
-        color: #666;
-        border: none;
-        float: left;
-        padding: 11px 5px 10px;
-        width: 240px;
-      }
-
-      .submit {
-        width: 33px;
-        height: 33px;
-        float: right;
-        border: none;
-        background: url(bts-input.gif) no-repeat;
-      }
-    }
-  }
-
-  #search_users {
-    width: 290px;
-    margin: 0 auto;
 
     .border-input-busca {
       border: 3px solid #F6F6F6;

@@ -1,6 +1,9 @@
 #header {
   height:100px;
   background: #2d2d2d;
+  position: fixed;
+  width: 100%;
+  z-index: 150;
 
   .content {
     width:1040px;

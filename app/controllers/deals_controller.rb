@@ -49,7 +49,7 @@ class DealsController < AuthorizedController
   def show
     @comment = Comment.new
     @title = @deal.title
-    @description = @deal.title
+    @description = @deal.title + ' - ' + Deal.i18n_category(@deal.category)
   end
 
   def share

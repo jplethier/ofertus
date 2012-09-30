@@ -26,6 +26,7 @@
   .ttGlHome
     %h2= t('strings.who_is_using')
     %h3= t('strings.follow_who_share_good_offers')
+    = link_to t('strings.invite_friends'), users_path, class: 'invite_friends'
   .list-conteudo
     - @users.each_with_index do |user, index|
       %div{ :class => "top_user #{index == 0 || index == 3 ? 'first' : (index == 2 || index == 5 ? 'last' : '')}" }

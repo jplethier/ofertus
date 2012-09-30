@@ -94,6 +94,31 @@ body {
         height: 36px;
         padding: 17px 15px;
       }
+
+      .interactions {
+        float: right;
+        width: 74px;
+        margin-top: 5px;
+
+        .love_icon, .report_icon {
+          width: 10px;
+          height: 16px;
+          display: block;
+          float: left;
+          padding-left: 25px;
+        }
+
+        .love_icon {
+          background: image-url('love_count_icon.png') no-repeat;
+        }
+
+        .report_icon {
+          background: image-url('report_count_icon.png') no-repeat;
+          height: 18px;
+          padding-left: 16px;
+          margin-left: 10px;
+        }
+      }
     }
 
     .first {

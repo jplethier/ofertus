@@ -8,11 +8,3 @@
 
     #menu-login
       = render 'devise/menu/login_items'
-
-    #icon-redes
-      %a{ href: "https://twitter.com/#!/ofertusbr", class: "bt-twitter" }
-      %a{ href: "https://www.facebook.com/OfertUs", class: "bt-face" }
-      / %a{ href: "", class: "bt-google" }
-    
-    - unless @current_tab == 'home'
-      %a{ href: "javascript:;", class: "bt-compartilhe-off", onclick: "$('#box-compartilhe').slideToggle();" }

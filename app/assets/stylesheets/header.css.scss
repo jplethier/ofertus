@@ -12,7 +12,7 @@
 
     #search_form_div {
       position: fixed;
-      top: 99px;
+      top: 98px;
       right: 193px;
       display: none;
       width: 289px;
@@ -48,12 +48,12 @@
     #search_form_div::before {
       content: "";
       position: absolute;
-      top: -18px;
+      top: -13px;
       left: 50%;
       width: 100px;
-      height: 20px;
+      height: 13px;
       margin: 0 0 0 -50px;
-      background: white;  
+      background: white;
     }
 
     #search_form_div::after {
@@ -61,12 +61,25 @@
       position: absolute;
       top: -20px;
       left: 0;
-      width: 58%;
+      width: 59%;
       height: 20px;
-      background: #2D2D2D;
+      background: #2d2d2d;
       -webkit-border-bottom-right-radius: 15px;
       -moz-border-radius-bottomright: 15px;
       border-bottom-right-radius: 15px;
+    }
+
+    #search_form_div_after {
+      content: "";
+      position: absolute;
+      top: -20px;
+      right: 0;
+      width: 41%;
+      height: 20px;
+      background: #2d2d2d;
+      -webkit-border-bottom-left-radius: 15px;
+      -moz-border-radius-bottomleft: 15px;
+      border-bottom-left-radius: 15px;
     }
     
 

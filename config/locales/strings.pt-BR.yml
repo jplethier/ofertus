@@ -1,7 +1,7 @@
 "pt-BR":
   strings:
     about_me: 'Um pouco sobre mim'
-    about_the_site: "Sobre a plataforma"
+    about: 'Sobre'
     active_offers: 'Ofertas Ativas'
     best_offers: "Melhores Ofertas"
     by_price: 'Por %{price}'
@@ -14,12 +14,12 @@
     day_offers: "Ofertas do Dia"
     description: "Descrição da Oferta"
     discount: "Desconto %{discount}"
-    downvote: 'Não Gostei!'
     edit: 'Editar'
     edit_informations: 'Edite suas informações'
     end_date: "Válida até %{end_date}"
     fill_fields: 'Preencha os campos abaixo'
     fill_fields_to_share: "Compartilhe uma oferta preenchendo os campos abaixo e clicando em 'Confirmar'"
+    follow_us: 'Siga nossas redes'
     follow_who_share_good_offers: 'siga quem compartilha boas ofertas'
     followed_by_one_user: "1 seguidor!"
     followed_by_x_users: "%{x} seguidores!"
@@ -28,6 +28,7 @@
     forgot_password: 'Recuperar senha'
     from_price: 'De %{price}'
     getting_paid: "Recebendo comissão sobre as ofertas compartilhadas"
+    help: 'Ajuda'
     help_informations: "Informações - Ajuda"
     how_it_works: 'Como funciona?'
     interation_with_offers: "Interação com as Ofertas"
@@ -46,7 +47,9 @@
     original_price: "Preço original<span>%{price}</span>"
     our_team_recomendations: 'recomendações da nossa equipe'
     our_users_recomendations: 'ofertas que nossos usuários adoram'
+    partners: 'Parceiros'
     paste_deal_url: "copie a url da oferta aqui para compartilhar!"
+    privacy: 'Privacidade'
     recent: 'Últimas Cadastradas'
     recent_deals: 'ofertas saídas do forno'
     register_offer: 'Cadastre uma oferta'
@@ -57,7 +60,9 @@
     security: "Segurança"
     shared_by: "Compartilhada por:"
     sharing_offers: "Compartilhando Ofertas"
+    special_discounts: 'para descontos especiais'
     talk_with_us: "Fale Conosco"
+    terms: 'Termos de Uso'
     to_search: "Buscar"
     undo_downvote: 'Não Gostei!(Desfazer)'
     undo_upvote: 'Gostei!(Desfazer)'

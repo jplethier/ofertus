@@ -35,4 +35,8 @@ class PagesController < ApplicationController
     @title = 'Como funciona'
     @description = 'Descubra como o Ofertus funciona e como é fácil você compartilhar e ganhar comissão através das suas ofertas.'
   end
+
+  def partners
+    
+  end
 end

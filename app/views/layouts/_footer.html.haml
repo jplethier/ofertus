@@ -1,71 +1,15 @@
+#pre_footer
+  .infos
+    %h3= t('strings.follow_us')
+    .social
+      %a.facebook{ href: 'http://www.facebook.com.br/ofertus', target: '_blank' }
+      %a.twitter{ href: 'https://twitter.com/#!/ofertusbr', target: 'blank' }
+    %h3= t('strings.special_discounts')
 #footer
-  #ft-center
-    .left
-      %h3= t('footer.about')
-      %ul
-        %li
-          %a{ :href => "/whoarewe" }= t('footer.who_are_we')
-        %li
-          %a{ :href => "/how_it_works" }= t('footer.how_it_works')
-        %li
-          %a{ :href => "http://blog.ofertus.com.br", :target => '_blank'}= t('footer.blog')
-
-    .left.cat-left
-      %h3= t('footer.categories')
-      %ul
-        %li
-          %a{ :href => "deals/active/restaurant" }= Deal.i18n_category(Deal::CATEGORY_RESTAURANT)
-        %li
-          %a{ :href => "deals/active/beauty_and_health" }= Deal.i18n_category(Deal::CATEGORY_BEAUTY_AND_HEALTH)
-        %li
-          %a{ :href => "deals/active/computer" }= Deal.i18n_category(Deal::CATEGORY_COMPUTER)
-        %li
-          %a{ :href => "deals/active/entertainment" }= Deal.i18n_category(Deal::CATEGORY_ENTERTAINMENT)
-        %li
-          %a{ :href => "deals/active/home_and_appliance" }= Deal.i18n_category(Deal::CATEGORY_HOME_AND_APPLIANCE)
-        %li
-          %a{ :href => "deals/active/travel" }= Deal.i18n_category(Deal::CATEGORY_TRAVEL)
-
-    .left
-      %h3 &nbsp;
-      %ul
-        %li
-          %a{ :href => "deals/active/home_and_decoration" }= Deal.i18n_category(Deal::CATEGORY_HOME_AND_DECORATION)
-        %li
-          %a{ :href => "deals/active/clothes" }= Deal.i18n_category(Deal::CATEGORY_CLOTHES)
-        %li
-          %a{ :href => "deals/active/culture" }= Deal.i18n_category(Deal::CATEGORY_CULTURE)
-        %li
-          %a{ :href => "deals/active/car" }= Deal.i18n_category(Deal::CATEGORY_CAR)
-        %li
-          %a{ :href => "deals/active/others" }= Deal.i18n_category(Deal::CATEGORY_OTHER)
-
-    .left.cat-last
-      %h3= t('footer.informations')
-      %ul
-        %li
-          %a{ :href => "/help" }= t('footer.help')
-      %br
-
-      %h3= t('footer.contact')
-      %ul
-        %li
-          %a{ :href => "http://ofertus.uservoice.com/" }= t('footer.talk_with_us')
-        %li
-          / %a{ :href => "http://blog.ofertus.com.br"}= t('footer.follow_our_blog')
-      %br
-      %br
-      %br
-
-      %a.crie-perfil{ :href => new_registration_path('user') }= t('footer.signup')
-      %a.crie-perfil{ :href => new_session_path('user') }= t('footer.signin')
-
-    .clear
-
-/   .copyright
-/     %ul.intern
-/       %li &copy;2011 ofertus
-/       %li
-/         %a{ :href => "/pages/termsofuse" }= I18n.t('actions.terms_of_use')
-/       %li
-/         %a{ :href => "/pages/privacypolicy" }= I18n.t('actions.privacy_policy')
+  %ul
+    %li= link_to t('strings.about'), whoarewe_path
+    %li= link_to t('strings.partners'), partners_path
+    %li= link_to t('strings.privacy'), privacypolicy_path
+    %li= link_to t('strings.terms'), termsofuse_path
+    %li= link_to t('strings.help'), help_path
+    %li.last= link_to t('strings.talk_with_us'), 'http://ofertus.uservoice.com/', target: '_blank'

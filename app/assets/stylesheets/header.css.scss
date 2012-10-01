@@ -10,6 +10,66 @@
     margin:0 auto;
     position: relative;
 
+    #search_form_div {
+      position: fixed;
+      top: 99px;
+      right: 193px;
+      display: none;
+      width: 289px;
+      z-index: 151;
+      background: white;
+      padding: 5px;
+
+      .border-input-busca {
+        border: 3px solid #F6F6F6;
+        overflow: hidden;
+
+        .input-tx {
+          text-transform: uppercase;
+          background: #F6F6F6;
+          font-size: 11px;
+          color: #666;
+          border: none;
+          float: left;
+          padding: 11px 5px 10px;
+          width: 240px;
+        }
+
+        .submit {
+          width: 33px;
+          height: 33px;
+          float: right;
+          border: none;
+          background: url(bts-input.gif) no-repeat;
+        }
+      }
+    }
+
+    #search_form_div::before {
+      content: "";
+      position: absolute;
+      top: -18px;
+      left: 50%;
+      width: 100px;
+      height: 20px;
+      margin: 0 0 0 -50px;
+      background: white;  
+    }
+
+    #search_form_div::after {
+      content: "";
+      position: absolute;
+      top: -20px;
+      left: 0;
+      width: 58%;
+      height: 20px;
+      background: #2D2D2D;
+      -webkit-border-bottom-right-radius: 15px;
+      -moz-border-radius-bottomright: 15px;
+      border-bottom-right-radius: 15px;
+    }
+    
+
     .logo {
       width:378px;
       float: left;

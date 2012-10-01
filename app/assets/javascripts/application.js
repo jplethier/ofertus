@@ -17,42 +17,46 @@
 //= require_tree .
 
 $(document).ready(function() {
-    $('#help dd').hide();
+  $('#header_search_btn').click(function(){
+    $('#search_form_div').toggle();
+  });
 
-    $('#help dt a').click(function(){
-      if ($($('#help dt a')[0]).hasClass("ativo")) {
-        $(this).removeClass('ativo');
-      } else {
-        $(this).addClass('ativo');
-      }
+  $('#help dd').hide();
 
-      $(this).parent().next('dd').slideToggle('slow');
-    });
+  $('#help dt a').click(function(){
+    if ($($('#help dt a')[0]).hasClass("ativo")) {
+      $(this).removeClass('ativo');
+    } else {
+      $(this).addClass('ativo');
+    }
 
-    setTimeout(hideFlashes, 2500);
+    $(this).parent().next('dd').slideToggle('slow');
+  });
 
-    $("#slides").slides({
-      generatePagination: true,
-      play: 5000,
-      pause: 2500,
-      hoverPause: true,
-      animationComplete: function(current){
-        // Set the slide number as a hash
-        window.location.hash = '#' + current;
-      }
-    });
+  setTimeout(hideFlashes, 2500);
 
-    $("#partners_list").carouFredSel({
-      circular : true,
-      infinite : true,
-      auto : false,
-      prev : "#partners_list_prev",
-      next : "#partners_list_next",
-      scroll : {
-        items : 1
-      }
-    });
- });
+  $("#slides").slides({
+    generatePagination: true,
+    play: 5000,
+    pause: 2500,
+    hoverPause: true,
+    animationComplete: function(current){
+      // Set the slide number as a hash
+      window.location.hash = '#' + current;
+    }
+  });
+
+  // $("#partners_list").carouFredSel({
+  //   circular : true,
+  //   infinite : true,
+  //   auto : false,
+  //   prev : "#partners_list_prev",
+  //   next : "#partners_list_next",
+  //   scroll : {
+  //     items : 1
+  //   }
+  // });
+});
 
 var hideFlashes = function() {
   $('#flash_notice, #flash_warning, #flash_error').fadeOut(1500);

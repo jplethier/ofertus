@@ -1,28 +1,23 @@
-- if user_signed_in?
-  %ul
-    %li
-      %span
-        Olá
-        = current_user.name
-    
-    - if current_user.admin?
-      %li= link_to t("actions.admin"), admin_root_path, :class => "#{ @current_tab == 'admin' ? 'active' : ''}"
+%ul
+  %li
+    %a{ :href => deals_path, :class => "deals_header_btn #{ @current_tab == 'deals' ? 'active' : ''}" }
+      %span= t('actions.deals')
 
-    %li= link_to t("actions.my_profile"), user_path(current_user.username), :class => "#{ @current_tab == 'my_profile' ? 'active' : ''}"
-    %li= link_to t("actions.share_an_offer"), new_deal_path, :class => "#{ @current_tab == 'new_deal' ? 'active' : ''}"
-    %li= link_to t("actions.logout"), destroy_user_session_path
-- else
-  %ul
-    %li
-      %a{ :href => deals_path, :class => "deals_header_btn #{ @current_tab == 'deals' ? 'active' : ''}" }
-        %span= t('actions.deals')
+  %li
+    %a{ :href => users_path, :class => "users_header_btn #{ @current_tab == 'deals' ? 'active' : ''}" }
+      %span= t('actions.users')
 
-    %li
-      %a{ :href => users_path, :class => "users_header_btn #{ @current_tab == 'deals' ? 'active' : ''}" }
-        %span= t('actions.users')
+  %li
+    %a#header_search_btn{ :href => 'javascript:;', :class => "search_header_btn #{ @current_tab == 'deals' ? 'active' : ''}" }
+      %span= t('actions.search')
+  
+  - if user_signed_in?
 
-    %li
-      %a{ :href => deals_path, :class => "search_header_btn #{ @current_tab == 'deals' ? 'active' : ''}" }
-        %span= t('actions.search')
-        
+  - else
     %li= link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
+
+#search_form_div
+  %form{ :id => "search_form", :action => deals_path, :method => "get", :class => "search"}
+    .border-input-busca
+      = text_field_tag :search, params[:search], :class => "input-tx", :placeholder => 'Pesquisa'
+      %input{ :type => "submit", :value => "", :class => "submit", :id => 'search_button'}

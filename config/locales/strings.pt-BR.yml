@@ -3,6 +3,7 @@
     about_me: 'Um pouco sobre mim'
     about: 'Sobre'
     active_offers: 'Ofertas Ativas'
+    all: 'Ver Todos'
     best_offers: "Melhores Ofertas"
     by_price: 'Por %{price}'
     category: "Categoria: %{category}"
@@ -13,6 +14,7 @@
     credit_x: "Saldo <span>%{x}</span>"
     day_offers: "Ofertas do Dia"
     description: "Descrição da Oferta"
+    detailed_share: '...ou em alguns cliques a mais'
     discount: "Desconto %{discount}"
     edit: 'Editar'
     edit_informations: 'Edite suas informações'
@@ -31,6 +33,7 @@
     help: 'Ajuda'
     help_informations: "Informações - Ajuda"
     how_it_works: 'Como funciona?'
+    how_to_share: 'cole seu link ou preencha os campos'
     interation_with_offers: "Interação com as Ofertas"
     invite_friends: 'Convidar Amigos'
     last_shared: 'Últimas ofertas'
@@ -38,7 +41,7 @@
     making_friends: "Interação entre os usuários"
     more: 'Ver mais'
     most_commented: "+ Comentadas"
-    new_offer: 'Nova Oferta'
+    new_deal: 'Cadastro de Oferta'
     new_user: 'Novo Usuário'
     offer_price: "Preço oferta<span>%{price}</span>"
     ofertus_top: 'Favoritas do Ofertus'
@@ -50,6 +53,8 @@
     partners: 'Parceiros'
     paste_deal_url: "copie a url da oferta aqui para compartilhar!"
     privacy: 'Privacidade'
+    quick_share: 'Cadastre em um só clique...'
+    quick_share_description: 'Visite um de nossos parceiros abaixo e escolha uma oferta. Não se esqueça que uma oferta tem que ter um <u>preço promocional</u>! Em seguida, copie o link, cole abaixo e pressione OK!'
     recent: 'Últimas Cadastradas'
     recent_deals: 'ofertas saídas do forno'
     register_offer: 'Cadastre uma oferta'
@@ -61,6 +66,8 @@
     shared_by: "Compartilhada por:"
     sharing_offers: "Compartilhando Ofertas"
     special_discounts: 'para descontos especiais'
+    suggestions: 'Sugestões de Ofertas'
+    suggestions_tip: 'prefere comprar? Sinta-se à vontade!'
     talk_with_us: "Fale Conosco"
     terms: 'Termos de Uso'
     to_search: "Buscar"

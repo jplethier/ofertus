@@ -31,37 +31,29 @@ class Deal < ActiveRecord::Base
   #TODO: refatorar para utilizar a tradução para buscar por id
   CATEGORIES_DICTIONARY = {"restaurant" => CATEGORY_RESTAURANT, "beauty_and_health" => CATEGORY_BEAUTY_AND_HEALTH, "culture" => CATEGORY_CULTURE, "home_and_appliance" => CATEGORY_HOME_AND_APPLIANCE, "computer" => CATEGORY_COMPUTER, "clothes" => CATEGORY_CLOTHES, "travel" => CATEGORY_TRAVEL, "car" => CATEGORY_CAR, "others" => CATEGORY_OTHER, "home_and_decoration" => CATEGORY_HOME_AND_DECORATION, "entertainment" => CATEGORY_ENTERTAINMENT}
 
-  KIND_OFFER = 1
-  KIND_DAILY_DEAL = 2
-  KIND_ON_SALE = 3
-
-  KINDS = [ KIND_OFFER, KIND_DAILY_DEAL, KIND_ON_SALE ]
-
   belongs_to :city
   belongs_to :user
 
   validates :category,        :presence => true,        :inclusion => CATEGORIES
   validates :company,         :presence => true
   validates :description,     :presence => true,        :length => { :maximum => 7000 }
-  validates :discount,        :presence => true,        :if => "on_sale? && new_record?"
   validates :end_date,        :presence => true,        :date => {:after_or_equal_to => Time.zone.now.beginning_of_day}
   validates :image_url,       :format => /(^$)|(^https?:\/\/.+)/
-  validates :kind,            :presence => true,        :inclusion => KINDS
   validates :link,            :presence => true,        :uniqueness => true,  :format => /^https?:\/\/.+/
-  validates :price,           :numericality => true,    :unless => "on_sale?"
-  validates :real_price,      :numericality => true,    :unless => "on_sale?"
-  validates :real_price,      :greater_than => :price,  :if => "price? and real_price?"
+  validates :price,           :numericality => true
+  validates :real_price,      :numericality => true
+  validates :real_price,      :greater_than => :price
 
   validates :title,       :presence => true,      :length => { :maximum => 255 }
   validates :city_id,     :presence => true
   validates :user,        :presence => true
 
   # VALIDAÇÕES PARA A MÁSCARA DE PREÇO
-  validates :price_mask,  :presence => true,      :unless => "on_sale? || price? || !new_record?"
-  validates :real_price_mask,  :presence => true, :unless => "on_sale? || real_price? || !new_record?"
+  validates :price_mask,  :presence => true
+  validates :real_price_mask,  :presence => true
 
-  after_validation :calculate_discount, :if => "real_price? and price? and not on_sale?"
-  before_validation :prices_to_number, :if => "not on_sale?"
+  after_validation :calculate_discount, :if => "real_price? and price?"
+  before_validation :prices_to_number
   before_validation :set_national_offer, :if => "self.city_id.nil?"
   before_create :add_affiliate_code_to_link
   before_validation :set_default_date, :if => "self.end_date.nil?"
@@ -190,10 +182,6 @@ class Deal < ActiveRecord::Base
   end
 
   private
-
-  def on_sale?
-    self.kind == KIND_ON_SALE
-  end
 
   def to_number(mask)
     return mask.gsub(/[^\d]/,'').to_f/100

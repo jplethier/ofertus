@@ -245,7 +245,7 @@
         category: "Categoria"
         city: "Cidade"
         city_id: "Cidade"
-        company: "Empresa/Site"
+        company: "Empresa Anunciante"
         description: "Descrição"
         discount: "Desconto"
         end_date: "Data de Validade"

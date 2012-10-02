@@ -1,0 +1,103 @@
+body {
+  #sem-col {
+    .new_deal_left, .new_deal_right {
+      font-family: 'Colaborate-Thin', 'Helvetica Neue';
+      background: image-url('bg-html.jpg');
+      width: 48%;
+      font-size: 14px;
+
+      .title {
+        font-family: 'Colaborate-Thin', 'Helvetica Neue';
+        background: #2d2d2d;
+        width: 98%;
+        height: 17px;
+        text-transform: uppercase;
+        color: white;
+        padding: 5px;
+      }
+    }
+
+    .new_deal_left {
+      float: left;
+      
+      .description {
+        padding: 15px;
+      }
+
+      #box-compartilhe_2 {
+        display: block;
+        background: transparent;
+        width: 360px;
+        margin: 0 auto;
+
+        .border-input-busca {
+          overflow:hidden;
+          margin-bottom:20px;
+          float:right;
+        }
+
+        .input-tx {
+          background: #f6f6f6;
+          font-family: 'Colaborate-Thin';
+          text-transform:uppercase;
+          font-size:11px;
+          color: #666;
+          border:none;
+          float: left;
+          padding:11px 5px 10px;
+          width: 291px;
+          border-radius: 0;
+          margin: 0;
+        }
+
+        .submit {
+          width:33px;
+          height:33px;
+          text-transform:uppercase;
+          font-weight: normal;
+          float:right;
+          color: #e1e1e1;
+          border:none;
+          background:#2D2D2D;
+        }
+      }
+
+      .partners_list {
+        padding: 10px;
+
+        h4 {
+          font-size: 14px;
+          display: inline-block;
+          float: left;
+          color: #5D5D5D;
+        }
+
+        a {
+          font-size: 14px;
+          display: inline-block;
+          float: right;
+          color: #5D5D5D;
+          text-decoration: none;
+          margin-right: 65px;
+        }
+
+        ul {
+          margin-bottom: 30px;
+          margin-top: 30px;
+          clear: both;
+          list-style: none;
+          display: inline-block;
+
+          li {
+            float: left;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+
+    .new_deal_right {
+      float: right;
+    }
+  }
+}

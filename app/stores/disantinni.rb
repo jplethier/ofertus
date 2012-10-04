@@ -14,7 +14,6 @@ class Disantinni
       #TODO: falta colocar a imagem para funcionar
       deal.image_url = page.at_css("#pcPrincipalGrande")[:src] if page.at_css("#pcPrincipalGrande")
       deal.company = "Di Santinni"
-      deal.kind = Deal::KIND_OFFER
     end
 
     deal

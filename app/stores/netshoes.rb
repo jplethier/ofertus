@@ -14,8 +14,7 @@ class Netshoes
     end
     deal.company = "Netshoes"
     deal.category = Deal::CATEGORY_CLOTHES
-    deal.kind = Deal::KIND_OFFER
-
+    
     deal
   end
 end

@@ -14,8 +14,7 @@ class Mobly
     end
     deal.category = Deal::CATEGORY_OTHER
     deal.company = "Mobly"
-    deal.kind = Deal::KIND_OFFER
-
+    
     deal
   end
   

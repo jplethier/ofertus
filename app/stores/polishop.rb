@@ -14,8 +14,7 @@ class Polishop
       deal.image_url = page.at_css("#image-main")[:src].try(:strip) if page.at_css("#image-main")
     end
     deal.company = "Polishop"
-    deal.kind = Deal::KIND_OFFER
-
+    
     # puts "-"*100
     # puts "INICIO DA BUSCA NA PAGINA"
     # puts "-"*100

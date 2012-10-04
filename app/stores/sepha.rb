@@ -14,8 +14,7 @@ class Sepha
       deal.image_url = "http:" + page.at_css("#imagem_descricao")[:src].try(:strip) if page.at_css("#imagem_descricao")
     end
     deal.company = "Sepha"
-    deal.kind = Deal::KIND_OFFER
-
+    
     deal
 
     # puts "-"*100

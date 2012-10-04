@@ -42,8 +42,7 @@ class PontoFrio
       deal.image_url = page.at_css("#divFullImage").at_xpath(".//img")["src"].try(:strip) if page.at_css("#divFullImage") && page.at_css("#divFullImage").at_xpath(".//img")
     end
     deal.company = "Ponto Frio"
-    deal.kind = Deal::KIND_OFFER
-
+    
     deal
   end
 end

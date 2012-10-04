@@ -28,8 +28,7 @@ class PeixeUrbano
       #  end
       end
     end
-    deal.kind = Deal::KIND_DAILY_DEAL
-
+    
     deal
   end
   

@@ -14,8 +14,7 @@ class Submarino
       deal.image_url = page.at_css("#baseImg")[:src].try(:strip) if page.at_css("#baseImg")
     end
     deal.company = "Submarino"
-    deal.kind = Deal::KIND_OFFER
-
+    
     deal
   end
 end

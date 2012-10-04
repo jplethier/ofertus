@@ -14,8 +14,7 @@ class GiulianaFlores
       deal.image_url = page.at_css("#ctl00_ContentSite_vmcImage_imgProductBig")[:src] if page.at_css("#ctl00_ContentSite_vmcImage_imgProductBig")
     end
     deal.company = "Giuliana Flores"
-    deal.kind = Deal::KIND_OFFER
-
+    
     deal
   end
 end

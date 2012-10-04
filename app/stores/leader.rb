@@ -39,8 +39,7 @@ class Leader
       deal.image_url = page.at_css(".fotoPrincipal").at_xpath(".//img")[:src].try(:strip) if page.at_css(".fotoPrincipal") && page.at_css(".fotoPrincipal").at_xpath(".//img")
     end
     deal.company = "Leader"
-    deal.kind = Deal::KIND_OFFER
-
+    
     deal
   end  
 end

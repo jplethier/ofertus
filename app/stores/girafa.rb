@@ -26,8 +26,7 @@ class Girafa
       deal.image_url = "http://www.girafa.com.br" + page.at_css(".gobig-view").at_xpath("img")[:src].try(:strip) if page.at_css(".gobig-view") && page.at_css(".gobig-view").at_xpath("img")
     end
     deal.company = "Girafa"
-    deal.kind = Deal::KIND_OFFER
-
+    
     # puts "-"*100
     # puts "INICIO DA BUSCA NA PAGINA"
     # puts "-"*100

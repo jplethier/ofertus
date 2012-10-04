@@ -32,7 +32,6 @@ class FastShop
       deal.image_url = page.at_css(".photo").at_xpath(".//input")[:src] if page.at_css(".photo") && page.at_css(".photo").at_xpath(".//input")
     end
     deal.company = "Fast Shop"
-    deal.kind = Deal::KIND_OFFER
     deal
   end
 end

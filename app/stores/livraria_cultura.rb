@@ -14,8 +14,7 @@ class LivrariaCultura
     end
     deal.category = Deal::CATEGORY_CULTURE
     deal.company = "Livraria Cultura"
-    deal.kind = Deal::KIND_OFFER
-
+    
     deal
   end  
 end

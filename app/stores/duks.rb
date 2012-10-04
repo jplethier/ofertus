@@ -17,7 +17,6 @@ class Duks
       deal.image_url = "http://www.duks.com.br" + page.at_css(".MagicZoom").at_xpath(".//img")[:src][2..-1] if page.at_css(".MagicZoom") && page.at_css(".MagicZoom").at_xpath(".//img")
       deal.category = Deal::CATEGORY_BEAUTY_AND_HEALTH
       deal.company = "Duks Perfumaria"
-      deal.kind = Deal::KIND_OFFER
     end
 
     deal

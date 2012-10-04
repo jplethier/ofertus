@@ -38,7 +38,6 @@ class Americanas
       deal.category = CATEGORIES[page.at_css(".category").try(:text).try(:strip).sub(">","")] if page.at_css(".category")
       deal.image_url = page.at_css("#imgProduto")["src"].try(:strip) if page.at_css("#imgProduto")
       deal.company = "Americanas"
-      deal.kind = Deal::KIND_OFFER
     end
 
     deal

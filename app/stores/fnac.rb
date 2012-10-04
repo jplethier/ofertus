@@ -30,8 +30,7 @@ class Fnac
     end
 
     deal.company = "FNAC"
-    deal.kind = Deal::KIND_OFFER
-
+    
     # puts "-"*100
     # puts "INICIO DA BUSCA NA PAGINA"
     # puts "-"*100

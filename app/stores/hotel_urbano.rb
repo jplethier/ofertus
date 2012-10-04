@@ -26,8 +26,7 @@ class HotelUrbano
     #  if deal.city
     #    deal.city_id = deal.city.id
     #  end
-    deal.kind = Deal::KIND_DAILY_DEAL
-
+    
     deal
   end
 end

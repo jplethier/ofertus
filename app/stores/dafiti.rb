@@ -13,7 +13,6 @@ class Dafiti
       deal.category = Deal::CATEGORY_CLOTHES
       deal.image_url = page.at_css("#product-image-image")[:src].try(:strip) if page.at_css("#product-image-image")
       deal.company = "Dafiti"
-      deal.kind = Deal::KIND_OFFER
     end
 
     # puts "-"*100

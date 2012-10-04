@@ -15,7 +15,6 @@ class Saraiva
     end
     
     deal.company = "Saraiva"
-    deal.kind = Deal::KIND_OFFER
 
     deal
   end

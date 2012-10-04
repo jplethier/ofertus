@@ -47,7 +47,6 @@ class CompraFacil
       deal.category = CATEGORIES[page.at_css("#breadCrumb").at_xpath(".//ul/li/a").try(:text).try(:strip)] if page.at_css("#breadCrumb") && page.at_css("#breadCrumb").at_xpath(".//ul/li/a") && page.at_css("#breadCrumb").at_xpath(".//ul/li/a").try(:text)
       deal.image_url = page.at_css(".imagens-maisInfo").at_xpath(".//img")[:src].try(:strip) if page.at_css(".imagens-maisInfo") && page.at_css(".imagens-maisInfo").at_xpath(".//img")
       deal.company = "Compra Fácil"
-      deal.kind = Deal::KIND_OFFER
     end
 
     deal

@@ -15,8 +15,7 @@ class LojasMm
       deal.image_url = page.at_css("#ProdutoImagemAux")["src"].try(:strip) if page.at_css("#ProdutoImagemAux")
     end
     deal.company = "Lojas MM"
-    deal.kind = Deal::KIND_OFFER
-
+    
     deal
   end
 end

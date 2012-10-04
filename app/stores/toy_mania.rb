@@ -14,8 +14,7 @@ class ToyMania
     end
     deal.category = Deal::CATEGORY_OTHER
     deal.company = "Toy Mania"
-    deal.kind = Deal::KIND_OFFER
-
+    
     deal
   end
   

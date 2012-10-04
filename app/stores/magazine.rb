@@ -38,8 +38,7 @@ class Magazine
       deal.image_url = page.at_css(".imagem_produto").at_xpath(".//img")[:src].try(:strip) if page.at_css(".imagem_produto") && page.at_css(".imagem_produto").at_xpath(".//img")
     end
     deal.company = "Magazine Luiza"
-    deal.kind = Deal::KIND_OFFER
-
+    
     deal
   end
 end

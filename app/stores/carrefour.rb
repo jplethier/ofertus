@@ -41,7 +41,6 @@ class Carrefour
       deal.image_url = page.at_css(".lp-prod").at_xpath(".//img")[:src] if page.at_css(".lp-prod")
       deal.image_url = page.at_css(".viewBoxMedia").at_xpath(".//img")[:src] if page.at_css(".viewBoxMedia")
       deal.company = "Carrefour"
-      deal.kind = Deal::KIND_OFFER
     end
 
     deal

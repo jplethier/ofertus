@@ -18,7 +18,21 @@
 
 $(document).ready(function() {
   $('#header_search_btn').click(function(){
+    $('#user_menu_options').hide();
+    $('#settings_menu_options').hide();
     $('#search_form_div').toggle();
+  });
+
+  $('#user_menu_link').click(function(){
+    $('#search_form_div').hide();
+    $('#settings_menu_options').hide();
+    $('#user_menu_options').toggle();
+  });
+
+  $('#settings_menu_link').click(function(){
+    $('#search_form_div').hide();
+    $('#user_menu_options').hide();
+    $('#settings_menu_options').toggle();
   });
 
   $('#help dd').hide();

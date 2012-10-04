@@ -320,6 +320,7 @@ DEPENDENCIES
   airbrake
   annotate (>= 2.5.0.pre1)
   awesome_print
+  bourbon
   cancan
   capybara
   ckeditor

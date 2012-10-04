@@ -11,16 +11,21 @@
     comments: 'Comentários'
     company: "Empresa: %{company}"
     creating_a_profile: "Criando meu perfil"
+    credit: 'Saldo'
     credit_x: "Saldo <span>%{x}</span>"
     day_offers: "Ofertas do Dia"
+    deals: 'Ofertas'
     description: "Descrição da Oferta"
     detailed_share: '...ou em alguns cliques a mais'
     discount: "Desconto %{discount}"
     edit: 'Editar'
     edit_informations: 'Edite suas informações'
+    edit_profile: 'Meus Dados'
     end_date: "Válida até %{end_date}"
     fill_fields: 'Preencha os campos abaixo'
     fill_fields_to_share: "Compartilhe uma oferta preenchendo os campos abaixo e clicando em 'Confirmar'"
+    followers: 'Seguidores'
+    following: 'Seguindo'
     follow_us: 'Siga nossas redes'
     follow_who_share_good_offers: 'siga quem compartilha boas ofertas'
     followed_by_one_user: "1 seguidor!"
@@ -38,9 +43,11 @@
     invite_friends: 'Convidar Amigos'
     last_shared: 'Últimas ofertas'
     login_with_facebook: 'Entrar com facebook'
+    logout: 'Sair'
     making_friends: "Interação entre os usuários"
     more: 'Ver mais'
     most_commented: "+ Comentadas"
+    my_profile: 'Meu Perfil'
     new_deal: 'Cadastro de Oferta'
     new_user: 'Novo Usuário'
     offer_price: "Preço oferta<span>%{price}</span>"
@@ -63,6 +70,7 @@
     search_offer: 'Pesquise uma oferta'
     search_options: "Opções de Busca"
     security: "Segurança"
+    settings: 'Configurações'
     shared_by: "Compartilhada por:"
     sharing_offers: "Compartilhando Ofertas"
     special_discounts: 'para descontos especiais'

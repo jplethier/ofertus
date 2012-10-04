@@ -13,7 +13,7 @@
     #search_form_div {
       position: fixed;
       top: 98px;
-      right: 193px;
+      right: 207px;
       display: none;
       width: 289px;
       z-index: 151;
@@ -82,6 +82,62 @@
       border-bottom-left-radius: 15px;
     }
     
+    #user_menu_options, #settings_menu_options {
+      display: none;
+      width: 120px;
+      min-height: 90px;
+      background: #0098be;
+      position: absolute;
+      top: 90px;
+      @include border-radius(5px);
+      padding: 10px;
+
+      ul {
+        list-style: none;
+        color: white;
+
+        li {
+          clear: both;
+          width: 100%;
+          margin: 0;
+          padding: 10px 0;
+          border-bottom: 1px solid rgba(255,255,255,.2);
+          text-transform: uppercase;
+
+          a {
+            color: white;
+          }
+        }
+
+        li.first {
+          padding-top: 0;
+        }
+
+        li.last {
+          border-bottom: none;
+        }
+      }
+    }
+
+    #user_menu_options {
+      right: 40px;
+    }
+
+    #settings_menu_options {
+      right: -22px;
+    }
+
+    #user_menu_options:after, #settings_menu_options:after {
+      content: "";
+      position: absolute;
+      left: 40%;
+      border-width: 0 9px 15px;
+      border-style: solid;
+      border-color: #0098be transparent;
+      display: block;
+      width: 0;
+      top: -10px;
+    }
 
     .logo {
       width:378px;
@@ -104,7 +160,7 @@
 
       li {
         float: left;
-        padding:0 16px 0 0;
+        padding:0 10px 0 0;
         display: block;
         margin-top: 50px;
 
@@ -173,6 +229,31 @@
           background: image-url('search_hover.png') no-repeat 2px 1px;
           padding-top: 40px;
         }
+
+        a.user_menu {
+          img {
+            border-radius: 10px;
+          }
+        }
+
+        a.settings_menu {
+          background: image-url('settings.png') no-repeat;
+          width: 34px;
+          height: 36px;
+          display: block;
+          text-indent: -15000px;
+          margin-top: 10px;
+        }
+      }
+
+      li.no_margin_top {
+        margin-top: 10px;
+      }
+
+      li.settings {
+        border-left: 1px solid #595959;
+        padding-left: 10px;
+        height: 50px;
       }
     }
 
@@ -199,42 +280,6 @@
           }
         }
       }
-    }
-
-    #icon-redes {
-      position:absolute;
-      top:67px;
-      right:0;
-
-      a {
-        float: left;
-        width:35px;
-        height:35px;
-        margin-right:4px;
-        background: url(icon-redes.png) no-repeat;
-      }
-
-      .bt-twitter {
-        background-position:0 0;
-      }
-
-      .bt-face {
-        background-position:-39px 0;
-      }
-
-      .bt-google {
-        background-position:-78px 0;
-        margin-right:0;
-      }
-    }
-
-    .bt-compartilhe-off { 
-      position:absolute;
-      background: url(bt-compartilhe-off.png) no-repeat;
-      bottom:0;
-      right:0;
-      width:193px;
-      height:26px;
     }
   }
 

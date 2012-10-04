@@ -12,7 +12,8 @@
       %span= t('actions.search')
   
   - if user_signed_in?
-
+    %li.no_margin_top= link_to image_tag(current_user.facebook_profile_picture :square), 'javascript:;', class: 'user_menu', id: 'user_menu_link'
+    %li.no_margin_top.settings= link_to t('strings.settings'), 'javascript:;', class: 'settings_menu', id: 'settings_menu_link'
   - else
     %li= link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
 
@@ -23,3 +24,17 @@
       %input{ :type => "submit", :value => "", :class => "submit", :id => 'search_button'}
 
   #search_form_div_after
+
+- if user_signed_in?
+  #user_menu_options
+    %ul
+      %li.first= link_to t('strings.my_profile'), user_path(current_user.username)
+      %li= link_to t('strings.deals'), '#'
+      %li= link_to t('strings.following'), '#'
+      %li= link_to t('strings.followers'), '#'
+      %li.last= t('strings.credit')
+  #settings_menu_options
+    %ul
+      %li.first= link_to t('strings.edit_profile'), edit_user_registration_path
+      %li= link_to t('strings.help'), help_path
+      %li.last= link_to t('strings.logout'), destroy_user_session_path

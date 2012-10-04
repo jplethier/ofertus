@@ -5,6 +5,7 @@ gem 'activeadmin'
 gem 'acts_as_commentable'
 gem 'airbrake'
 gem 'annotate', ">= 2.5.0.pre1"
+gem 'bourbon'
 gem 'cancan'
 gem 'ckeditor'
 gem 'coffee-script'

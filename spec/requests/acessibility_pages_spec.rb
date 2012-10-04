@@ -60,7 +60,7 @@ describe "Acessibility Pages" do
       visit unvote_deal_path(deal)
       should have_content('Voto apagado com sucesso')
       visit new_deal_path
-      should have_content('Nova Oferta')
+      should have_content('Cadastro de Oferta')
       visit edit_user_registration_path
       should have_content('Edite suas informações')
       visit admin_deals_path

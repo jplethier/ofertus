@@ -18,7 +18,6 @@ describe Deal do
       it { should allow_mass_assignment_of(:discount) }
       it { should allow_mass_assignment_of(:end_date) }
       it { should allow_mass_assignment_of(:image_url) }
-      it { should allow_mass_assignment_of(:kind) }
       it { should allow_mass_assignment_of(:link) }
       it { should allow_mass_assignment_of(:price) }
       it { should allow_mass_assignment_of(:real_price) }
@@ -67,8 +66,6 @@ describe Deal do
           deal.end_date.day.should == Date.tomorrow.day
         end
       end
-
-      it { should validate_presence_of(:kind) }
 
       describe "#link" do
         it { should validate_presence_of(:link) }

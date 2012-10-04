@@ -59,9 +59,8 @@ describe "New Deal Page" do
         should have_css('p input#deal_image_url', :type => :text)
         should have_css('p label', :for => "deal_company", :text => 'Empresa Anunciante')
         should have_css('p input#deal_company', :type => :text)
-        should have_css('p#p_deal_city')
-        should have_css('p#p_deal_city label', :for => "deal_city_id")
-        should have_css('p#p_deal_city select#deal_city_id')
+        should have_css('p label', :for => "deal_city_id")
+        should have_css('p select#deal_city_id')
       end
     end
   end

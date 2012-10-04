@@ -107,6 +107,23 @@
           a {
             color: white;
           }
+
+          span {
+            float: right;
+            font-weight: bold;
+          }
+
+          span.number {
+            background: black;
+            padding: 3px 5px;
+            margin-top: -3px;
+            @include border-radius(2px);
+          }
+
+          span.credit {
+            font-size: 10pt;
+            color: #00cc00;
+          }
         }
 
         li.first {

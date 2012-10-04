@@ -29,10 +29,18 @@
   #user_menu_options
     %ul
       %li.first= link_to t('strings.my_profile'), user_path(current_user.username)
-      %li= link_to t('strings.deals'), '#'
-      %li= link_to t('strings.following'), '#'
-      %li= link_to t('strings.followers'), '#'
-      %li.last= t('strings.credit')
+      %li
+        = t('strings.deals')
+        %span.number= current_user.deals.count
+      %li
+        = t('strings.following')
+        %span.number= current_user.following.count
+      %li
+        = t('strings.followers')
+        %span.number= current_user.followers.count
+      %li.last
+        = t('strings.credit')
+        %span.credit= number_to_currency current_user.credit
   #settings_menu_options
     %ul
       %li.first= link_to t('strings.edit_profile'), edit_user_registration_path

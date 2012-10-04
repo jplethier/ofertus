@@ -161,11 +161,16 @@
         }
 
         a.users_header_btn:hover {
-          background: image-url('user_hover.png') no-repeat;
+          background: image-url('user_hover.png') no-repeat 3px 0;
         }
 
         a.search_header_btn {
           background: image-url('search.png') no-repeat 9px 0;
+          padding-top: 40px;
+        }
+
+        a.search_header_btn:hover {
+          background: image-url('search_hover.png') no-repeat 2px 1px;
           padding-top: 40px;
         }
       }

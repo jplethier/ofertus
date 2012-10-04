@@ -127,56 +127,36 @@ describe Deal do
           deal.should_not be_valid
         end
       end
-    end
-  end
 
-  shared_examples_for "Not On Sale Deals" do
+      describe "validations" do
+        it "real_price should be greater than price" do
+          deal.real_price_mask = "2,00"
+          deal.price = "1,00"
+          deal.should be_valid
+        end
+        it "real_price shouldn't be equal to price" do
+          deal.real_price_mask = "1,00"
+          deal.price_mask = "1,00"
+          deal.should_not be_valid
+        end
+        it "real_price shouldn't be smaller than price" do
+          deal.real_price_mask = "1,00"
+          deal.price_mask = "2,00"
+          deal.should_not be_valid
+        end
 
-    describe "validations" do
-      it "real_price should be greater than price" do
-        deal.real_price_mask = "2,00"
-        deal.price = "1,00"
-        deal.should be_valid
+        it { should validate_presence_of :real_price_mask }
+        it { should validate_presence_of :price_mask }
+        it { should_not validate_presence_of :discount }
       end
-      it "real_price shouldn't be equal to price" do
-        deal.real_price_mask = "1,00"
-        deal.price_mask = "1,00"
-        deal.should_not be_valid
-      end
-      it "real_price shouldn't be smaller than price" do
-        deal.real_price_mask = "1,00"
-        deal.price_mask = "2,00"
-        deal.should_not be_valid
-      end
-
-      it { should validate_presence_of :real_price_mask }
-      it { should validate_presence_of :price_mask }
-      it { should_not validate_presence_of :discount }
-    end
-  end
-
-  describe "On Sale Deals" do
-    let(:deal) { FactoryGirl.build :deal_on_sale }
-    subject { deal }
-
-    it_should_behave_like "All Deals"
-
-    describe "Validations" do
-      it { should validate_presence_of(:discount) }
-
-      it { should_not validate_numericality_of(:real_price) }
-      it { should_not validate_numericality_of(:price) }
-      it { should_not validate_presence_of(:real_price_mask) }
-      it { should_not validate_presence_of(:price_mask) }
     end
   end
 
   describe "Deals Offer" do
-    let(:deal) { FactoryGirl.build :deal_offer }
+    let(:deal) { FactoryGirl.build :deal }
     subject { deal }
 
     it_should_behave_like "All Deals"
-    it_should_behave_like "Not On Sale Deals"
 
     describe "Validations" do
       it "should require a price" do
@@ -194,47 +174,6 @@ describe Deal do
           deal.valid?
         end
 
-        it "should calculate the percentage of discount" do
-          deal.real_price = 2
-          deal.price = 1.5
-          deal.calculate_discount
-
-          deal.discount.should == 25
-        end
-
-        it "should not calculate if there is no real_price" do
-          deal.real_price = nil
-          deal.discount = nil
-          deal.calculate_discount
-
-          deal.discount.should == nil
-        end
-      end
-    end
-  end
-
-  describe "Daily Deals" do
-    let(:deal) { FactoryGirl.build :daily_deal }
-    subject { deal }
-
-    it_should_behave_like "All Deals"
-    it_should_behave_like "Not On Sale Deals"
-
-    describe "Validations" do
-      it "should require a price if the kind is daily deal" do
-        deal.price_mask = nil
-        deal.should_not be_valid
-      end
-
-      it "should be required when the kind is daily deal" do
-        deal.real_price_mask = nil
-        deal.should_not be_valid
-      end
-      describe "#calculate_discount" do
-        it "should be calculated on validation" do
-          deal.should_receive(:calculate_discount)
-          deal.valid?
-        end
         it "should calculate the percentage of discount" do
           deal.real_price = 2
           deal.price = 1.5
@@ -409,49 +348,6 @@ describe Deal do
     end
   end
 
-  describe "KINDS" do
-    it "should return all kinds" do
-      Deal::KINDS.should =~ [1, 2, 3]
-    end
-
-    specify "OFFER: should be equal 1" do
-      Deal::KIND_OFFER.should == 1
-    end
-
-    specify "DAILY_DEAL: should be equal 2" do
-      Deal::KIND_DAILY_DEAL.should == 2
-    end
-
-    specify "ON_SALE: should be equal 3" do
-      Deal::KIND_ON_SALE.should == 3
-    end
-
-    describe "i18n" do
-      specify "i18n_kinds should return all kinds' i18n name" do
-        kinds = []
-        Deal::KINDS.each do |id|
-          kinds << [Deal.i18n_kind(id), id]
-        end
-
-        Deal.i18n_kinds.should =~ kinds
-      end
-
-      describe "pt-BR" do
-        specify "OFFER: should be equal 'Ofertas'" do
-          Deal.i18n_kind(Deal::KIND_OFFER).should == 'Ofertas'
-        end
-
-        specify "DAILY_DEAL: should be equal 'Compras Coletivas'" do
-          Deal.i18n_kind(Deal::KIND_DAILY_DEAL).should == 'Compras Coletivas'
-        end
-
-        specify "ON_SALE: should be equal 'Liquidação'" do
-          Deal.i18n_kind(Deal::KIND_ON_SALE).should == 'Liquidação'
-        end
-      end
-    end
-  end
-
   describe 'search queries' do
     let(:deal) { FactoryGirl.build :deal }
     subject { deal }
@@ -484,19 +380,6 @@ describe Deal do
       new_deal.save
       new_deal.reload
       Deal.by_cities([deal.city_id, new_deal.city_id]).recent.should == [new_deal, deal]
-    end
-
-    it 'by kind' do
-      deal.kind = Deal::KIND_OFFER
-      deal.save
-      deal.reload
-      Deal.by_kind(Deal::KIND_OFFER).should == [deal]
-      new_deal = FactoryGirl.create(:deal, :category => Deal::KIND_OFFER)
-      Deal.by_kind(Deal::KIND_OFFER).recent.should == [new_deal, deal]
-      new_deal.kind = Deal::KIND_DAILY_DEAL
-      new_deal.save
-      new_deal.reload
-      Deal.by_kind(Deal::KIND_OFFER).recent.should == [deal]
     end
 
     it 'by link' do

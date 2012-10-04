@@ -42,7 +42,7 @@ class Deal < ActiveRecord::Base
   validates :link,            :presence => true,        :uniqueness => true,  :format => /^https?:\/\/.+/
   validates :price,           :numericality => true
   validates :real_price,      :numericality => true
-  validates :real_price,      :greater_than => :price
+  validates :real_price,      :greater_than => :price, :if => "self.price && self.real_price"
 
   validates :title,       :presence => true,      :length => { :maximum => 255 }
   validates :city_id,     :presence => true
@@ -116,10 +116,6 @@ class Deal < ActiveRecord::Base
 
   def self.i18n_categories
     Deal::CATEGORIES.collect {|id| [Deal.i18n_category(id), id]}
-  end
-
-  def self.i18n_kinds
-    Deal::KINDS.collect {|id| [Deal.i18n_kind(id), id]}
   end
 
   def already_shared?

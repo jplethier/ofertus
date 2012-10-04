@@ -59,7 +59,7 @@ class Deal < ActiveRecord::Base
   before_validation :set_default_date, :if => "self.end_date.nil?"
 
   attr_accessor :price_mask, :real_price_mask
-  attr_accessible :address, :category, :city_id, :company, :description, :discount, :end_date, :image_url, :kind, :link, :price, :price_mask, :real_price, :real_price_mask, :title, :user_id, :ofertus_top
+  attr_accessible :address, :category, :city_id, :company, :description, :discount, :end_date, :image_url, :link, :price, :price_mask, :real_price, :real_price_mask, :title, :user_id, :ofertus_top
 
   scope :recent, order("deals.created_at DESC")
   scope :lowest_price, order("deals.price ASC")
@@ -88,10 +88,6 @@ class Deal < ActiveRecord::Base
     where(:city_id => cities_id)
   end
 
-  def self.by_kind(kind)
-    where(:kind => kind)
-  end
-
   def self.by_link(link)
     where(:link => link).first
   end
@@ -108,10 +104,6 @@ class Deal < ActiveRecord::Base
 
   def self.i18n_category(category)
     I18n.t("models.deal.category.#{category}")
-  end
-
-  def self.i18n_kind(kind)
-    I18n.t("models.deal.kind.#{kind}")
   end
 
   def self.i18n_categories

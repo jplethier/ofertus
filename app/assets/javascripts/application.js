@@ -59,17 +59,6 @@ $(document).ready(function() {
       window.location.hash = '#' + current;
     }
   });
-
-  // $("#partners_list").carouFredSel({
-  //   circular : true,
-  //   infinite : true,
-  //   auto : false,
-  //   prev : "#partners_list_prev",
-  //   next : "#partners_list_next",
-  //   scroll : {
-  //     items : 1
-  //   }
-  // });
 });
 
 var hideFlashes = function() {

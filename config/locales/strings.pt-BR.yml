@@ -18,6 +18,7 @@
     description: "Descrição da Oferta"
     detailed_share: '...ou em alguns cliques a mais'
     discount: "Desconto %{discount}"
+    dislike: 'Adorar(Desfazer)'
     edit: 'Editar'
     edit_informations: 'Edite suas informações'
     edit_profile: 'Meus Dados'
@@ -42,6 +43,7 @@
     interation_with_offers: "Interação com as Ofertas"
     invite_friends: 'Convidar Amigos'
     last_shared: 'Últimas ofertas'
+    like: 'Adorar'
     login_with_facebook: 'Entrar com facebook'
     logout: 'Sair'
     making_friends: "Interação entre os usuários"
@@ -66,6 +68,7 @@
     recent_deals: 'ofertas saídas do forno'
     register_offer: 'Cadastre uma oferta'
     remember_me: 'Mantenha-me conectado'
+    report: 'Denunciar'
     resend_confirmation: 'Reenviar confirmação'
     search_offer: 'Pesquise uma oferta'
     search_options: "Opções de Busca"
@@ -79,9 +82,7 @@
     talk_with_us: "Fale Conosco"
     terms: 'Termos de Uso'
     to_search: "Buscar"
-    undo_downvote: 'Não Gostei!(Desfazer)'
-    undo_upvote: 'Gostei!(Desfazer)'
-    upvote: 'Gostei!'
+    unreport: 'Denunciar(Desfazer)'
     username: "Username: %{username}"
     users: "Usuários"
     users_best: 'Mais Adoradas'

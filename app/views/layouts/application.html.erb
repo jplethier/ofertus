@@ -70,9 +70,7 @@
 
     <%= render 'layouts/header' %>
 
-    <%- if @current_tab == 'home' -%>
-      <%= render 'header_home' %>
-    <%- end -%>
+    <%= yield :page_head %>
 
     <div class='clear'>
     </div>

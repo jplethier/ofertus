@@ -1,5 +1,14 @@
 body {
 
+  a.user_picture {
+
+    img {
+      border: 3px solid white;
+      max-width: 80px;
+      max-height: 80px;
+    }
+  }
+
   #all {
     font-family: 'Colaborate-Thin';
     background: image-url('bg2.png');

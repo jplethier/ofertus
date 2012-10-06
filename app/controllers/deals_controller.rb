@@ -68,23 +68,29 @@ class DealsController < AuthorizedController
   end
 
   def upvote
-    current_user.up_vote(@deal)
-    if current_user.provider? && current_user.facebook_vote_offer && FbGraph::User.me(current_user.access_token).permissions.include?(:status_update)
-      me = FbGraph::User.me(current_user.access_token)
-      me.feed!(:message => current_user.name + " gostou de uma oferta no Ofertus", :link => deal_url(@deal), :description => @deal.description, :picture => ( @deal.image_url ? @deal.image_url : "http://www.ofertus.com.br/assets/logo_beta.png"))
+    if current_user.up_vote(@deal)
+      if current_user.provider? && current_user.facebook_vote_offer && FbGraph::User.me(current_user.access_token).permissions.include?(:status_update)
+        me = FbGraph::User.me(current_user.access_token)
+        me.feed!(:message => current_user.name + " adorou uma oferta no Ofertus", :link => deal_url(@deal), :description => @deal.description, :picture => ( @deal.image_url ? @deal.image_url : "http://www.ofertus.com.br/assets/logo_beta.png"))
+      end
+      redirect_to deal_path(@deal), :notice => "Oferta adorada com sucesso."
+    else
+      redirect_to deal_path(@deal), :error => "Desculpe, ocorreu um erro ao tentar adorar a oferta, nos comunique para que possamos corrigir."
     end
-    redirect_to deal_path(@deal), :notice => "Voto computado com sucesso!"
   rescue MakeVoteable::Exceptions::AlreadyVotedError
-    redirect_to deal_path(@deal), :error => "Voto já computado anteriormente."
+    redirect_to deal_path(@deal), :error => "Oferta já adorada."
   end
 
   def downvote
-    current_user.down_vote(@deal)
-    if current_user.provider? && current_user.facebook_vote_offer && FbGraph::User.me(current_user.access_token).permissions.include?(:status_update)
-      me = FbGraph::User.me(current_user.access_token)
-      me.feed!(:message => current_user.name + " não gostou de uma oferta no Ofertus", :link => deal_url(@deal), :description => @deal.description, :picture => ( @deal.image_url ? @deal.image_url : "http://www.ofertus.com.br/assets/logo_beta.png"))
+    if current_user.down_vote(@deal)
+      if current_user.provider? && current_user.facebook_vote_offer && FbGraph::User.me(current_user.access_token).permissions.include?(:status_update)
+        me = FbGraph::User.me(current_user.access_token)
+        me.feed!(:message => current_user.name + " denunciou uma oferta no Ofertus", :link => deal_url(@deal), :description => @deal.description, :picture => ( @deal.image_url ? @deal.image_url : "http://www.ofertus.com.br/assets/logo_beta.png"))
+      end
+      redirect_to deal_path(@deal), :notice => "Voto computado com sucesso!"
+    else
+      redirect_to deal_path(@deal), :error => "Desculpe, ocorreu um erro ao tentar denunciar a oferta, nos comunique para que possamor corrigir."
     end
-    redirect_to deal_path(@deal), :notice => "Voto computado com sucesso!"
   rescue MakeVoteable::Exceptions::AlreadyVotedError
     redirect_to deal_path(@deal), :error => "Voto já computado anteriormente."
   end

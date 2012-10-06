@@ -25,8 +25,31 @@
       = render @deal.comments
 
   .clear
+
+  .who_likes
+    .ttGlHome
+      %h2= t('strings.who_likes')
+      %h3= t('strings.which_users_liked')
+    .list-conteudo
+      - @deal.who_likes.each_with_index do |user, index|
+        - if user.provider?
+          = link_to(image_tag(user.facebook_profile_picture("normal"), :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture")
+        - else
+          = link_to(image_tag(user.gravatar_url(:size => 80), :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture")
+
+  .similar_offers
+    .ttGlHome
+      %h2= t('strings.similar_offers')
+      %h3= t('strings.who_likes_me_also_like_this')
+    .list-conteudo.best_deals
+      - @deal.similar_offers.each_with_index do |deal, index|
+        = render :partial => 'deals/small_deal', :locals => {:deal => deal, :index => index }
+
+  .more_offers
+    .ttGlHome
+      %h2= t('strings.more_offers')
+    .list-conteudo#home_list
+      - Deal.active.random.limit(6).each_with_index do |deal, index|
+        = render :partial => 'deals/top_deal', :locals => {:deal => deal, :index => index }
+
 .clear
-/       = render 'shared/add_this'
-/           
-/             .go_to_website= link_to "Ir para o site", @deal.link, :class => "button", :target => "_blank"
-/       

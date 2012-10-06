@@ -37,7 +37,7 @@ class Deal < ActiveRecord::Base
   validates :category,        :presence => true,        :inclusion => CATEGORIES
   validates :company,         :presence => true
   validates :description,     :presence => true,        :length => { :maximum => 7000 }
-  validates :end_date,        :presence => true,        :date => {:after_or_equal_to => Time.zone.now.beginning_of_day}
+  validates :end_date,        :presence => true,        :date => {:after_or_equal_to => Time.zone.now.beginning_of_day}, :if => 'self.new_record?'
   validates :image_url,       :format => /(^$)|(^https?:\/\/.+)/
   validates :link,            :presence => true,        :uniqueness => true,  :format => /^https?:\/\/.+/
   validates :price,           :numericality => true
@@ -49,8 +49,8 @@ class Deal < ActiveRecord::Base
   validates :user,        :presence => true
 
   # VALIDAÇÕES PARA A MÁSCARA DE PREÇO
-  validates :price_mask,  :presence => true
-  validates :real_price_mask,  :presence => true
+  validates :price_mask,  :presence => true, :if => 'self.new_record?'
+  validates :real_price_mask,  :presence => true, :if => 'self.new_record?'
 
   after_validation :calculate_discount, :if => "real_price? and price?"
   before_validation :prices_to_number
@@ -67,6 +67,7 @@ class Deal < ActiveRecord::Base
   scope :highest_discount, order("deals.discount DESC")
   scope :best_deals, order("deals.up_votes DESC")
   scope :most_commented, order("(select count(comments.id) from comments where comments.commentable_id = deals.id) DESC")
+  scope :random, order('RANDOM()')
 
   scope :today, where("deals.created_at >= ?", Time.zone.now.beginning_of_day)
   scope :active, where("deals.end_date >= ?", Time.zone.now.beginning_of_day)
@@ -74,6 +75,26 @@ class Deal < ActiveRecord::Base
   scope :inactive, where("deals.end_date < ?", Time.zone.now.beginning_of_day)
   scope :top, where(:ofertus_top => true)
 
+
+  def who_likes
+    who_likes = []
+    self.votings.each do |vote|
+      who_likes << vote.voter if vote.up_vote?
+    end
+    who_likes
+  end
+
+  def similar_offers
+    similar_offers = []
+    who_likes.each do |user|
+      user.votings.each do |vote|
+        unless vote.voteable == self
+          similar_offers << vote.voteable if vote.up_vote?
+        end
+      end
+    end
+    similar_offers.uniq
+  end
 
   def self.by_category(category)
     where(:category => category)

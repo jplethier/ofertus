@@ -1,8 +1,18 @@
-#col-left
-  .ttGlHome
-    %h2= t('strings.new_user')
+#sem-col
 
-  .page-login
+  .signup_description
+    .ttGlHome
+      %h2= t('strings.signup_title')
+    .message= t('strings.signup_message')
+    = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
+    .or_background= t('strings.or')
+
+    = link_to t('strings.register_using_email'), "javascript:;", id: 'email_register'
+    .already_member
+      = t('strings.already_a_member')
+      = link_to 'Entre aqui', new_user_session_path
+
+  .page-login{ :style => 'display: none;' }
     %h3{ :style => 'margin-bottom: 0;' }= t('strings.fill_fields')
     %h3{ :style => 'margin-bottom: 0;' }= 'ou'
     .fb-login-button
@@ -67,8 +77,10 @@
         /  %img{ :src => "../simpleCaptcha", :class => "captcha" }
         /  %input{ :type => "text", :tabindex => "10", :class => "captcha", :maxlength => "10"}
 
-#col-right
-  .list-box-sidebar.sidebar-last
-    :plain
-      <div class="fb-like-box" data-href="https://www.facebook.com/OfertUs" data-width="292" data-colorscheme="dark" data-show-faces="true" data-stream="true" data-header="true"></div>
 .clear
+
+
+:javascript
+  $('#email_register').click(function(){
+    $('.page-login').show()
+  });

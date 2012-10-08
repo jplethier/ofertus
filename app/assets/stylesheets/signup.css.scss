@@ -1,0 +1,80 @@
+body {
+  #sem-col {
+    .signup_description {
+      display: block;
+      margin: 0 auto;
+      width: 456px;
+      height: 376px;
+      background: image-url('signup_background.png') no-repeat;
+
+      .ttGlHome {
+        width: 148px;
+        margin: 0 auto;
+        height: 50px;
+
+        h2 {
+          padding-top: 15px;
+          font-size: 45px;
+          color: white;
+          background: transparent;
+        }
+      }
+
+      div {
+        color: white;
+        font-family: 'Colaborate Thin';
+        font-size: 14pt;
+        margin: 20px auto;
+        width: 286px;
+      }
+
+      a#email_register {
+        color: white;
+        width: 234px;
+        display: block;
+        margin: 40px auto 30px;
+        font-size: 13pt;
+        text-decoration: none;
+      }
+
+      a#email_register:hover {
+        text-decoration: underline;
+      }
+
+      a.facebook_login_button {
+        text-indent: -15000px;
+        overflow: hidden;
+        display: block;
+        width: 256px;
+        height: 37px;
+        background: image-url('home_login_fb.png') no-repeat;
+        margin: 30px auto;
+      }
+
+      .or_background {
+        background: image-url('or_background.png') no-repeat;
+        width: 412px;
+        text-align: center;
+        line-height: 1px;
+        margin-top: 45px;
+        margin-bottom: 45px;
+      }
+
+      .already_member {
+        color: black;
+        font-family: 'Colaborate Thin';
+        width: 185px;
+        margin-top: 3em;
+
+        a {
+          color: white;
+          text-decoration: none;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

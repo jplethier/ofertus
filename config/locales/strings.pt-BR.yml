@@ -4,6 +4,7 @@
     about: 'Sobre'
     active_offers: 'Ofertas Ativas'
     all: 'Ver Todos'
+    already_a_member: 'Já é membro?'
     best_offers: "Melhores Ofertas"
     by_price: 'Por %{price}'
     category: "Categoria: %{category}"
@@ -57,6 +58,7 @@
     ofertus_top: 'Favoritas do Ofertus'
     old_deals: 'Ofertas Passadas'
     one_shared_offer: "1 oferta compartilhada!"
+    or: 'ou'
     original_price: "Preço original<span>%{price}</span>"
     our_team_recomendations: 'recomendações da nossa equipe'
     our_users_recomendations: 'ofertas que nossos usuários adoram'
@@ -68,6 +70,7 @@
     recent: 'Últimas Cadastradas'
     recent_deals: 'ofertas saídas do forno'
     register_offer: 'Cadastre uma oferta'
+    register_using_email: 'Crie uma conta usando seu email'
     remember_me: 'Mantenha-me conectado'
     report: 'Denunciar'
     resend_confirmation: 'Reenviar confirmação'
@@ -75,6 +78,8 @@
     search_options: "Opções de Busca"
     security: "Segurança"
     settings: 'Configurações'
+    signup_message: 'Cadastre-se para acessar nossas ofertas'
+    signup_title: 'Entrada'
     similar_offers: 'Ofertas Como Essa'
     shared_by: "Compartilhada por:"
     sharing_offers: "Compartilhando Ofertas"

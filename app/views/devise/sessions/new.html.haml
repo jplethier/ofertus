@@ -1,12 +1,10 @@
-#col-left
-  .ttGlHome
-    %h2= t('strings.login')
-
-  .page-login
-    %h3{ :style => 'margin-bottom: 0;' }= t('strings.fill_fields')
-    %h3{ :style => 'margin-bottom: 0;' }= "ou"
-    .fb-login-button
-      = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
+#sem-col
+  .signup_description
+    .ttGlHome
+      %h2= t('strings.signup_title')
+    .message= t('strings.signup_message')
+    = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
+    .or_background= t('strings.or')
 
     .ct-inputs-login
       = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
@@ -28,11 +26,6 @@
 
 
     = render :partial => "devise/shared/links"
-
-#col-right
-  .list-box-sidebar.sidebar-last
-    :plain
-      <div class="fb-like-box" data-href="https://www.facebook.com/OfertUs" data-width="292" data-colorscheme="dark" data-show-faces="true" data-stream="true" data-header="true"></div>
 .clear
 
 / :plain

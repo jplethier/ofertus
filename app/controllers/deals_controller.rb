@@ -87,12 +87,12 @@ class DealsController < AuthorizedController
         me = FbGraph::User.me(current_user.access_token)
         me.feed!(:message => current_user.name + " denunciou uma oferta no Ofertus", :link => deal_url(@deal), :description => @deal.description, :picture => ( @deal.image_url ? @deal.image_url : "http://www.ofertus.com.br/assets/logo_beta.png"))
       end
-      redirect_to deal_path(@deal), :notice => "Voto computado com sucesso!"
+      redirect_to deal_path(@deal), :notice => "Oferta denunciada com sucesso."
     else
       redirect_to deal_path(@deal), :error => "Desculpe, ocorreu um erro ao tentar denunciar a oferta, nos comunique para que possamor corrigir."
     end
   rescue MakeVoteable::Exceptions::AlreadyVotedError
-    redirect_to deal_path(@deal), :error => "Voto já computado anteriormente."
+    redirect_to deal_path(@deal), :error => "Oferta já denunciada."
   end
 
   def feed

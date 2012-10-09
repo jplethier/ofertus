@@ -47,14 +47,14 @@ describe "Active Deals Page" do
       within "#col-left .list-conteudo" do
         click_link active_deal.title
       end
-      should have_css('#sem-col .detalhe-oferta')
+      should have_css('.offer_details .detalhe-oferta')
     end
 
     it "should go to deal's page when I click in deal's picture" do
       within "#col-left .list-conteudo" do
         click_link 'deal_photo'
       end
-      should have_css('#sem-col .detalhe-oferta')
+      should have_css('.offer_details .detalhe-oferta')
     end
   end
 

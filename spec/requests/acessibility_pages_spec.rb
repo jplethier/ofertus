@@ -54,9 +54,9 @@ describe "Acessibility Pages" do
       visit deal_path(deal)
       should have_content(deal.title)
       visit upvote_deal_path(deal)
-      should have_content('Voto computado com sucesso')
+      should have_content('Oferta adorada com sucesso')
       visit downvote_deal_path(deal)
-      should have_content('Voto computado com sucesso')
+      should have_content('Oferta denunciada com sucesso')
       visit unvote_deal_path(deal)
       should have_content('Voto apagado com sucesso')
       visit new_deal_path
@@ -127,7 +127,7 @@ describe "Acessibility Pages" do
       visit("/invite/#{user.username}asdasd")
       current_path.should == root_path
       visit new_user_session_path
-      should have_content('Login')
+      should have_content('Entrada')
       visit new_user_password_path
       should have_content('Recuperar senha')
       visit deal_path(deal)

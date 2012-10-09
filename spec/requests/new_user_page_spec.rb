@@ -11,7 +11,6 @@ describe "Signup Page" do
   end
 
   it { should have_content('Novo Usuário') }
-  it { should have_content('Preencha os campos abaixo') }
   it { should have_link('Entrar com facebook', :href => '/users/auth/facebook') }
 
   describe 'creating a user' do

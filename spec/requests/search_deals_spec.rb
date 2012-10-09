@@ -15,8 +15,9 @@ describe "Search Deals" do
     visit deals_path
   end
 
-  describe 'searching by part of title' do
+  describe 'searching by part of title', :js => true do
     it 'find something' do
+      click_on 'header_search_btn'
       fill_in 'search', :with => 'titu'
       click_on 'search_button'
       should have_content('Ofertas Ativas')
@@ -36,6 +37,7 @@ describe "Search Deals" do
     end
 
     it 'find nothing' do
+      click_on 'header_search_btn'
       fill_in 'search', :with => 'inexistente'
       click_on 'search_button'
       should have_content('Ofertas Ativas')
@@ -50,6 +52,7 @@ describe "Search Deals" do
 
   describe 'searching by description' do
     it 'find something' do
+      click_on 'header_search_btn'
       fill_in 'search', :with => 'desc'
       click_on 'search_button'
       should have_content('Ofertas Ativas')
@@ -69,6 +72,7 @@ describe "Search Deals" do
     end
 
     it 'find nothing' do
+      click_on 'header_search_btn'
       fill_in 'search', :with => 'descriçao'
       click_on 'search_button'
       should have_content('Ofertas Ativas')

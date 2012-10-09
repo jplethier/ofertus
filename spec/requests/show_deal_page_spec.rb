@@ -22,7 +22,7 @@ describe "Show deal page" do
     it { should have_content(Deal.i18n_category(deal.category)) }
 
     it 'should show the deals info' do
-      within '#sem-col' do
+      within '.offer_details' do
         should have_css('.ttGlHome h2', :text => Deal.i18n_category(deal.category))
         should have_css('.detalhe-oferta .off .col-off h4', :text => "Preço originalR$ #{deal.real_price.to_s.gsub('.',',')+(deal.real_price.to_s.split('.')[1].size < 2 ? '0' : '')}")
         should have_css('.detalhe-oferta .off .col-off .preco-off h4', :text => "Preço ofertaR$ #{deal.price.to_s.gsub('.',',')+(deal.price.to_s.split('.')[1].size < 2 ? '0' : '')}")

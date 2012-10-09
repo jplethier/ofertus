@@ -12,12 +12,9 @@
       = t('strings.already_a_member')
       = link_to 'Entre aqui', new_user_session_path
 
-  .page-login{ :style => 'display: none;' }
-    %h3{ :style => 'margin-bottom: 0;' }= t('strings.fill_fields')
-    %h3{ :style => 'margin-bottom: 0;' }= 'ou'
-    .fb-login-button
-      = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
-
+  .new_deal_left#signup_form
+    .title= t('strings.new_user')
+    
     .ct-inputs-login
       = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
         
@@ -36,30 +33,26 @@
         %p
           = f.label :username
           %br
-          = f.text_field :username, :class => 'user-senha'
-          %span
-            Mínimo 5 e máximo 20 caracteres.
+          = f.text_field :username, placeholder: "Mínimo 5 e máximo 20 caracteres."
         .clear
         %p
           = f.label :name
           %br
-          = f.text_field :name, :class => 'user-senha'
+          = f.text_field :name
         .clear
         - if @user.password_required?
           %p.last
             = f.label :password
             %br
-            = f.password_field :password, :class => 'user-senha'
-            %span
-              Mínimo 6 caracteres.
+            = f.password_field :password, placeholder: "Mínimo 6 caracteres."
           .clear
           %p
             = f.label :password_confirmation
             %br
-            = f.password_field :password_confirmation, :class => 'user-senha'
+            = f.password_field :password_confirmation
           .clear
           
-        %p.checkbox-login{ :style => 'width: 600px' }
+        %p
           = check_box_tag(:terms_privacy, :terms_privacy)
           %label{ :for => "terms_privacy" }
             Concordo com os 
@@ -71,16 +64,11 @@
         %br.clear
         = f.submit "", :class => 'bt-confirmar', :id => 'signup_btn'
 
-        / TODO: RECAPTCHA
-        /%li
-        /  %label Digite as letras:
-        /  %img{ :src => "../simpleCaptcha", :class => "captcha" }
-        /  %input{ :type => "text", :tabindex => "10", :class => "captcha", :maxlength => "10"}
-
 .clear
 
 
 :javascript
   $('#email_register').click(function(){
-    $('.page-login').show()
+    $('.new_deal_left').show()
+    $('.signup_description').hide()
   });

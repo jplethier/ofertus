@@ -1,6 +1,31 @@
 body {
   #sem-col {
 
+    #signup_form {
+      margin: 20px auto;
+      float: none;
+      display: none;
+
+      p {
+        width: 95%;
+        margin: 0 auto;
+
+        input[type='text'], input[type='password'] {
+          background: white;
+          width: 97%;
+          margin: 4px 0;
+          border: 1px solid gainsboro;
+          padding: 5px;
+          border-radius: 2px;
+        }
+
+        input[type='checkbox'] {
+          vertical-align: middle;
+          margin-bottom: 1px;
+        }
+      }
+    }
+
     .register {
       width: 245px;
       margin: 20px auto;

@@ -236,7 +236,7 @@
         facebook_share_offer: "Publicar no facebook ao compartilhar oferta"
         facebook_vote_offer: "Publicar no facebook ao votar em uma oferta"
         facebook_follow_user: "Publicar no facebook ao seguir um usuário"
-        login: "Nome do usuário ou email"
+        login: "Usuário"
         name: "Nome"
         password: "Senha"
         password_confirmation: "Confirmação da Senha"

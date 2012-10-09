@@ -1,5 +1,26 @@
 body {
   #sem-col {
+
+    .register {
+      width: 245px;
+      margin: 20px auto;
+
+      span {
+        color: #404040;
+      }
+
+      a {
+        background: image-url('register_btn.png') no-repeat 0 0;
+        text-transform: uppercase;
+        width: 200px;
+        height: 40px;
+        color: white;
+        text-decoration: none;
+        font-size: 12pt;
+        padding: 11px 21px;
+      }
+    }
+
     .signup_description {
       display: block;
       margin: 0 auto;
@@ -23,9 +44,66 @@ body {
       div {
         color: white;
         font-family: 'Colaborate Thin';
-        font-size: 14pt;
+        font-size: 13pt;
         margin: 20px auto;
-        width: 286px;
+        width: 330px;
+      }
+
+      .links {
+        width: 430px;
+        margin: 0 auto;
+        color: white;
+        text-align: center;
+
+        a {
+          color: white;
+          font-size: 8pt;
+        }
+      }
+
+      .ct-inputs-login {
+        margin: 0;
+        width: 96%;
+
+        form {
+
+          input[type='text'], input[type='password'] {
+            background: white;
+            width: 100%;
+            margin: 4px 0;
+            border: 1px solid gainsboro;
+            padding: 5px 10px 5px 25px;
+            border-radius: 0;
+          }
+
+          input[type='checkbox'] {
+            vertical-align: middle;
+            margin-bottom: 1px;
+          }
+
+          .bt-entrar {
+            float: right;
+            background: image-url('bt-entrar.png') no-repeat;
+            width: 126px;
+            height: 40px;
+            display: block;
+            border: none;
+          }
+
+          p {
+            width: 55%;
+            clear: both;
+            float: left;
+          }
+
+          input#user_login {
+            background: image-url('input_username.png') white no-repeat 2px 3px;
+          }
+
+          input#user_password {
+            background: image-url('input_password.png') white no-repeat 2px 3px;
+          }
+        }
       }
 
       a#email_register {

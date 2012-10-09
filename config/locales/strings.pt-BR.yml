@@ -54,6 +54,7 @@
     my_profile: 'Meu Perfil'
     new_deal: 'Cadastro de Oferta'
     new_user: 'Novo Usuário'
+    not_a_member: 'Não é Membro?'
     offer_price: "Preço oferta<span>%{price}</span>"
     ofertus_top: 'Favoritas do Ofertus'
     old_deals: 'Ofertas Passadas'

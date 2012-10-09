@@ -4,32 +4,32 @@
       %h2= t('strings.signup_title')
     .message= t('strings.signup_message')
     = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
-    .or_background= t('strings.or')
+    .or_background{ style: 'margin-bottom: 20px;' }= t('strings.or')
 
     .ct-inputs-login
       = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
         %p
-          = f.label :login
-          %br
-          = f.text_field :login, :class => 'user-senha'
-        %p.last
-          = f.label :password
-          %br
-          = f.password_field :password, :class => 'user-senha'
-        .clear
+          = f.text_field :login, placeholder: t('activerecord.attributes.user.login') + ':'
+        %p
+          = f.password_field :password, placeholder: t('activerecord.attributes.user.password') + ':'
+        
+        = f.submit '', :class => 'bt-entrar'
+        
         - if devise_mapping.rememberable?
           %p.checkbox-login
             = f.check_box :remember_me
             = f.label :remember_me, t('strings.remember_me')
         / <p class="checkbox-login"><input type="checkbox" value="" name="Checkbox"> Mantenha-me Conectado</p>
-        = f.submit '', :class => 'bt-entrar'
 
+    .clear
 
-    = render :partial => "devise/shared/links"
+    .links
+      = render :partial => "devise/shared/links"
+
+    .clear
+
+  .register
+    %span= t('strings.not_a_member')
+    = link_to 'CADASTRE-SE', new_user_registration_path
+      
 .clear
-
-/ :plain
-/   <script>
-/     $('#user_login').coolinput('username')
-/     $('#user_password').coolinput('*****')
-/   </script>

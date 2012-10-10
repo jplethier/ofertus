@@ -91,7 +91,9 @@
     terms: 'Termos de Uso'
     to_search: "Buscar"
     unreport: 'Denunciar(Desfazer)'
-    username: "Username: %{username}"
+    user_show:
+      member_since: 'Membro desde %{month} de %{year}'
+      username: "Usuário: %{username}"
     users: "Usuários"
     users_best: 'Mais Adoradas'
     users_offers: 'Ofertas'

@@ -1,4 +1,8 @@
-#col-left
+= content_for :page_head do
+  = render 'details', user: @user
+  #header_background
+
+#sem-col
   .ttGlHome
     %h2= t('strings.users_offers')
 

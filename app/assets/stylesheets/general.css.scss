@@ -1,0 +1,23 @@
+/* General Classes
+------------------------------------------------*/
+.ir { display:block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.hidden { display: none; } 
+.visuallyhidden { position: absolute !important; clip: rect(1px 1px 1px 1px);  clip: rect(1px, 1px, 1px, 1px); }
+.invisible { visibility: hidden; }
+.clearfix:before, .clearfix:after {  content: "\0020"; display: block; height: 0; visibility: hidden; } 
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+.absolute { position:absolute; }
+.relative { position:relative !important; }
+.fixed { position:fixed; }
+.left { float:left; }
+.right { float:right; }
+.center { margin:0 auto; }
+.table { display:table; }
+.block { display:block; }
+.clear { clear:both; }
+.separator { margin-top:65px; }
+.centerT { text-align:center; }
+.debug { background:#000; }
+.space-1 {  height:80px; }
+.auto { overflow:auto; }

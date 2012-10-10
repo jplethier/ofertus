@@ -100,6 +100,14 @@ class User < ActiveRecord::Base
   def admin?
     self.admin
   end
+
+  def wishes
+    deals_wishes = []
+    self.votings.each do |vote|
+      deals_wishes << vote.voteable if vote.up_vote?
+    end
+    deals_wishes
+  end
   
   protected
 

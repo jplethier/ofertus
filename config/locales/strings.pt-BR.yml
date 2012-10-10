@@ -13,7 +13,6 @@
     company: "Empresa: %{company}"
     creating_a_profile: "Criando meu perfil"
     credit: 'Saldo'
-    credit_x: "Saldo <span>%{x}</span>"
     day_offers: "Ofertas do Dia"
     deals: 'Ofertas'
     description: "Descrição da Oferta"
@@ -35,6 +34,8 @@
     following_one_user: 'Seguindo 1 usuário!'
     following_x_users: "Seguindo %{x} usuários!"
     forgot_password: 'Recuperar senha'
+    friends_offers: 'Ofertas de amigos'
+    friends_recommendations: 'recomendações de quem eu sigo'
     from_price: 'De %{price}'
     getting_paid: "Recebendo comissão sobre as ofertas compartilhadas"
     help: 'Ajuda'
@@ -51,11 +52,14 @@
     more: 'Ver mais'
     more_offers: 'Veja Mais Ofertas'
     most_commented: "+ Comentadas"
+    my_offers: 'Minhas Ofertas'
     my_profile: 'Meu Perfil'
+    my_wishes: "Meus Desejos"
     new_deal: 'Cadastro de Oferta'
     new_user: 'Novo Usuário'
     not_a_member: 'Não é Membro?'
     offer_price: "Preço oferta<span>%{price}</span>"
+    offers_shared_by_me: 'ofertas que compartilhei'
     ofertus_top: 'Favoritas do Ofertus'
     old_deals: 'Ofertas Passadas'
     one_shared_offer: "1 oferta compartilhada!"
@@ -92,8 +96,11 @@
     to_search: "Buscar"
     unreport: 'Denunciar(Desfazer)'
     user_show:
+      credit_x: '%{x} <span>Saldo</span>'
       member_since: 'Membro desde %{month} de %{year}'
       username: "Usuário: %{username}"
+      x_deals: '%{x} <span>Ofertas</span>'
+      x_wishes: '%{x} <span>Desejos</span>'
     users: "Usuários"
     users_best: 'Mais Adoradas'
     users_offers: 'Ofertas'
@@ -104,5 +111,6 @@
     who_is_using: 'Quem Está Aqui'
     who_likes: 'Quem deseja essa oferta'
     who_likes_me_also_like_this: 'quem gosta dessa oferta também gosta dessas'
+    wished_by_me: 'ofertas que adorei'
     withdraw_credit: "Resgatar saldo"
     you_need_to_agree_with_terms_and_privacy: "Para se cadastrar é necessário concordar com os termos de uso e a política de privacidade do site."

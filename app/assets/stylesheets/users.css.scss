@@ -73,6 +73,26 @@ body {
           .deals {
             background: image-url('deals_icon.png') no-repeat;
           }
+
+          .text {
+            font-size: 25pt;
+            line-height: 23pt;
+            margin-left: 36px;
+            width: 110px;
+            font-family: 'Lobster';
+
+            span {
+              font-size: 20pt;
+            }
+          }
+
+          .credit {
+            color: #669900;
+
+            span {
+              color: #444;
+            }
+          }
         }
       }
     }

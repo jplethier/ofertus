@@ -15,10 +15,13 @@
     .bottom
       .item
         .deals
+        .text= t('strings.user_show.x_deals', x: @user.deals.count).html_safe
       .item
         .wishes
+        .text= t('strings.user_show.x_wishes', x: @user.wishes.count).html_safe
       .item
         .power
       .item
         .money
+        .text.credit= t('strings.user_show.credit_x', x: number_to_currency(@user.credit)).html_safe
 

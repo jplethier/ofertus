@@ -26,6 +26,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def followers
+  end
+
+  def following
+  end
+
   #Lembrar de dar Reset Ability (CanCan)
   #def update
   #end

@@ -1,6 +1,7 @@
-= content_for :page_head do
-  = render 'details', user: @user
-  #header_background
+- if current_user == @user
+  = render 'my_profile'
+- else
+  = render 'profile'
 
 #sem-col
 

@@ -126,6 +126,16 @@ body {
     ul {
       width: 94%;
       padding: 15px;
+
+      li {
+        float: left;
+        margin-left: 15px;
+        margin-bottom: 15px
+      }
+
+      li:first-child {
+        margin-left: 0;
+      }
     }
   }
 

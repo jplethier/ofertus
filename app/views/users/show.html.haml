@@ -9,15 +9,15 @@
       = t('strings.x_following', x: @user.following.count)
       = link_to t('actions.all'), following_user_path(@user.username)
     %ul
-      - @user.following.each do |following|
-        %li= link_to image_tag(following.picture, alt: following.username, title: following.username), user_path(following.username), title: following.username
+      - @user.following.random.limit(4).each do |following|
+        %li= link_to image_tag(following.medium_picture, alt: following.username, title: following.username), user_path(following.username), title: following.username
   .followers
     .title
       = t('strings.x_followers', x: @user.followers.count)
       = link_to t('actions.all'), followers_user_path(@user.username)
     %ul
-      - @user.followers.each do |follower|
-        %li= link_to image_tag(follower.picture), user_path(follower.username)
+      - @user.followers.random.limit(4).each do |follower|
+        %li= link_to image_tag(follower.medium_picture), user_path(follower.username)
 
   .clear
 

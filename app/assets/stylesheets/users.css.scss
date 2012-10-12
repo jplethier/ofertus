@@ -63,7 +63,9 @@ body {
           }
 
           .wishes {
-            background: image-url('wishes_icon.png') no-repeat;
+            background: image-url('like_button.png') no-repeat -1px -1px;
+            width: 35px;
+            height: 35px;
           }
 
           .power {

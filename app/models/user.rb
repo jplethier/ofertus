@@ -41,9 +41,33 @@ class User < ActiveRecord::Base
     self.new_record?
   end
 
+  def following_ids
+    friends = []
+    self.following.each do |friend|
+      friends << friend.id
+    end
+    friends
+  end
+
   def set_invited_by(username)
     self.invited_by = User.find_by_username(username)
     self.save
+  end
+
+  def picture
+    if self.provider
+      self.facebook_profile_picture
+    else
+      self.gravatar_url
+    end 
+  end
+
+  def medium_picture
+    if self.provider
+      self.facebook_profile_picture(:normal)
+    else
+      self.gravatar_url(size: 100)
+    end
   end
 
   def follow!(another_user)

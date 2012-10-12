@@ -74,6 +74,7 @@ class Deal < ActiveRecord::Base
   scope :voted, where("(deals.up_votes + deals.down_votes) > 0")
   scope :inactive, where("deals.end_date < ?", Time.zone.now.beginning_of_day)
   scope :top, where(:ofertus_top => true)
+  scope :by_user_ids, lambda { |user_ids| where(user_id: user_ids) }
 
 
   def who_likes

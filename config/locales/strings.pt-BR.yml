@@ -29,10 +29,6 @@
     following: 'Seguindo'
     follow_us: 'Siga nossas redes'
     follow_who_share_good_offers: 'siga quem compartilha boas ofertas'
-    followed_by_one_user: "1 seguidor!"
-    followed_by_x_users: "%{x} seguidores!"
-    following_one_user: 'Seguindo 1 usuário!'
-    following_x_users: "Seguindo %{x} usuários!"
     forgot_password: 'Recuperar senha'
     friends_offers: 'Ofertas de amigos'
     friends_recommendations: 'recomendações de quem eu sigo'
@@ -105,6 +101,8 @@
     users_best: 'Mais Adoradas'
     users_offers: 'Ofertas'
     users_with_more_deals: "Ranking de usuários"
+    x_following: 'Seguindo (%{x})'
+    x_followers: 'Seguidores (%{x})'
     x_shared_offers: "%{x} ofertas compartilhadas!"
     which_users_liked: 'usuários que já gostaram dessa oferta'
     who_are_we: 'Quem somos'

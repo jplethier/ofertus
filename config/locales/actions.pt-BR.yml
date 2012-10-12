@@ -1,6 +1,7 @@
 "pt-BR":
   actions:
     admin: 'Área Administrativa'
+    all: 'Ver todos'
     blog: "Blog"
     comment: "Comentar"
     deals: 'Ofertas'

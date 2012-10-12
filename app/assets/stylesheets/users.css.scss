@@ -97,6 +97,45 @@ body {
       }
     }
   }
+
+  .following, .followers {
+    width: 49%;
+    background: white;
+    margin-bottom: 2em;
+
+    .title {
+      background: #2d2d2d;
+      width: 94%;
+      text-transform: uppercase;
+      color: white;
+      padding: 5px 15px;
+      font-size: 10pt;
+
+      a {
+        text-transform: none;
+        text-decoration: none;
+        color: white;
+        float: right;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+    }
+
+    ul {
+      width: 94%;
+      padding: 15px;
+    }
+  }
+
+  .following {
+    float: left;
+  }
+
+  .followers {
+    float: right;
+  }
 }
 
 

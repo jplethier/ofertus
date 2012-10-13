@@ -95,6 +95,21 @@ body {
               color: #444;
             }
           }
+
+          a {
+            text-indent: -15000px;
+            width: 117px;
+            height: 30px;
+            display: block;
+          }
+
+          a.follow {
+            background: image-url('follow_btn.png') no-repeat;
+          }
+
+          a.unfollow {
+            background: image-url('follow_btn.png') no-repeat;
+          }
         }
       }
     }

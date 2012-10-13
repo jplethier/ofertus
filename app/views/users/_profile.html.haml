@@ -1,0 +1,29 @@
+= content_for :page_head do
+  .user_details
+    .content
+      .top
+        - if @user.provider
+          %img{ src: @user.facebook_profile_picture }
+        - else
+          %img{ src: @user.gravatar_url }
+
+        %h2= @user.name
+        .infos
+          .left
+            %span= t('strings.user_show.username', username: @user.username)
+            %span= t('strings.user_show.member_since', month: t('date.month_names')[@user.created_at.month], year: @user.created_at.year)
+      
+      .bottom
+        .item
+          .deals
+          .text= t('strings.user_show.x_deals', x: @user.deals.count).html_safe
+        .item
+          .wishes
+          .text= t('strings.user_show.x_wishes', x: @user.wishes.count).html_safe
+        .item
+          - if !user_signed_in? || !current_user.follow?(@user)
+            = link_to t('actions.follow'), follow_user_path(@user.username), class: 'follow'
+          - else
+            = link_to t('actions.unfollow'), unfollow_user_path(@user.username), class: 'unfollow'
+
+  #header_background

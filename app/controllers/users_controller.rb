@@ -43,17 +43,9 @@ class UsersController < ApplicationController
         me = FbGraph::User.me(current_user.access_token)
         me.feed!(:message => current_user.name + " está seguindo as ofertas de " + @user.name + " no Ofertus", :link => user_url(@user), :picture => "http://www.ofertus.com.br/assets/logo_beta.png")
       end
-      if stored_location
-        redirect_to stored_location, :notice => I18n.t('models.user.started_following', :username => @user.username)
-      else
-        redirect_to user_path(@user.username), :notice => I18n.t('models.user.started_following', :username => @user.username)
-      end
+      redirect_to env['HTTP_REFERER'], :notice => I18n.t('models.user.started_following', :username => @user.username)
     else
-      if stored_location
-        redirect_to stored_location, :alert => I18n.t('models.user.already_following', :username => @user.username)
-      else
-        redirect_to user_path(@user.username), :alert => I18n.t('models.user.already_following', :username => @user.username)
-      end
+      redirect_to env['HTTP_REFERER'], :alert => I18n.t('models.user.already_following', :username => @user.username)
     end
     clear_stored_location
   end
@@ -61,17 +53,9 @@ class UsersController < ApplicationController
   def unfollow
     if current_user.follow? @user
       current_user.unfollow! @user
-      if stored_location
-        redirect_to stored_location, :notice => I18n.t('models.user.stopped_following', :username => @user.username)
-      else
-        redirect_to user_path(@user.username), :notice => I18n.t('models.user.stopped_following', :username => @user.username)
-      end
+      redirect_to env['HTTP_REFERER'], notice: I18n.t('models.user.stopped_following', username: @user.username)
     else
-      if stored_location
-        redirect_to stored_location, :alert => I18n.t('models.user.not_following', :username => @user.username)
-      else
-        redirect_to user_path(@user.username), :alert => I18n.t('models.user.not_following', :username => @user.username)
-      end
+      redirect_to env['HTTP_REFERER'], alert: I18n.t('models.user.not_following', username: @user.username)
     end
     clear_stored_location
   end

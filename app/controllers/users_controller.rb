@@ -1,7 +1,6 @@
 # coding: UTF-8
 class UsersController < ApplicationController
   before_filter :find_user_with_deals, :only => :show
-  before_filter :store_location, :only => [:index, :show]
   prepend_before_filter :find_users, :only => :index
   # before_filter :authenticate_user!
 
@@ -47,7 +46,6 @@ class UsersController < ApplicationController
     else
       redirect_to env['HTTP_REFERER'], :alert => I18n.t('models.user.already_following', :username => @user.username)
     end
-    clear_stored_location
   end
 
   def unfollow
@@ -57,7 +55,6 @@ class UsersController < ApplicationController
     else
       redirect_to env['HTTP_REFERER'], alert: I18n.t('models.user.not_following', username: @user.username)
     end
-    clear_stored_location
   end
 
   private
@@ -73,17 +70,4 @@ class UsersController < ApplicationController
     @users = @users.search(params[:search].gsub(" ", "%")) if params[:search]
     @users_with_more_deals = User.order_by_deals.limit(5)
   end
-
-  def store_location
-    session[:return_to] = request.fullpath
-  end
-
-  def stored_location
-    session[:return_to]
-  end
-
-  def clear_stored_location
-    session[:return_to] = nil
-  end
-
 end

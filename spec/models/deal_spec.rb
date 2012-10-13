@@ -153,6 +153,10 @@ describe Deal do
     let(:deal) { FactoryGirl.build :deal }
     subject { deal }
 
+    before do
+      FactoryGirl.create(:city, :name => 'Oferta Nacional', :state => 'Oferta Nacional')
+    end
+
     it_should_behave_like "All Deals"
 
     describe "Validations" do

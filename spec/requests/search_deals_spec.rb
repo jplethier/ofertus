@@ -10,12 +10,18 @@ describe "Search Deals" do
 
   before do
     # login_as FactoryGirl.create(:broker), :scope => :broker
+    City::BRASIL_CITIES.each_with_index do |city, index|
+      break if index > 5
+      City.create(:country => 'Brasil', :state => city[:state], :name => city[:name])
+    end
     active_deal.save
     another_active_deal.save
     visit deals_path
   end
 
   describe 'searching by part of title', :js => true do
+    self.use_transactional_fixtures = false
+
     it 'find something' do
       click_on 'header_search_btn'
       fill_in 'search', :with => 'titu'
@@ -50,7 +56,9 @@ describe "Search Deals" do
     end
   end
 
-  describe 'searching by description' do
+  describe 'searching by description', js: true do
+    self.use_transactional_fixtures = false
+
     it 'find something' do
       click_on 'header_search_btn'
       fill_in 'search', :with => 'desc'

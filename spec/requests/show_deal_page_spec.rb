@@ -23,7 +23,6 @@ describe "Show deal page" do
 
     it 'should show the deals info' do
       within '.offer_details' do
-        should have_css('.ttGlHome h2', :text => Deal.i18n_category(deal.category))
         should have_css('.detalhe-oferta .off .col-off h4', :text => "Preço originalR$ #{deal.real_price.to_s.gsub('.',',')+(deal.real_price.to_s.split('.')[1].size < 2 ? '0' : '')}")
         should have_css('.detalhe-oferta .off .col-off .preco-off h4', :text => "Preço ofertaR$ #{deal.price.to_s.gsub('.',',')+(deal.price.to_s.split('.')[1].size < 2 ? '0' : '')}")
         should have_css('.detalhe-oferta .off .col-off h5', :text => "Desconto #{deal.discount.to_i}%")
@@ -39,22 +38,13 @@ describe "Show deal page" do
       end
     end
 
-    it 'should show the links to vote if user is logged in' do
+    it 'should show the links to vote' do
       user = FactoryGirl.create(:user)
       user.confirm!
       login_as user, :scope => :user
       visit deal_path(deal)
-      should have_css('.detalhe-oferta .share-off span.gostei a', :text => 'Gostei!', :href => upvote_deal_path(deal))
-      should have_css('.detalhe-oferta .share-off span.gostei')
-      should have_css('.detalhe-oferta .share-off span.nao-gostei')
-      should have_css('.detalhe-oferta .share-off span.nao-gostei a', :text => 'Não Gostei!', :href => downvote_deal_path(deal))
-    end
-
-    it 'should not show the links to vote if user is not logged in' do
-      should_not have_css('.detalhe-oferta .share-off span.gostei a', :text => 'Gostei!', :href => upvote_deal_path(deal))
-      should_not have_css('.detalhe-oferta .share-off span.gostei')
-      should_not have_css('.detalhe-oferta .share-off span.nao-gostei')
-      should_not have_css('.detalhe-oferta .share-off span.nao-gostei a', :text => 'Não Gostei!', :href => downvote_deal_path(deal))
+      should have_css('.detalhe-oferta .share-off a.like', :text => 'Adorar', :href => upvote_deal_path(deal))
+      should have_css('.detalhe-oferta .share-off a.report', :text => 'Denunciar', :href => downvote_deal_path(deal))
     end
 
     it 'should show the deals description' do

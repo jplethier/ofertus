@@ -6,6 +6,10 @@ describe "New Deal Page" do
   Warden.test_mode!
 
   before do
+    City::BRASIL_CITIES.each_with_index do |city, index|
+      break if index > 5
+      City.create(:country => 'Brasil', :state => city[:state], :name => city[:name])
+    end
     user = FactoryGirl.create(:user)
     user.confirm!
     login_as user, :scope => :user
@@ -17,6 +21,8 @@ describe "New Deal Page" do
   subject { page }
 
   describe 'should show the new deal form', :js => true do
+    self.use_transactional_fixtures = false
+
     it 'should title "Cadastro de Oferta"' do
       within '#sem-col' do
         should have_content('Cadastro de Oferta')

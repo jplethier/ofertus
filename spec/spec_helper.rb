@@ -33,4 +33,14 @@ RSpec.configure do |config|
   config.before(:all) do
     I18n.locale = 'pt-BR'
   end
+
+  config.before(:suite) do
+    I18n.locale = 'pt-BR'
+    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end

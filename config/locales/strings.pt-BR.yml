@@ -2,7 +2,6 @@
   strings:
     about_me: 'Um pouco sobre mim'
     about: 'Sobre'
-    active_offers: 'Ofertas Ativas'
     all: 'Ver Todos'
     already_a_member: 'Já é membro?'
     best_offers: "Melhores Ofertas"
@@ -77,6 +76,7 @@
     resend_confirmation: 'Reenviar confirmação'
     search_offer: 'Pesquise uma oferta'
     search_options: "Opções de Busca"
+    search_results: 'Resultados da Busca'
     security: "Segurança"
     settings: 'Configurações'
     signup_message: 'Cadastre-se para acessar nossas ofertas'

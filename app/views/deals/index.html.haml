@@ -3,8 +3,11 @@
     %h2= t('strings.search_results')
 
   .list-conteudo#home_list
-    - @deals.each_with_index do |deal, index|
-      = render :partial => 'deals/top_deal', :locals => {:deal => deal, :index => index, :old => false}
+    - if @deals.blank?
+      %h2= @message
+    - else
+      - @deals.each_with_index do |deal, index|
+        = render :partial => 'deals/top_deal', :locals => {:deal => deal, :index => index, :old => false}
     / - if @deals.total_pages == 1 || params[:page].to_i == @deals.total_pages
     /   .old_deals
     /     .ttGlHome

@@ -8,9 +8,11 @@ class DealsController < AuthorizedController
 
   def index
     if params[:search]
-      flash.now[:notice] = "Não foi encontrada nenhuma oferta com '#{params[:search]}'" if @deals.empty? && !(params[:search].blank?) && params[:search_city].blank?
-      flash.now[:notice] = "Não foi encontrada nenhuma oferta para a cidade selecionada" if @deals.empty? && params[:search].empty? && !params[:search_city].blank?
-      flash.now[:notice] = "Não foi encontrada nenhuma oferta para a cidade selecionada com '#{params[:search]}'" if @deals.empty? && !params[:search_city].blank? && !params[:search].blank?
+      @message = "Não foi encontrada nenhuma oferta com '#{params[:search]}'" if @deals.empty? && !(params[:search].blank?) && params[:search_city].blank?
+      @message = "Não foi encontrada nenhuma oferta para a cidade selecionada" if @deals.empty? && params[:search].empty? && !params[:search_city].blank?
+      @message = "Não foi encontrada nenhuma oferta para a cidade selecionada com '#{params[:search]}'" if @deals.empty? && !params[:search_city].blank? && !params[:search].blank?
+    else
+      @message = 'Não há ofertas ativas'
     end
     if params[:category]
       @title = Deal.i18n_category(Deal::CATEGORIES_DICTIONARY[params[:category]])

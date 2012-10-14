@@ -124,18 +124,14 @@ class DealsController < AuthorizedController
   end
 
   def find_deals
-    @deals = Deal.paginate(:page => params[:page])
+    @deals = Deal.paginate(:page => params[:page], :per_page => 12)
     @deals = search_order(@deals, params)
     @deals = @deals.by_category_string(params[:category]) if params[:category]
     @deals = @deals.search(params[:search]) if params[:search]
     @deals = @deals.by_cities(params[:search_city]) if params[:search_city] && not(params[:search_city].empty?)
-
-    case action_name
-    when "index"
-      @deals = @deals.active
-    end
+    @deals = @deals.active
     
-    fill_in_old_deals
+    # fill_in_old_deals
   end
 
   def populate_cities_name

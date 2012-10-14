@@ -54,18 +54,16 @@ body {
 
           .money, .wishes, .power, .deals {
             float: left;
-            width: 33px;
-            height: 33px;
+            width: 35px;
+            height: 35px;
           }
 
           .money {
-            background: image-url('money_icon.png') no-repeat;
+            background: image-url('money_icon.png') no-repeat -1px;
           }
 
           .wishes {
             background: image-url('like_button.png') no-repeat -1px -1px;
-            width: 35px;
-            height: 35px;
           }
 
           .power {
@@ -74,8 +72,6 @@ body {
 
           .deals {
             background: image-url('deals_icon.png') no-repeat -12px -6px;
-            width: 35px;
-            height: 35px;
           }
 
           .text {

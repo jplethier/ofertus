@@ -107,5 +107,69 @@ body {
         }
       }
     }
+
+    #search_form_2 {
+      float: right;
+      padding: 0;
+
+      .border-input-busca {
+        border: 3px solid #F6F6F6;
+        overflow: hidden;
+
+        .input-tx {
+          background: #F6F6F6;
+          text-transform: uppercase;
+          font-size: 11px;
+          color: #666;
+          border: none;
+          float: left;
+          padding: 11px 5px 10px;
+          width: 291px;
+          border-radius: 0;
+          margin: 0;
+        }
+
+        .submit {
+          width: 33px;
+          height: 33px;
+          float: right;
+          border: none;
+          background: url(bts-input.gif) no-repeat;
+        }
+      }
+    }
+
+    .search_filters {
+      clear: both;
+      width: 100%;
+      min-height: 30px;
+      margin-top: 15px;
+
+      ul.quick_filters {
+        width: 100%;
+
+        li {
+          width: 14%;
+          float: left;
+          border-left: 1px solid #666;
+          color: #666;
+          text-align: center;
+
+          a {
+            color: #666;
+            text-transform: uppercase;
+            text-decoration: none;
+          }
+
+          a:hover {
+            text-decoration: underline;
+          }
+        }
+
+        li:first-child {
+          border-left: none;
+        }
+      }
+    }
   }
 }

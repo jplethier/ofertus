@@ -1,10 +1,24 @@
 #sem-col
   .ttGlHome
     %h2= t('strings.search_results')
+    %form{ :id => "search_form_2", :action => deals_path, :method => "get", :class => "search"}
+      .border-input-busca
+        = text_field_tag :search, params[:search], :class => "input-tx", :placeholder => 'Pesquisa'
+        %input{ :type => "submit", :value => "", :class => "submit search_button" }
 
+  .search_filters
+    %ul.quick_filters
+      %li= link_to t('search.filters.end_today'), deals_path + "?search_scope=end_today"
+      %li= link_to t('search.filters.best'), deals_path + "?search_scope=best_deals"
+      %li= link_to t('search.filters.highest_discounts'), deals_path + "?search_scope=highest_discount"
+      %li= link_to t('search.filters.most_visited'), deals_path + "?search_scope=most_visited"
+      %li= link_to t('search.filters.more_likes'), deals_path + "?search_scope=likes"
+      %li= link_to t('search.filters.recent'), deals_path + "?search_scope=recent"
+      %li= link_to t('search.filters.categories'), "javascript:;"
+    .advanced_filters
   .list-conteudo#home_list
     - if @deals.blank?
-      %h2= @message
+      %h3= @message
     - else
       - @deals.each_with_index do |deal, index|
         = render :partial => 'deals/top_deal', :locals => {:deal => deal, :index => index, :old => false}

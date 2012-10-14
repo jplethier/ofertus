@@ -1,0 +1,12 @@
+"pt-BR":
+  search:
+    filters:
+      best: 'Melhores Ofertas'
+      categories: 'Categorias'
+      end_today: 'Encerrando Hoje'
+      highest_discounts: 'Maiores Descontos'
+      more_likes: 'Mais Adoradas'
+      most_visited: 'Mais Acessadas'
+      recent: 'Mais Recentes'
+    categories:
+      all: 'asd'

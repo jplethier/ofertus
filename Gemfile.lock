@@ -67,6 +67,7 @@ GEM
       xpath (~> 0.1.4)
     childprocess (0.3.5)
       ffi (~> 1.0, >= 1.0.6)
+    chunky_png (1.2.6)
     ckeditor (3.7.1)
       mime-types
       orm_adapter
@@ -77,6 +78,12 @@ GEM
       execjs
     coffee-script-source (1.2.0)
     columnize (0.3.6)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
+    compass-rails (1.0.3)
+      compass (>= 0.12.2, < 0.14)
     dalli (1.1.4)
     database_cleaner (0.7.1)
     date_validator (0.6.3)
@@ -116,6 +123,7 @@ GEM
     formtastic (2.2.1)
       actionpack (>= 3.0)
     friendly_id (4.0.8)
+    fssm (0.2.9)
     gravtastic (3.2.6)
     haml (3.1.4)
     haml-rails (0.3.4)
@@ -325,6 +333,7 @@ DEPENDENCIES
   capybara
   ckeditor
   coffee-script
+  compass-rails
   dalli
   database_cleaner (>= 0.6.7)
   date_validator

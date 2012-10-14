@@ -37,8 +37,8 @@ body { font:12px Arial, sans-serif; *font-size:small; font-family: 'Colaborate-T
 
 
 .pagination { background:transparent; padding:20px 0 40px; }
-.pagination a, .pagination .current { width:28px; padding:6px 0 5px; margin-right:1px; text-align:center; text-decoration:none; background:#1e1e1e; display:inline-block; font-size:13px; color:#FFF; }
-.pagination .current { background:#b6b6b6; }
+.pagination a, .pagination .current { padding:6px 0 5px; margin-right:1px; text-align:center; text-decoration:none; background:#1e1e1e; display:inline-block; font-size:13px; color:#FFF; }
+.pagination .current, .pagination .disabled { background: #c7c7c7; border-top: none; width: 28px; }
 .pagination .next_page, .pagination .previous_page { display: inline; padding: 6px 5px 5px; }
 
 

@@ -73,7 +73,9 @@ body {
           }
 
           .deals {
-            background: image-url('deals_icon.png') no-repeat;
+            background: image-url('deals_icon.png') no-repeat -12px -6px;
+            width: 35px;
+            height: 35px;
           }
 
           .text {

@@ -47,11 +47,11 @@
 
       .share-off
         - if current_user && current_user.up_voted?(deal)
-          = link_to t('strings.dislike'), unvote_deal_path(deal), class: 'like'
+          = link_to t('strings.dislike'), unvote_deal_path(deal), class: 'dislike'
         - else
           = link_to t('strings.like'), upvote_deal_path(deal), class: 'like'
         - if current_user && current_user.down_voted?(deal)
-          = link_to t('strings.unreport'), unvote_deal_path(deal), class: 'report'
+          = link_to t('strings.unreport'), unvote_deal_path(deal), class: 'unreport'
         - else
           = link_to t('strings.report'), downvote_deal_path(deal), class: 'report'
       

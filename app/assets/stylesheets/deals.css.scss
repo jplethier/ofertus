@@ -7,12 +7,17 @@
 
   .detalhe-oferta {
     .right {
+      width: 265px;
+
       img {
         max-height: 300px;
+        max-width: 265px;
       }
     }
 
-    .tx-off {
+    .left.tx-off {
+      width: 620px;
+
       h3 {
         a {
           float: left;
@@ -74,6 +79,14 @@
 
         a.report {
           background: image-url('report_button.png') no-repeat;
+        }
+
+        a.dislike {
+          background: image-url('like_button.png') no-repeat;
+        }
+
+        a.unreport {
+          background: image-url('report_button_pressed.png') no-repeat; 
         }
       }
     }

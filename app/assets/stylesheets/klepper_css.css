@@ -63,7 +63,6 @@ body { font:12px Arial, sans-serif; *font-size:small; font-family: 'Colaborate-T
 /* Detalhe Oferta */
 #sem-col { width:100%; padding-bottom:40px; }
 .detalhe-oferta, .como-funciona { float:none; border:0; padding:0; position:relative; min-height: 250px; overflow: visible; }
-.detalhe-oferta .left.tx-off { width:635px; }
 
 .desc-off { float: left; width:730px; background:#f6f6f6; min-height:400px; }
 .desc-off h4, .comment-off h4 { background:#1e1e1e; padding:7px 20px 6px; color: #fff; font-size:13px; text-transform:uppercase; }

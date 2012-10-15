@@ -147,6 +147,7 @@ body {
 
       ul.quick_filters {
         width: 100%;
+        height: 2.5em;
 
         li {
           width: 14%;
@@ -168,6 +169,12 @@ body {
 
         li:first-child {
           border-left: none;
+        }
+      }
+
+      .advanced_filters {
+        .price_filter {
+          width: 35%;
         }
       }
     }

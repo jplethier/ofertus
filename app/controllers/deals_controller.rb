@@ -7,6 +7,7 @@ class DealsController < AuthorizedController
   before_filter :fill_deals_lists
 
   def index
+    binding.pry
     if params[:search]
       @message = "Não foi encontrada nenhuma oferta com '#{params[:search]}'" if @deals.empty? && !(params[:search].blank?) && params[:search_city].blank?
       @message = "Não foi encontrada nenhuma oferta para a cidade selecionada" if @deals.empty? && params[:search].empty? && !params[:search_city].blank?

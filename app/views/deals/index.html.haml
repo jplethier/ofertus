@@ -16,6 +16,12 @@
       %li= link_to t('search.filters.recent'), deals_path + "?search_scope=recent"
       %li= link_to t('search.filters.categories'), "javascript:;"
     .advanced_filters
+      %form{ :id => 'search_form_3', :action => deals_path, :method => 'get', :class => 'search' }
+        .price_filter
+          = text_field_tag 'price_amount'
+          #price_range
+        = submit_tag 'Confirmar'
+
   .list-conteudo#home_list
     - if @deals.blank?
       %h3= @message
@@ -31,3 +37,16 @@
     .clear
     .paginate
       = will_paginate @deals
+
+:javascript
+  $( "#price_range" ).slider({
+    range: true,
+    min: 0,
+    max: 500,
+    values: [ 0, 500 ],
+    slide: function( event, ui ) {
+      console.log(ui.values)
+      $("#price_amount").val("$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ]);
+    }
+  });
+  $( "#price_amount" ).val( "$" + $( "#price_range" ).slider( "values", 0 ) + " - $" + $( "#price_range" ).slider( "values", 1 ) );

@@ -65,7 +65,6 @@ class Deal < ActiveRecord::Base
   scope :lowest_price, order("deals.price ASC")
   scope :highest_price, order("deals.price DESC")
   scope :highest_discount, order("deals.discount DESC")
-  scope :best_deals, order("(deals.up_votes / (deals.up_votes + deals.down_votes)), deals.up_votes DESC")
   scope :likes, order("deals.up_votes DESC")
   scope :most_commented, order("(select count(comments.id) from comments where comments.commentable_id = deals.id) DESC")
   scope :most_visited, order('visits DESC')
@@ -79,6 +78,9 @@ class Deal < ActiveRecord::Base
   scope :top, where(:ofertus_top => true)
   scope :by_user_ids, lambda { |user_ids| where(user_id: user_ids) }
 
+  def self.best_deals
+    self.voted.order("(deals.up_votes / (deals.up_votes + deals.down_votes)), deals.up_votes DESC")
+  end
 
   def who_likes
     who_likes = []

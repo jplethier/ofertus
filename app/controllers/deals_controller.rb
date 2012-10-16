@@ -51,7 +51,7 @@ class DealsController < AuthorizedController
     @comment = Comment.new
     @title = @deal.title
     @description = @deal.title + ' - ' + Deal.i18n_category(@deal.category)
-    @deal.update_visit_count
+    @deal.update_visit_count if @deal.user != current_user
   end
 
   def share

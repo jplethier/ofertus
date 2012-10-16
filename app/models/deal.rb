@@ -59,7 +59,7 @@ class Deal < ActiveRecord::Base
   before_validation :set_default_date, :if => "self.end_date.nil?"
 
   attr_accessor :price_mask, :real_price_mask
-  attr_accessible :address, :category, :city_id, :company, :description, :discount, :end_date, :image_url, :link, :price, :price_mask, :real_price, :real_price_mask, :title, :user_id, :ofertus_top
+  attr_accessible :address, :category, :city_id, :company, :description, :discount, :end_date, :image_url, :link, :price, :price_mask, :real_price, :real_price_mask, :title, :user_id, :ofertus_top, :visits
 
   scope :recent, order("deals.created_at DESC")
   scope :lowest_price, order("deals.price ASC")
@@ -71,6 +71,7 @@ class Deal < ActiveRecord::Base
   scope :random, order('RANDOM()')
 
   scope :today, where("deals.created_at >= ?", Time.zone.now.beginning_of_day)
+  scope :end_today, where("deals.end_date <= ?", Time.zone.now.end_of_day)
   scope :active, where("deals.end_date >= ?", Time.zone.now.beginning_of_day)
   scope :voted, where("(deals.up_votes + deals.down_votes) > 0")
   scope :inactive, where("deals.end_date < ?", Time.zone.now.beginning_of_day)
@@ -84,6 +85,15 @@ class Deal < ActiveRecord::Base
       who_likes << vote.voter if vote.up_vote?
     end
     who_likes
+  end
+
+  def update_visit_count
+    if self.visits.blank?
+      self.visits = 1
+    else
+      self.visits += 1
+    end
+    self.save(:validate => false)
   end
 
   def similar_offers

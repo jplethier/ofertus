@@ -4,10 +4,8 @@ class DealsController < AuthorizedController
   prepend_before_filter :find_deals, :only => [:index]
   before_filter :define_title, :only => :show
   before_filter :populate_cities_name, :only => [:new, :share]
-  before_filter :fill_deals_lists
 
   def index
-    binding.pry
     if params[:search]
       @message = "Não foi encontrada nenhuma oferta com '#{params[:search]}'" if @deals.empty? && !(params[:search].blank?) && params[:search_city].blank?
       @message = "Não foi encontrada nenhuma oferta para a cidade selecionada" if @deals.empty? && params[:search].empty? && !params[:search_city].blank?
@@ -53,6 +51,7 @@ class DealsController < AuthorizedController
     @comment = Comment.new
     @title = @deal.title
     @description = @deal.title + ' - ' + Deal.i18n_category(@deal.category)
+    @deal.update_visit_count
   end
 
   def share
@@ -118,16 +117,9 @@ class DealsController < AuthorizedController
 
   private
 
-  def fill_deals_lists
-    deals = Deal.active
-    deals = deals.by_cities(user_cities_ids) if user_cities_ids.try(:any?)
-    @best_deals = deals.voted.best_deals.limit(3)
-    @newest_deals = deals.recent.limit(3)
-    @most_comment_deals = deals.most_commented.limit(3)
-  end
-
   def find_deals
     @deals = Deal.paginate(:page => params[:page], :per_page => 12)
+    @deals = @deals.send(params[:search_scope].to_sym) if params[:search_scope]
     @deals = search_order(@deals, params)
     @deals = @deals.by_category_string(params[:category]) if params[:category]
     @deals = @deals.search(params[:search]) if params[:search]

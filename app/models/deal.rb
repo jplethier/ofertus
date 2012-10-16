@@ -68,6 +68,7 @@ class Deal < ActiveRecord::Base
   scope :best_deals, order("(deals.up_votes / (deals.up_votes + deals.down_votes)), deals.up_votes DESC")
   scope :likes, order("deals.up_votes DESC")
   scope :most_commented, order("(select count(comments.id) from comments where comments.commentable_id = deals.id) DESC")
+  scope :most_visited, order('visits DESC')
   scope :random, order('RANDOM()')
 
   scope :today, where("deals.created_at >= ?", Time.zone.now.beginning_of_day)

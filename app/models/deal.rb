@@ -70,13 +70,14 @@ class Deal < ActiveRecord::Base
   scope :most_visited, order('visits DESC')
   scope :random, order('RANDOM()')
 
-  scope :today, where("deals.created_at >= ?", Time.zone.now.beginning_of_day)
-  scope :end_today, where("deals.end_date <= ?", Time.zone.now.end_of_day)
-  scope :active, where("deals.end_date >= ?", Time.zone.now.beginning_of_day)
-  scope :voted, where("(deals.up_votes + deals.down_votes) > 0")
-  scope :inactive, where("deals.end_date < ?", Time.zone.now.beginning_of_day)
-  scope :top, where(:ofertus_top => true)
-  scope :by_user_ids, lambda { |user_ids| where(user_id: user_ids) }
+  scope :today,           where("deals.created_at >= ?", Time.zone.now.beginning_of_day)
+  scope :end_today,       where("deals.end_date <= ?", Time.zone.now.end_of_day)
+  scope :active,          where("deals.end_date >= ?", Time.zone.now.beginning_of_day)
+  scope :voted,           where("(deals.up_votes + deals.down_votes) > 0")
+  scope :inactive,        where("deals.end_date < ?", Time.zone.now.beginning_of_day)
+  scope :top,             where(:ofertus_top => true)
+  scope :by_user_ids,     lambda { |user_ids| where(user_id: user_ids) }
+  scope :by_price_range,  lambda { |min, max| where('price >= ? and price <= ?', min, max) }
 
   def self.best_deals
     self.voted.order("(deals.up_votes / (deals.up_votes + deals.down_votes)), deals.up_votes DESC")

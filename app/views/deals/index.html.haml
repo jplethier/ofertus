@@ -18,9 +18,9 @@
     .advanced_filters
       %form{ :id => 'search_form_3', :action => deals_path, :method => 'get', :class => 'search' }
         .price_filter
-          = text_field_tag 'price_amount'
-          #price_range
-        = submit_tag 'Confirmar'
+          = text_field_tag 'price_range', "#{params[:price_range] ? params[:price_range] : 'R$0 - R$' + Deal.active.maximum(:price).to_i.to_s }"
+          #price_slider
+        %input{ :type => "submit", :value => "", :class => "submit" }
 
   .list-conteudo#home_list
     - if @deals.blank?
@@ -39,14 +39,12 @@
       = will_paginate @deals
 
 :javascript
-  $( "#price_range" ).slider({
+  $( "#price_slider" ).slider({
     range: true,
     min: 0,
-    max: 500,
-    values: [ 0, 500 ],
+    max: #{Deal.active.maximum(:price).to_i || 0},
+    values: [ #{params[:price_range] ? params[:price_range].split('-')[0].gsub('R$','').to_i : 0}, #{params[:price_range] ? params[:price_range].split('-')[1].gsub('R$','').to_i : Deal.active.maximum(:price).to_i || 0} ],
     slide: function( event, ui ) {
-      console.log(ui.values)
-      $("#price_amount").val("$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ]);
+      $("#price_range").val("R$" + ui.values[ 0 ] + " - R$" + ui.values[ 1 ]);
     }
   });
-  $( "#price_amount" ).val( "$" + $( "#price_range" ).slider( "values", 0 ) + " - $" + $( "#price_range" ).slider( "values", 1 ) );

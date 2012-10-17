@@ -18,9 +18,19 @@
     .advanced_filters
       %form{ :id => 'search_form_3', :action => deals_path, :method => 'get', :class => 'search' }
         .price_filter
+          = label_tag 'Preço:'
           = text_field_tag 'price_range', "#{params[:price_range] ? params[:price_range] : 'R$0 - R$' + Deal.active.maximum(:price).to_i.to_s }"
+          .clear
           #price_slider
+        .city_filter
+          = label_tag 'Válida para:'
+          = select_tag "search_city", search_city_options(params[:search_city]), :class => 'user-senha'
+        .order_filter
+          = label_tag 'Ordernar por:'
+          = select_tag "search_order", search_options(params[:search_order]), :class => 'user-senha'
         %input{ :type => "submit", :value => "", :class => "submit" }
+
+  .clear
 
   .list-conteudo#home_list
     - if @deals.blank?

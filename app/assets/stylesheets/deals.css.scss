@@ -173,8 +173,51 @@ body {
       }
 
       .advanced_filters {
+        height: 100px;
+
+        .price_filter, .city_filter, .order_filter {
+          float: left;
+          margin-left: 15px;
+        }
+
         .price_filter {
           width: 35%;
+          margin-left: 0;
+
+          label, input {
+            float: left;
+          }
+
+          input {
+            width: 30%;
+            margin-bottom: 2px;
+            border: none;
+            background: transparent;
+          }
+
+          #price_slider {
+            margin-left: 2px;
+            width: 93%;
+            background: #8c8c8c;
+            @include border-radius(5px);
+
+            .ui-slider-range.ui-widget-header {
+              background: #2C96D4;
+            }
+
+            a.ui-slider-handle.ui-state-default.ui-corner-all {
+              border-radius: 8px;
+              background: white;
+              border: none;
+              width: 18px;
+              height: 18px;
+              top: -.35em;
+            }
+
+            a.ui-state-hover {
+              background: #ececec !important;
+            }
+          }
         }
       }
     }

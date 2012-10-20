@@ -8,11 +8,11 @@
 
   .search_filters
     %ul#users_filters.quick_filters
-      %li= link_to t('search.filters.more_active'), deals_path + "?search_scope=more_active"
-      %li= link_to t('search.filters.more_popular'), deals_path + "?search_scope=more_popular"
-      %li= link_to t('search.filters.more_deals'), deals_path + "?search_scope=more_deals"
-      %li= link_to t('search.filters.month_points_rank'), deals_path + "?search_scope=month_points_rank"
-      %li= link_to t('search.filters.more_points'), deals_path + "?search_scope=more_points"
+      %li= link_to t('search.filters.more_active'), users_path + "?search_scope=more_active"
+      %li= link_to t('search.filters.more_popular'), users_path + "?search_scope=more_popular"
+      %li= link_to t('search.filters.more_deals'), users_path + "?search_scope=more_deals"
+      %li= link_to t('search.filters.month_points_rank'), users_path + "?search_scope=month_points_rank"
+      %li= link_to t('search.filters.more_points'), users_path + "?search_scope=more_points"
   .clear
 
   .list-conteudo#users_search_list

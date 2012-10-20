@@ -7,7 +7,7 @@
   %h3
     = link_to truncate_name(user.name, 19), user_path(user.username)
   %span
-    = user.deals.length
+    = user.deals.count
     ofertas compartilhadas!
   .action_btn
     = link_to t('actions.follow'), user_path(user.username), :class => 'btn_follow_user'

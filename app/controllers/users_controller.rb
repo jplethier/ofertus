@@ -68,5 +68,6 @@ class UsersController < ApplicationController
   def find_users
     @users = User.paginate(page: params[:page], per_page: 12)
     @users = @users.search(params[:search].gsub(" ", "%")) if params[:search]
+    @users = @users.send(params[:search_scope].to_sym) unless params[:search_scope].blank?
   end
 end

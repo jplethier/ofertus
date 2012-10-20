@@ -25,10 +25,12 @@ class User < ActiveRecord::Base
   belongs_to :invited_by, :class_name => 'User'
   has_many :inviteds, :class_name => 'User', :foreign_key => :invited_by_id
 
-  scope :order_by_deals, order("(select count(deals.id) from deals where deals.user_id = users.id) desc")
-  scope :random, order('RANDOM()')
-  scope :facebook_users, where(:provider => "facebook")
-  scope :admin_users, where(:admin => true)
+  scope :more_deals,  order("(select count(deals.id) from deals where deals.user_id = users.id) DESC")
+  scope :more_active,     order("(select count(deals.id) from deals where deals.user_id = users.id) + (select count(comments.id) from comments where comments.user_id = users.id) + (select count(votings.id) from votings where votings.voter_id = users.id) DESC")
+  scope :more_popular,    order('(select count(relationships.id) from relationships where relationships.followed_id = users.id) DESC')
+  scope :random,          order('RANDOM()')
+  scope :facebook_users,  where(:provider => "facebook")
+  scope :admin_users,     where(:admin => true)
 
   # Virtual attribute for authenticating by either username or email
   attr_accessor :login

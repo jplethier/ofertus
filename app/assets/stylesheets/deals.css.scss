@@ -227,6 +227,15 @@ body {
             width: 90%;
           }
         }
+
+        .submit {
+          background: image-url('advanced_search_btn.png') no-repeat 0 0;
+          padding: 0;
+          height: 28px;
+          width: 75px;
+          margin-top: 2em;
+          border: none;
+        }
       }
     }
   }

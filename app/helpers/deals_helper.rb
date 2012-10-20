@@ -38,7 +38,7 @@ module DealsHelper
   end
 
   def search_options(selected = nil)
-    options_for_select({"Mais Recente" => "most_recent", "Menor Preço" => "lowest_price",
+    options_for_select({"Mais Recente" => "recent", "Menor Preço" => "lowest_price",
     "Maior Preço" => "highest_price", "Maior Desconto" => "highest_discount"}, selected)
   end
 

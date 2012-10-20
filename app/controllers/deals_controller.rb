@@ -124,6 +124,7 @@ class DealsController < AuthorizedController
     @deals = @deals.search(params[:search]) if params[:search]
     @deals = @deals.by_cities(params[:search_city]) if params[:search_city] && not(params[:search_city].empty?)
     @deals = @deals.by_price_range(params[:price_range].split('-')[0].gsub('R$','').to_i, params[:price_range].split('-')[1].gsub('R$','').to_i) if params[:price_range]
+    @deals = @deals.send(params[:search_order]) if params[:search_order]
     @deals = @deals.active
   end
 

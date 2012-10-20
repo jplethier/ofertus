@@ -219,6 +219,14 @@ body {
             }
           }
         }
+
+        .city_filter, .order_filter {
+          width: 20%;
+
+          select {
+            width: 90%;
+          }
+        }
       }
     }
   }

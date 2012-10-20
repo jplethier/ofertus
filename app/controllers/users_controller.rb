@@ -66,8 +66,7 @@ class UsersController < ApplicationController
   end
 
   def find_users
-    @users = User.paginate(:page => params[:page])
+    @users = User.paginate(page: params[:page], per_page: 12)
     @users = @users.search(params[:search].gsub(" ", "%")) if params[:search]
-    @users_with_more_deals = User.order_by_deals.limit(5)
   end
 end

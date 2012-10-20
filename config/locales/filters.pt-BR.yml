@@ -5,7 +5,12 @@
       categories: 'Categorias'
       end_today: 'Encerrando Hoje'
       highest_discounts: 'Maiores Descontos'
+      month_points_rank: 'Mais Pontos no Mês'
+      more_active: 'Mais Ativos'
+      more_deals: 'Mais Ofertas Compartilhadas'
       more_likes: 'Mais Adoradas'
+      more_points: 'Mais Pontos Geral'
+      more_popular: 'Mais Populares'
       most_visited: 'Mais Acessadas'
       recent: 'Mais Recentes'
     categories:

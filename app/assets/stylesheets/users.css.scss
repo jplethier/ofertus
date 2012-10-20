@@ -161,6 +161,23 @@ body {
   .followers {
     float: right;
   }
+
+  ul#users_filters {
+    li {
+      display: inline-block;
+      width: auto !important;
+      padding: 0 3em;
+    }
+  }
+
+  #users_search_list {
+    margin-top: 1.5em;
+
+    .top_user {
+      height: 150px;
+      margin-bottom: 1em;
+    }
+  }
 }
 
 

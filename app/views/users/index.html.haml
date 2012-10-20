@@ -1,22 +1,27 @@
-#col-left
+#sem-col
   .ttGlHome
-    %h2= t('strings.users')
-  = render @users
-  = will_paginate @users
-    
-#col-right
-  .list-box-sidebar#busca-home
-    .ttGlHome
-      %h2= t('strings.search_options')
-    .border-input-busca
-      %form{ :action => users_path, :method => "get" }
-        = text_field_tag :search, params[:search], :class => "input-tx"
-        %button#search_button.submit{ :type => "submit" }
-        
-  .list-box-sidebar.ranking-usuarios
-    .ttGlHome
-      %h2= t('strings.users_with_more_deals')
-    - @users_with_more_deals.each_with_index do |user, index|
-      = render 'side_user', :user => user, :index => index
+    %h2= t('strings.search_results')
+    %form{ :id => "search_form_2", :action => users_path, :method => "get", :class => "search"}
+      .border-input-busca
+        = text_field_tag :search, params[:search], :class => "input-tx", :placeholder => 'Pesquisa'
+        %input{ :type => "submit", :value => "", :class => "submit search_button" }
 
-.clear
+  .search_filters
+    %ul#users_filters.quick_filters
+      %li= link_to t('search.filters.more_active'), deals_path + "?search_scope=more_active"
+      %li= link_to t('search.filters.more_popular'), deals_path + "?search_scope=more_popular"
+      %li= link_to t('search.filters.more_deals'), deals_path + "?search_scope=more_deals"
+      %li= link_to t('search.filters.month_points_rank'), deals_path + "?search_scope=month_points_rank"
+      %li= link_to t('search.filters.more_points'), deals_path + "?search_scope=more_points"
+  .clear
+
+  .list-conteudo#users_search_list
+    - if @users.blank?
+      %h3 Não foi encontrado nenhum usuário
+    - else
+      - @users.each_with_index do |user, index|
+        %div{ :class => "top_user #{index%3 == 0 ? 'first' : (index%3 == 2 ? 'last' : '')}" }
+          = render :partial => 'users/top_user', :locals => {:user => user, :index => index }
+    .clear
+    .paginate
+      = will_paginate @deals

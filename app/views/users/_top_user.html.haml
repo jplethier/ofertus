@@ -5,7 +5,7 @@
     = link_to(image_tag(user.gravatar_url(:size => 80), :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture")
 .left
   %h3
-    = link_to truncate_name(user.name, 21), user_path(user.username)
+    = link_to truncate_name(user.name, 19), user_path(user.username)
   %span
     = user.deals.length
     ofertas compartilhadas!

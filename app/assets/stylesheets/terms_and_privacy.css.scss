@@ -12,10 +12,37 @@ div.doc p { display: block; font: 12px/18px Verdana, Sans-Serif; margin: 0 30px 
 .doc .privacypolicy .subtitle strong {color: black; font-size: 14px; }
 .doc .privacypolicy .item p {padding:0 0 0 30px;}
 
-/*termsofuse*/
-.doc .termsOfUse {text-align: justify;}
-.doc .termsOfUse p {font-size: 12px;}
-.doc .termsOfUse strong {color: black; font-size: 12px; }
-.doc .termsOfUse .title strong {color: black; font-size: 16px; }
-.doc .termsOfUse .subtitle strong {color: black; font-size: 14px; }
-.doc .termsOfUse .item p {padding:0 0 0 30px;}
+.doc {
+  /*termsofuse*/
+  .termsOfUse { 
+    text-align: justify;
+
+    p {
+      font-size: 12px;
+    }
+
+    strong {
+      color: black;
+      font-size: 12px;
+    }
+
+    .title {
+      strong {
+        color: black;
+        font-size: 16px;
+      }
+    }
+
+    .subtitle {
+      strong {
+        color: black;
+        font-size: 14px;
+      }
+    }
+
+    .item {
+      p {
+        padding: 0 0 0 30px;
+      }
+    }
+  }

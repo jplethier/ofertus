@@ -1,7 +1,8 @@
-@import 'fonts';
-@import "bourbon";
+@charset 'UTF-8';
+/*
+*= require vendor
+*/
 
-@import 'alerts';
 @import 'blocker';
 @import 'body';
 @import 'bootstrap.min';

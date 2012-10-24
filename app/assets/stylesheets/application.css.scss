@@ -3,27 +3,5 @@
 *= require vendor
 */
 
-@import 'blocker';
-@import 'body';
-@import 'bootstrap.min';
-@import 'categories';
-@import 'deals';
-@import 'facebook';
-@import 'footer';
-@import 'form';
-@import 'header';
-@import 'help';
-@import 'home';
-@import 'home_header';
-@import 'jquery.dataTables';
-@import 'jquery.dataTables_themeroller';
-@import 'reset';
-@import 'general';
-@import 'klepper_css';
-@import 'main';
-@import 'new_deal';
-@import 'popup';
-@import 'terms_and_privacy';
-@import 'users';
-@import 'signup';
-@import 'paginate';
+@import "bourbon";
+

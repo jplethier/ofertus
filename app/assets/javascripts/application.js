@@ -53,11 +53,11 @@ $(document).ready(function() {
     generatePagination: true,
     play: 5000,
     pause: 2500,
-    hoverPause: true,
-    animationComplete: function(current){
+    hoverPause: true
+    // animationComplete: function(current){
       // Set the slide number as a hash
-      window.location.hash = '#' + current;
-    }
+      // window.location.hash = '#' + current;
+    // }
   });
 });
 

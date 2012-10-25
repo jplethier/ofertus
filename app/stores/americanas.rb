@@ -30,8 +30,8 @@ class Americanas
 
     unless page.nil?
       deal.link = link
-
-      deal.title = page.at_css("title").try(:text).try(:strip)[0,255]
+      
+      deal.title = page.at_css("title").try(:text).try(:strip)[0,255] if page.at_css('title')
       deal.price_mask = page.at_css(".sale strong").try(:text).try(:strip)[7..-1].try(:strip) if page.at_css(".sale strong") && page.at_css(".sale").try(:text)
       deal.real_price_mask = page.at_css(".regular").try(:text).try(:strip)[6..-1].try(:strip) if page.at_css(".regular") && page.at_css(".regular").try(:text)
       deal.description = page.at_css(".infoProdBox").to_s.truncate(4000) if page.at_css(".infoProdBox")

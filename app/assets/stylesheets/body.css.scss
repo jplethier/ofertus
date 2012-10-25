@@ -42,6 +42,7 @@ body {
     font-family: 'Colaborate-Thin';
     background: image-url('bg2.png');
     padding: 30px 0;
+    min-height: 400px;
 
     .content {
       width:1040px;
@@ -50,6 +51,7 @@ body {
       .ttGlHome {
         height: 30px;
         margin-bottom: 25px;
+        position: relative;
 
         h2 {
           background: image-url('bg2.png');
@@ -87,6 +89,9 @@ body {
         background: image-url('invite_friends_btn.png') no-repeat -12px -7px;
         height: 46px;
         width: 147px;
+        position: absolute;
+        right: 0;
+        top: -12px;
       }
 
       .list-conteudo {

@@ -1,9 +1,13 @@
 body {
   #header_image {
-    background: image-url('home_header.png') 0 -27px no-repeat;
+    background: image-url('home_header.png') 0 -30px no-repeat;
     margin: 0;
     display: block;
-    height: 270px;
+    height: 21em;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
   }
 
   #home_header {

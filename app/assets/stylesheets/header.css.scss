@@ -12,9 +12,9 @@
     position: relative;
 
     #search_form_div {
-      position: fixed;
-      top: 98px;
-      right: 207px;
+      position: absolute;
+      top: 85px;
+      right: -75px;
       display: none;
       width: 289px;
       z-index: 151;
@@ -89,7 +89,7 @@
       min-height: 90px;
       background: #0098be;
       position: absolute;
-      top: 90px;
+      top: 75px;
       @include border-radius(5px);
       padding: 10px;
 
@@ -138,11 +138,11 @@
     }
 
     #user_menu_options {
-      right: 40px;
+      right: 14px;
     }
 
     #settings_menu_options {
-      right: -22px;
+      right: -50px;
     }
 
     #user_menu_options:after, #settings_menu_options:after {
@@ -175,6 +175,7 @@
       float: left;
       margin-top: 15px;
       margin-left: 10px;
+      position: relative;
 
       li {
         float: left;
@@ -212,7 +213,7 @@
           height: 42px;
           background: image-url('login-facebook.png') no-repeat;
           position: absolute;
-          top: 30px;
+          top: 20px;
         }
 
         a.facebook_login_button:hover {
@@ -289,9 +290,9 @@
 
           a {
             display:block;
-            padding:0 12px 0 0;
+            padding:0 .8em 0 0;
             color: #999;
-            font-size:11px;
+            font-size: .9em;
             text-decoration:none;
             text-transform:uppercase;
           }

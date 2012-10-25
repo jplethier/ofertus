@@ -2,6 +2,7 @@
 class ApplicationController < ActionController::Base
   # before_filter :go_to_facebook
   before_filter :delete_facebook_data, :set_current_tab
+  before_filter :authenticate
 
   protect_from_forgery
 
@@ -65,6 +66,15 @@ class ApplicationController < ActionController::Base
     else
       flash[:error] = I18n.t('devise.failure.unauthenticated')
       redirect_to root_path
+    end
+  end
+
+  private
+
+  def authenticate
+    return true unless request.url.match('ofertus-test')
+    authenticate_or_request_with_http_basic do |username, password|
+      username == "ofertus" && password == "123ofertus"
     end
   end
 end

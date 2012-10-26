@@ -15,13 +15,4 @@
       %li= link_to t('search.filters.more_points'), users_path + "?search_scope=more_points"
   .clear
 
-  .list-conteudo#users_search_list
-    - if @users.blank?
-      %h3 Não foi encontrado nenhum usuário
-    - else
-      - @users.each_with_index do |user, index|
-        %div{ :class => "top_user #{index%3 == 0 ? 'first' : (index%3 == 2 ? 'last' : '')}" }
-          = render :partial => 'users/top_user', :locals => {:user => user, :index => index }
-    .clear
-    .paginate
-      = will_paginate @deals
+  = render 'users_list', users: @users

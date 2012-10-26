@@ -15,7 +15,7 @@ describe "Active Deals Page" do
 
   it 'searching active deals page by category and find something' do
     click_on 'header_restaurant'
-    should have_content('Ofertas Ativas')
+    should have_content('Resultados da Busca')
     within '#col-left' do
       should have_link(active_deal.title)
     end
@@ -24,7 +24,7 @@ describe "Active Deals Page" do
 
   it 'searching active deals page by category and find nothing' do
     click_on 'header_computer'
-    should have_content('Ofertas Ativas')
+    should have_content('Resultados da Busca')
     within '#col-left' do
       should_not have_link(active_deal.title)
     end

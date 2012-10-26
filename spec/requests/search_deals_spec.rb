@@ -26,7 +26,7 @@ describe "Search Deals" do
       click_on 'header_search_btn'
       fill_in 'search', :with => 'titu'
       click_on 'search_button'
-      should have_content('Ofertas Ativas')
+      should have_content('Resultados da Busca')
       within '#col-left' do
         should have_link(active_deal.title)
         should have_link(another_active_deal.title)
@@ -34,7 +34,7 @@ describe "Search Deals" do
       all(:xpath, '//div[@id="col-left"]/div[@class="list-conteudo"]/div[@class="deal "]').count.should == 2
       fill_in 'search', :with => 'titulo 2'
       click_on 'search_button'
-      should have_content('Ofertas Ativas')
+      should have_content('Resultados da Busca')
       within '#col-left' do
         should_not have_link(active_deal.title)
         should have_link(another_active_deal.title)
@@ -46,7 +46,7 @@ describe "Search Deals" do
       click_on 'header_search_btn'
       fill_in 'search', :with => 'inexistente'
       click_on 'search_button'
-      should have_content('Ofertas Ativas')
+      should have_content('Resultados da Busca')
       within '#col-left' do
         should_not have_link(active_deal.title)
         should_not have_link(another_active_deal.title)
@@ -63,7 +63,7 @@ describe "Search Deals" do
       click_on 'header_search_btn'
       fill_in 'search', :with => 'desc'
       click_on 'search_button'
-      should have_content('Ofertas Ativas')
+      should have_content('Resultados da Busca')
       within '#col-left' do
         should have_link(active_deal.title)
         should have_link(another_active_deal.title)
@@ -71,7 +71,7 @@ describe "Search Deals" do
       all(:xpath, '//div[@id="col-left"]/div[@class="list-conteudo"]/div[@class="deal "]').count.should == 2
       fill_in 'search', :with => 'descrição'
       click_on 'search_button'
-      should have_content('Ofertas Ativas')
+      should have_content('Resultados da Busca')
       within '#col-left' do
         should_not have_link(active_deal.title)
         should have_link(another_active_deal.title)
@@ -83,7 +83,7 @@ describe "Search Deals" do
       click_on 'header_search_btn'
       fill_in 'search', :with => 'descriçao'
       click_on 'search_button'
-      should have_content('Ofertas Ativas')
+      should have_content('Resultados da Busca')
       within '#col-left' do
         should_not have_link(active_deal.title)
         should_not have_link(another_active_deal.title)

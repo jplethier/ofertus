@@ -10,7 +10,7 @@
 
   a, span, em {
     @include border-radius(3px);
-    @include single-box-shadow(rgba(0, 0, 0, 0.2), 0, 0, 0, 1px);
+    @include box-shadow(rgba(0, 0, 0, 0.2), 0, 0, 0, 1px);
     
     margin: 1px 2px;
     padding: 5px 10px;
@@ -50,7 +50,7 @@
     }
     
     &.more {
-      @include single-box-shadow(none, 0, 0, 0, 0);
+      @include box-shadow(none, 0, 0, 0, 0);
       border: 0 none !important;
       background: transparent !important;
       margin-left: 0;
@@ -58,7 +58,7 @@
     }
     
     &.active {
-      @include single-box-shadow(rgba(0, 0, 0, 0.75), 0, 0, 0, 0, inset);
+      @include box-shadow(rgba(0, 0, 0, 0.75), 0, 0, 0, 0, inset);
       border-color: #505050 !important;
       color: #f2f2f2 !important;
       text-shadow: rgba(0, 0, 0, 1) 0 1px 0;
@@ -78,7 +78,7 @@
 .paginate-dark {
 
   a {
-    @include single-box-shadow(rgba(0, 0, 0, 0.3), 0, 0, 0, 1px);
+    @include box-shadow(rgba(0, 0, 0, 0.3), 0, 0, 0, 1px);
     border-top: 1px solid #62686d;
     text-shadow: rgba(0, 0, 0, 0.75) 0 1px 0;
     color: #fff !important;
@@ -105,7 +105,7 @@
     }
     
     &.active {
-      @include single-box-shadow(rgba(0, 0, 0, 0.75), 0, 0, 0, 0, inset);
+      @include box-shadow(rgba(0, 0, 0, 0.75), 0, 0, 0, 0, inset);
       border-color: #2d3035 !important;
       
       background-color: #303338;

@@ -1,1 +1,5 @@
-Seguidores
+#sem-col
+  .ttGlHome
+    %h2= t('strings.followers_of', name: @user.name)
+  
+  = render 'users_list', users: @followers

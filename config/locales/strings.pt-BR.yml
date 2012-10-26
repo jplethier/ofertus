@@ -24,6 +24,8 @@
     end_date: "Válida até %{end_date}"
     fill_fields: 'Preencha os campos abaixo'
     fill_fields_to_share: "Compartilhe uma oferta preenchendo os campos abaixo e clicando em 'Confirmar'"
+    followed_by: 'Seguidos por %{name}'
+    followers_of: 'Seguidores de %{name}'
     followers: 'Seguidores'
     following: 'Seguindo'
     follow_us: 'Siga nossas redes'

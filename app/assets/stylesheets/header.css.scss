@@ -14,7 +14,7 @@
     #search_form_div {
       position: absolute;
       top: 85px;
-      right: -75px;
+      right: 28px;
       display: none;
       width: 289px;
       z-index: 151;
@@ -176,6 +176,7 @@
       margin-top: 15px;
       margin-left: 10px;
       position: relative;
+      width: 306px;
 
       li {
         float: left;
@@ -295,6 +296,11 @@
             font-size: .9em;
             text-decoration:none;
             text-transform:uppercase;
+          }
+
+          a:hover {
+            color: #FFF;
+            font-size: .95em;
           }
         }
       }

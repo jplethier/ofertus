@@ -239,4 +239,126 @@ body {
       }
     }
   }
+  
+  .detalhe-oferta, .como-funciona {
+    float:none;
+    border: 0;
+    padding: 0;
+    position: relative;
+    min-height: 250px;
+    overflow: visible;
+  }
+
+  .desc-off {
+    float: left;
+    width: 730px;
+    background: #f6f6f6;
+    min-height:400px;
+
+    .tx-desc {
+      p {
+        color: #1e1e1e;
+        font-size: 14px;
+        margin-bottom: 15px;
+        line-height:22px;
+      }
+    }
+  }
+  
+  .desc-off, .comment-off {
+    h4 {
+      background: #1e1e1e;
+      padding: 7px 20px 6px;
+      color: #fff;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .tx-desc {
+      padding: 20px;
+    }
+  }
+
+  .right-detalhe-comment-off {
+    float: right;
+    width: 270px;
+  }
+  
+  .comment-off {
+    background: #f6f6f6;
+    margin-bottom: 10px;
+
+    textarea {
+      border: 0;
+      background: #FFF;
+      height: 73px;
+      margin-bottom: 10px;
+      font-size: 11px;
+      color: #666;
+      padding: 11px 5px 10px;
+      width: 220px;
+    }
+
+    .bt-comentar {
+      text-indent: -15000px;
+      width: 103px;
+      height:28px;
+      float: right;
+      border: none;
+      background: image-url('bt-comentar.png') no-repeat;
+    }
+  }
+
+  #ct-comment-off {
+    background: #f6f6f6;
+    padding: 20px 20px 10px;
+
+    .list-comment-off {
+      background: #FFF;
+      overflow: hidden;
+      margin-bottom: 10px;
+
+      img {
+        float: left;
+        margin-right: 10px;
+      }
+
+      p {
+        font-size: 12px;
+        color: #666;
+        padding-top: 6px;
+      }
+
+      span {
+        font-size: 12px;
+        color: #999;
+        line-height: 22px;
+
+        a {
+          font-size: 12px;
+          text-decoration: underline;
+          color: #666;
+        }
+      }
+    }
+  }
+
+  .share-off {
+    clear: both;
+    margin-top: 10px;
+
+    span {
+      display: block;
+      color: #565656;
+      padding-left: 16px;
+      margin-bottom: 5px;
+      font-size: 10px;
+
+      a {
+        color: #1e1e1e;
+        text-decoration: none;
+        font-size:11px;
+      }
+    }
+  }
 }

@@ -206,6 +206,13 @@
           }
         }
 
+        a.login_link {
+          position: absolute;
+          bottom: 0;
+          right: 30px;
+          font-size: 9px;
+        }
+
         a.facebook_login_button {
           text-indent:-15000px;
           overflow:hidden;
@@ -214,7 +221,7 @@
           height: 42px;
           background: image-url('login-facebook.png') no-repeat;
           position: absolute;
-          top: 20px;
+          top: 12px;
         }
 
         a.facebook_login_button:hover {
@@ -301,6 +308,7 @@
           a:hover {
             color: #FFF;
             font-size: .95em;
+            padding: 0 .75em 0 0;
           }
         }
       }

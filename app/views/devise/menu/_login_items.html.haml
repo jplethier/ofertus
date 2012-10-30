@@ -19,7 +19,9 @@
         = link_to image_tag(current_user.gravatar_url :size => 50), 'javascript:;', class: 'user_menu', id: 'user_menu_link'
     %li.no_margin_top.settings= link_to t('strings.settings'), 'javascript:;', class: 'settings_menu', id: 'settings_menu_link'
   - else
-    %li= link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
+    %li
+      = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
+      = link_to t('strings.login'), new_user_session_path, class: 'login_link'
 
 #search_form_div
   %form{ :id => "search_form", :action => deals_path, :method => "get", :class => "search"}

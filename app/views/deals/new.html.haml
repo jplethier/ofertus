@@ -52,51 +52,70 @@
     
     .ct-inputs-login
       = form_for(@deal) do |f|
-        %p.left{ style: 'width: 94%;' }
-          = f.label :title
-          %br
-          = f.text_field :title
+        .big_column.left
+          %p
+            %div
+              = f.label :title
+            %div
+              = f.text_field :title
         .clear
-        %p.left{ style: 'width: 43%;' }
-          = f.label :real_price_mask
-          %br
-          = f.text_field :real_price_mask, :class => "money"
-        %p.right{ style: 'width: 43%;' }
-          = f.label :price_mask
-          %br
-          = f.text_field :price_mask, :class => "money"
+        .small_column.left
+          %p
+            %div
+              = f.label :real_price_mask
+            %div
+              = f.text_field :real_price_mask, :class => "money"
+        .small_column.right
+          %p
+            %div
+              = f.label :price_mask
+            %div
+              = f.text_field :price_mask, :class => "money"
         .clear
         %p#p_description
-          = f.label :description
-          %br
-          = cktext_area :deal, :description, :toolbar => 'Basic'
+          %div
+            = f.label :description
+          %div
+            = cktext_area :deal, :description, :toolbar => 'Basic'
         .clear
-        %p.left{ style: 'width: 43%;' }
-          = f.label :category
-          %br
-          = f.select :category, Deal.i18n_categories, {:include_blank => 'Selecione'}, :class => 'user-senha'
-        %p.right{ style: 'width: 43%;' }
-          = f.label :end_date
-          %br
-          = f.text_field :end_date, :class => "datepicker", :value => l(Date.today), :placeholder => 'dd/mm/aaaa'
+        .left.small_column
+          %p
+            %div
+              = f.label :category
+            %div
+              = f.select :category, Deal.i18n_categories, {:include_blank => 'Selecione'}, :class => 'user-senha'
+        .right.small_column
+          %p
+            %div
+              = f.label :end_date
+            %div
+              = f.text_field :end_date, :class => "datepicker", :value => l(Date.today), :placeholder => 'dd/mm/aaaa'
         .clear
-        %p.left{ style: 'width: 43%;' }
-          = f.label :link
-          %br
-          = f.text_field :link, :placeholder => 'http(s)://'
-        %p.right{ style: 'width: 43%;' }
-          = f.label :image_url
-          %br
-          = f.text_field :image_url, :placeholder => 'http(s)://'
+        .left.small_column
+          %p
+            %div
+              = f.label :link
+            %div
+              = f.text_field :link, :placeholder => 'http(s)://'
+        .small_column.right
+          %p
+            %div
+              = f.label :image_url
+            %div
+              = f.text_field :image_url, :placeholder => 'http(s)://'
         .clear
-        %p.left{ style: 'width: 43%;' }
-          = f.label :company
-          %br
-          = f.text_field :company
-        %p.right{ style: 'width: 43%;' }
-          = f.label :city_id
-          %br
-          = f.select(:city_id, unsorted_grouped_options_for_select(@cities_state_hash), {:include_blank => 'Selecione'} )
+        .left.small_column
+          %p
+            %div
+              = f.label :company
+            %div
+              = f.text_field :company
+        .right.small_column
+          %p
+            %div
+              = f.label :city_id
+            %div
+              = f.select(:city_id, unsorted_grouped_options_for_select(@cities_state_hash), {:include_blank => 'Selecione'} )
 
         %br.clear
         = f.submit "", :class => 'bt-confirmar', :id => 'confirm'

@@ -3,11 +3,19 @@ body {
     form {
       padding: 10px;
 
-      p.left {
+      .big_column {
+        width: 94%;
+      }
+
+      .small_column {
+        width: 43%;
+      }
+
+      .left {
         float: left;
       }
 
-      p.right {
+      .right {
         float: right;
         margin-right: 26px;
       }
@@ -33,95 +41,14 @@ body {
         background: image-url('bt-confirmar.png') no-repeat;
         display: block;
       }
-    }  
+    }
+
+    form#new_deal {
+      .field_with_errors {
+        label.message.erroForm {
+          display: none;
+        }
+      }
+    }
   }
 }
-
-/*.ct-inputs-login {
-  overflow: hidden;
-  padding: 10px;
-
-  p {
-    color: #666;
-    font-size:13px;
-    float: left;
-    margin-right: 20px;
-  }
-
-  form {
-    .input[type='text'] {
-      background: #FFF;
-      width: 100%;
-      margin:4px 0 10px;
-      border: 1px solid #dcdcdc;
-      padding:10px;
-      border-radius: 5px;
-    }
-  }
-
-  .checkbox-login {
-    float: left;
-    color: #8f8f8f;
-    padding-top: 10px;
-    margin-right: 0;
-    font-size: 11px;
-    line-height: 15px;
-
-    input {
-      float: left;
-      margin-right: 5px;
-    }
-  }
-
-  .bt-entrar {
-    width: 126px;
-    height: 35px;
-    float: right;
-    border: none;
-    background: image-url('bt-entrar.png') no-repeat;
-  }
-
-  p.last {
-    margin-right: 0;
-  }
-
-  .left {
-    width:449px;
-    float:left;
-    margin-bottom: 15px;
-
-    p {
-      margin-right:0;
-
-      span { display: block; color: #666; margin-top:-9px; font-size:11px; text-align:right; }
-    }
-  }
-
-  a {
-    display: block;
-    color: #4a4a4a;
-    font-size: 12px;
-    line-height: 20px;
-  }
-
-  .bt-confirmar {
-    width: 136px;
-    height: 35px;
-    float: right;
-    border: none;
-    background: image-url('bt-confirmar.png') no-repeat;
-  }
-
-  .ct-edit {
-    .user-senha {
-      width:420px;
-    }
-  }
-
-  .right {
-    width:150px;
-    padding-top: 20px;
-
-    a { color: #333333; display: block; font-size: 14px; text-align: center; text-decoration: underline; }
-  }
-}*/

@@ -3,6 +3,7 @@ body {
   .best_deals {
     position: relative;
     overflow: visible !important;
+    display: inline-block;
 
     #list_prev1, #list_next1, #list_prev2, #list_next2 {
       display:  block !important;

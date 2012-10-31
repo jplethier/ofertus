@@ -4,8 +4,8 @@ class PagesController < ApplicationController
   def home
     @current_tab = 'home'
     @top_deals = Deal.active.top.limit(6)
-    @best_deals = Deal.active.best_deals.limit(4)
-    @recent_deals = Deal.active.recent.limit(4)
+    @best_deals = Deal.active.best_deals
+    @recent_deals = Deal.active.recent
     @users = User.random.limit(3)
   end
 

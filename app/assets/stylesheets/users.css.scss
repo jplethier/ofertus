@@ -178,13 +178,45 @@ body {
       margin-bottom: 1em;
     }
   }
+
+  #sem-col {
+    .edit_user {
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+      height: auto;
+      padding-bottom: 1em;
+
+      .title {
+        width: 98.5%;
+      }
+
+      .facebook_share_options {
+        margin-bottom: 1em;
+      }
+    }
+
+    .center {
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .links {
+      margin: 1em 0;
+      a {
+        margin: 1em;
+        display: block;
+      }
+    }
+
+  }
 }
 
 
 
 
 /* User */
-#box-user { }
 #box-user h3 { font-size:16px; font-weight: normal; margin-bottom:7px; }
 #box-user .left-user { float: left; width:150px; }
 #box-user .right-user { float: right; width:108px; }

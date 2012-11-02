@@ -20,7 +20,7 @@ describe "Search Users Page" do
   describe 'users list' do
     it {should have_content('Usuários')}
     it "should show users list" do
-      within "#col-left .list-usuarios" do
+      within "#sem-col .list-usuarios" do
         should have_css('.left a.user_picture', :href => user_path(user.username))
         should have_css('.left a.user_picture img', :src => user.gravatar_url)
         should have_css('.left a.user_picture img', :src => user.gravatar_url)
@@ -40,12 +40,12 @@ describe "Search Users Page" do
     it 'should show the number of shared deals' do
       deal = FactoryGirl.create(:deal, :user => user)
       visit users_path
-      within "#col-left" do
+      within "#sem-col" do
         should have_css('li', :text => '1 oferta compartilhada!')
       end
       another_deal = FactoryGirl.create(:deal, :user => user)
       visit users_path
-      within '#col-left .list-usuarios ul' do
+      within '#sem-col .list-usuarios ul' do
         should have_css('li', :text => '2 ofertas compartilhadas!')
       end
     end
@@ -55,14 +55,14 @@ describe "Search Users Page" do
       user.follow!(followed_user)
       visit users_path
       #TODO: refazer
-      within "#col-left .list-usuarios ul" do
+      within "#sem-col .list-usuarios ul" do
         # should have_css('li', :text => 'Seguindo 1 usuário!')
       end
       another_followed = FactoryGirl.create(:user)
       user.follow!(another_followed)
       visit users_path
       #TODO: refazer
-      within '#col-left .list-usuarios ul' do
+      within '#sem-col .list-usuarios ul' do
         # should have_css('li', :text => 'Seguindo 2 usuários!')
       end    
     end

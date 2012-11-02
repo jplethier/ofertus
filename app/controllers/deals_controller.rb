@@ -24,11 +24,12 @@ class DealsController < AuthorizedController
 
   def create
     @deal.user = current_user
+    @deal.original_link = @deal.link
     if @deal.already_shared?
       if @deal.link.match('ofertus.com.br')
         redirect_to @deal.link, :alert => "A oferta abaixo já foi compartilhada por outro usuário"
       else
-        @deal = Deal.by_link(@deal.link)
+        @deal = Deal.find_by_original_link(@deal.original_link)
         redirect_to deal_path(@deal), :alert => "A oferta abaixo já foi compartilhada por outro usuário"
       end
     else
@@ -55,9 +56,15 @@ class DealsController < AuthorizedController
   end
 
   def share
-    @deal = Share.create_deal params[:share]
+    if @deal = Deal.find_by_original_link(params[:share])
+      redirect_to @deal, :alert => "A oferta abaixo já foi compartilhada por outro usuário"
+    elsif params[:share].match('ofertus.com.br')
+      redirect_to params[:share], :alert => "A oferta abaixo já foi compartilhada por outro usuário"
+    else
+      @deal = Share.create_deal params[:share]
 
-    render :new
+      render :new
+    end
   rescue Errno::ETIMEDOUT
     flash.now[:alert] = "Não foi possível ler as informações da oferta no site indicado."
     @deal = Deal.new :link => params[:share]

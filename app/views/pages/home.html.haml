@@ -14,7 +14,7 @@
   .ttGlHome
     %h2= t('strings.users_best')
     %h3= t('strings.our_users_recomendations')
-    = link_to t('strings.more'), deals_path
+    = link_to t('strings.more'), "#{deals_path}?search_scope=likes"
   .list-conteudo.best_deals
     - if @best_deals.blank?
       %h3 Não há ofertas ativas cadastradas
@@ -27,7 +27,7 @@
   .ttGlHome
     %h2= t('strings.recent')
     %h3= t('strings.recent_deals')
-    = link_to t('strings.more'), deals_path
+    = link_to t('strings.more'), "#{deals_path}?search_scope=recent"
   .list-conteudo.best_deals
     - if @recent_deals.blank?
       %h3 Não há ofertas ativas cadastradas

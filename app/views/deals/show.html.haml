@@ -42,8 +42,13 @@
       %h2= t('strings.similar_offers')
       %h3= t('strings.who_likes_me_also_like_this')
     .list-conteudo.best_deals
-      - @deal.similar_offers.each_with_index do |deal, index|
-        = render :partial => 'deals/small_deal', :locals => {:deal => deal, :index => index }
+      - unless @deal.similar_offers.blank?
+        .carousel1
+          - @deal.similar_offers.each_with_index do |deal, index|
+            = render :partial => 'deals/small_deal', :locals => {:deal => deal, :index => index }
+        = link_to 'Anterior', 'javascript:;', :id => 'list_prev1', :class => 'prev'
+        = link_to 'Próximo', 'javascript:;', :id => 'list_next1', :class => 'next'
+        
 
   .more_offers
     .ttGlHome
@@ -53,3 +58,15 @@
         = render :partial => 'deals/top_deal', :locals => {:deal => deal, :index => index }
 
 .clear
+
+:javascript
+  $(".carousel1").carouFredSel({
+    circular : true,
+    infinite : true,
+    auto : false,
+    prev : "#list_prev1",
+    next : "#list_next1",
+    scroll : {
+      items : 1
+    }
+  });

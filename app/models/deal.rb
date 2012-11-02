@@ -95,7 +95,7 @@ class Deal < ActiveRecord::Base
     if self.visits.blank?
       self.visits = 1
     else
-      self.visits += 1
+      self.visits = self.visits + 1
     end
     self.save(:validate => false)
   end

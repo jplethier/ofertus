@@ -41,7 +41,7 @@ ActiveAdmin.register User do
   show title: :username do |user|
     attributes_table do
       row :avatar_url do
-        image_tag(user.facebook_profile_picture ? user.facebook_profile_picture : '')
+        image_tag(user.medium_picture)
       end
       row :name
       row :username

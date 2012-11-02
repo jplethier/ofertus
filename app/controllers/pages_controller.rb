@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def home
     @current_tab = 'home'
     @top_deals = Deal.active.top.limit(6)
-    @best_deals = Deal.active.best_deals
+    @best_deals = Deal.active.likes.where('up_votes > 0')
     @recent_deals = Deal.active.recent
     @users = User.random.limit(3)
   end

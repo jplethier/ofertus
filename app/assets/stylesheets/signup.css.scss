@@ -27,22 +27,27 @@ body {
     }
 
     .register {
-      width: 245px;
+      width: 276px;
       margin: 20px auto;
+      display: block;
+      height: 3em;
 
       span {
         color: #404040;
+        float: left;
+        line-height: 4em;
       }
 
       a {
-        background: image-url('register_btn.png') no-repeat 0 0;
-        text-transform: uppercase;
-        width: 200px;
-        height: 40px;
+        background: image-url('register_btn.png') no-repeat -19px -19px;
+        width: 167px;
+        height: 54px;
         color: white;
         text-decoration: none;
         font-size: 12pt;
-        padding: 11px 21px;
+        text-indent: -15000px;
+        display: block;
+        float: left;
       }
     }
 

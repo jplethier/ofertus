@@ -21,7 +21,7 @@ body { font:12px Arial, sans-serif; *font-size:small; font-family: 'Colaborate-T
 .list-conteudo h3 { padding-bottom:30px;  }
 .list-conteudo h3 a { font-size:22px; font-weight:normal; margin-bottom:0; color: #404040; line-height:24px; text-decoration:none; }
 .list-conteudo .left.tx-off { width:360px; }
-.list-conteudo .left.tx-off .user-off { overflow:hidden; margin-bottom:15px; }
+.list-conteudo .left.tx-off .user-off { overflow: hidden; margin-bottom: 15px; clear: both; }
 .list-conteudo .left.tx-off .user-off img { float:left; margin-right:6px; }
 .list-conteudo .left.tx-off .user-off h4 { font-size:12px; font-weight: normal; line-height:20px; }
 .list-conteudo .left.tx-off .user-off span { font-size:14px; }

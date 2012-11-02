@@ -19,7 +19,8 @@
       %form{ :id => 'search_form_3', :action => deals_path, :method => 'get', :class => 'search' }
         .price_filter
           = label_tag 'Preço:'
-          = text_field_tag 'price_range', "#{params[:price_range] ? params[:price_range] : 'R$0 - R$' + Deal.active.maximum(:price).to_i.to_s }"
+          = text_field_tag 'price_range', "#{params[:price_range] ? params[:price_range] : 'R$0 - R$' + Deal.active.maximum(:price).to_i.to_s }", :disabled => true
+          = hidden_field_tag 'price_range', "#{params[:price_range] ? params[:price_range] : 'R$0 - R$' + Deal.active.maximum(:price).to_i.to_s }", id: 'hidden_price_range'
           .clear
           #price_slider
         .city_filter
@@ -56,5 +57,6 @@
     values: [ #{params[:price_range] ? params[:price_range].split('-')[0].gsub('R$','').to_i : 0}, #{params[:price_range] ? params[:price_range].split('-')[1].gsub('R$','').to_i : Deal.active.maximum(:price).to_i || 0} ],
     slide: function( event, ui ) {
       $("#price_range").val("R$" + ui.values[ 0 ] + " - R$" + ui.values[ 1 ]);
+      $("#hidden_price_range").val("R$" + ui.values[ 0 ] + " - R$" + ui.values[ 1 ]);
     }
   });

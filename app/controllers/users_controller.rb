@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   def following
-    @following = @user.followers.paginate(page: params[:page], per_page: 12)
+    @following = @user.following.paginate(page: params[:page], per_page: 12)
   end
 
   #Lembrar de dar Reset Ability (CanCan)

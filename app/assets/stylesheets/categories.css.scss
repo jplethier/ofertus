@@ -1,0 +1,149 @@
+#categories_box {
+  padding: 20px;
+  width: 1020px;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+  position: absolute;
+  z-index: 5;
+  background: white;
+  @include border-radius(5px);
+
+  .icon {
+    float: left;
+    margin-right: 22px;
+    position: relative;
+    padding-bottom: 20px;
+    width: 72px;
+    height: 72px;
+    background: url(icon-cat.png) no-repeat;
+
+    span {
+      position: absolute;
+      opacity: 0.0;
+      -moz-opacity: 0.0;
+      filter: alpha(opacity=0);
+      bottom: 0;
+      font-size: 11px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    a {
+      width: 72px;
+      height: 72px;
+      display: block;
+    }
+  }
+
+  .cat-item1 {
+    background-position: 0 0;
+
+    span {
+      left:0;
+    }
+  }
+
+  .cat-item2 {
+    background-position: -72px 0;
+
+    span {
+      left:12px;
+    }
+  }
+
+  .cat-item3 {
+    background-position: -144px 0;
+
+    span {
+      left:-42px;
+      width:162px;
+    }
+  }
+
+  .cat-item4 {
+    background-position: -216px 0;
+
+    span {
+      left:-2px;
+    }
+  }
+
+  .cat-item5 {
+    background-position:-288px 0;
+
+    span {
+      left:-27px;
+      width:131px;
+    }
+  }
+
+  .cat-item6 {
+    background-position:-360px 0;
+
+    span {
+      left:-21px;
+    }
+  }
+
+  .cat-item7 {
+    background-position:-432px 0;
+
+    span {
+      left:-49px;
+      width:174px;
+    }
+  }
+
+  .cat-item8 {
+    background-position:-504px 0;
+
+    span {
+      left:-6px;
+    }
+  }
+
+  .cat-item9 {
+    background-position:-576px 0;
+
+    span {
+      left:-16px;
+      width:104px;
+    }
+  }
+
+  .cat-item10 {
+    background-position:-648px 0;
+
+    span {
+      left:-43px; width:164px;
+    }
+  }
+
+  .cat-item11 {
+    background-position: -720px 0;
+    margin-right:0;
+
+    span {
+      left:6px;
+    }
+  }
+
+  .cat-item1:hover, .cat-item2:hover, .cat-item3:hover, .cat-item4:hover, .cat-item5:hover, .cat-item6:hover, .cat-item7:hover, .cat-item8:hover, .cat-item9:hover, .cat-item10:hover, .cat-item11:hover {
+    span {
+      opacity: 1;
+    }
+  }
+}
+
+#categories_box:after {
+  content: "";
+  position: absolute;
+  right: 10%;
+  border-width: 0 9px 15px;
+  border-style: solid;
+  border-color: white transparent;
+  display: block;
+  width: 0;
+  top: -10px;
+}

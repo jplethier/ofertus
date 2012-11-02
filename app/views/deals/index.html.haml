@@ -14,7 +14,11 @@
       %li= link_to t('search.filters.most_visited'), deals_path + "?search_scope=most_visited"
       %li= link_to t('search.filters.more_likes'), deals_path + "?search_scope=likes"
       %li= link_to t('search.filters.recent'), deals_path + "?search_scope=recent"
-      %li= link_to t('search.filters.categories'), "javascript:;"
+      %li= link_to t('search.filters.categories'), "javascript:;", id: 'filter_categories'
+
+    #categories_box
+      = render 'categories_box'
+
     .advanced_filters
       %form{ :id => 'search_form_3', :action => deals_path, :method => 'get', :class => 'search' }
         .price_filter
@@ -59,4 +63,8 @@
       $("#price_range").val("R$" + ui.values[ 0 ] + " - R$" + ui.values[ 1 ]);
       $("#hidden_price_range").val("R$" + ui.values[ 0 ] + " - R$" + ui.values[ 1 ]);
     }
+  });
+
+  $("#filter_categories").click(function(){
+    $('#categories_box').toggle();
   });

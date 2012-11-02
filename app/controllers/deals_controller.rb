@@ -29,7 +29,7 @@ class DealsController < AuthorizedController
       if @deal.link.match('ofertus.com.br')
         redirect_to @deal.link, :alert => "A oferta abaixo já foi compartilhada por outro usuário"
       else
-        @deal = Deal.find_by_original_link(@deal.original_link)
+        @deal = Deal.find_by_original_link(@deal.original_link) || @deal.find_by_original_link(@deal.original_link.split('?')[0])
         redirect_to deal_path(@deal), :alert => "A oferta abaixo já foi compartilhada por outro usuário"
       end
     else
@@ -56,10 +56,15 @@ class DealsController < AuthorizedController
   end
 
   def share
-    if @deal = Deal.find_by_original_link(params[:share])
-      redirect_to @deal, :alert => "A oferta abaixo já foi compartilhada por outro usuário"
-    elsif params[:share].match('ofertus.com.br')
-      redirect_to params[:share], :alert => "A oferta abaixo já foi compartilhada por outro usuário"
+    @deal = Deal.new
+    @deal.original_link = params[:share]
+    if @deal.already_shared?
+      if @deal.original_link.match('ofertus.com.br')
+        redirect_to @deal.original_link, :alert => "A oferta abaixo já foi compartilhada por outro usuário"
+      else
+        @deal = Deal.find_by_original_link(@deal.original_link) || @deal.find_by_original_link(@deal.original_link.split('?')[0])
+        redirect_to deal_path(@deal), :alert => "A oferta abaixo já foi compartilhada por outro usuário"
+      end
     else
       @deal = Share.create_deal params[:share]
 

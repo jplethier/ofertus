@@ -72,6 +72,14 @@ class User < ActiveRecord::Base
     end
   end
 
+  def small_picture
+    if self.provider
+      self.facebook_profile_picture(:small)
+    else
+      self.gravatar_url(size: 50)
+    end
+  end
+
   def follow!(another_user)
     relationships.create! :followed_id => another_user.id
   end

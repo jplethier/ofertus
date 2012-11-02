@@ -1,12 +1,14 @@
 @font-face {
   font-family: "Colaborate-Thin";
-  src: local('ColabThi'), url("ColabThi.eot") format("eot"); /* IE9 Compat Modes */
+  font-style: normal;
+  font-weight: normal;
+  src: local('ColabThi'), url("/fonts/ColabThi.eot") format("eot"); /* IE9 Compat Modes */
   /* IE6-IE8 */
   /* Modern Browsers */
   /* Safari, Android, iOS */
   /* Legacy iOS */
-  src: local('ColabThi'), url("fonts/ColabThi.eot?#iefix") format("embedded-opentype"),
-       local('ColabThi'), url("fonts/ColabThi.woff") format("woff"),
-       local('ColabThi'), url("fonts/ColabThi.ttf") format("truetype"),
-       local('ColabThi'), url("fonts/ColabThi.svg#svgColaborate-Thin") format("svg");
+  src: local('ColabThi'), url("/fonts/ColabThi.eot?#iefix") format("embedded-opentype"),
+       local('ColabThi'), url("/fonts/ColabThi.woff") format("woff"),
+       local('ColabThi'), url("/fonts/ColabThi.ttf") format("truetype"),
+       local('ColabThi'), url("/fonts/ColabThi.svg#svgColaborate-Thin") format("svg");
 }

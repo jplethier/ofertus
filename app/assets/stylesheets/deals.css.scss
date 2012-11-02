@@ -127,6 +127,7 @@ body {
           width: 291px;
           border-radius: 0;
           margin: 0;
+          font-size: 1em;
         }
 
         .submit {
@@ -160,6 +161,7 @@ body {
             color: #666;
             text-transform: uppercase;
             text-decoration: none;
+            font-size: 1.2em;
           }
 
           a:hover {
@@ -178,6 +180,10 @@ body {
         .price_filter, .city_filter, .order_filter {
           float: left;
           margin-left: 15px;
+
+          label {
+            font-size: 1.2em;
+          }
         }
 
         .price_filter {
@@ -186,6 +192,7 @@ body {
 
           label, input {
             float: left;
+            font-size: 1.2em;
           }
 
           input {
@@ -225,6 +232,10 @@ body {
 
           select {
             width: 90%;
+          }
+
+          label {
+            font-size: 1.2em;
           }
         }
 

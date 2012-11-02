@@ -105,7 +105,7 @@ class Deal < ActiveRecord::Base
     who_likes.each do |user|
       user.votings.each do |vote|
         unless vote.voteable == self
-          similar_offers << vote.voteable if vote.up_vote?
+          similar_offers << vote.voteable if vote.up_vote? && vote.voteable
         end
       end
     end

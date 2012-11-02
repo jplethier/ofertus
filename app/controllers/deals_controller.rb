@@ -13,10 +13,10 @@ class DealsController < AuthorizedController
     else
       @message = 'Não há ofertas ativas'
     end
-    if params[:category]
-      @title = Deal.i18n_category(Deal::CATEGORIES_DICTIONARY[params[:category]])
-      @description = Deal.i18n_category(Deal::CATEGORIES_DICTIONARY[params[:category]])
-    end
+    # if params[:category]
+    #   @title = Deal.i18n_category(Deal::CATEGORIES_DICTIONARY[params[:category]]).to_s
+    #   @description = Deal.i18n_category(Deal::CATEGORIES_DICTIONARY[params[:category]])
+    # end
   end
 
   def new

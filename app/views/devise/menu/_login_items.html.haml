@@ -39,10 +39,10 @@
         = t('strings.deals')
         %span.number= current_user.deals.count
       %li
-        = t('strings.following')
+        = link_to t('strings.following'), following_user_path(current_user.username)
         %span.number= current_user.following.count
       %li
-        = t('strings.followers')
+        = link_to t('strings.followers'), followers_user_path(current_user.username)
         %span.number= current_user.followers.count
       %li.last
         = t('strings.credit')

@@ -41,6 +41,7 @@ class Ability
       can [:follow, :unfollow], User
       can :manage, Comment
       can [:upvote, :downvote, :unvote], Deal
+      can :sales, User, :id => user.id
     end
 
     if user.admin?

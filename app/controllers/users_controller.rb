@@ -33,9 +33,13 @@ class UsersController < ApplicationController
     @following = @user.following.paginate(page: params[:page], per_page: 12)
   end
 
-  #Lembrar de dar Reset Ability (CanCan)
-  #def update
-  #end
+  def sales
+    # verificar o porque que o cancan nao está funcionando para as actions desse controller
+    if current_user != @user
+      redirect_to root_path
+    end
+    @sales = @user.sales.recent
+  end
 
   def follow
     unless current_user.follow? @user

@@ -225,6 +225,8 @@
   activerecord:
     models:
       deal: 'Ofertas'
+      error: 'Erros'
+      partner: 'Parceiros'
       product: 'Produtos Vendidos'
       sale: 'Vendas'
       user: 'Usuários'
@@ -292,6 +294,14 @@
         '10': "Casa e Decoração"
         '11': 'Entretenimento e Lazer'
       national_offer: "Oferta Nacional"
+
+    sale:
+      status:
+        '1': 'Pendente'
+        '2': 'Bônus'
+        '3': 'Confirmado'
+        '4': 'Cancelado'
+        '5': 'Retirado'
 
     user:
       followers: "Seguidores"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121225111972) do
+ActiveRecord::Schema.define(:version => 20121225111976) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -122,6 +122,22 @@ ActiveRecord::Schema.define(:version => 20121225111972) do
   add_index "deals", ["city_id"], :name => "index_deals_on_city_id"
   add_index "deals", ["slug"], :name => "index_deals_on_slug", :unique => true
 
+  create_table "errors", :force => true do |t|
+    t.string   "model_name"
+    t.string   "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "partners", :force => true do |t|
+    t.float    "commission"
+    t.string   "name"
+    t.integer  "code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.float    "user_commission"
+  end
+
   create_table "products", :force => true do |t|
     t.string   "description"
     t.string   "category"
@@ -183,6 +199,7 @@ ActiveRecord::Schema.define(:version => 20121225111972) do
     t.integer  "user_id"
     t.float    "commission"
     t.float    "user_commission"
+    t.integer  "status"
   end
 
   create_table "sessions", :force => true do |t|

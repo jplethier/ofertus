@@ -45,7 +45,7 @@
         = link_to t('strings.followers'), followers_user_path(current_user.username)
         %span.number= current_user.followers.count
       %li.last
-        = t('strings.credit')
+        = link_to t('strings.credit'), sales_user_path(current_user.username)
         %span.credit= number_to_currency current_user.credit
   #settings_menu_options
     %ul

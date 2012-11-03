@@ -194,6 +194,20 @@ body {
       .facebook_share_options {
         margin-bottom: 1em;
       }
+
+      .content {
+        width: 93%;
+        padding: 1.5em;
+        display: inline-block;
+
+        table {
+          width: 100%;
+        }
+
+        #sales_table_paginate {
+          margin-top: 1em;
+        }
+      }
     }
 
     .center {

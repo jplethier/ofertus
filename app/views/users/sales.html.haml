@@ -1,0 +1,33 @@
+= render 'my_profile'
+
+#sem-col
+  .edit_user
+    .title= t('strings.credit_history')
+    .content
+      %table.table.table-striped.table-bordered.table-condensed#sales_table
+        %thead
+          %tr
+            %th= t('strings.date')
+            %th= t('strings.store')
+            %th= t('strings.value')
+            %th= t('strings.status')
+            %th= t('strings.commission')
+        %tbody
+          - @sales.each do |sale|
+            %tr
+              %td= l sale.created_at.to_date
+              %td= sale.partner_name
+              %td= price_to_currency sale.value
+              %td= Sale.i18n_status(sale.status)
+              %td= price_to_currency sale.user_commission_value
+
+:javascript
+  $('#sales_table').dataTable( {
+    "sPaginationType": "full_numbers",
+    "bPaginate": true,
+    "bLengthChange": false,
+    "bFilter": false,
+    "bSort": false,
+    "bInfo": false,
+    "bAutoWidth": false
+  } );

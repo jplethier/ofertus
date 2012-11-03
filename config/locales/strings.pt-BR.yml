@@ -10,9 +10,12 @@
     category: "Categoria: %{category}"
     city: "Válida para: %{city}"
     comments: 'Comentários'
+    commission: 'Comissão'
     company: "Empresa: %{company}"
     creating_a_profile: "Criando meu perfil"
     credit: 'Saldo'
+    credit_history: 'Histórico de Saldo'
+    date: 'Data'
     day_offers: "Ofertas do Dia"
     deals: 'Ofertas'
     description: "Descrição da Oferta"
@@ -89,6 +92,8 @@
     shared_by: "Compartilhada por:"
     sharing_offers: "Compartilhando Ofertas"
     special_discounts: 'para descontos especiais'
+    status: 'Status'
+    store: 'Loja'
     suggestions: 'Sugestões de Ofertas'
     suggestions_tip: 'prefere comprar? Sinta-se à vontade!'
     talk_with_us: "Fale Conosco"
@@ -105,6 +110,7 @@
     users_best: 'Mais Adoradas'
     users_offers: 'Ofertas'
     users_with_more_deals: "Ranking de usuários"
+    value: 'Valor'
     x_following: 'Seguindo (%{x})'
     x_followers: 'Seguidores (%{x})'
     x_shared_offers: "%{x} ofertas compartilhadas!"

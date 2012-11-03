@@ -30,6 +30,7 @@ DealWitMe::Application.routes.draw do
       get 'unfollow'
       get 'followers'
       get 'following'
+      get 'sales'
     end
   end
 

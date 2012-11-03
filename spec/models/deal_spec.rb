@@ -402,11 +402,13 @@ describe Deal do
     end
 
     it 'already shared?' do
-      new_deal = FactoryGirl.create(:deal, :link => deal.link)
+      new_deal = FactoryGirl.create(:deal, :original_link => deal.original_link)
       new_deal.already_shared?.should be_true
-      new_deal.link = 'http://www.novolink.com.br'
+      new_deal = FactoryGirl.create(:deal, :original_link => deal.original_link + '?pacid=lomadee')
+      new_deal.already_shared?.should be_true
+      new_deal.original_link = 'http://www.novolink.com.br'
       new_deal.already_shared?.should_not be_true
-      deal.link = 'http://www.ofertus.com.br/deals/titulo'
+      deal.original_link = 'http://www.ofertus.com.br/deals/titulo'
       deal.already_shared?.should be_true
     end
 

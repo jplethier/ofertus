@@ -29,11 +29,19 @@ class ApplicationController < ActionController::Base
   end
 
   def lomadee
+    sale = nil
     if params.size > 2
-      Sale.register_lomadee(params)
+      sale = Sale.register_lomadee(params)
       #executar codigo para salvar os dados do lomadee no banco
     end
-    redirect_to "http://www.ofertus.com.br/pixel.png"
+    if sale.nil?
+      Error.create(model_name: 'Vendas', message: 'Não foi enviado nenhum parâmetro')
+      render 'Não foi enviado nenhum parametro'
+    elsif sale.class.to_s == 'Sale'
+      redirect_to "http://www.ofertus.com.br/pixel.png"
+    else
+      render sale[:error]
+    end
   end
 
   def set_current_tab

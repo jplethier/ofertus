@@ -34,6 +34,7 @@ class Sale < ActiveRecord::Base
       return { :error => 'Parâmetro total não enviado' }
     end
     sale = Sale.new
+    sale.status = 1
     user = User.find_by_id(params[:mdasc])
     sale.user = user if user
     sale.value = params[:total]

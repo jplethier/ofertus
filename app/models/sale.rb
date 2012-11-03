@@ -26,6 +26,8 @@ class Sale < ActiveRecord::Base
   scope :cancelled, where(status: 4)
   scope :withdraw,  where(status: 5)
 
+  scope :recent,    order("sales.created_at DESC")
+
   # http://ofertus.com.br:3000/lomadee?id_pedido=ABC123&id_programa=4&pais=BR&mdasc=1&total=100.00&desc1=penDrive1GB&%20categoria1=1&qtde1=1&valor1=30.00&desc2=PenDrive2GB&%20categoria2=1&qtde2=1&valor2=70.00
   # params = { :controller_name => 'application', :action_name => 'lomadee', :id_pedido => '111', :id_programa => '4', :pais => 'BR', :mdasc => '1', :total => '110.11', :desc1 => 'descricao produto 1', :valor1 => '55.50', :desc2 => 'descricao produto 2', :valor2 => '54.61'}
   def self.register_lomadee(params)
@@ -40,6 +42,7 @@ class Sale < ActiveRecord::Base
     sale.value = params[:total]
     partner = Partner.find_by_code(params[:id_programa])
     if partner
+      sale.partner = partner
       sale.commission = partner.commission
       sale.user_commission = partner.user_commission
     else
@@ -63,5 +66,10 @@ class Sale < ActiveRecord::Base
 
   def self.i18n_status(status)
     I18n.t("models.sale.status.#{status}")
+  end
+
+  def partner_name
+    return self.partner.name if self.partner
+    '-'
   end
 end

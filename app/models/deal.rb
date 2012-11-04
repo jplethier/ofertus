@@ -91,6 +91,10 @@ class Deal < ActiveRecord::Base
     who_likes
   end
 
+  def string_description
+    self.description.gsub(/<.*>/,'')
+  end
+
   def update_visit_count
     if self.visits.blank?
       self.visits = 1

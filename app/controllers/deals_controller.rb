@@ -36,7 +36,7 @@ class DealsController < AuthorizedController
       if @deal.save
         if current_user.provider? && current_user.facebook_share_offer && FbGraph::User.me(current_user.access_token).permissions.include?(:status_update)
           me = FbGraph::User.me(current_user.access_token)
-          me.feed!( :message => current_user.name + " acabou de compartilhar uma oferta no Ofertus", :link => deal_url(@deal), :description => @deal.description, :picture => (@deal.image_url ? @deal.image_url : "http://www.ofertus.com.br/assets/logo_beta.png") )
+          me.feed!( :message => current_user.name + " acabou de compartilhar uma oferta no Ofertus", :link => deal_url(@deal), :description => @deal.string_description, :picture => (@deal.image_url ? @deal.image_url : "http://www.ofertus.com.br/assets/logo_beta.png") )
         end
         redirect_to deals_path, :notice => "Oferta criada com sucesso!"
       else
@@ -85,7 +85,7 @@ class DealsController < AuthorizedController
     if current_user.up_vote(@deal)
       if current_user.provider? && current_user.facebook_vote_offer && FbGraph::User.me(current_user.access_token).permissions.include?(:status_update)
         me = FbGraph::User.me(current_user.access_token)
-        me.feed!(:message => current_user.name + " adorou uma oferta no Ofertus", :link => deal_url(@deal), :description => @deal.description, :picture => ( @deal.image_url ? @deal.image_url : "http://www.ofertus.com.br/assets/logo_beta.png"))
+        me.feed!(:message => current_user.name + " adorou uma oferta no Ofertus", :link => deal_url(@deal), :description => @deal.string_description, :picture => ( @deal.image_url ? @deal.image_url : "http://www.ofertus.com.br/assets/logo_beta.png"))
       end
       redirect_to deal_path(@deal), :notice => "Oferta adorada com sucesso."
     else
@@ -99,7 +99,7 @@ class DealsController < AuthorizedController
     if current_user.down_vote(@deal)
       if current_user.provider? && current_user.facebook_vote_offer && FbGraph::User.me(current_user.access_token).permissions.include?(:status_update)
         me = FbGraph::User.me(current_user.access_token)
-        me.feed!(:message => current_user.name + " denunciou uma oferta no Ofertus", :link => deal_url(@deal), :description => @deal.description, :picture => ( @deal.image_url ? @deal.image_url : "http://www.ofertus.com.br/assets/logo_beta.png"))
+        me.feed!(:message => current_user.name + " denunciou uma oferta no Ofertus", :link => deal_url(@deal), :description => @deal.string_description, :picture => ( @deal.image_url ? @deal.image_url : "http://www.ofertus.com.br/assets/logo_beta.png"))
       end
       redirect_to deal_path(@deal), :notice => "Oferta denunciada com sucesso."
     else

@@ -183,9 +183,6 @@ Devise.setup do |config|
   if Rails.env == 'Staging'
     # TEST URL
     config.omniauth :facebook, "549814678368196", "465da7123a8481c3f93703dba615d75f", {:scope => 'email, offline_access, read_stream, publish_stream, user_photos', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}, :display => 'popup'}
-    puts "\n\n\n\n\n\n\n\n\n\n\n\n\n"
-    puts 'STAGING FACEBOOK'
-    puts "\n\n\n\n\n\n\n\n\n\n\n\n\n"
   else
     # PRODUCTION URL
     config.omniauth :facebook, "146791075437937", "9bbac57de01036fefc93a09b45a598d9", {:scope => 'email, offline_access, read_stream, publish_stream, user_photos', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}, :display => 'popup'} 

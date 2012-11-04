@@ -2,6 +2,10 @@
 class PagesController < ApplicationController
 
   def home
+    puts "\n\n\n\n\n\n\n\n\n\n\n\n\n"
+    puts Rails.env
+    puts Rails.configuration.middleware.middlewares[-1].args
+    puts "\n\n\n\n\n\n\n\n\n\n\n\n\n"
     @current_tab = 'home'
     @top_deals = Deal.active.top.limit(6)
     @best_deals = Deal.active.likes.where('up_votes > 0')

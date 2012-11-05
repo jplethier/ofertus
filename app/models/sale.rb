@@ -40,6 +40,7 @@ class Sale < ActiveRecord::Base
     user = User.find_by_id(params[:mdasc])
     sale.user = user if user
     sale.value = params[:total]
+    sale.partner_code = params[:id_programa]
     partner = Partner.find_by_code(params[:id_programa])
     if partner
       sale.partner = partner

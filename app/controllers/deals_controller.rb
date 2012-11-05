@@ -33,6 +33,7 @@ class DealsController < AuthorizedController
         redirect_to deal_path(@deal), :alert => "A oferta abaixo já foi compartilhada por outro usuário"
       end
     else
+      @deal.title = @deal.title.truncate(250) if @deal.title.size > 250
       if @deal.save
         if current_user.provider? && current_user.facebook_share_offer && FbGraph::User.me(current_user.access_token).permissions.include?(:status_update)
           me = FbGraph::User.me(current_user.access_token)

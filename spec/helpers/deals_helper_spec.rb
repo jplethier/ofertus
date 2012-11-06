@@ -30,14 +30,14 @@ describe DealsHelper do
 
   describe 'search options' do
     it 'should return the options to order the deals list with no selected item' do
-      helper.search_options.should == "<option value=\"most_recent\">Mais Recente</option>\n<option value=\"lowest_price\">Menor Preço</option>\n<option value=\"highest_price\">Maior Preço</option>\n<option value=\"highest_discount\">Maior Desconto</option>"
+      helper.search_options.should == "<option value=\"recent\">Mais Recente</option>\n<option value=\"lowest_price\">Menor Preço</option>\n<option value=\"highest_price\">Maior Preço</option>\n<option value=\"highest_discount\">Maior Desconto</option>"
     end
 
     it 'should return the options with the selected' do
-      helper.search_options('most_recent').should == "<option value=\"most_recent\" selected=\"selected\">Mais Recente</option>\n<option value=\"lowest_price\">Menor Preço</option>\n<option value=\"highest_price\">Maior Preço</option>\n<option value=\"highest_discount\">Maior Desconto</option>"
-      helper.search_options('lowest_price').should == "<option value=\"most_recent\">Mais Recente</option>\n<option value=\"lowest_price\" selected=\"selected\">Menor Preço</option>\n<option value=\"highest_price\">Maior Preço</option>\n<option value=\"highest_discount\">Maior Desconto</option>"
-      helper.search_options('highest_price').should == "<option value=\"most_recent\">Mais Recente</option>\n<option value=\"lowest_price\">Menor Preço</option>\n<option value=\"highest_price\" selected=\"selected\">Maior Preço</option>\n<option value=\"highest_discount\">Maior Desconto</option>"
-      helper.search_options('highest_discount').should == "<option value=\"most_recent\">Mais Recente</option>\n<option value=\"lowest_price\">Menor Preço</option>\n<option value=\"highest_price\">Maior Preço</option>\n<option value=\"highest_discount\" selected=\"selected\">Maior Desconto</option>"
+      helper.search_options('recent').should == "<option value=\"recent\" selected=\"selected\">Mais Recente</option>\n<option value=\"lowest_price\">Menor Preço</option>\n<option value=\"highest_price\">Maior Preço</option>\n<option value=\"highest_discount\">Maior Desconto</option>"
+      helper.search_options('lowest_price').should == "<option value=\"recent\">Mais Recente</option>\n<option value=\"lowest_price\" selected=\"selected\">Menor Preço</option>\n<option value=\"highest_price\">Maior Preço</option>\n<option value=\"highest_discount\">Maior Desconto</option>"
+      helper.search_options('highest_price').should == "<option value=\"recent\">Mais Recente</option>\n<option value=\"lowest_price\">Menor Preço</option>\n<option value=\"highest_price\" selected=\"selected\">Maior Preço</option>\n<option value=\"highest_discount\">Maior Desconto</option>"
+      helper.search_options('highest_discount').should == "<option value=\"recent\">Mais Recente</option>\n<option value=\"lowest_price\">Menor Preço</option>\n<option value=\"highest_price\">Maior Preço</option>\n<option value=\"highest_discount\" selected=\"selected\">Maior Desconto</option>"
     end
   end
 

@@ -54,46 +54,69 @@ body {
     .signup_description {
       display: block;
       margin: 0 auto;
-      width: 456px;
-      height: 376px;
-      background: image-url('signup_background.png') no-repeat;
+      width: 530px;
+      height: 420px;
+      background: white;
+      @include border-radius(7px);
+      border: 2px solid #c4c4c4;
+      position: relative;
+      padding-top: 8em;
+
+      form {
+        width: 405px;
+        padding: 0;
+        margin: 0 auto;
+      }
 
       .ttGlHome {
-        width: 148px;
+        width: 255px;
         margin: 0 auto;
-        height: 50px;
+        height: 6em;
+        background: image-url('title_background.png') 0 0 no-repeat;
+        position: absolute;
+        top: -.6em;
+        left: 25%;
 
         h2 {
-          padding-top: 15px;
+          padding: 0;
           font-size: 45px;
           color: white;
           background: transparent;
+          width: 150px;
+          margin: .8em 1.2em;
         }
       }
 
       div {
-        color: white;
+        color: #404040;
         font-family: 'Colaborate Thin';
-        font-size: 12pt;
+        font-size: 13pt;
         margin: 20px auto;
-        width: 330px;
+        width: 280px;
       }
 
       .links {
-        width: 430px;
+        width: 405px;
         margin: 0 auto;
-        color: white;
         text-align: center;
 
         a {
-          color: white;
           font-size: 8pt;
+          margin: 1em 0 2em;
+        }
+
+        a.password {
+          float: left;
+        }
+
+        a.confirmation {
+          float: right;
         }
       }
 
       .ct-inputs-login {
-        margin: 0;
-        width: 96%;
+        margin: 0 auto;
+        width: 405px;
 
         form {
 
@@ -121,23 +144,31 @@ body {
           }
 
           p {
-            width: 55%;
+            width: 100%;
             clear: both;
             float: left;
           }
 
+          p.checkbox-login {
+            width: 230px;
+            clear: none;
+            line-height: 2.3em;
+          }
+
           input#user_login {
             background: image-url('input_username.png') white no-repeat 2px 3px;
+            width: 90%;
           }
 
           input#user_password {
             background: image-url('input_password.png') white no-repeat 2px 3px;
+            width: 90%;
           }
         }
       }
 
       a#email_register {
-        color: white;
+        color: #404040;
         width: 234px;
         display: block;
         margin: 40px auto 30px;
@@ -169,13 +200,13 @@ body {
       }
 
       .already_member {
-        color: black;
+        color: #404040;
         font-family: 'Colaborate Thin';
         width: 185px;
         margin-top: 3em;
 
         a {
-          color: white;
+          color: #404040;
           text-decoration: none;
         }
 

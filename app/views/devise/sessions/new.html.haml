@@ -12,7 +12,11 @@
           = f.text_field :login, placeholder: t('activerecord.attributes.user.login') + ':'
         %p
           = f.password_field :password, placeholder: t('activerecord.attributes.user.password') + ':'
+
+        .links
+          = render :partial => "devise/shared/links"
         
+        .clear
         = f.submit '', :class => 'bt-entrar'
         
         - if devise_mapping.rememberable?
@@ -23,8 +27,6 @@
 
     .clear
 
-    .links
-      = render :partial => "devise/shared/links"
 
     .clear
 

@@ -59,7 +59,7 @@ class Deal < ActiveRecord::Base
   before_validation :set_default_date, :if => "self.end_date.nil?"
 
   attr_accessor :price_mask, :real_price_mask
-  attr_accessible :address, :category, :city_id, :company, :description, :discount, :end_date, :image_url, :link, :price, :price_mask, :real_price, :real_price_mask, :title, :user_id, :ofertus_top, :visits
+  attr_accessible :address, :category, :city_id, :company, :description, :discount, :end_date, :image_url, :link, :price, :price_mask, :real_price, :real_price_mask, :title, :user_id, :ofertus_top, :visits, :give_power
 
   scope :recent, order("deals.created_at DESC")
   scope :lowest_price, order("deals.price ASC")
@@ -102,6 +102,14 @@ class Deal < ActiveRecord::Base
       self.visits = self.visits + 1
     end
     self.save(:validate => false)
+  end
+
+  def check_likes_count
+    binding.pry
+    if self.up_votes == 5 && !self.give_power
+      Power.create(user: self.user, quantity: 1, status: 1)
+      self.update_attributes(give_power: true)
+    end
   end
 
   def similar_offers

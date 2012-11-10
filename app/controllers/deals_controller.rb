@@ -88,6 +88,7 @@ class DealsController < AuthorizedController
         me = FbGraph::User.me(current_user.access_token)
         me.feed!(:message => current_user.name + " adorou uma oferta no Ofertus", :link => deal_url(@deal), :description => @deal.string_description, :picture => ( @deal.image_url ? @deal.image_url : "http://www.ofertus.com.br/assets/logo_beta.png"))
       end
+      @deal.check_likes_count
       redirect_to deal_path(@deal), :notice => "Oferta adorada com sucesso."
     else
       redirect_to deal_path(@deal), :error => "Desculpe, ocorreu um erro ao tentar adorar a oferta, nos comunique para que possamos corrigir."

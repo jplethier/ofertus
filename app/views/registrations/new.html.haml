@@ -1,6 +1,6 @@
 #sem-col
 
-  .signup_description
+  .signup_description{ style: "display: #{params[:facebook].to_s == '1' || params[:action] == 'create' ? 'none' : 'block'}"}
     .ttGlHome
       %h2= t('strings.signup_title')
     .message= t('strings.signup_message')
@@ -11,8 +11,8 @@
     .already_member
       = t('strings.already_a_member')
       = link_to 'Entre aqui', new_user_session_path
-
-  .new_deal_left#signup_form
+  
+  .new_deal_left#signup_form{ style: "display: #{params[:facebook].to_s == '1' || params[:action] == 'create' ? 'block' : 'none'}"}
     .title= t('strings.new_user')
     
     .ct-inputs-login

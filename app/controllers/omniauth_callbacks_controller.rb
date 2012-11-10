@@ -19,7 +19,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       #else
         session["devise.facebook_data"] = data
       #  flash[:alert] = I18n.t "devise.omniauth_callbacks.errors"
-        redirect_to new_user_registration_url
+        redirect_to "#{new_user_registration_url}?facebook=1"
       #end
     end
   end

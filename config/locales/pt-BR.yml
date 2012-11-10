@@ -295,6 +295,12 @@
         '11': 'Entretenimento e Lazer'
       national_offer: "Oferta Nacional"
 
+    power:
+      status:
+        '1': 'Disponivel'
+        '9': 'Utilizado'
+        '10': 'Indisponível'
+
     sale:
       status:
         '1': 'Pendente'

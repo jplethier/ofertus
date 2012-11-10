@@ -24,15 +24,12 @@ describe "Search Users Page" do
         should have_css('.left a.user_picture', :href => user_path(user.username))
         should have_css('.left a.user_picture img', :src => user.gravatar_url)
         should have_css('.left a.user_picture img', :src => user.gravatar_url)
-        within 'h3' do
+        within '.left h3' do
           should have_link(user.name, :href => user_path(user.username))
         end
-        #TODO: refazer os testes
-        within 'ul' do
-          # should have_css('li', :text => 'Username: ' + user.username)
-          # should have_css('li', :text => '0 ofertas compartilhadas!')
-          # should have_css('li', :text => 'Seguindo 0 usuários!')
-          # should have_css('li', :text => '0 seguidores!')
+        should have_content(user.deals.count.to_s + ' ofertas compartilhadas')
+        within '.left .action_btn' do
+          should have_link('Visualizar Perfil', :href => user_path(user.username))
         end
       end
     end
@@ -40,35 +37,25 @@ describe "Search Users Page" do
     it 'should show the number of shared deals' do
       deal = FactoryGirl.create(:deal, :user => user)
       visit users_path
-      within "#sem-col" do
-        should have_css('li', :text => '1 oferta compartilhada!')
+      within "#sem-col .left .action_btn" do
+        should have_link('Visualizar Perfil', :href => user_path(user.username))
       end
       another_deal = FactoryGirl.create(:deal, :user => user)
       visit users_path
-      within '#sem-col #users_search_list ul' do
-        should have_css('li', :text => '2 ofertas compartilhadas!')
+      within '#sem-col #users_search_list .left .action_btn' do
+        should have_link('Visualizar Perfil', :href => user_path(user.username))
       end
-    end
-
-    it 'should show the number of followed users' do
-      followed_user = FactoryGirl.create(:user)
-      user.follow!(followed_user)
-      visit users_path
-      #TODO: refazer
-      within "#sem-col #users_search_list ul" do
-        # should have_css('li', :text => 'Seguindo 1 usuário!')
-      end
-      another_followed = FactoryGirl.create(:user)
-      user.follow!(another_followed)
-      visit users_path
-      #TODO: refazer
-      within '#sem-col #users_search_list ul' do
-        # should have_css('li', :text => 'Seguindo 2 usuários!')
-      end    
     end
 
     it 'should go to user page when I click on user name' do
       click_on user.name
+      within '.user_details' do
+        should have_content(user.name)
+      end
+    end
+
+    it 'should go to user page when I click in Visualizar Perfil' do
+      click_on 'Visualizar Perfil'
       within '.user_details' do
         should have_content(user.name)
       end

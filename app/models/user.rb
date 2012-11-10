@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   has_many :following,              :through => :relationships,         :source => :followed
   has_many :reverse_relationships,  :foreign_key => "followed_id",      :class_name => "Relationship"
   has_many :sales
+  has_many :powers
 
   validates :username,  :presence => true,  :uniqueness => true,  :format => /^[a-zA-Z0-9_]{5,20}$/
   validates :credit,    :presence => true
@@ -78,6 +79,14 @@ class User < ActiveRecord::Base
     else
       self.gravatar_url(size: 50)
     end
+  end
+
+  def total_powers
+    total = 0
+    self.powers.available.each do |p|
+      total = total + quantity
+    end
+    total
   end
 
   def follow!(another_user)

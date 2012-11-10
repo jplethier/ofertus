@@ -110,6 +110,7 @@
       member_since: 'Membro desde %{month} de %{year}'
       username: "Usuário: %{username}"
       x_deals: '%{x} <span>Ofertas</span>'
+      x_powers: '%{x} <span>Poderes</span>'
       x_wishes: '%{x} <span>Desejos</span>'
     users: "Usuários"
     users_best: 'Mais Adoradas'

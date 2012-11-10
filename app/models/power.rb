@@ -13,8 +13,9 @@ class Power < ActiveRecord::Base
 
   validates :user_id, :status, :quantity, presence: true
 
-  scope :pending, where(status: 1)
-  scope :withdraw, where(status: 9)
+  scope :available, where(status: 1)
+  scope :wijthdraw, where(status: 9)
+  scope :unavailable, where(status: 10)
 
   def self.i18n_status(status)
     I18n.t("models.power.status.#{status}")

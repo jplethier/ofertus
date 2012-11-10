@@ -39,6 +39,7 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
     @sales = @user.sales.recent
+    @deals = @user.deals.recent
   end
 
   def follow

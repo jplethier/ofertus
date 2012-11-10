@@ -9,6 +9,7 @@
     by_price: 'Por %{price}'
     category: "Categoria: %{category}"
     city: "Válida para: %{city}"
+    click_count: 'Cliques'
     comments: 'Comentários'
     commission: 'Comissão'
     company: "Empresa: %{company}"
@@ -18,6 +19,7 @@
     date: 'Data'
     day_offers: "Ofertas do Dia"
     deals: 'Ofertas'
+    deals_history: 'Histórico de Ofertas'
     description: "Descrição da Oferta"
     detailed_share: '...ou em alguns cliques a mais'
     discount: "Desconto %{discount}"
@@ -71,9 +73,11 @@
     our_users_recomendations: 'ofertas que nossos usuários adoram'
     partners: 'Parceiros'
     paste_deal_url: "copie a url da oferta aqui para compartilhar!"
+    price: 'Preço Prom.'
     privacy: 'Privacidade'
     quick_share: 'Cadastre em um só clique...'
     quick_share_description: 'Visite um de nossos parceiros abaixo e escolha uma oferta. Não se esqueça que uma oferta tem que ter um <u>preço promocional</u>! Em seguida, copie o link, cole abaixo e pressione OK!'
+    real_price: 'Preço'
     recent: 'Últimas Cadastradas'
     recent_deals: 'ofertas saídas do forno'
     register_offer: 'Cadastre uma oferta'
@@ -98,6 +102,7 @@
     suggestions_tip: 'prefere comprar? Sinta-se à vontade!'
     talk_with_us: "Fale Conosco"
     terms: 'Termos de Uso'
+    title: 'Título'
     to_search: "Buscar"
     unreport: 'Denunciar(Desfazer)'
     user_show:

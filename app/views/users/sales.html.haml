@@ -1,7 +1,7 @@
 = render 'my_profile'
 
 #sem-col
-  .edit_user
+  .sales_history
     .title= t('strings.credit_history')
     .content
       %table.table.table-striped.table-bordered.table-condensed#sales_table
@@ -20,9 +20,41 @@
               %td= price_to_currency sale.value
               %td= Sale.i18n_status(sale.status)
               %td= price_to_currency sale.user_commission_value
+  
+  .deals_history
+    .title= t('strings.deals_history')
+    .content
+      %table.table.table-striped.table-bordered.table-condensed#deals_table
+        %thead
+          %tr
+            %th= t('strings.date')
+            %th= t('strings.store')
+            %th= t('strings.title')
+            %th= t('strings.real_price')
+            %th= t('strings.price')
+            %th= t('strings.click_count')
+        %tbody
+          - @deals.each do |deal|
+            %tr
+              %td= l deal.created_at.to_date
+              %td= deal.company
+              %td= link_to truncate(deal.title), deal_path(deal)
+              %td= price_to_currency deal.real_price
+              %td= price_to_currency deal.price
+              %td= deal.visits
 
 :javascript
   $('#sales_table').dataTable( {
+    "sPaginationType": "full_numbers",
+    "bPaginate": true,
+    "bLengthChange": false,
+    "bFilter": false,
+    "bSort": false,
+    "bInfo": false,
+    "bAutoWidth": false
+  } );
+
+  $('#deals_table').dataTable( {
     "sPaginationType": "full_numbers",
     "bPaginate": true,
     "bLengthChange": false,

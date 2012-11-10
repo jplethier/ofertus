@@ -1,0 +1,53 @@
+body {
+  #sem-col {
+    .sales_history, .deals_history {
+      width: 49%;
+      height: auto;
+      padding-bottom: 1em;
+
+      .title {
+        width: 98%;
+      }
+
+      .facebook_share_options {
+        margin-bottom: 1em;
+      }
+
+      .content {
+        width: 93%;
+        padding: 1.5em;
+        display: inline-block;
+
+        table {
+          width: 100%;
+        }
+
+        #sales_table_paginate, #deals_table_paginate {
+          margin-top: 1em;
+        }
+      }
+    }
+
+    .sales_history {
+      float: left;
+    }
+
+    .deals_history {
+      float: right;
+    }
+
+    .center {
+      width: 45%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .links {
+      margin: 1em 0;
+      a {
+        margin: 1em;
+        display: block;
+      }
+    }
+  }
+}

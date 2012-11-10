@@ -57,6 +57,32 @@ class User < ActiveRecord::Base
     self.save
   end
 
+  def self.check_inviteds_quantity(username)
+    who_invites = User.find_by_username(username)
+    case who_invites.inviteds.count
+    when 1
+      Power.create(user: who_invites, quantity: 1, status: Power::AVAILABLE)
+    when 5
+      Power.create(user: who_invites, quantity: 2, status: Power::AVAILABLE)
+    when 10
+      Power.create(user: who_invites, quantity: 3, status: Power::AVAILABLE)
+    when 20
+      Power.create(user: who_invites, quantity: 4, status: Power::AVAILABLE)
+    when 30
+      Power.create(user: who_invites, quantity: 5, status: Power::AVAILABLE)
+    when 50
+      Power.create(user: who_invites, quantity: 6, status: Power::AVAILABLE)
+    when 75
+      Power.create(user: who_invites, quantity: 7, status: Power::AVAILABLE)
+    when 100
+      Power.create(user: who_invites, quantity: 8, status: Power::AVAILABLE)
+    when 150
+      Power.create(user: who_invites, quantity: 9, status: Power::AVAILABLE)
+    when 200
+      Power.create(user: who_invites, quantity: 20, status: Power::AVAILABLE)
+    end
+  end
+
   def picture
     if self.provider
       self.facebook_profile_picture
@@ -83,8 +109,13 @@ class User < ActiveRecord::Base
 
   def total_powers
     total = 0
-    self.powers.available.each do |p|
-      total = total + p.quantity
+    self.powers.each do |p|
+      case p.status
+      when Power::AVAILABLE
+        total = total + p.quantity
+      when Power::WITHDRAW
+        total = total - p.quantity
+      end
     end
     total
   end

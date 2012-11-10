@@ -105,9 +105,8 @@ class Deal < ActiveRecord::Base
   end
 
   def check_likes_count
-    binding.pry
     if self.up_votes == 5 && !self.give_power
-      Power.create(user: self.user, quantity: 1, status: 1)
+      Power.create(user: self.user, quantity: 1, status: Power::AVAILABLE)
       self.update_attributes(give_power: true)
     end
   end

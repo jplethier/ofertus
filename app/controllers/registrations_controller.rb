@@ -13,11 +13,14 @@ class RegistrationsController < Devise::RegistrationsController
       if current_user
         if session[:invited_by]
           current_user.set_invited_by(session[:invited_by])
+          User.check_inviteds_quantity(session[:invited_by])
         end
         if current_user.provider? && FbGraph::User.me(current_user.access_token).permissions.include?(:status_update)
           me = FbGraph::User.me(current_user.access_token)
           me.feed!( :message => current_user.name + " está usando o Ofertus para buscar e compartilhar ofertas!", :link => "http://www.ofertus.com.br", :description => "O Ofertus é uma plataforma social online voltada para a agregação de informações a respeito de ofertas em produtos e serviços, que permite a interação dos usuários através de ferramentas de relacionamento e compartilhamento, de modo a facilitar as decisões dos consumidores.", :picture => "http://www.ofertus.com.br/assets/logo_beta.png")
         end
+      elsif session[:invited_by]
+        User.check_inviteds_quantity(session[:invited_by])
       end
     end
   end

@@ -46,7 +46,11 @@
     how_it_works: 'Como funciona?'
     how_to_share: 'cole seu link ou preencha os campos'
     interation_with_offers: "Interação com as Ofertas"
+    invitation:
+        easy: 'Para convidar é simples, basta copiar o link abaixo e enviar para seus amigos:'
+        subtitle: 'Apresente o Ofertus aos seus amigos e seja recompensado com poderes para ter benefícios exclusivos. Você ainda acumula pontos no ranking, aumentando suas chances de terminar em primeiro.'
     invite_friends: 'Convidar Amigos'
+    invite_your_friends: 'Convide Seus Amigos'
     last_shared: 'Últimas ofertas'
     like: 'Adorar'
     login: 'Entrar'

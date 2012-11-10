@@ -50,5 +50,6 @@
   #settings_menu_options
     %ul
       %li.first= link_to t('strings.edit_profile'), edit_user_registration_path
+      %li= link_to t('strings.invite_friends'), friends_user_path(current_user.username)
       %li= link_to t('strings.help'), help_path
       %li.last= link_to t('strings.logout'), destroy_user_session_path

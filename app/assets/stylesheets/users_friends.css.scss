@@ -1,0 +1,30 @@
+body {
+  .invitation {
+    background: white;
+    width: 446px;
+    height: auto;
+    padding: 10px;
+    border: 1px solid #C5C5C5;
+    font-size: 11pt;
+  }
+
+  #copy_link {
+    background: white;
+    width: 70%;
+    margin: 4px auto;
+    border: 1px solid gainsboro;
+    padding: 10px;
+    border-radius: 5px;
+    display: block;
+    text-align: center;
+  }
+
+  .invite_links {
+    text-align: center;
+    margin: 4px auto;
+
+    a {
+      margin: 0 5px;
+    }
+  }
+}

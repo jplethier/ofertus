@@ -4,7 +4,7 @@ DealWitMe::Application.routes.draw do
 
   match 'lomadee', :to => 'application#lomadee'
 
-  match 'invite/:username', :to => 'users#invite'
+  match 'invite/:username', to: 'users#invite', as: 'invitation'
 
   mount Ckeditor::Engine => '/ckeditor'
   
@@ -31,6 +31,7 @@ DealWitMe::Application.routes.draw do
       get 'followers'
       get 'following'
       get 'sales'
+      get 'friends'
     end
   end
 

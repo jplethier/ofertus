@@ -1,0 +1,40 @@
+- email_body = "O Ofertus é um agregador colaborativo de ofertas, onde os próprios consumidores indicam, recomendam, compartilham ofertas e ainda podem ganhar dinheiro com isso.%0A%0A" + @user.name + " já está fazendo parte da comunidade Ofertus, venha fazer parte você também, basta seguir o link abaixo:%0A%0A" + invitation_url(@user.username)
+
+#sem-col
+  .center
+    .ttGlHome
+      %h2= t('strings.invite_your_friends')
+    .invitation
+      = t('strings.invitation.subtitle')
+      %br
+      %br
+      = t('strings.invitation.easy')
+      %br
+      %br
+      = text_field_tag(:copy_link, invitation_url(@user.username), id: 'copy_link')
+      %br
+      Este será seu link. Toda vez que alguém novo no site acessar o Ofertus por ele, um amigo será computado para você. Então, é só compartilhá-lo onde quiser.
+      %br
+      %br
+      .invite_links
+        = link_to image_tag('/assets/facebook.png'), "javascript:;", :alt => 'Convide seus amigos pelo facebook', :onclick => "postToFeed('#{invitation_url(@user.username)}', '#{root_url}/assets/logo.png', '&nbsp', 'Ofertus'); return false;"
+        = link_to image_tag('/assets/twitter.png'), "https://twitter.com/intent/tweet?button_hashtag=ofertus&text=Venha fazer parte do ofertus você também #{invitation_url(@user.username)}", 'data-lang'=>"pt", 'data-url'=> root_url, :alt => 'Convide seus amigos pelo twitter', :target => '_blank'
+        = link_to image_tag('/assets/email.png'), "mailto:?subject=#{@user.name} está te convidando a usar o Ofertus&body=#{email_body}", :alt => 'Convide seus amigos por email', :target => '_blank'
+
+:javascript
+  $("#copy_link").click(function(){
+   $(this).select();
+  });
+
+  function postToFeed(link, picture, caption, name) {
+    var obj = {
+      method: 'feed',
+      link: link,
+      picture: picture,
+      description: "#{@user.name} já está fazendo parte da comunidade Ofertus. Venha você também fazer parte dela, encontre, compartilhe e ganhe dinheiro com ofertas imperdíveis."
+    };
+    callback();
+    FB.ui(obj, callback);
+  };
+
+  function callback(response) {}

@@ -84,7 +84,7 @@ class User < ActiveRecord::Base
   def total_powers
     total = 0
     self.powers.available.each do |p|
-      total = total + quantity
+      total = total + p.quantity
     end
     total
   end

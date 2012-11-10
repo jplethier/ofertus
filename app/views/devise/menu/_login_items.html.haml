@@ -36,7 +36,7 @@
     %ul
       %li.first= link_to t('strings.my_profile'), user_path(current_user.username)
       %li
-        = t('strings.deals')
+        = link_to t('strings.deals'), sales_user_path(current_user.username)
         %span.number= current_user.deals.count
       %li
         = link_to t('strings.following'), following_user_path(current_user.username)

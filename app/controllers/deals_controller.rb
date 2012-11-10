@@ -146,20 +146,20 @@ class DealsController < AuthorizedController
     @cities_name = City.order_by_state#.collect { |c| [c.name, c.id] }
   end
 
-  def search_order(scope, params)
-    case params[:search_order]
-    when "most_recent"
-      scope.recent
-    when "lowest_price"
-      scope.lowest_price
-    when "highest_price"
-      scope.highest_price
-    when "highest_discount"
-      scope.highest_discount
-    else
-      scope.recent
-    end
-  end
+  # def search_order(scope, params)
+  #   case params[:search_order]
+  #   when "most_recent"
+  #     scope.recent
+  #   when "lowest_price"
+  #     scope.lowest_price
+  #   when "highest_price"
+  #     scope.highest_price
+  #   when "highest_discount"
+  #     scope.highest_discount
+  #   else
+  #     scope.recent
+  #   end
+  # end
 
   def define_title
     @title = @deal.title

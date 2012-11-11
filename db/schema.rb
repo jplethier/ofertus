@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121225111978) do
+ActiveRecord::Schema.define(:version => 20121225121100) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -96,27 +96,28 @@ ActiveRecord::Schema.define(:version => 20121225111978) do
   add_index "comments", ["user_id"], :name => "index_comments_on_user_id"
 
   create_table "deals", :force => true do |t|
-    t.text     "description",                                                :null => false
-    t.text     "link",                                                       :null => false
-    t.string   "title",                                                      :null => false
-    t.integer  "user_id",                                                    :null => false
+    t.text     "description",                                                    :null => false
+    t.text     "link",                                                           :null => false
+    t.string   "title",                                                          :null => false
+    t.integer  "user_id",                                                        :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "address"
-    t.integer  "category",                                                   :null => false
-    t.string   "company",                                                    :null => false
+    t.integer  "category",                                                       :null => false
+    t.string   "company",                                                        :null => false
     t.decimal  "discount",      :precision => 8, :scale => 2
     t.datetime "end_date"
     t.decimal  "real_price",    :precision => 8, :scale => 2
     t.decimal  "price",         :precision => 8, :scale => 2
-    t.integer  "city_id",                                                    :null => false
-    t.integer  "up_votes",                                    :default => 0, :null => false
-    t.integer  "down_votes",                                  :default => 0, :null => false
+    t.integer  "city_id",                                                        :null => false
+    t.integer  "up_votes",                                    :default => 0,     :null => false
+    t.integer  "down_votes",                                  :default => 0,     :null => false
     t.string   "image_url"
     t.string   "slug"
     t.boolean  "ofertus_top"
     t.integer  "visits",                                      :default => 0
-    t.string   "original_link"
+    t.text     "original_link"
+    t.boolean  "give_power",                                  :default => false
   end
 
   add_index "deals", ["city_id"], :name => "index_deals_on_city_id"
@@ -136,6 +137,14 @@ ActiveRecord::Schema.define(:version => 20121225111978) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "user_commission"
+  end
+
+  create_table "powers", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "quantity"
+    t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "products", :force => true do |t|

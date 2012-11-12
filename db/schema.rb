@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121225111980) do
+ActiveRecord::Schema.define(:version => 20121225121100) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -116,7 +116,7 @@ ActiveRecord::Schema.define(:version => 20121225111980) do
     t.string   "slug"
     t.boolean  "ofertus_top"
     t.integer  "visits",                                      :default => 0
-    t.string   "original_link"
+    t.text     "original_link"
     t.boolean  "give_power",                                  :default => false
   end
 

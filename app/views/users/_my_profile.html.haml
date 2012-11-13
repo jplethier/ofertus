@@ -22,7 +22,7 @@
           .text= t('strings.user_show.x_wishes', x: @user.wishes.count).html_safe
         .item
           .power
-          .text.credit= t('strings.user_show.x_powers', x: @user.total_powers).html_safe
+          .text.power_count= t('strings.user_show.x_powers', x: @user.total_powers).html_safe
         .item
           .money
           .text.credit= t('strings.user_show.credit_x', x: number_to_currency(@user.credit)).html_safe

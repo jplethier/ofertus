@@ -2,3 +2,4 @@
   buttons:
     search: "Buscar"
     user_profile: "Visualizar Perfil"
+    withdraw: 'Retirar Dinheiro'

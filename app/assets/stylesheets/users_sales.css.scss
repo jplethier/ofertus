@@ -25,6 +25,45 @@ body {
         #sales_table_paginate, #deals_table_paginate {
           margin-top: 1em;
         }
+
+        .total {
+          margin-top: 1em;
+          float: left;
+
+          .item {
+            .money {
+              float: left;
+              width: 35px;
+              height: 35px;
+              background: image-url('money_icon.png') no-repeat -1px;
+            }
+
+            .credit {
+              color: #690;
+              font-size: 25pt;
+              line-height: 23pt;
+              width: 110px;
+              font-family: 'Lobster';
+              margin-left: 36px;
+
+              span {
+                color: #444;
+              }
+            }
+          }
+        }
+
+        .withdraw {
+          a {
+            text-indent: -15000px;
+            background: image-url('checkout_btn.png') no-repeat;
+            width: 152px;
+            height: 39px;
+            display: block;
+            float: right;
+            margin-top: 1em;
+          }
+        }
       }
     }
 

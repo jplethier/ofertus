@@ -20,6 +20,15 @@
               %td= price_to_currency sale.value
               %td= Sale.i18n_status(sale.status)
               %td= price_to_currency sale.user_commission_value
+      %br
+      .clear
+      .total
+        .item
+          .money
+          .text.credit= t('strings.user_show.credit_x', x: number_to_currency(@user.credit)).html_safe
+      .withdraw
+        = link_to t('buttons.withdraw'), withdraw_user_path(@user.username)
+
   
   .deals_history
     .title= t('strings.deals_history')

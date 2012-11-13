@@ -49,6 +49,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def withdraw
+    # verificar o porque que o cancan nao está funcionando para as actions desse controller
+    if current_user != @user
+      redirect_to root_path
+    end
+  end
+
   def follow
     unless current_user.follow? @user
       current_user.follow! @user

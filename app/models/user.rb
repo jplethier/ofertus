@@ -42,6 +42,19 @@ class User < ActiveRecord::Base
     self.credit = 0 if not credit
   end
 
+  def recalculate_credit
+    new_credit = 0
+    self.sales.each do |sale|
+      case sale.status
+      when Sale::CONFIRMED
+        new_credit = new_credit + sale.user_commission_value
+      when Sale::WITHDRAW
+        new_credit = new_credit - sale.user_commission_value
+      end
+    end
+    self.update_attributes(credit: new_credit)
+  end
+
   def guest?
     self.new_record?
   end

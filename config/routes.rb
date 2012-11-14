@@ -33,6 +33,7 @@ DealWitMe::Application.routes.draw do
       get 'sales'
       get 'friends'
       get 'withdraw'
+      get 'notifications'
     end
   end
 

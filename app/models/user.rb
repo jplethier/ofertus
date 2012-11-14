@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   has_many :reverse_relationships,  :foreign_key => "followed_id",      :class_name => "Relationship"
   has_many :sales
   has_many :powers
+  has_many :notifications
 
   validates :username,  :presence => true,  :uniqueness => true,  :format => /^[a-zA-Z0-9_]{5,20}$/
   validates :credit,    :presence => true

@@ -66,6 +66,7 @@
     new_deal: 'Cadastro de Oferta'
     new_user: 'Novo Usuário'
     not_a_member: 'Não é Membro?'
+    notifications: 'Notificações'
     offer_price: "Preço oferta<span>%{price}</span>"
     offers_shared_by_me: 'ofertas que compartilhei'
     ofertus_top: 'Favoritas do Ofertus'

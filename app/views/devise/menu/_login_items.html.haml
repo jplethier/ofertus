@@ -36,6 +36,9 @@
     %ul
       %li.first= link_to t('strings.my_profile'), user_path(current_user.username)
       %li
+        = link_to t('strings.notifications'), notifications_user_path(current_user.username)
+        %span.number= current_user.notifications.count
+      %li
         = link_to t('strings.deals'), sales_user_path(current_user.username)
         %span.number= current_user.deals.count
       %li

@@ -1,5 +1,7 @@
 #coding: UTF-8
 class ApplicationController < ActionController::Base
+  include DealsHelper
+
   # before_filter :go_to_facebook
   before_filter :delete_facebook_data, :set_current_tab
   before_filter :authenticate
@@ -38,6 +40,9 @@ class ApplicationController < ActionController::Base
       Error.create(model_name: 'Vendas', message: 'Não foi enviado nenhum parâmetro')
       render 'Não foi enviado nenhum parametro'
     elsif sale.class.to_s == 'Sale'
+      unless sale.user.blank?
+        Notification.create(user: sale.user, message: "Você tem uma nova comissão <b>pendente</b> de <b style='color: #669900;'>#{price_to_currency sale.user_commission_value}</b>", url: sales_user_path(sale.user.username))
+      end
       redirect_to "http://www.ofertus.com.br/pixel.png"
     else
       render sale[:error]

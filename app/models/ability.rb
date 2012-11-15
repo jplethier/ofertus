@@ -43,6 +43,8 @@ class Ability
       can [:upvote, :downvote, :unvote], Deal
       can :sales, User, :id => user.id
       can :friends, User, :id => user.id
+      can :notifications, User, :id => user.id
+      can :manage, Notification, :user_id => user.id
     end
 
     if user.admin?

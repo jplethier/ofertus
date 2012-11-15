@@ -1,0 +1,21 @@
+body {
+  .notification {
+    border-bottom: 1px solid #595959;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+
+    a {
+      font-size: 16pt;
+      color: #444;
+      text-decoration: none;
+    }
+  }
+
+  .unread {
+    a {
+      color: #404040;
+      font-weight: bold;
+      font-size: 18pt;
+    }
+  }
+}

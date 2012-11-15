@@ -17,4 +17,8 @@ class Notification < ActiveRecord::Base
     self.status = Notification::UNREAD
     true
   end
+
+  def mark_as_read
+    self.update_attributes(status: Notification::READ)
+  end
 end

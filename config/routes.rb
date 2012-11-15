@@ -25,6 +25,8 @@ DealWitMe::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations", :omniauth_callbacks => "omniauth_callbacks"}
 
   resources :users do
+    resources :notifications
+    
     member do
       get 'follow'
       get 'unfollow'

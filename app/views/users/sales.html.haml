@@ -27,7 +27,10 @@
           .money
           .text.credit= t('strings.user_show.credit_x', x: number_to_currency(@user.credit)).html_safe
       .withdraw
-        = link_to t('buttons.withdraw'), withdraw_user_path(@user.username)
+        - if withdraw_available?
+          = link_to t('buttons.withdraw'), withdraw_user_path(@user.username)
+        - else
+          %h2 O resgate estará disponível entre os dias 5 e 10 de cada mês
 
   
   .deals_history

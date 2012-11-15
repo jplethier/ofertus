@@ -66,6 +66,7 @@ ActiveAdmin.register Deal do
         link_to deal.link, deal.link, target: '_blank'
       end
       row :company
+      row :visits
       row :category do
         Deal.i18n_category(deal.category)
       end

@@ -37,7 +37,7 @@ class Ability
     can :following, User
 
     unless user.guest?
-      can :manage, Deal, :user_id => user.id
+      can :manage, Deal, :user_id => user.username
       can [:follow, :unfollow], User
       can :manage, Comment
       can [:upvote, :downvote, :unvote], Deal

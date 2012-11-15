@@ -1,0 +1,10 @@
+= render 'my_profile'
+
+#sem-col
+  .ttGlHome
+    %h2= t('strings.notifications')
+  .list-conteudo
+    - if @notifications.blank?
+      %h3 Não há nenhuma notificação
+    - else
+      = render @notifications

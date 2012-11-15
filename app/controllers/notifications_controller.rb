@@ -7,5 +7,9 @@ class NotificationsController < AuthorizedController
 
   def index
     @user = User.find_by_username(params[:user_id])
+    # verificar o porque que o cancan nao está funcionando para as actions desse controller
+    if current_user != @user
+      redirect_to root_path
+    end
   end
 end

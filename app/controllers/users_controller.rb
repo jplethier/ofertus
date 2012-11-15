@@ -63,6 +63,7 @@ class UsersController < ApplicationController
         me = FbGraph::User.me(current_user.access_token)
         me.feed!(:message => current_user.name + " está seguindo as ofertas de " + @user.name + " no Ofertus", :link => user_url(@user), :picture => "http://www.ofertus.com.br/assets/logo_beta.png")
       end
+      Notification.create(user: @user, message: "<b>#{current_user.name}</b> está te seguindo. Visite o perfil dele(a) para ver as ofertas compartilhadas por ele(a).", url: user_path(current_user.username))
       redirect_to env['HTTP_REFERER'], :notice => I18n.t('models.user.started_following', :username => @user.username)
     else
       redirect_to env['HTTP_REFERER'], :alert => I18n.t('models.user.already_following', :username => @user.username)

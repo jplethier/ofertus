@@ -54,6 +54,9 @@ class UsersController < ApplicationController
     if current_user != @user
       redirect_to root_path
     end
+    if @user.credit < 50.0
+      redirect_to sales_user_path(@user.username), alert: I18n.t('strings.minimum_to_withdraw')
+    end
   end
 
   def follow

@@ -57,6 +57,7 @@
     login_with_facebook: 'Entrar com facebook'
     logout: 'Sair'
     making_friends: "Interação entre os usuários"
+    minimum_to_withdraw: 'Para efetuar o resgate, é preciso ter pelo menos R$ 50,00 de saldo.'
     more: 'Ver mais'
     more_offers: 'Veja Mais Ofertas'
     most_commented: "+ Comentadas"

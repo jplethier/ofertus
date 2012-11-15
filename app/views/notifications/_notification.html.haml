@@ -1,2 +1,2 @@
 %div{ class: "notification #{notification.status == Notification::UNREAD ? 'unread' : ''}" }
-  = link_to notification.message, user_notification_path(current_user, notification)
+  = link_to notification.message.html_safe, user_notification_path(current_user, notification)

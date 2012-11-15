@@ -8,3 +8,6 @@
       %h3 Não há nenhuma notificação
     - else
       = render @notifications
+    .clear
+    .paginate
+      = will_paginate @notifications

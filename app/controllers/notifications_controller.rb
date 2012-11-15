@@ -2,7 +2,10 @@ class NotificationsController < AuthorizedController
 
   def show
     @notification.mark_as_read
-    redirect_to @notification.url
+    unless @notification.url.blank?
+      redirect_to @notification.url and return
+    end
+    redirect_to user_notifications_path(@notification.user.username, @notification)
   end
 
   def index
@@ -11,5 +14,7 @@ class NotificationsController < AuthorizedController
     if current_user != @user
       redirect_to root_path
     end
+
+    @notifications = @notifications.paginate(:page => params[:page], :per_page => 15)
   end
 end

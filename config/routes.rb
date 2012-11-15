@@ -26,7 +26,7 @@ DealWitMe::Application.routes.draw do
 
   resources :users do
     resources :notifications
-    
+
     member do
       get 'follow'
       get 'unfollow'
@@ -35,7 +35,6 @@ DealWitMe::Application.routes.draw do
       get 'sales'
       get 'friends'
       get 'withdraw'
-      get 'notifications'
     end
   end
 

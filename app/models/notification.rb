@@ -6,6 +6,8 @@ class Notification < ActiveRecord::Base
   DELETED = 3
 
   belongs_to :user
+  
+  default_scope order('created_at DESC')
 
   scope :unread,  where(status: 1)
   scope :read,    where(status: 2)

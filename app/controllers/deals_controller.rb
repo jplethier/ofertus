@@ -13,10 +13,6 @@ class DealsController < AuthorizedController
     else
       @message = 'Não há ofertas ativas'
     end
-    # if params[:category]
-    #   @title = Deal.i18n_category(Deal::CATEGORIES_DICTIONARY[params[:category]]).to_s
-    #   @description = Deal.i18n_category(Deal::CATEGORIES_DICTIONARY[params[:category]])
-    # end
   end
 
   def new
@@ -89,6 +85,9 @@ class DealsController < AuthorizedController
         me.feed!(:message => current_user.name + " adorou uma oferta no Ofertus", :link => deal_url(@deal), :description => @deal.string_description, :picture => ( @deal.image_url ? @deal.image_url : "http://www.ofertus.com.br/assets/logo_beta.png"))
       end
       @deal.check_likes_count
+      unless current_user == @deal.user
+        Notification.create(user: @deal.user, message: "<b>#{current_user.name}</b> adorou sua oferta <b>'#{@deal.title}'</b>", url: deal_path(@deal))
+      end
       redirect_to deal_path(@deal), :notice => "Oferta adorada com sucesso."
     else
       redirect_to deal_path(@deal), :error => "Desculpe, ocorreu um erro ao tentar adorar a oferta, nos comunique para que possamos corrigir."
@@ -99,9 +98,8 @@ class DealsController < AuthorizedController
 
   def downvote
     if current_user.down_vote(@deal)
-      if current_user.provider? && current_user.facebook_vote_offer && FbGraph::User.me(current_user.access_token).permissions.include?(:status_update)
-        me = FbGraph::User.me(current_user.access_token)
-        me.feed!(:message => current_user.name + " denunciou uma oferta no Ofertus", :link => deal_url(@deal), :description => @deal.string_description, :picture => ( @deal.image_url ? @deal.image_url : "http://www.ofertus.com.br/assets/logo_beta.png"))
+      unless current_user == @deal.user
+        Notification.create(user: @deal.user, message: "Sua oferta <b>'#{@deal.title}'</b> foi denunciada por um usuário", url: deal_path(@deal))
       end
       redirect_to deal_path(@deal), :notice => "Oferta denunciada com sucesso."
     else

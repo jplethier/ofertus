@@ -19,8 +19,12 @@ class RegistrationsController < Devise::RegistrationsController
           me = FbGraph::User.me(current_user.access_token)
           me.feed!( :message => current_user.name + " está usando o Ofertus para buscar e compartilhar ofertas!", :link => "http://www.ofertus.com.br", :description => "O Ofertus é uma plataforma social online voltada para a agregação de informações a respeito de ofertas em produtos e serviços, que permite a interação dos usuários através de ferramentas de relacionamento e compartilhamento, de modo a facilitar as decisões dos consumidores.", :picture => "http://www.ofertus.com.br/assets/logo_beta.png")
         end
-      elsif session[:invited_by]
+      elsif session[:invited_by]  && @user.errors.count == 0
         User.check_inviteds_quantity(session[:invited_by])
+        user = User.find_by_username(session[:invited_by])
+        unless user.blank?
+          Notification.create(user: user, message: "#{@user.name} se cadastrou no ofertus através do seu link de convite.", url: user_path(@user.username))
+        end
       end
     end
   end

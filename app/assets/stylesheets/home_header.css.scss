@@ -107,11 +107,12 @@ body {
       }
 
       #login_home {
-        width: 28%;
+        width: 30%;
+        text-align: center;
       }
 
       .facebook_login_button {
-        background: url(home_login_fb.png);
+        background: image-url('home_login_fb.png') no-repeat;
         width: 260px;
         height: 40px;
         margin: 10px auto;

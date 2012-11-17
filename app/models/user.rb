@@ -35,6 +35,7 @@ class User < ActiveRecord::Base
   scope :admin_users,       where(:admin => true)
   scope :month_points_rank, where('1 = 1')
   scope :more_points,       where('1 = 1')
+  scope :has_deals,         where('id in (select user_id from deals)')
 
   # Virtual attribute for authenticating by either username or email
   attr_accessor :login

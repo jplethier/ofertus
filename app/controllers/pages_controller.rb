@@ -6,7 +6,7 @@ class PagesController < ApplicationController
     @top_deals = Deal.active.top.limit(6)
     @best_deals = Deal.active.likes.where('up_votes > 0')
     @recent_deals = Deal.active.recent
-    @users = User.random.limit(3)
+    @users = User.has_deals.random.limit(3)
   end
 
   def show_video

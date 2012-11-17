@@ -16,7 +16,7 @@ class CompraFacil
     "Computadores" => Deal::CATEGORY_COMPUTER,
     "Eletrodomésticos" => Deal::CATEGORY_HOME_AND_APPLIANCE,
     "Eletrônicos" => Deal::CATEGORY_COMPUTER,
-    "Eletroportáteis" => Deal::CATEGORY_COMPUTER,
+    "Eletroportáteis" => Deal::CATEGORY_HOME_AND_APPLIANCE,
     "Esportes & Lazer" => Deal::CATEGORY_ENTERTAINMENT,
     "Ferramentas" => Deal::CATEGORY_HOME_AND_APPLIANCE,
     "Fitness" => Deal::CATEGORY_ENTERTAINMENT,

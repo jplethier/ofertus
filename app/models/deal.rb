@@ -203,12 +203,7 @@ class Deal < ActiveRecord::Base
       self.link = self.link.strip + "&a_aid=OfertuSCF"
     elsif self.link.match(Share::LIVRARIA_CULTURA)
       self.link = add_cultura_affiliate_code(self.link)
-    elsif (self.link.match(Share::SARAIVA) || self.link.match(Share::APPLE) || self.link.match(Share::CARREFOUR) ||
-            self.link.match(Share::CAMISETERIA) || self.link.match(Share::DUKS) || self.link.match(Share::SEPHA) ||
-            self.link.match(Share::DAFITI) || self.link.match(Share::POLISHOP) || self.link.match(Share::GIRAFA) ||
-            self.link.match(Share::FNAC) || self.link.match(Share::AMERICANAS) || self.link.match(Share::GIULIANA_FLORES) ||
-            self.link.match(Share::DISANTINNI) || self.link.match(Share::LOJAS_MM) || self.link.match(Share::TOY_MANIA) ||
-            self.link.match(Share::MOBLY))
+    elsif (self.link.match(Share::SARAIVA) || self.link.match(Share::APPLE) || self.link.match(Share::CARREFOUR) || self.link.match(Share::CAMISETERIA) || self.link.match(Share::DUKS) || self.link.match(Share::SEPHA) || self.link.match(Share::DAFITI) || self.link.match(Share::POLISHOP) || self.link.match(Share::GIRAFA) || self.link.match(Share::FNAC) || self.link.match(Share::AMERICANAS) || self.link.match(Share::GIULIANA_FLORES) || self.link.match(Share::DISANTINNI) || self.link.match(Share::LOJAS_MM) || self.link.match(Share::TOY_MANIA) || self.link.match(Share::MOBLY) || self.link.match(Share::ANA_HICKMANN))
       self.link = lomadee_link(self.link) + "?mdasc=#{self.user.id}"
     end
   end

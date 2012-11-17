@@ -1,10 +1,8 @@
 # encoding: UTF-8
-
-require 'open-uri'
-
 class Americanas
 
   CATEGORIES = {
+    "ARTIGOS DE NATAL" => Deal::CATEGORY_OTHER,
     "AUTOMOTIVO" => Deal::CATEGORY_CAR,
     "BELEZA E SAÚDE" => Deal::CATEGORY_BEAUTY_AND_HEALTH,
     "BEBÊS" => Deal::CATEGORY_OTHER,
@@ -21,6 +19,7 @@ class Americanas
     "INFORMÁTICA" => Deal::CATEGORY_COMPUTER,
     "LIVROS" => Deal::CATEGORY_CULTURE,
     "MÓVEIS E DECORAÇÃo" => Deal::CATEGORY_HOME_AND_APPLIANCE,
+    "TV E HOME THEATER" => Deal::CATEGORY_COMPUTER,
     "UTILIDADES DOMÉSTICAS" => Deal::CATEGORY_HOME_AND_APPLIANCE  
   }
 

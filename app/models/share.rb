@@ -18,6 +18,7 @@ class Share
   AMERICANAS = "americanas.com"
   ANA_HICKMANN = "anahickmann.com.br"
   APPLE = "apple.com"
+  BRINQUEDOS_LAURA = "brinquedoslaura.com.br"
   CAMISETERIA = "camiseteria.com"
   CARREFOUR = "carrefour.com.br"
   COMPRA_FACIL = "comprafacil.com"
@@ -64,6 +65,8 @@ class Share
           @deal = Americanas.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(ANA_HICKMANN)
           @deal = AnaHickmann.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(BRINQUEDOS_LAURA)
+          @deal = BrinquedosLaura.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(CARREFOUR)
           @deal = Carrefour.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(COMPRA_FACIL)

@@ -5,6 +5,9 @@
       #slides.left
         .slides_container
           %div
+            %a{ :href => "javascript:;", :onclick => "Popup.open_url('#{powers_popup_url}')"}
+              %img{ :src => asset_path('foto_5.jpg') }
+          %div
             %img{ :src => asset_path('foto_1.jpg') }
           %div
             :plain

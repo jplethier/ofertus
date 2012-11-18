@@ -20,11 +20,13 @@
         .item
           .wishes
           .text= t('strings.user_show.x_wishes', x: @user.wishes.count).html_safe
+        %a.power{ :href => "javascript:;", :onclick => "Popup.open_url('#{powers_popup_url}')" }
+          .item
+            .power
+            .text.power_count= t('strings.user_show.x_powers', x: @user.total_powers).html_safe
         .item
-          .power
-          .text.power_count= t('strings.user_show.x_powers', x: @user.total_powers).html_safe
-        .item
-          .money
+          %a{ :href => sales_user_path(@user.username), :style => 'width: 35px; float: left;'}
+            .money
           .text.credit= t('strings.user_show.credit_x', x: number_to_currency(@user.credit)).html_safe
 
 

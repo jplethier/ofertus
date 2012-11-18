@@ -13,6 +13,10 @@ class PagesController < ApplicationController
     render :layout => false
   end
 
+  def powers_popup
+    render :layout => false
+  end
+
   def whoarewe
     @title = 'Quem somos'
     @description = 'Saiba quem é a equipe que está por trás do Ofertus, e descubro como ele funciona.'

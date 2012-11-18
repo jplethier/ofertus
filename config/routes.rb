@@ -15,6 +15,7 @@ DealWitMe::Application.routes.draw do
   match "termsofuse",     :to => "pages#termsofuse"
   match "how_it_works",   :to => "pages#how_it_works"
   match "show_video",     :to => "pages#show_video", :as => 'show_video'
+  match "powers_popup",   :to => "pages#powers_popup", :as => 'powers_popup'
 
   match '/deals/feed' => 'deals#feed', :as => :feed, :defaults => { :format => 'atom' }
 

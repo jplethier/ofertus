@@ -48,7 +48,11 @@ body {
         height: 3.2em;
         margin: 1.5em 0;
 
-        .item {
+        a.power {
+          cursor: help;
+        }
+
+        .item, a.power {
           float: left;
           width: 25%;
 

@@ -10,7 +10,6 @@ gem 'cancan'
 gem 'ckeditor'
 gem 'coffee-script'
 gem 'compass-rails'
-gem 'dalli'
 gem 'date_validator'
 gem 'devise', '>= 1.4.2'
 gem 'fb_graph'
@@ -31,8 +30,6 @@ gem 'paper_trail'
 gem 'paperclip'
 gem 'pg', :require => 'pg'
 gem 'rails', '3.1.1'
-# gem 'rails_blog_engine'
-# gem 'resque'
 gem 'sass'
 gem 'sass-rails', '3.1.4'
 gem 'uglifier'
@@ -50,9 +47,12 @@ end
 
 group :test do
   gem 'capybara'
-  # gem 'cucumber-rails'
   gem 'database_cleaner', '>= 0.6.7'
   gem 'launchy'
   gem 'shoulda-matchers'
   gem 'simplecov', :require => false
 end
+
+#cache
+gem 'memcachier'
+gem 'dalli'

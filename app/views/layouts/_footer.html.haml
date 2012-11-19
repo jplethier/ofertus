@@ -1,15 +1,16 @@
-#pre_footer
-  .infos
-    %h3= t('strings.follow_us')
-    .social
-      %a.facebook{ href: 'http://www.facebook.com.br/ofertus', target: '_blank' }
-      %a.twitter{ href: 'https://twitter.com/#!/ofertusbr', target: 'blank' }
-    %h3= t('strings.special_discounts')
-#footer
-  %ul
-    %li= link_to t('strings.about'), whoarewe_path
-    %li= link_to t('strings.partners'), partners_path
-    %li= link_to t('strings.privacy'), privacypolicy_path
-    %li= link_to t('strings.terms'), termsofuse_path
-    %li= link_to t('strings.help'), help_path
-    %li.last= link_to t('strings.talk_with_us'), 'http://ofertus.uservoice.com/', target: '_blank'
+= cache 'footer', expires_in: 1.month do
+  #pre_footer
+    .infos
+      %h3= t('strings.follow_us')
+      .social
+        %a.facebook{ href: 'http://www.facebook.com.br/ofertus', target: '_blank' }
+        %a.twitter{ href: 'https://twitter.com/#!/ofertusbr', target: 'blank' }
+      %h3= t('strings.special_discounts')
+  #footer
+    %ul
+      %li= link_to t('strings.about'), whoarewe_path
+      %li= link_to t('strings.partners'), partners_path
+      %li= link_to t('strings.privacy'), privacypolicy_path
+      %li= link_to t('strings.terms'), termsofuse_path
+      %li= link_to t('strings.help'), help_path
+      %li.last= link_to t('strings.talk_with_us'), 'http://ofertus.uservoice.com/', target: '_blank'

@@ -1,7 +1,8 @@
 #header
   .content
-    %h1.logo
-      = link_to 'ofertus', root_path
+    = cache 'logo', expires_in: 1.year
+      %h1.logo
+        = link_to 'ofertus', root_path
 
     #menu-top
       = render "layouts/toolbar"

@@ -4,14 +4,14 @@ ActiveAdmin.register Deal do
   member_action :favourite, :method => :put do
     deal = Deal.find(params[:id])
     deal.favourite!
-    Rails.cache.write("top_deals_#{Date.today.day}_#{Date.today.month}_#{Date.today.year}", Deal.active.top.limit(6))
+    Rails.cache.write("top_deals_#{Date.today.day}_#{Date.today.month}_#{Date.today.year}", Deal.active.top.limit(6).all)
     redirect_to env['HTTP_REFERER'], :notice => "Oferta marcada como favorita!"
   end
 
   member_action :unfavourite, :method => :put do
     deal = Deal.find(params[:id])
     deal.unfavourite!
-    Rails.cache.write("top_deals_#{Date.today.day}_#{Date.today.month}_#{Date.today.year}", Deal.active.top.limit(6))
+    Rails.cache.write("top_deals_#{Date.today.day}_#{Date.today.month}_#{Date.today.year}", Deal.active.top.limit(6).all)
     redirect_to env['HTTP_REFERER'], :notice => "Oferta desmarcada como favorita!"
   end
 

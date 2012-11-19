@@ -7,7 +7,7 @@
     .discount= "#{deal.discount.to_i}%"
   .image
     %a{ href: deal_path(deal) }
-      %img{ src: deal.get_image_url }
+      = Rails.cache.fetch([:deal, :image, deal.id]) { "<img src='#{deal.get_image_url}'>".html_safe }
   
   %h4= link_to truncate_title(deal.title, 21), deal_path(deal)
   .details

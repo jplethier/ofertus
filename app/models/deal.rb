@@ -91,6 +91,12 @@ class Deal < ActiveRecord::Base
     who_likes
   end
 
+  def user_provider?
+    Rails.cache.fetch(['provider', self.user.id]) do
+      self.user.provider?
+    end
+  end
+
   def string_description
     self.description.gsub(/<.*>/,'')
   end

@@ -20,7 +20,7 @@
           %span.reports= deal.down_votes
 
       .user-off
-        - if deal.user.provider?
+        - if deal.user_provider?
           = link_to(image_tag(deal.user.facebook_profile_picture(:small), :alt => deal.user.username, :title => deal.user.username), user_path(deal.user.username), :class => "user_picture")
         - else
           = link_to(image_tag(deal.user.gravatar_url(:size => 50), :alt => deal.user.username, :title => deal.user.username), user_path(deal.user.username), :class => "user_picture")

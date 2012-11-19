@@ -265,6 +265,10 @@
           attributes:
             end_date:
               after_or_equal_to: "A data de validade deve ser posterior ou igual ao dia de hoje"
+        user:
+          attributes:
+            username:
+              invalid: '* Usuário deve conter somente letras e/ou números, sem espaços, nem pontos'
       template:
         header:
           one: "Não foi possível gravar %{model}: 1 erro"

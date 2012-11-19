@@ -15,39 +15,40 @@
 
     .clear
 
-    .partners_list
-      %h4= t('strings.partners')
-      = link_to t('strings.all'), partners_path, target: '_blank'
+    = cache 'partners_list', expires_in: 1.day do
+      .partners_list
+        %h4= t('strings.partners')
+        = link_to t('strings.all'), partners_path, target: '_blank'
 
-      %ul
-        %li
-          %img{ src: '/assets/partners/americanas.png' }
-        %li
-          %img{ src: '/assets/partners/saraiva.png' }
-        %li
-          %img{ src: '/assets/partners/giulianaflores.png' }
-        %li
-          %img{ src: '/assets/partners/girafa.png' }
-        %li
-          %img{ src: '/assets/partners/comprafacil.png' }
-        %li
-          %img{ src: '/assets/partners/carrefour.png' }
-        %li
-          %img{ src: '/assets/partners/dafiti.png' }
-        %li
-          %img{ src: '/assets/partners/ana_hickmann.png' }
-        %li
-          %img{ src: '/assets/partners/fnac.png' }
-        %li
-          %img{ src: '/assets/partners/lojasmm.png' }
-        %li
-          %img{ src: '/assets/partners/mobly.png' }
-        %li
-          %img{ src: '/assets/partners/polishop.png' }
-        %li
-          %img{ src: '/assets/partners/brinquedos_laura.png' }
-        %li
-          %img{ src: '/assets/partners/toymania.png' }
+        %ul
+          %li
+            %img{ src: '/assets/partners/americanas.png' }
+          %li
+            %img{ src: '/assets/partners/saraiva.png' }
+          %li
+            %img{ src: '/assets/partners/giulianaflores.png' }
+          %li
+            %img{ src: '/assets/partners/girafa.png' }
+          %li
+            %img{ src: '/assets/partners/comprafacil.png' }
+          %li
+            %img{ src: '/assets/partners/carrefour.png' }
+          %li
+            %img{ src: '/assets/partners/dafiti.png' }
+          %li
+            %img{ src: '/assets/partners/ana_hickmann.png' }
+          %li
+            %img{ src: '/assets/partners/fnac.png' }
+          %li
+            %img{ src: '/assets/partners/lojasmm.png' }
+          %li
+            %img{ src: '/assets/partners/mobly.png' }
+          %li
+            %img{ src: '/assets/partners/polishop.png' }
+          %li
+            %img{ src: '/assets/partners/brinquedos_laura.png' }
+          %li
+            %img{ src: '/assets/partners/toymania.png' }
 
   .new_deal_right
     .title= t('strings.detailed_share')

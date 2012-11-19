@@ -59,8 +59,10 @@ $(document).ready(function() {
       // window.location.hash = '#' + current;
     // }
   });
+
+  $('#flashes').effect("pulsate", {}, 200);
 });
 
 var hideFlashes = function() {
-  $('#flash_notice, #flash_warning, #flash_error').fadeOut(1500);
+  $('#flash_notice, #flash_warning, #flash_error').fadeOut(10500);
 }

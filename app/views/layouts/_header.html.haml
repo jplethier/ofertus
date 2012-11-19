@@ -1,6 +1,6 @@
 #header
   .content
-    = cache 'logo', expires_in: 1.year
+    = cache 'logo', expires_in: 1.year do
       %h1.logo
         = link_to 'ofertus', root_path
 

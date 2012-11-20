@@ -21,9 +21,88 @@ body {
 
     .new_deal_left {
       float: left;
+      display: inline-block;
+      height: auto;
       
       .description {
         padding: 15px;
+      }
+
+      .step1, .step2, .step3, .step4, .step5 {
+        width: 90%;
+        height: 50px;
+        margin: 1em auto;
+        clear: both;
+
+        img, span {
+          float: left;
+        }
+
+        span {
+          height: 50px;
+          line-height: 50px;
+          font-size: 14pt;
+          padding-left: 50px;
+        }
+      }
+
+      .step1, .step3, .step5 {
+        float: left;
+      }
+
+      .step2, .step4 {
+        float: right;
+      }
+        
+      .step1 {
+        span {
+          background: image-url('number_one.png') no-repeat;
+          margin-right: 1em;
+        }
+      }
+
+      .step2 {
+        img {
+          margin-top: -20px;
+        }
+
+        span {
+          background: image-url('number_two.png') no-repeat;
+          margin-left: 1em;
+        }
+      }
+
+      .step3 {
+        width: 100%;
+
+        span {
+          background: image-url('number_three.png') no-repeat;
+          margin-right: 1em;
+        }
+      }
+
+      .step4 {
+        width: 97%;
+
+        img {
+          margin-top: .8em;
+        }
+
+        span {
+          background: image-url('number_four.png') no-repeat;
+          margin-left: 1em;
+        }
+      }
+
+      .step5 {
+        img {
+          margin-top: .7em;
+        }
+        
+        span {
+          background: image-url('number_five.png') no-repeat;
+          margin-right: 1em;
+        }
       }
 
       #box-compartilhe_2 {
@@ -93,6 +172,35 @@ body {
           li {
             float: left;
             margin-right: 5px;
+
+            a {
+              margin-right: 0;
+              margin: 3px;
+              text-align: center;
+
+              .percent {
+                display: none;
+                text-align: center;
+                height: 28px;
+                width: 26px;
+                @include border-radius(10px);
+                background: #CCC;
+                color: #9C9C6C;
+                font-size: 15pt;
+                font-family: 'Lobster';
+                padding: 11px;
+              }
+            }
+
+            a:hover {
+              img {
+                display: none;
+              }
+
+              .percent {
+                display: block;
+              }
+            }
           }
         }
       }

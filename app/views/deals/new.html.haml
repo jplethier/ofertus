@@ -3,7 +3,7 @@
     %h2= t('strings.new_deal')
     %h3= t('strings.how_to_share')
 
-  .new_deal_left
+  .new_deal_left{ style: "margin-bottom: 1em;" }
     .title= t('strings.quick_share')
     .description= t('strings.quick_share_description').html_safe
 
@@ -14,7 +14,7 @@
           %button#share.submit{ title: "Compartilhar", value: "OK" } OK
 
     .clear
-
+    
     = cache 'partners_list', expires_in: 1.day do
       .partners_list
         %h4= t('strings.partners')
@@ -22,33 +22,59 @@
 
         %ul
           %li
-            %img{ src: '/assets/partners/americanas.png' }
+            %a{ href: "http://el2.me/jERr", target: "_blank" }
+              %img{ src: '/assets/partners/americanas_small.png' }
+              .percent 1,5%
           %li
-            %img{ src: '/assets/partners/saraiva.png' }
+            %a{ href: "http://el2.me/uKfM", target: "_blank" }
+              %img{ src: '/assets/partners/anahickmann_small.png' }
+              .percent 5%
           %li
-            %img{ src: '/assets/partners/giulianaflores.png' }
+            %a{ href: "http://el2.me/uKr6", target: "_blank" }
+              %img{ src: '/assets/partners/brinquedoslaura_small.png' }
+              .percent 3,5%
           %li
-            %img{ src: '/assets/partners/girafa.png' }
+            %a{ href: "http://el2.me/jGZM", target: "_blank" }
+              %img{ src: '/assets/partners/carrefour_small.png' }
+              .percent 1,5%
           %li
-            %img{ src: '/assets/partners/comprafacil.png' }
+            %a{ href: "http://www.comprafacil.com.br/afiliadoscf", target: "_blank" }
+              %img{ src: '/assets/partners/comprafacil_small.png' }
+              .percent 1,5%
           %li
-            %img{ src: '/assets/partners/carrefour.png' }
+            %a{ href: "http://el2.me/jG1I", target: "_blank" }
+              %img{ src: '/assets/partners/dafiti_small.png' }
+              .percent 5%
           %li
-            %img{ src: '/assets/partners/dafiti.png' }
+            %a{ href: "http://el2.me/jG4t", target: "_blank" }
+              %img{ src: '/assets/partners/fnac_small.png' }
+              .percent 2,5%
           %li
-            %img{ src: '/assets/partners/ana_hickmann.png' }
+            %a{ href: "http://el2.me/jG5i", target: "_blank" }
+              %img{ src: '/assets/partners/girafa_small.png' }
+              .percent 2,5%
           %li
-            %img{ src: '/assets/partners/fnac.png' }
+            %a{ href: "http://el2.me/jG67", target: "_blank" }
+              %img{ src: '/assets/partners/giulianaflores_small.png' }
+              .percent 5%
           %li
-            %img{ src: '/assets/partners/lojasmm.png' }
+            %a{ href: "http://el2.me/jG7z", target: "_blank" }
+              %img{ src: '/assets/partners/saraiva_small.png' }
+              .percent 1,5%
+          / %li
+          /   %img{ src: '/assets/partners/lojasmm.png' }
           %li
-            %img{ src: '/assets/partners/mobly.png' }
+            %a{ href: "http://el2.me/m6eB", target: "_blank" }
+              %img{ src: '/assets/partners/mobly_small.png' }
+              .percent 4%
           %li
-            %img{ src: '/assets/partners/polishop.png' }
+            %a{ href: "http://el2.me/jG8h", target: "_blank" }
+              %img{ src: '/assets/partners/polishop_small.png' }
+              .percent 2,5%
           %li
-            %img{ src: '/assets/partners/brinquedos_laura.png' }
-          %li
-            %img{ src: '/assets/partners/toymania.png' }
+            %a{ href: "http://el2.me/kN6Q", target: "_blank" }
+              %img{ src: '/assets/partners/toymania_small.png' }
+              .percent 2%
 
   .new_deal_right
     .title= t('strings.detailed_share')
@@ -122,6 +148,26 @@
 
         %br.clear
         = f.submit "", :class => 'bt-confirmar', :id => 'confirm'
+
+  .new_deal_left{ style: "clear: left" }
+    .title= t('strings.instructions')
+    .step1
+      %span= t('strings.steps.one')
+      %img{ src: asset_path('steps/step1.png') }
+    .step2
+      %img{ src: asset_path('steps/step2.png') }
+      %span= t('strings.steps.two')
+    .step3
+      %span= t('strings.steps.three')
+      %img{ src: asset_path('steps/step3.png') }
+    .step4
+      %img{ src: asset_path('steps/step4.png') }
+      %span= t('strings.steps.four')
+    .step5
+      %span= t('strings.steps.five')
+      %img{ src: asset_path('steps/step5.png') }
+    .clear
+    .description{ style: 'font-size: 14pt;' }= t('strings.ready_just_share').html_safe
 
   .clear
 

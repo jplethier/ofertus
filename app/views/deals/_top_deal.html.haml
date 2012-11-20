@@ -11,7 +11,8 @@
     %h4= link_to truncate_title(deal.title, 50), deal_path(deal)
     .user_picture
       %a{ href: user_path(deal.user.username) }
-        = Rails.cache.fetch([:user, :small_picture, deal.user.id], expires_in: 4.hours) { "<img alt='#{deal.user.username}' src='#{deal.user.small_picture}' title='#{deal.user.username}'>" }
+        = cache([:user, :small_picture, deal.user.id], expires_in: 4.hours) do
+          %img{ src: deal.user.small_picture }
     .user_infos
       = t('strings.shared_by')
       %br

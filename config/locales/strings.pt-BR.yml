@@ -46,6 +46,7 @@
     how_it_works: 'Como funciona?'
     how_to_share: 'cole seu link ou preencha os campos'
     interation_with_offers: "Interação com as Ofertas"
+    instructions: 'Instruções'
     invitation:
         easy: 'Para convidar é simples, basta copiar o link abaixo e enviar para seus amigos:'
         subtitle: 'Apresente o Ofertus aos seus amigos e seja recompensado com poderes para ter benefícios exclusivos. Você ainda acumula pontos no ranking, aumentando suas chances de terminar em primeiro.'
@@ -83,6 +84,7 @@
     privacy: 'Privacidade'
     quick_share: 'Cadastre em um só clique...'
     quick_share_description: 'Visite um de nossos parceiros abaixo e escolha uma oferta. Não se esqueça que uma oferta tem que ter um <u>preço promocional</u>! Em seguida, copie o link, cole abaixo e pressione OK!'
+    ready_just_share: "Pronto! Agora convide seus amigos a comprar sua oferta. Toda vez que alguém comprar pelo seu link, você ganhará dinheiro!"
     real_price: 'Preço'
     recent: 'Últimas Cadastradas'
     recent_deals: 'ofertas saídas do forno'
@@ -103,6 +105,12 @@
     sharing_offers: "Compartilhando Ofertas"
     special_discounts: 'para descontos especiais'
     status: 'Status'
+    steps:
+      one: 'Visite um de nossos parceiros'
+      two: 'Descubra uma oferta incrível'
+      three: 'Copie o link da oferta'
+      four: 'Cole na caixa e clique OK'
+      five: 'Confirme as informações'
     store: 'Loja'
     suggestions: 'Sugestões de Ofertas'
     suggestions_tip: 'prefere comprar? Sinta-se à vontade!'

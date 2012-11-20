@@ -56,7 +56,4 @@
           = link_to t('strings.report'), downvote_deal_path(deal), class: 'report'
       
     .right
-      - if deal.image_url && !deal.image_url.empty?
-        = image_tag(deal.image_url, :alt => deal.image_url, :title => deal.title, :size => '10px')
-      - else
-        / = image_tag(asset_path('no_picture_big.png'), :alt => "Oferta sem imagem", :title => deal.title, :size => '10px')
+      = Rails.cache.fetch([:deal, :image, deal.id]) { "<img alt='#{deal.get_image_url}' title='#{deal.title}' src='#{deal.get_image_url}'>".html_safe }

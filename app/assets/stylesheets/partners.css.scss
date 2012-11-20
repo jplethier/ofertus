@@ -1,0 +1,41 @@
+body {
+  .como-funciona {
+    ul.partners_list {
+      width: 90%;
+      margin: 0 auto 1em;
+      
+      li {
+        float: left;
+        margin: 1em;
+        height: 165px;
+
+        a {
+          text-decoration: none;
+
+          .percent {
+            display: none;
+            text-align: center;
+            height: 72px;
+            width: 71px;
+            @include border-radius(10px);
+            background: #CCC;
+            color: #9C9C6C;
+            font-size: 42pt;
+            font-family: 'Lobster';
+            padding: 45px;
+          }
+        }
+  
+        a:hover {
+          .percent {
+            display: block;
+          }
+
+          img {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

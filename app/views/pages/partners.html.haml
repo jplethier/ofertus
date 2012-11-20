@@ -3,4 +3,59 @@
     %h2= t('strings.partners')
 
   .list-conteudo.como-funciona
-    = render 'partnership_table'
+    = cache [:partners_page], expires_in: 1.week do 
+      %ul.partners_list
+        %li
+          %a{ href: "http://el2.me/jERr", target: "_blank" }
+            %img{ src: '/assets/partners/americanas.png', alt: 'Americanas', title: 'Americanas' }
+            .percent{ style: 'width: 72px;' } 1,5%
+        %li
+          %a{ href: "http://el2.me/uKfM", target: "_blank" }
+            %img{ src: '/assets/partners/anahickmann.png', alt: 'Ana Hickmann', title: 'Ana Hickmann' }
+            .percent 5%
+        %li
+          %a{ href: "http://el2.me/uKr6", target: "_blank" }
+            %img{ src: '/assets/partners/brinquedoslaura.png', alt: 'Brinquedos Laura', title: 'Brinquedos Laura' }
+            .percent 3,5%
+        %li
+          %a{ href: "http://el2.me/jGZM", target: "_blank" }
+            %img{ src: '/assets/partners/carrefour.png', alt: 'Carrefour', title: 'Carrefour' }
+            .percent 1,5%
+        %li
+          %a{ href: "http://www.comprafacil.com.br/afiliadoscf", target: "_blank" }
+            %img{ src: '/assets/partners/comprafacil.png', alt: 'Compra Fácil', title: 'Compra Fácil' }
+            .percent 1,5%
+        %li
+          %a{ href: "http://el2.me/jG1I", target: "_blank" }
+            %img{ src: '/assets/partners/dafiti.png', alt: 'Dafiti', title: 'Dafiti' }
+            .percent 5%
+        %li
+          %a{ href: "http://el2.me/jG4t", target: "_blank" }
+            %img{ src: '/assets/partners/fnac.png', alt: 'FNAC', title: 'FNAC' }
+            .percent 2,5%
+        %li
+          %a{ href: "http://el2.me/jG5i", target: "_blank" }
+            %img{ src: '/assets/partners/girafa.png', alt: 'Girafa', title: 'Girafa' }
+            .percent 2,5%
+        %li
+          %a{ href: "http://el2.me/jG67", target: "_blank" }
+            %img{ src: '/assets/partners/giulianaflores.png', alt: 'Giuliana Flores', title: 'Giuliana Flores' }
+            .percent 5%
+        %li
+          %a{ href: "http://el2.me/jG7z", target: "_blank" }
+            %img{ src: '/assets/partners/saraiva.png', alt: 'Saraiva', title: 'Saraiva' }
+            .percent 1,5%
+        / %li
+        /   %img{ src: '/assets/partners/lojasmm.png' }
+        %li
+          %a{ href: "http://el2.me/m6eB", target: "_blank" }
+            %img{ src: '/assets/partners/mobly.png', alt: 'Mobly', title: 'Mobly' }
+            .percent 4%
+        %li
+          %a{ href: "http://el2.me/jG8h", target: "_blank" }
+            %img{ src: '/assets/partners/polishop.png', alt: 'Polishop', title: 'Polishop' }
+            .percent 2,5%
+        %li
+          %a{ href: "http://el2.me/kN6Q", target: "_blank" }
+            %img{ src: '/assets/partners/toymania.png', alt: 'Toy Mania', title: 'Toy Mania' }
+            .percent 2%

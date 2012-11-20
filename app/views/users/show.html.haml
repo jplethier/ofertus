@@ -11,14 +11,14 @@
       = link_to t('actions.all'), following_user_path(@user.username)
     %ul
       - @user.following.random.limit(4).each do |following|
-        %li= link_to image_tag(following.medium_picture, alt: following.username, title: following.username), user_path(following.username), title: following.username
+        %li= link_to Rails.cache.fetch([:user, :normal_picture, following.id], expires_in: 4.hours) { image_tag(following.medium_picture, :alt => following.username, :title => following.username) }, user_path(following.username), title: following.username
   .followers
     .title
       = t('strings.x_followers', x: @user.followers.count)
       = link_to t('actions.all'), followers_user_path(@user.username)
     %ul
       - @user.followers.random.limit(4).each do |follower|
-        %li= link_to image_tag(follower.medium_picture), user_path(follower.username)
+        %li= link_to Rails.cache.fetch([:user, :normal_picture, follower.id], expires_in: 4.hours) { image_tag(follower.medium_picture, :alt => follower.username, :title => follower.username) }, user_path(follower.username)
 
   .clear
 

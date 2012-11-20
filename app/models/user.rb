@@ -112,7 +112,7 @@ class User < ActiveRecord::Base
     if self.provider
       self.facebook_profile_picture(:normal)
     else
-      self.gravatar_url(size: 100)
+      self.gravatar_url(size: 80)
     end
   end
 

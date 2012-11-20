@@ -2,10 +2,7 @@
   .user_details
     .content
       .top
-        - if @user.provider
-          %img{ src: @user.facebook_profile_picture }
-        - else
-          %img{ src: @user.gravatar_url }
+        = Rails.cache.fetch([:user, :profile_piture, @user.id], expires_in: 4.hours) { "<img src='#{@user.picture}'>" }
 
         %h2= @user.name
         .infos

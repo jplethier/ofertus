@@ -1,16 +1,17 @@
 .offer_details
   
   .list-conteudo.detalhe-oferta
-    .left.off
-      .col-off
-        - if deal.price?
-          %h4= t('strings.original_price', :price => number_to_currency(deal.real_price)).html_safe
+    = cache [:deal, :left_price, deal.id], expires_in: 1.week do
+      .left.off
+        .col-off
+          - if deal.price?
+            %h4= t('strings.original_price', :price => number_to_currency(deal.real_price)).html_safe
 
-        .preco-off
-          %h4= t('strings.offer_price', :price => number_to_currency(deal.price)).html_safe
+          .preco-off
+            %h4= t('strings.offer_price', :price => number_to_currency(deal.price)).html_safe
 
-        %h5= t('strings.discount', :discount => "#{deal.discount.to_i}%")
-        %h5= t('strings.end_date', :end_date => deal.end_date? ? l(deal.end_date.to_date) : "-")
+          %h5= t('strings.discount', :discount => "#{deal.discount.to_i}%")
+          %h5= t('strings.end_date', :end_date => deal.end_date? ? l(deal.end_date.to_date) : "-")
 
     .left.tx-off
       %h3
@@ -20,10 +21,7 @@
           %span.reports= deal.down_votes
 
       .user-off
-        - if deal.user_provider?
-          = link_to(image_tag(deal.user.facebook_profile_picture(:small), :alt => deal.user.username, :title => deal.user.username), user_path(deal.user.username), :class => "user_picture")
-        - else
-          = link_to(image_tag(deal.user.gravatar_url(:size => 50), :alt => deal.user.username, :title => deal.user.username), user_path(deal.user.username), :class => "user_picture")
+        = link_to(image_tag(deal.user.small_picture, :alt => deal.user.username, :title => deal.user.username), user_path(deal.user.username), :class => "user_picture")
         %h4= t('strings.shared_by')
         %span= link_to deal.user.name, user_path(deal.user.username)
 
@@ -32,18 +30,19 @@
         %li= t('strings.company', :company => deal.company)
         %li= t('strings.city', :city => deal.city.name)
 
-      .right#go_to_site
-        = link_to '', deal.link, :class => 'go_to_site_button', :target => '_blank', :id => "big_button"
-        %br
-        %div{ :style => "float: right; margin-right: 12px;" }
-          :plain
-            <span class='st_fblike'></span>
-            <span class='st_facebook'></span>
-            <span class='st_twitter'></span>
-            <!-- <span class='st_plusone'></span>
-             <span class='st_googleplus'></span> -->
-            <span class='st_pinterest'></span>
-            <span class='st_email'></span>
+      = cache [:deal, :right_go_to_site, deal.id], expires_in: 30.minutes do
+        .right#go_to_site
+          = link_to '', deal.link, :class => 'go_to_site_button', :target => '_blank', :id => "big_button"
+          %br
+          %div{ :style => "float: right; margin-right: 12px;" }
+            :plain
+              <span class='st_fblike'></span>
+              <span class='st_facebook'></span>
+              <span class='st_twitter'></span>
+              <!-- <span class='st_plusone'></span>
+               <span class='st_googleplus'></span> -->
+              <span class='st_pinterest'></span>
+              <span class='st_email'></span>
 
       .share-off
         - if current_user && current_user.up_voted?(deal)

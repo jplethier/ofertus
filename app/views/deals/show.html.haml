@@ -5,9 +5,10 @@
 #sem-col
   .clear
 
-  .desc-off
-    %h4= t('strings.description')
-    .tx-desc= @deal.description.html_safe
+  = cache [:deal, :description, @deal.id] do
+    .desc-off
+      %h4= t('strings.description')
+      .tx-desc= @deal.description.html_safe
       
 
   .right-detalhe-comment-off

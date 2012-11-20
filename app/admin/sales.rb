@@ -3,7 +3,9 @@ ActiveAdmin.register Sale do
   member_action :confirm, :method => :put do
     sale = Sale.find(params[:id])
     sale.update_attributes(status: Sale::CONFIRMED)
-    Notification.create(user: sale.user, message: "Comissão confirmada no valor de <b style='color:#669900';>R$ #{(sale.user_commission_value*100).to_i.to_s[0..((sale.user_commission_value*100).to_i.to_s.size - 3)]},#{(sale.user_commission_value*100).to_i.to_s[((sale.user_commission_value*100).to_i.to_s.size - 2)..-1]}</b>", url: sales_user_path(sale.user.username))
+    unless sale.user.blank?
+      Notification.create(user: sale.user, message: "Comissão confirmada no valor de <b style='color:#669900';>R$ #{(sale.user_commission_value*100).to_i.to_s[0..((sale.user_commission_value*100).to_i.to_s.size - 3)]},#{(sale.user_commission_value*100).to_i.to_s[((sale.user_commission_value*100).to_i.to_s.size - 2)..-1]}</b>", url: sales_user_path(sale.user.username))
+    end
     redirect_to env['HTTP_REFERER'], :notice => "Venda confirmada!"
   end
 
@@ -16,7 +18,9 @@ ActiveAdmin.register Sale do
   member_action :cancel, :method => :put do
     sale = Sale.find(params[:id])
     sale.update_attributes(status: Sale::CANCELLED)
-    Notification.create(user: sale.user, message: "Comissão cancelada pela loja, valor <b style='color:#669900';>R$ #{(sale.user_commission_value*100).to_i.to_s[0..((sale.user_commission_value*100).to_i.to_s.size - 3)]},#{(sale.user_commission_value*100).to_i.to_s[((sale.user_commission_value*100).to_i.to_s.size - 2)..-1]}</b>", url: sales_user_path(sale.user.username))
+    unless sale.user.blank?
+      Notification.create(user: sale.user, message: "Comissão cancelada pela loja, valor <b style='color:#669900';>R$ #{(sale.user_commission_value*100).to_i.to_s[0..((sale.user_commission_value*100).to_i.to_s.size - 3)]},#{(sale.user_commission_value*100).to_i.to_s[((sale.user_commission_value*100).to_i.to_s.size - 2)..-1]}</b>", url: sales_user_path(sale.user.username))
+    end
     redirect_to env['HTTP_REFERER'], :notice => "Venda marcada como cancelada!"
   end
 

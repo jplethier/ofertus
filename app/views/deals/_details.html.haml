@@ -56,4 +56,4 @@
           = link_to t('strings.report'), downvote_deal_path(deal), class: 'report'
       
     .right
-      = Rails.cache.fetch([:deal, :image, deal.id]) { "<img alt='#{deal.get_image_url}' title='#{deal.title}' src='#{deal.get_image_url}'>".html_safe }
+      = Rails.cache.fetch([:deal, :image, deal.id], expires_in: 1.month) { "<img alt='#{deal.get_image_url}' title='#{deal.title}' src='#{deal.get_image_url}'>".html_safe }

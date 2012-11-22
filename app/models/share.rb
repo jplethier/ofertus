@@ -31,6 +31,7 @@ class Share
   GIULIANA_FLORES = "giulianaflores.com.br"
   GROUPON = "groupon.com"
   HOTEL_URBANO = "hotelurbano.com.br"
+  KANUI = 'kanui.com.br'
   LEADER = "leader.com.br"
   LIVRARIA_CULTURA = "livrariacultura.com.br"
   LOJAS_MM = "lojasmm.com"
@@ -44,6 +45,7 @@ class Share
   SEPHA = "sepha.com.br"
   SUBMARINO = "submarino.com"
   TOY_MANIA = "toymania.com.br"
+  WALMART = 'walmart.com.br'
 
   CATEGORIES = {
     "bares-e-baladas" => Deal::CATEGORY_RESTAURANT,
@@ -89,6 +91,8 @@ class Share
           @deal = Groupon.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(HOTEL_URBANO)
           @deal = HotelUrbano.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(KANUI)
+          @deal = Kanui.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(LEADER)
           @deal = Leader.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(LIVRARIA_CULTURA)
@@ -115,6 +119,8 @@ class Share
           @deal = Submarino.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(TOY_MANIA)
           @deal = ToyMania.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(WALMART)
+          @deal = Walmart.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         else
           @deal = fill_deal_fields(URI.parse(URI.encode(link.strip)))
         end

@@ -12,7 +12,7 @@ class AnaHickmann
       deal.price_mask = page.at_css(".precoacao .preco .preco span").try(:text).try(:strip).split(' ')[1] if page.at_css(".precoacao .preco .preco span").try(:text)
       deal.description = page.at_css(".boxDescricao .txtDescricao").try(:text).truncate(4000) if page.at_css(".boxDescricao .txtDescricao")
       deal.category = Deal::CATEGORY_CLOTHES
-      deal.image_url = page.at_css(".boxInfoProd #divCores ul li a img")[:src].try(:strip) if page.at_css(".boxInfoProd #divCores ul li a img")[:src]
+      deal.image_url = page.at_css(".boxInfoProd #divCores ul li a img")[:src].try(:strip) if page.at_css(".boxInfoProd #divCores ul li a img") && page.at_css(".boxInfoProd #divCores ul li a img")[:src]
       deal.company = "Ana Hickmann"
     end
 

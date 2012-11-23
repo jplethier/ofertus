@@ -6,9 +6,6 @@
         #slides.left
           .slides_container
             %div
-              %a{ href: new_deal_path }
-                %img{ :src => asset_path('blackfriday.jpg') }
-            %div
               %img{ :src => asset_path('foto_1.jpg') }
             %div
               %a{ :href => "javascript:;", :onclick => "Popup.open_url('#{powers_popup_url}')"}
@@ -19,8 +16,6 @@
             %div
               %a{ href: how_it_works_path }
                 %img{ src: asset_path('foto_2.jpg') }
-            / %div
-            /   %img{ :src => asset_path('foto_3.jpg') }
         #login_home.right
           :plain
             <span class='st_fblike_hcount' displayText='Facebook Like'></span>

@@ -53,7 +53,9 @@ class Sale < ActiveRecord::Base
     if partner
       sale.partner = partner
       sale.commission = partner.commission
-      sale.user_commission = partner.user_commission
+      # sale.user_commission = partner.user_commission
+      # SOMENTE PARA A BLACK FRIDAY
+      sale.user_commission = partner.user_commission * 2
     else
       sale.commission = 0
       sale.user_commission = 0

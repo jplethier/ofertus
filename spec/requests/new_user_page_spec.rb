@@ -24,7 +24,7 @@ describe "Signup Page" do
       check 'terms_privacy'
       click_on 'signup_btn'
       (User.count - 1).should == count
-      should have_content('A sua conta foi criada com sucesso. No entanto, não foi possível fazer login, pois ela não foi confirmada ainda.')
+      should have_content('Um email foi enviado para você confirmar sua conta.')
       should have_content('Favoritas do Ofertus')
     end
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121225121203) do
+ActiveRecord::Schema.define(:version => 20121225121204) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -262,6 +262,16 @@ ActiveRecord::Schema.define(:version => 20121225121203) do
     t.decimal  "credit",                                :precision => 8, :scale => 2, :default => 0.0,   :null => false
     t.boolean  "admin",                                                               :default => false
     t.integer  "invited_by_id"
+    t.integer  "withdraw_option"
+    t.string   "withdraw_bank_cpf"
+    t.string   "withdraw_bank_account"
+    t.string   "withdraw_bank_agency"
+    t.string   "withdraw_bank_number"
+    t.string   "withdraw_bank_name"
+    t.string   "withdraw_digital_cpf"
+    t.string   "withdraw_digital_email"
+    t.string   "withdraw_digital_name"
+    t.boolean  "withdraw_remember",                                                   :default => true
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

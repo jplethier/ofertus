@@ -25,7 +25,7 @@ class Leader
     "Utilidades Domésticas" => Deal::CATEGORY_HOME_AND_APPLIANCE
   }
 
-  def fill_deal_fields(link)
+  def self.fill_deal_fields(link)
     page = Share.open_page(link)
 
     deal = Deal.new

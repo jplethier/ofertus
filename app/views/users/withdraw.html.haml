@@ -1,0 +1,47 @@
+#sem-col
+  .ttGlHome
+    %h2= t('strings.withdraw_credit')
+    %h3= t('strings.choose_how_to_withdraw')
+  
+  = form_for @user, html: { id: 'withdraw_form' } do |f|
+
+    .bank_option
+      .title= t('strings.withdraw_options.bank_account')
+      .content
+        Formulário para preencher dados bancários
+
+    .online_option
+      .title= t('strings.withdraw_options.online_account')
+      .content
+        Formulário para preencher dados digitais
+
+    .brief
+      .title= t('strings.withdraw_options.brief')
+      .content
+        %table
+          %tr
+            %td.name= t('strings.withdraw_brief.actual')
+            %td= number_to_currency @user.credit
+          %tr
+            %td.name= t('strings.withdraw_brief.taxes')
+            %td#bank_taxes= 'R$ 5,00'
+            %td#digital_taxes{ style: 'display: none;' }= 'R$ 0,00'
+          %tr
+            %td.name= t('strings.withdraw_brief.value')
+            %td#total_bank= number_to_currency(@user.credit - 5)
+            %td#total_digital{ style: 'display: none;' }= number_to_currency(@user.credit)
+          %tr
+            %td.name= t('strings.withdraw_brief.total')
+            %td= number_to_currency @user.credit
+          %tr
+            %td.name= t('strings.withdraw_brief.rest')
+            %td= 'R$ 0,00'
+          %tr
+            %td.footer{ colspan: 2 }= '*Taxa cobrada pelo banco para efetuar á transação'
+
+        .actions
+          .title= t('strings.withdraw_actions.title')
+          .description
+            Ao clicar em "Confirmar", iniciaremos a verificação de suas transações. O valor requerido pode demorar até 5 dias úteis para estar na sua conta.
+          .clear
+          = f.submit "", :class => "bt-confirmar"

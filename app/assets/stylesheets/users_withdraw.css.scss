@@ -1,0 +1,69 @@
+body {
+
+  #sem-col {
+    form#withdraw_form {
+      width: 100%;
+      background: none;
+
+      .bank_option, .online_option, .brief {
+        float: left;
+        width: 30%;
+        height: auto;
+        padding-bottom: 1em;
+        margin: 0 .5em 3em;
+        font-family: 'Colaborate-Thin', 'Helvetica Neue';
+        background: image-url('bg-html.jpg');
+        font-size: 14px;
+
+        .title {
+          width: 97%;
+        }
+
+        .content {
+          padding: 1em .5em;
+          width: 96%;
+
+          table {
+            width: 90%;
+            margin: 0 auto;
+
+            td {
+              line-height: 2.3em;
+              font-size: 15pt;
+              text-align: right;
+            }
+
+            td.name {
+              width: 65%;
+              font-family: 'Lobster';
+              text-align: left;
+            }
+
+            td.footer {
+              font-size: 10pt;
+              text-align: center;
+            }
+          }
+
+          .actions {
+            .title {
+              background: none;
+              margin: 0 auto;
+              width: 41%;
+              font-family: 'Lobster';
+              color: black;
+              text-transform: none;
+              font-size: 13pt;
+            }
+
+            .description {
+              width: 90%;
+              font-size: 13pt;
+              margin: .2em auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}

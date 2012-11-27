@@ -8,6 +8,7 @@
     best_offers: "Melhores Ofertas"
     by_price: 'Por %{price}'
     category: "Categoria: %{category}"
+    choose_how_to_withdraw: 'escolha a opção desejada'
     city: "Válida para: %{city}"
     click_count: 'Cliques'
     comments: 'Comentários'
@@ -140,5 +141,17 @@
     who_likes: 'Quem deseja essa oferta'
     who_likes_me_also_like_this: 'quem gosta dessa oferta também gosta dessas'
     wished_by_me: 'ofertas que adorei'
+    withdraw_actions:
+      title: 'Deseja continuar?'
+    withdraw_brief:
+      actual: 'Saldo Atual'
+      rest: 'Saldo Restante'
+      taxes: 'Taxa da Transação*'
+      total: 'Total da Retirada'
+      value: 'Valor da Transação'
     withdraw_credit: "Resgatar saldo"
+    withdraw_options:
+      bank_account: 'Conta Bancária'
+      brief: 'Resumo da Transação'
+      online_account: 'Conta Digital'
     you_need_to_agree_with_terms_and_privacy: "Para se cadastrar é necessário concordar com os termos de uso e a política de privacidade do site."

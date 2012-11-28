@@ -8,7 +8,28 @@
     .bank_option
       .title= t('strings.withdraw_options.bank_account')
       .content
-        Formulário para preencher dados bancários
+        .ct-inputs-login
+          .big_column.left
+            %p
+              %div
+                = f.label :withdraw_bank_name
+              %div
+                = f.text_field :withdraw_bank_name
+
+          .small_column.left
+            %p
+              %div
+                = f.label :withdraw_bank_cpf
+              %div
+                = f.text_field :withdraw_bank_cpf, onkeyup: 'mascara(this,cpf)', maxlength: 14
+
+          .small_column.right
+            %p
+              %div
+                = f.label :withdraw_bank_number
+              %div
+                = f.text_field :withdraw_bank_number, onkeyup: 'mascara(this,numero)', maxlength: 3
+                = link_to 'Consultar', 'javascript:;'
 
     .online_option
       .title= t('strings.withdraw_options.online_account')

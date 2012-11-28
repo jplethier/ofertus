@@ -62,6 +62,20 @@ body {
               margin: .2em auto;
             }
           }
+
+          .ct-inputs-login {
+            .big_column {
+              width: 100%;
+            }
+
+            input {
+              width: 92%;
+            }
+
+            .small_column {
+              width: 45%;
+            }
+          }
         }
       }
     }

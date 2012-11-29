@@ -144,7 +144,8 @@
             %div
               = f.label :end_date
             %div
-              = f.text_field :end_date, :class => "datepicker", :value => l(Date.today), :placeholder => 'dd/mm/aaaa'
+              / class: "datepicker"
+              = f.text_field :end_date, value: l(Date.today), placeholder: 'dd/mm/aaaa', readonly: true
         .clear
         .left.small_column
           %p

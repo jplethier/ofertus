@@ -66,3 +66,8 @@ $(document).ready(function() {
 var hideFlashes = function() {
   $('#flash_notice, #flash_warning, #flash_error').fadeOut(10500);
 }
+
+function chosen_bank(code){
+  Popup.close();
+  $('#user_withdraw_bank_number').val(code);
+}

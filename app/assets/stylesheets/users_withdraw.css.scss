@@ -73,8 +73,31 @@ body {
             }
 
             .small_column {
-              width: 45%;
+              width: 42%;
+
+              input.bank {
+                width: 40%;
+                float: left;
+              }
+
+              a {
+                float: left;
+                width: 40%;
+                line-height: 2.5em;
+                float: right;
+              }
             }
+          }
+
+          .footer {
+            clear: both;
+            text-transform: uppercase;
+          }
+
+          .incoming {
+            font-size: 21pt;
+            font-family: 'Lobster';
+            padding: 3.5em;
           }
         }
       }

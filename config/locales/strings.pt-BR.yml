@@ -5,6 +5,11 @@
     about: 'Sobre'
     all: 'Ver Todos'
     already_a_member: 'Já é membro?'
+    bank_withdraw_message: 'Este tipo de transação está sujeito a taxas. Debitaremos tais valores do seu saldo.'
+    banks:
+      abreviation: 'Sigla'
+      code: 'Código'
+      name: 'Nome'
     best_offers: "Melhores Ofertas"
     by_price: 'Por %{price}'
     category: "Categoria: %{category}"

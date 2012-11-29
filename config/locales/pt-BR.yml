@@ -243,6 +243,9 @@
         password: "Senha"
         password_confirmation: "Confirmação da Senha"
         username: "Usuário"
+        withdraw_bank_account: 'Conta'
+        withdraw_bank_account_confirmation: 'Confirmação da Conta'
+        withdraw_bank_agency: 'Agência'
         withdraw_bank_cpf: 'CPF'
         withdraw_bank_name: 'Nome do Responsável'
         withdraw_bank_number: 'Número do Banco'

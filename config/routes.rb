@@ -14,8 +14,9 @@ DealWitMe::Application.routes.draw do
   match "privacypolicy",  :to => "pages#privacypolicy"
   match "termsofuse",     :to => "pages#termsofuse"
   match "how_it_works",   :to => "pages#how_it_works"
-  match "show_video",     :to => "pages#show_video", :as => 'show_video'
-  match "powers_popup",   :to => "pages#powers_popup", :as => 'powers_popup'
+  match "show_video",     :to => "pages#show_video",    :as => 'show_video'
+  match "powers_popup",   :to => "pages#powers_popup",  :as => 'powers_popup'
+  match "bank_codes",     :to => "pages#bank_codes",    :as => 'bank_codes'
 
   match '/deals/feed' => 'deals#feed', :as => :feed, :defaults => { :format => 'atom' }
 

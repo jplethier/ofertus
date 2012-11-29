@@ -2,10 +2,21 @@
 class UsersController < ApplicationController
   before_filter :find_user_with_deals, :only => :show
   prepend_before_filter :find_users, :only => :index
-  # before_filter :authenticate_user!
+  before_filter :authenticate_user!, only: [:update, :sales, :withdraw, :follow, :unfollow]
 
   check_authorization
   load_and_authorize_resource :find_by => :username
+
+  def update
+    binding.pry
+    if current_user.update_attributes(params[:user])
+      current_user.reload
+      Notification.create(message: "Usuário <a href='/admin/users/#{current_user.id}'>#{current_user.username}</a> pediu um resgate. Dados bancários:<br/>Conta: #{current_user.withdraw_bank_account}<br/>Banco: #{current_user.withdraw_bank_number}<br/>Nome: #{current_user.withdraw_bank_name}<br/>CPF: #{current_user.withdraw_bank_cpf}")
+      redirect_to withdraw_user_path(current_user.username), success: 'Resgate pedido com sucesso.'
+    else
+      render 'withdraw'
+    end
+  end
 
   def show
     @title = @user.username

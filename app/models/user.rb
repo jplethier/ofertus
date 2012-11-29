@@ -17,10 +17,11 @@ class User < ActiveRecord::Base
   has_many :powers
   has_many :notifications
 
-  validates :username,  :presence => true,  :uniqueness => true,  :format => /^[a-zA-Z0-9_]{5,20}$/
-  validates :credit,    :presence => true
+  validates :username,              presence: true,  uniqueness: true,  format: /^[a-zA-Z0-9_]{5,20}$/
+  validates :credit,                presence: true
+  validates :withdraw_bank_account, confirmation: true
 
-  attr_accessible :access_token, :avatar_url, :credit, :facebook_follow_user, :facebook_vote_offer, :facebook_share_offer, :email, :login, :name, :password, :password_confirmation, :provider, :remember_me, :uid, :username, :invited_by_id
+  attr_accessible :access_token, :avatar_url, :credit, :facebook_follow_user, :facebook_vote_offer, :facebook_share_offer, :email, :login, :name, :password, :password_confirmation, :provider, :remember_me, :uid, :username, :invited_by_id, :withdraw_bank_cpf, :withdraw_bank_name, :withdraw_bank_number, :withdraw_bank_account, :withdraw_bank_agency, :withdraw_digital_cpf, :withdraw_digital_email, :withdraw_digital_name, :withdraw_remember
 
   before_validation :set_credit_to_zero
 

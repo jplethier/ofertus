@@ -16,6 +16,10 @@ class PagesController < ApplicationController
     render :layout => false
   end
 
+  def bank_codes
+    render layout: false
+  end
+
   def powers_popup
     render :layout => false
   end

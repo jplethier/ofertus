@@ -2,7 +2,7 @@
   .user_details
     .content
       .top
-        = Rails.cache.fetch([:user, :profile_piture, @user.id], expires_in: 4.hours) { "<img src='#{@user.picture}'>" }
+        = Rails.cache.fetch([:user, :profile_piture, @user.id], expires_in: 4.hours) { "<img src='#{@user.picture}'/>" }.html_safe
 
         %h2= @user.name
         .infos

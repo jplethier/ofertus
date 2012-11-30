@@ -3,7 +3,7 @@
     %h2= t('strings.withdraw_credit')
     %h3= t('strings.choose_how_to_withdraw')
   
-  = form_for @user, html: { id: 'withdraw_form' } do |f|
+  = form_for @user, url: "/users/#{@user.username}", html: { id: 'withdraw_form' } do |f|
 
     .bank_option
       .title= t('strings.withdraw_options.bank_account')

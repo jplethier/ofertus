@@ -1,3 +1,4 @@
+#coding: utf-8
 class User < ActiveRecord::Base
   include  Gravtastic
 
@@ -43,6 +44,12 @@ class User < ActiveRecord::Base
 
   def set_credit_to_zero
     self.credit = 0 if not credit
+  end
+
+  def withdraw
+    Sale.create(user: self, status: Sale::WITHDRAW_PENDING, value: self.credit, user_commission: 100, commission: 0)
+    Notification.create(message: "Usuário <a href='/admin/users/#{self.id}'>#{self.username}</a> pediu um resgate. Dados bancários:<br/>Conta: #{self.withdraw_bank_account}<br/>Banco: #{self.withdraw_bank_number}<br/>Nome: #{self.withdraw_bank_name}<br/>CPF: #{self.withdraw_bank_cpf}")
+    self.update_attributes(credit: 0)
   end
 
   def recalculate_credit

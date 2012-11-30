@@ -317,7 +317,8 @@
         '2': 'Bônus'
         '3': 'Confirmado'
         '4': 'Cancelado'
-        '5': 'Retirado'
+        '5': 'Pedido de Resgate'
+        '6': 'Retirado'
 
     user:
       followers: "Seguidores"

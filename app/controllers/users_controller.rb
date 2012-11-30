@@ -8,11 +8,9 @@ class UsersController < ApplicationController
   load_and_authorize_resource :find_by => :username
 
   def update
-    binding.pry
     if current_user.update_attributes(params[:user])
-      current_user.reload
-      Notification.create(message: "Usuário <a href='/admin/users/#{current_user.id}'>#{current_user.username}</a> pediu um resgate. Dados bancários:<br/>Conta: #{current_user.withdraw_bank_account}<br/>Banco: #{current_user.withdraw_bank_number}<br/>Nome: #{current_user.withdraw_bank_name}<br/>CPF: #{current_user.withdraw_bank_cpf}")
-      redirect_to withdraw_user_path(current_user.username), success: 'Resgate pedido com sucesso.'
+      current_user.withdraw
+      redirect_to sales_user_path(current_user.username), notice: 'Resgate pedido com sucesso.'
     else
       render 'withdraw'
     end

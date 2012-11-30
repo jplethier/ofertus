@@ -12,6 +12,7 @@ class Notification < ActiveRecord::Base
   scope :unread,  where(status: 1)
   scope :read,    where(status: 2)
   scope :deleted, where(status: 3)
+  scope :admin,   where(user_id: nil)
 
   before_create :set_unread
 

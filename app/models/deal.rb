@@ -80,7 +80,7 @@ class Deal < ActiveRecord::Base
   scope :by_price_range,  lambda { |min, max| where('price >= ? and price <= ?', min, max) }
 
   def self.best_deals
-    self.voted.order("(deals.up_votes / (deals.up_votes + deals.down_votes)), deals.up_votes DESC")
+    self.voted.order("(deals.up_votes / (deals.up_votes + deals.down_votes)) DESC, deals.up_votes DESC")
   end
 
   def who_likes

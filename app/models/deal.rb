@@ -34,17 +34,17 @@ class Deal < ActiveRecord::Base
   belongs_to :city
   belongs_to :user
 
-  validates :category,        :presence => true,        :inclusion => CATEGORIES
+  validates :category,        :presence => true,       :inclusion => CATEGORIES
   validates :company,         :presence => true
-  validates :description,     :presence => true,        :length => { :maximum => 7000 }
-  validates :end_date,        :presence => true,        :date => {:after_or_equal_to => Time.zone.now.beginning_of_day}, :if => 'self.new_record?'
+  validates :description,     :presence => true,       :length => { :maximum => 7000 }
+  validates :end_date,        :presence => true,       :date => {:after_or_equal_to => Time.zone.now.beginning_of_day}, :if => 'self.new_record?'
   validates :image_url,       :format => /(^$)|(^https?:\/\/.+)/
-  validates :link,            :presence => true,        :uniqueness => true,  :format => /^https?:\/\/.+/
+  validates :link,            :presence => true,       :format => /^https?:\/\/.+/
   validates :price,           :numericality => true
   validates :real_price,      :numericality => true
   validates :real_price,      :greater_than => :price, :if => "self.price && self.real_price"
 
-  validates :title,       :presence => true,      :length => { :maximum => 255 }
+  validates :title,       :presence => true, :length => { :maximum => 255 }
   validates :city_id,     :presence => true
   validates :user,        :presence => true
 
@@ -166,7 +166,7 @@ class Deal < ActiveRecord::Base
 
   def already_shared?
     #verificar somente entre as ofertas ativas
-    Deal.find_by_original_link(self.original_link) || self.original_link.match('ofertus.com.br') || Deal.find_by_link(self.original_link) || Deal.find_by_original_link(self.original_link.split('?')[0])
+    Deal.active.find_by_original_link(self.original_link) || self.original_link.match('ofertus.com.br') || Deal.active.find_by_link(self.original_link) || Deal.active.find_by_original_link(self.original_link.split('?')[0])
   end
 
   def average

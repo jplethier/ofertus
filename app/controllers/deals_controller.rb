@@ -25,7 +25,7 @@ class DealsController < AuthorizedController
       if @deal.link.match('ofertus.com.br')
         redirect_to @deal.link, :alert => "A oferta abaixo já foi compartilhada por outro usuário"
       else
-        @deal = Deal.find_by_original_link(@deal.original_link) || @deal.find_by_original_link(@deal.original_link.split('?')[0])
+        @deal = Deal.active.find_by_original_link(@deal.original_link) || @deal.active.find_by_original_link(@deal.original_link.split('?')[0])
         redirect_to deal_path(@deal), :alert => "A oferta abaixo já foi compartilhada por outro usuário"
       end
     else
@@ -35,7 +35,7 @@ class DealsController < AuthorizedController
           me = FbGraph::User.me(current_user.access_token)
           me.feed!( :message => current_user.name + " acabou de compartilhar uma oferta no Ofertus", :link => deal_url(@deal), :description => @deal.string_description, :picture => (@deal.image_url ? @deal.image_url : "http://www.ofertus.com.br/assets/logo_beta.png") )
         end
-        redirect_to deals_path, :notice => "Oferta criada com sucesso!"
+        redirect_to deal_path(@deal), :notice => "Oferta criada com sucesso!"
       else
         populate_cities_name
 
@@ -56,10 +56,10 @@ class DealsController < AuthorizedController
     @deal = Deal.new
     @deal.original_link = params[:share]
     if @deal.already_shared?
-      if @deal.original_link.match('ofertus.com.br')
+      if @deal.active.original_link.match('ofertus.com.br')
         redirect_to @deal.original_link, :alert => "A oferta abaixo já foi compartilhada por outro usuário"
       else
-        @deal = Deal.find_by_original_link(@deal.original_link) || @deal.find_by_original_link(@deal.original_link.split('?')[0])
+        @deal = Deal.active.find_by_original_link(@deal.original_link) || @deal.find_by_original_link(@deal.original_link.split('?')[0])
         redirect_to deal_path(@deal), :alert => "A oferta abaixo já foi compartilhada por outro usuário"
       end
     else

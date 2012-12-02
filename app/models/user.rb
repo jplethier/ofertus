@@ -60,6 +60,8 @@ class User < ActiveRecord::Base
         new_credit = new_credit + sale.user_commission_value
       when Sale::WITHDRAW
         new_credit = new_credit - sale.user_commission_value
+      when Sale::WITHDRAW_PENDING
+        new_credit = new_credit - sale.user_commission_value
       end
     end
     self.update_attributes(credit: new_credit)

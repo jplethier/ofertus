@@ -116,9 +116,9 @@ describe "Acessibility Pages" do
       should have_content('Ofertas')
       should have_content(user.name)
       visit follow_user_path(user.username)
-      should have_content('Não é permitido alterar dados de outros usuários.')
+      should have_content('Para continuar, faça login ou registre-se.')
       visit unfollow_user_path(user.username)
-      should have_content('Não é permitido alterar dados de outros usuários.')
+      should have_content('Para continuar, faça login ou registre-se.')
       visit new_user_registration_path
       should have_content('Novo Usuário')
       visit("/invite/#{user.username}")

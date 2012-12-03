@@ -19,6 +19,7 @@ describe Deal do
       it { should allow_mass_assignment_of(:end_date) }
       it { should allow_mass_assignment_of(:image_url) }
       it { should allow_mass_assignment_of(:link) }
+      it { should allow_mass_assignment_of(:original_link) }
       it { should allow_mass_assignment_of(:price) }
       it { should allow_mass_assignment_of(:real_price) }
       it { should allow_mass_assignment_of(:title) }
@@ -71,8 +72,9 @@ describe Deal do
         it { should validate_presence_of(:link) }
 
         it "should be unique" do
-          duplicated_link = FactoryGirl.create(:deal).link
+          duplicated_link = FactoryGirl.create(:deal, end_date: Date.tomorrow).link
           deal.link = duplicated_link
+          deal.original_link = duplicated_link
           deal.should_not be_valid
         end
 

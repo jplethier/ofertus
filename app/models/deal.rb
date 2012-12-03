@@ -40,6 +40,7 @@ class Deal < ActiveRecord::Base
   validates :end_date,        :presence => true,       :date => {:after_or_equal_to => Time.zone.now.beginning_of_day}, :if => 'self.new_record?'
   validates :image_url,       :format => /(^$)|(^https?:\/\/.+)/
   validates :link,            :presence => true,       :format => /^https?:\/\/.+/
+  validates :link,            :uniqueness => true,     :if => 'already_shared?'
   validates :price,           :numericality => true
   validates :real_price,      :numericality => true
   validates :real_price,      :greater_than => :price, :if => "self.price && self.real_price"
@@ -165,7 +166,6 @@ class Deal < ActiveRecord::Base
   end
 
   def already_shared?
-    #verificar somente entre as ofertas ativas
     Deal.active.find_by_original_link(self.original_link) || self.original_link.match('ofertus.com.br') || Deal.active.find_by_link(self.original_link) || Deal.active.find_by_original_link(self.original_link.split('?')[0])
   end
 

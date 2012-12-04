@@ -1,0 +1,34 @@
+body {
+  #all {
+    .content {
+
+      .how_it_works {
+        clear: both;
+
+        .img {
+          float: left;
+          width: 10%;
+          height: 105px;
+          display: block;
+        }
+
+        .circle_1 {
+          background: image-url('how_it_works_circles.png') 0 0;
+        }
+
+        .circle_2 {
+          background: image-url('how_it_works_circles.png') -105px -5px;
+        }
+
+        .ttGlHome {
+          float: left;
+          width: 90%;
+
+          h2 {
+            font-size: 16pt;
+          }
+        }
+      }
+    }
+  }
+}

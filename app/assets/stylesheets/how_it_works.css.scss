@@ -4,10 +4,12 @@ body {
 
       .how_it_works {
         clear: both;
+        width: 90%;
+        margin: 1em auto;
 
         .img {
           float: left;
-          width: 10%;
+          width: 11%;
           height: 105px;
           display: block;
         }
@@ -39,6 +41,68 @@ body {
             margin-bottom: 12px;
             font-size: 16px;
             line-height: 22px;
+          }
+        }
+      }
+
+      .how_box {
+        background: white;
+        width: 97%;
+        border: 3px solid #ddd;
+        @include border-radius(7px);
+        position: relative;
+        clear: both;
+        margin: 1em auto;
+
+        .menu {
+          height: 60px;
+          width: 95%;
+          margin: 0 auto;
+          position: relative;
+
+          a {
+            float: left;
+            background: image-url('how_it_works_tabs.png');
+            height: 55px;
+            position: absolute;
+            top: -6px;
+            text-indent: -15000px;
+          }
+
+          a.how_deals {
+            width: 145px;
+            background-position: 0px -6px;
+            left: 0;
+          }
+
+          a.how_users {
+            width: 152px;
+            background-position: -145px -6px;
+            left: 155px;
+          }
+
+          a.how_money {
+            width: 147px;
+            background-position: -296px -6px;
+            left: 322px;
+          }
+
+          a.how_wishes {
+            width: 130px;
+            background-position: -442px -6px;
+            left: 482px;
+          }
+
+          a.how_reports {
+            width: 162px;
+            background-position: -572px -6px;
+            left: 627px;
+          }
+
+          a.how_powers {
+            width: 139px;
+            background-position: -736px -6px;
+            left: 805px;
           }
         }
       }

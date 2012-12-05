@@ -21,9 +21,18 @@
         %p Mas o que o Ofertus tem a ver com isso? Bom, o Ofertus permite que você, internauta, possa receber suas comissões sem que seja preciso ter um site. Assim você ganha dinheiro por promover vendas para os nossos parceiros.
         %p
           Para ganhar é fácil: basta achar ofertas nos sites de nossos parceiros e cadastrá-las no Ofertus(Para ver instruções mais detalhadas sobre isso e cadastrar uma oferta,
-          = link_to 'clique aqui', '#'
+          = link_to 'clique aqui', new_deal_path
           ). Estas ofertas serão suas por um período limitado. Em seguida, divulgue para quem quiser. Para toda compra realizada a partir do seu link, você ganha uma comissão. Quando completar R$50,00 você pode efetuar o resgate, e nós iremos transferir o dinheiro para você.
         %p
           O que está esperando? Não perca tempo.
           = link_to 'Cadastre-se', new_user_registration_path
           e comece agora mesmo a promover ofertas e ganhar com isso!
+
+    .how_box
+      .menu
+        = link_to 'Ofertas', 'javascript:;', class: 'how_deals', onclick: "show_how_to_menu('how_deals')"
+        = link_to 'Usuários', 'javascript:;', class: 'how_users', onclick: "show_how_to_menu('how_users')"
+        = link_to 'Dinheiro', 'javascript:;', class: 'how_money', onclick: "show_how_to_menu('how_money')"
+        = link_to 'Desejos', 'javascript:;', class: 'how_wishes', onclick: "show_how_to_menu('how_wishes')"
+        = link_to 'Denúncias', 'javascript:;', class: 'how_reports', onclick: "show_how_to_menu('how_reports')"
+        = link_to 'Poderes', 'javascript:;', class: 'how_powers', onclick: "show_how_to_menu('how_powers')"

@@ -5,37 +5,25 @@
 
     .how_it_works
       .img.circle_1
-      .ttGlHome
-        %h2 Agregador de Ofertas Colaborativo
+      .text
+        .ttGlHome
+          %h2 Agregador de Ofertas Colaborativo
+        %p Chega de ficar entrando em milhões de sites, tentando encontrar um desconto para aquele produto que você quer. Um local para você encontrar todos os dias as melhores ofertas, essa é a premissa do Ofertus.
+        %p Você também não quer entrar em outros agregadores de descontos e ver aquela lista enorme de ofertas nada a ver com você, não é mesmo? Pensando nisso, nós deixamos os próprios usuário recomendarem as ofertas, e você segue quem recomendar o que é do seu gosto. Assim, você ver o que quer, compra o que quer.
+        %p Por fim, navegue por um ambiente todo pensado para compradores. São inúmeras funcionalidades que ajudam você a comprar com simplicidade. Veja no quadro abaixo nossos principais recursos.
 
     .how_it_works
       .img.circle_2
-      .ttGlHome
-        %h2 Gerador de Links de Afiliados Pessoal
-
-    .list-conteudo.como-funciona
-      
-      %p O Ofertus é uma nova forma de compartilhar ofertas e ao mesmo tempo ganhar por isso. Através de parcerias com lojas virtuais, permite que os usuários ganhem comissões ao compartilharem ofertas com seus amigos, sem que seja necessário ter um site.
-
-      %p Funciona do seguinte modo: basta compartilhar qualquer oferta disponível na internet em nossa plataforma e divulgar para o máximo de pessoas possível. Pronto, agora é só deixar que seus amigos façam o trabalho.
-
-      %p A cada compra feita através do link de sua oferta, você pode receber uma comissão. Você pode compartilhar qualquer oferta, mas por enquanto as comissões estão restritas aos sites parceiros, que estão listados nesta página. A equipe Ofertus trabalha continuamente para adicionar mais parceiros.
-
-      %p As comissões variam de acordo com cada parceiro, assim como suas regras. Na tabela que se encontra no final dessa página, são exibidas as informações de cada uma das lojas virtuais com que o Ofertus trabalha atualmente. Para que o usuário tenha sua comissão contabilizada, é necessário que a oferta compartilhada seja de algum dos links encontrados na coluna 'Link' na tabela abaixo. 
-
-      %p{ :style => "text-align:center;" }
-        %img{ :src => asset_path("how_it_works.png") }
-
-      %h3 Como compartilhar?
-      %p Para cadastrar uma oferta, basta você estar registrado no site (você pode ter um cadastro Ofertus – se ainda não tem, clique aqui – ou pode se registrar pelo Facebook), copiar o link de uma oferta qualquer que tenha gostado, e colar na caixa Compartilhar, na parte de cima da página. Ao pressionar o botão compartilhar, você será direcionado para uma área de edição da oferta, onde poderá inserir qualquer outra informação que julgar necessária.
-
-      %p O Ofertus dá o poder de escolha aos usuários e permite ranquear as ofertas. Se a oferta compartilhada for boa e estiver com as informações corretas, nós damos destaque. Se não, ela poderá ser avaliada pelos usuários, o que tem efeito na credibilidade de quem a postou. Portanto, encorajamos os usuários a conferir os dados inseridos antes de compartilhar.
-
-      %p Também damos destaque aos usuários que mais compartilham ofertas. Nosso intuito é premiar os maiores compartilhadores pela fidelidade à plataforma. Então não perca tempo. Compartilhe com seus amigos e ganhe! 
-
-
-    .clear
-    = render 'partnership_table'
-    .clear
-    
-  .clear
+      .text
+        .ttGlHome
+          %h2 Gerador de Links de Afiliados Pessoal
+        %p Você sabe o que são programas de afiliados? Mesmo que você não os conheça, já se deparou com alguns por aí. Um programa de afiliados é um sistema que recompensa seus participantes, ou afiliados, por estes direcionarem vendas a parceiros. Como exemplo, blogs e lojas virtuais utilizam esse sistema para receber comissões de lojas parceiras de grande porte.
+        %p Mas o que o Ofertus tem a ver com isso? Bom, o Ofertus permite que você, internauta, possa receber suas comissões sem que seja preciso ter um site. Assim você ganha dinheiro por promover vendas para os nossos parceiros.
+        %p
+          Para ganhar é fácil: basta achar ofertas nos sites de nossos parceiros e cadastrá-las no Ofertus(Para ver instruções mais detalhadas sobre isso e cadastrar uma oferta,
+          = link_to 'clique aqui', '#'
+          ). Estas ofertas serão suas por um período limitado. Em seguida, divulgue para quem quiser. Para toda compra realizada a partir do seu link, você ganha uma comissão. Quando completar R$50,00 você pode efetuar o resgate, e nós iremos transferir o dinheiro para você.
+        %p
+          O que está esperando? Não perca tempo.
+          = link_to 'Cadastre-se', new_user_registration_path
+          e comece agora mesmo a promover ofertas e ganhar com isso!

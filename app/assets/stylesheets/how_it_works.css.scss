@@ -20,12 +20,25 @@ body {
           background: image-url('how_it_works_circles.png') -105px -5px;
         }
 
-        .ttGlHome {
+        .text {
           float: left;
-          width: 90%;
+          width: 80%;
+          margin-left: 1em;
+          margin-bottom: 1em;
 
-          h2 {
-            font-size: 16pt;
+          .ttGlHome {
+            width: 100%;
+            margin-bottom: 0;
+
+            h2 {
+              font-size: 16pt;
+            }
+          }
+
+          p {
+            margin-bottom: 12px;
+            font-size: 16px;
+            line-height: 22px;
           }
         }
       }

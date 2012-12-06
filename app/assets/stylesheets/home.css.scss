@@ -170,9 +170,12 @@ body {
       .price_and_discount {
         width: 93%;
         height: 22px;
+        text-align: center;
 
         .price {
-          font-size: 18pt;
+          font-size: 16pt;
+          width: 100%;
+          text-align: center;
 
           span {
             margin-left: 5px;

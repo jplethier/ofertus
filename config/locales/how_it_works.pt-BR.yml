@@ -9,7 +9,13 @@
       register_deals: '1. Cadastrar Ofertas'
       share_deals: '2. Compartilhar Ofertas'
     money:
+      sales: '1. Controlar minhas vendas'
       description1: 'Como você já sabe, aqui você pode ganhar dinheiro. Mas como saber sobre suas vendas e resgatar seu dinheiro? Veja abaixo:'
+      description2: 'Clique em sua foto para mostrar o menu e em seguida acesse "Saldo":'
+      description3: 'Na página que abrir, você poderá conferir as informações das ofertas que já cadastrou e também o seu histórico de transações.'
+      description4: 'Para resgatar seu dinheiro é necessário que você tenha um mínimo de <b>R$50,00(cinquenta reais)</b> de saldo. O resgate é permitido sempre <b>entre os dias 5 e 10 de cada mês</b>. Portanto, fique atento à essas duas regras!<br/><br/>Durante o período de resgate, nós disponibilizamos o botão "Retirar Dinheiro" abaixo do histórico de transações.'
+      description5: 'Em seguida, basta você escolher suas opções de resgate e pressionar o botão "Confirmar".'
+      withdraw: '2. Resgatar meu dinheiro'
     users:
       description1: 'O Ofertus é uma comunidade digital direcionada para ofertas. Aqui, além de comprar e ganhar dinheiro, você também pode interagir com seus amigos e outras pessoas. Todo usuário possui um perfil, onde é possível visualizar ofertas adoradas e/ou compartilhadas e também ofertas que seus amigos indicaram. Ainda é possível seguir usuários que compartilharem boas ofertas. Dessa forma você não deixa uma boa oferta passar.'
       description2: 'Seguir seus amigos é muito fácil. No perfil de todo usuário há um botão "Seguir Usuário". Basta clicar nele e você passará a ver em seu perfil todas as ofertas compartilhadas por aquele usuário.'

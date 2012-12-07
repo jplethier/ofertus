@@ -63,6 +63,16 @@
 
       #how_money
         %p= t('how_it_works.money.description1').html_safe
+        .ttGlHome
+          %h2= t('how_it_works.money.sales')
+        %p= t('how_it_works.money.description2').html_safe
+        %img{ src: asset_path('sales_img.png'), title: 'Saldo', alt: 'Menu de configurações com o link de saldo' }
+        %p= t('how_it_works.money.description3').html_safe
+        .ttGlHome
+          %h2= t('how_it_works.money.withdraw')
+        %p= t('how_it_works.money.description4').html_safe
+        %img{ src: asset_path('withdraw_img.png'), title: 'Resgatar', alt: 'Botão disponível para resgate do salo' }
+        %p= t('how_it_works.money.description5').html_safe
 
 :javascript
   function show_how_to_menu(menu){

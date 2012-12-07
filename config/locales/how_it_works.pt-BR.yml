@@ -16,6 +16,13 @@
       description4: 'Para resgatar seu dinheiro é necessário que você tenha um mínimo de <b>R$50,00(cinquenta reais)</b> de saldo. O resgate é permitido sempre <b>entre os dias 5 e 10 de cada mês</b>. Portanto, fique atento à essas duas regras!<br/><br/>Durante o período de resgate, nós disponibilizamos o botão "Retirar Dinheiro" abaixo do histórico de transações.'
       description5: 'Em seguida, basta você escolher suas opções de resgate e pressionar o botão "Confirmar".'
       withdraw: '2. Resgatar meu dinheiro'
+    reports:
+      description1: 'Como aqui no Ofertus quem gera o conteúdo são os internautas, um sistema de controle dos usuários é necessário para coibir o cadastro de ofertas erradas. Assim, nos baseamos na premissa de boa reputação para incentivar os usuários a compartilharem boas ofertas.'
+      description2: 'Se você se deparar com alguma oferta que contenha informações erradas, links falsos ou conteúdo impróprio, denuncie essa oferta. Você estará ajudando a nossa comunidade a se manter livre de usuários mal intencionados.'
+      description3: 'Para denunciar é bem simples, basta clicar no botão amarelo que contém um símbolo de exclamação(!) na página da oferta:'
+      description4: 'O usuário que tiver ofertas denunciadas e for comprovado que estas tem conteúdo impróprio, correrá o risco de ser banido do Ofertus. Nós não toleramos usuários que tem intenção de enganar os outros, e monitoramos o site continuamente para impedir a ação daqueles que desrespeitam as regras do sistema.'
+      downvote: '1. Denunciar Ofertas'
+      my_deals_reported: '2. Ter Ofertas Denunciadas'
     users:
       description1: 'O Ofertus é uma comunidade digital direcionada para ofertas. Aqui, além de comprar e ganhar dinheiro, você também pode interagir com seus amigos e outras pessoas. Todo usuário possui um perfil, onde é possível visualizar ofertas adoradas e/ou compartilhadas e também ofertas que seus amigos indicaram. Ainda é possível seguir usuários que compartilharem boas ofertas. Dessa forma você não deixa uma boa oferta passar.'
       description2: 'Seguir seus amigos é muito fácil. No perfil de todo usuário há um botão "Seguir Usuário". Basta clicar nele e você passará a ver em seu perfil todas as ofertas compartilhadas por aquele usuário.'

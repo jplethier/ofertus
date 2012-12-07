@@ -83,6 +83,17 @@
         %p= t('how_it_works.wishes.description3').html_safe
         %img{ src: asset_path('deals_upvote_count_img.png'), title: 'Quantidade de Adorar de uma Oferta', alt: 'Coração que mostra a contagem de adorar que uma oferta teve' }
 
+      #how_reports
+        %p= t('how_it_works.reports.description1').html_safe
+        .ttGlHome
+          %h2= t('how_it_works.reports.downvote')
+        %p= t('how_it_works.reports.description2').html_safe
+        %p= t('how_it_works.reports.description3').html_safe
+        %img{ src: asset_path('deals_downvote_img.png'), title: 'Denunciar uma Oferta', alt: 'Imagem do botão com símbolo de exclamação para denunciar uma oferta' }
+        .ttGlHome
+          %h2= t('how_it_works.reports.my_deals_reported')
+        %p= t('how_it_works.reports.description4').html_safe
+
 :javascript
   function show_how_to_menu(menu){
     $('#how_deals').hide();

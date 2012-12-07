@@ -23,3 +23,8 @@
       description4: 'Depois, basta seguir as instruções, compartilhando o link mostrado. Quanto mais amigos você trouxer para o Ofertus, mais poderes você ganha!'
       follow_users: '1. Seguir Usuários'
       invite_friends: '2. Convidar Amigos'
+    wishes:
+      description1: 'Todas as ofertas encontradas aqui no Ofertus são incríveis, mas há aquelas que você prefere, que você adora. São os seus desejos. Para indicar essas ofertas, você pode adorá-las, indicando para os seus seguidores que aquela oferta é boa. Fazendo isso, você apóia o usuário que a cadastrou, dando mais credibilidade a ele e a oferta adorada. As ofertas adoradas por você aparecem no seu perfil na seção "Meus Desejos", indicando para os usuários que visitarem o seu perfil que ela é uma das suas favoritas, assim como facilitando que você revisite essa oferta posteriormente.'
+      description2: 'Para adorar uma oferta é fácil, basta clicar no coração que se encontra na página da oferta que você deseja adorar:'
+      description3: 'Note que ao lado do nome da oferta aparece um coração preto com um número que mostra a quantidade de pessoas que adoraram aquela oferta.'
+      upvote: '1. Adorar uma Oferta'

@@ -74,6 +74,15 @@
         %img{ src: asset_path('withdraw_img.png'), title: 'Resgatar', alt: 'Botão disponível para resgate do salo' }
         %p= t('how_it_works.money.description5').html_safe
 
+      #how_wishes
+        %p= t('how_it_works.wishes.description1').html_safe
+        .ttGlHome
+          %h2= t('how_it_works.wishes.upvote')
+        %p= t('how_it_works.wishes.description2').html_safe
+        %img{ src: asset_path('deals_upvote_img.png'), title: 'Adorar uma Oferta', alt: 'Imagem do botão em formato de coração para adorar uma oferta' }
+        %p= t('how_it_works.wishes.description3').html_safe
+        %img{ src: asset_path('deals_upvote_count_img.png'), title: 'Quantidade de Adorar de uma Oferta', alt: 'Coração que mostra a contagem de adorar que uma oferta teve' }
+
 :javascript
   function show_how_to_menu(menu){
     $('#how_deals').hide();

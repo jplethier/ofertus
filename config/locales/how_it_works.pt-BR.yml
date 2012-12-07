@@ -1,0 +1,19 @@
+"pt-BR":
+  how_it_works:
+    deals:
+      description1: 'O Ofertus foi feito especialmente para aqueles que gostam de ofertas. Para entender bem o conceito do site, é importante conhecer algumas funcionalidades básicas do sistema.'
+      description2: 'Você descobre uma oferta incrível e sabe que muitas pessoas vão quere. Pense bem: sabendo que outras pessoas adorariam comprá-la, por que não ganhar dinheiro com isso? Essa é a premissa do Ofertus. Cadastre ofertas e ganhe dinheiro por promover vendas. Entenda mais como fazer isso e comece a cadastrar %{link}.'
+      description3: 'Para ganhar, não basta cadastrar, afinal ninguém vai comprar a oferta que você cadastrou se não achá-la. Portante, compartilhe as ofertas para ter maiores chances de ganhar dinheiro, para isso, utilize uma das duas formas abaixo:<br/><br/>a) Copie o link da oferta e compartilhe com seus amigos;<br/>b) ou compartilhe em suas redes sociais através dos botões de compartilhamento que você encontra na própria página da oferta.'
+      description4: 'É possível ainda adorar as ofertas que você mais gostou, ou denunciar aquelas ofertas que não estão dentro das regras da comunidade ou contém informações falsas. Para saber como adorar uma oferta, %{wish_link}, e para saber como denunciar, %{report_link}'
+      interact_with_deals: '3. Interagir com as Ofertas'
+      register_deals: '1. Cadastrar Ofertas'
+      share_deals: '2. Compartilhar Ofertas'
+    money:
+      description1: 'Como você já sabe, aqui você pode ganhar dinheiro. Mas como saber sobre suas vendas e resgatar seu dinheiro? Veja abaixo:'
+    users:
+      description1: 'O Ofertus é uma comunidade digital direcionada para ofertas. Aqui, além de comprar e ganhar dinheiro, você também pode interagir com seus amigos e outras pessoas. Todo usuário possui um perfil, onde é possível visualizar ofertas adoradas e/ou compartilhadas e também ofertas que seus amigos indicaram. Ainda é possível seguir usuários que compartilharem boas ofertas. Dessa forma você não deixa uma boa oferta passar.'
+      description2: 'Seguir seus amigos é muito fácil. No perfil de todo usuário há um botão "Seguir Usuário". Basta clicar nele e você passará a ver em seu perfil todas as ofertas compartilhadas por aquele usuário.'
+      description3: 'Você também pode convidar seus amigos para participar da brincadeira. Convidando seus amigos você ainda ganha poderes(para entender melhor sobre os poderes, %{link}). Você pode convidar seus amigos clicando no botão "Convidar Amigos" que se encontra na página inicial do Ofertus, ou através do link "Convidar Amigos" no menu "Configurações".'
+      description4: 'Depois, basta seguir as instruções, compartilhando o link mostrado. Quanto mais amigos você trouxer para o Ofertus, mais poderes você ganha!'
+      follow_users: '1. Seguir Usuários'
+      invite_friends: '2. Convidar Amigos'

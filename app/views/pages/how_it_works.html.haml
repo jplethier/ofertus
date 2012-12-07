@@ -36,3 +36,41 @@
         = link_to 'Desejos', 'javascript:;', class: 'how_wishes', onclick: "show_how_to_menu('how_wishes')"
         = link_to 'Denúncias', 'javascript:;', class: 'how_reports', onclick: "show_how_to_menu('how_reports')"
         = link_to 'Poderes', 'javascript:;', class: 'how_powers', onclick: "show_how_to_menu('how_powers')"
+      #how_deals
+        %p= t('how_it_works.deals.description1')
+        .ttGlHome
+          %h2= t('how_it_works.deals.register_deals')
+        %p= t('how_it_works.deals.description2', link: link_to('acesse aqui', new_deal_path)).html_safe
+        .ttGlHome
+          %h2= t('how_it_works.deals.share_deals')
+        %p= t('how_it_works.deals.description3').html_safe
+        .ttGlHome
+          %h2= t('how_it_works.deals.interact_with_deals')
+        %p= t('how_it_works.deals.description4', wish_link: link_to('clique aqui', 'javascript:;', onclick: "show_how_to_menu('how_wishes')"), report_link: link_to('clique aqui', 'javascript:;', onclick: "show_how_to_menu('how_reports')")).html_safe
+
+      #how_users
+        %p= t('how_it_works.users.description1')
+        .ttGlHome
+          %h2= t('how_it_works.users.follow_users')
+        %p= t('how_it_works.users.description2').html_safe
+        %img{ src: asset_path('follow_user_img.png'), title: 'Seguir um usuário', alt: 'Clicar no botão seguir na página de perfil do usuário' }
+        .ttGlHome
+          %h2= t('how_it_works.users.invite_friends')
+        %p= t('how_it_works.users.description3').html_safe
+        %img{ src: asset_path('invite_friends_img.png'), title: 'Convidar Amigos', alt: 'Menu de configurações com o link convidar amigos' }
+        %p= t('how_it_works.users.description4').html_safe
+        %img{ src: asset_path('invite_friends_img2.png'), title: 'Convidar Amigos', alt: 'Menu de configurações com o link convidar amigos' }
+
+      #how_money
+        %p= t('how_it_works.money.description1').html_safe
+
+:javascript
+  function show_how_to_menu(menu){
+    $('#how_deals').hide();
+    $('#how_users').hide();
+    $('#how_money').hide();
+    $('#how_wishes').hide();
+    $('#how_reports').hide();
+    $('#how_powers').hide();
+    $('#'+menu).show();
+  }

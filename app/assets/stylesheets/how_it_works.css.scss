@@ -106,11 +106,38 @@ body {
           }
         }
 
-        #how_users, #how_money, #how_wishes, #how_reports {
+        #how_users, #how_money, #how_wishes, #how_reports, #how_powers {
           display: none;
         }
 
-        #how_deals, #how_users, #how_money, #how_wishes, #how_reports {
+        #how_powers {
+          p.promote, p.invite_friends, p.wishes {
+            font-family: 'Lobster';
+            font-size: 15pt;
+            padding-left: 3em;
+            line-height: 2em;
+            margin: .5em 0;
+          }
+
+          p.or {
+            margin: .5em 0;
+            padding-left: 5em;
+          }
+
+          p.promote {
+            background: image-url('deals_icon.png') no-repeat -10px 0;
+          }
+
+          p.invite_friends {
+            background: image-url('users_icon.png') no-repeat -2px 0;
+          }
+
+          p.wishes {
+            background: image-url('like_button.png') no-repeat 3px 0;
+          }
+        }
+
+        #how_deals, #how_users, #how_money, #how_wishes, #how_reports, #how_powers {
           width: 95%;
           margin: .5em auto 2em;
 

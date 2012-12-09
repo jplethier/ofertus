@@ -26,7 +26,11 @@ ActiveAdmin.register Deal do
       truncate_title deal.title
     end
     column 'Usuário' do |deal|
-      link_to deal.user.name, [:admin, deal.user]
+      if deal.user
+        link_to deal.user.name, [:admin, deal.user]
+      else
+        '!!!SEM USUÁRIO!!!'
+      end
     end
     column 'Preço Real' do |deal|
       price_to_currency deal.real_price

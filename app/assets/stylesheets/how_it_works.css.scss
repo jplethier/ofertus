@@ -18,10 +18,54 @@ body {
     .content {
       display: none;
       position: relative;
-      width: 700px;
-      height: 351px;
+      width: 677px;
+      height: 344px;
       margin: 0 auto;
       background: image-url('bg5.png') no-repeat 0 0;
+      padding: .5em 1em 0;
+
+      h1 {
+        text-align: center;
+        font-size: 22pt;
+        color: white;
+        font-family: 'Lobster';
+      }
+
+      .center {
+        float: left;
+        margin: 3em 4em;
+      }
+
+      .center, .side {
+        height: 60%;
+      }
+
+      .side {
+        width: 40%;
+        float: left;
+
+        .img {
+          float: left;
+          width: 100px;
+          height: 100px;
+        }
+
+        .deals_img {
+          background: image-url('how_it_works_circles.png') no-repeat 0 0;
+        }
+
+        .money_img {
+          background: image-url('how_it_works_circles.png') no-repeat -105px -5px;
+        }
+
+        h1 {
+          float: left;
+          font-size: 19pt;
+          width: 115px;
+          text-align: left;
+          margin: 1em .5em;
+        }
+      }
 
       a#close_hiw_btn {
         position: absolute;

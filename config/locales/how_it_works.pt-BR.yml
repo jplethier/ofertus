@@ -36,6 +36,11 @@
       description4: 'O usuário que tiver ofertas denunciadas e for comprovado que estas tem conteúdo impróprio, correrá o risco de ser banido do Ofertus. Nós não toleramos usuários que tem intenção de enganar os outros, e monitoramos o site continuamente para impedir a ação daqueles que desrespeitam as regras do sistema.'
       downvote: '1. Denunciar Ofertas'
       my_deals_reported: '2. Ter Ofertas Denunciadas'
+    tab:
+      earn_discounts: 'Ganhe Descontos'
+      earn_money: 'Ganhe Dinheiro'
+      or: 'ou'
+      title: 'Seu programa de afiliados pessoal!'
     users:
       description1: 'O Ofertus é uma comunidade digital direcionada para ofertas. Aqui, além de comprar e ganhar dinheiro, você também pode interagir com seus amigos e outras pessoas. Todo usuário possui um perfil, onde é possível visualizar ofertas adoradas e/ou compartilhadas e também ofertas que seus amigos indicaram. Ainda é possível seguir usuários que compartilharem boas ofertas. Dessa forma você não deixa uma boa oferta passar.'
       description2: 'Seguir seus amigos é muito fácil. No perfil de todo usuário há um botão "Seguir Usuário". Basta clicar nele e você passará a ver em seu perfil todas as ofertas compartilhadas por aquele usuário.'

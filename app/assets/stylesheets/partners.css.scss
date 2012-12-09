@@ -8,9 +8,36 @@ body {
         float: left;
         margin: 1em;
         height: 165px;
+        position: relative;
 
         a {
           text-decoration: none;
+
+          .plus {
+            background: image-url('commission_plus.png') no-repeat;
+            position: absolute;
+            display: block;
+            width: 108px;
+            height: 106px;
+            z-index: 10;
+            right: -10px;
+            top: -9px;
+
+            .value {
+              color: white;
+              font-family: 'Lobster';
+              font-size: 18pt;
+              /*-webkit-transform: rotate(45deg);
+              -moz-transform: rotate(45deg);
+              filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1.5);
+              -o-transform: rotate(45deg);*/
+              @include transform(rotate(45deg));
+              position: absolute;
+              top: 15px;
+              right: 8px;
+              font-weight: bold;
+            }
+          }
 
           .percent {
             display: none;
@@ -23,6 +50,17 @@ body {
             font-size: 42pt;
             font-family: 'Lobster';
             padding: 45px;
+
+            .old {
+              font-size: 15pt;
+              text-decoration: line-through;
+              color: #999;
+            }
+          }
+
+          .old_and_new {
+            padding: 37px 45px !important;
+            height: 88px
           }
         }
   

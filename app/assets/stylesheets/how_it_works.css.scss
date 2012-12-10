@@ -36,7 +36,7 @@ body {
         display: block;
         text-indent: -15000px;
         height: 38px;
-        margin: 1em auto;
+        margin: 1.5em auto;
       }
 
       a.deals_btn {
@@ -44,6 +44,7 @@ body {
       }
 
       a.how_btn {
+        margin-top: 0;
         background: image-url('hiw_more_btn.png') no-repeat 0 0;
       }
 

@@ -5,7 +5,7 @@ ActiveAdmin.register Sale do
     sale.update_attributes(status: Sale::CONFIRMED)
     unless sale.user.blank?
       Notification.create(user: sale.user, message: "Comissão confirmada no valor de <b style='color:#669900';>R$ #{(sale.user_commission_value*100).to_i.to_s[0..((sale.user_commission_value*100).to_i.to_s.size - 3)]},#{(sale.user_commission_value*100).to_i.to_s[((sale.user_commission_value*100).to_i.to_s.size - 2)..-1]}</b>", url: sales_user_path(sale.user.username))
-      Power.create(user: ale.user, quantity: 1, status: Power::AVAILABLE)
+      Power.create(user: sale.user, quantity: 1, status: Power::AVAILABLE)
     end
     redirect_to env['HTTP_REFERER'], :notice => "Venda confirmada!"
   end

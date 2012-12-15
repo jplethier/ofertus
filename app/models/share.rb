@@ -26,6 +26,7 @@ class Share
   DAFITI = "dafiti.com.br"
   DISANTINNI = "disantinni.com.br"
   DUKS = "duks.com.br"
+  EXTRA = 'extra.com.br'
   FASTSHOP = "fastshop.com.br"
   FNAC = "fnac.com.br"
   GIRAFA = "girafa.com.br"
@@ -72,8 +73,6 @@ class Share
           @deal = BrinquedosLaura.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(BY_TENNIS)
           @deal = ByTennis.fill_deal_fields(URI.parse(URI.encode(link.strip)))
-        # elsif link.match(CARREFOUR)
-        #   @deal = Carrefour.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(COMPRA_FACIL)
           @deal = CompraFacil.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(DAFITI)
@@ -82,6 +81,8 @@ class Share
           @deal = Disantinni.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(DUKS)
           @deal = Duks.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(EXTRA)
+          @deal = Extra.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(FASTSHOP)
           @deal = FastShop.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(FNAC)
@@ -141,7 +142,11 @@ class Share
     begin
       page = Nokogiri::HTML(open(link).read) #Nokogiri bug: You need to use .read method in order to use encoding.
     rescue
-      return nil
+      begin
+        page = Nokogiri::HTML(open(link.to_s.gsub('%25','%')).read)
+      rescue
+        return nil
+      end
     end
     page.encoding = 'utf-8'
     page

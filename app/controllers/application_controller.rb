@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, :alert => I18n.t('exceptions.record_not_found')
   end
 
+  rescue_from ActionController::ActionControllerError do
+    redirect_to root_url
+  end
+
   def failure
     redirect_to root_path, :alert => "Não foi possível efetuar o login via facebook."
   end

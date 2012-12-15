@@ -82,8 +82,7 @@ describe "New Deal Page" do
     fill_in 'deal_company', :with => 'Ofertus'
     click_on 'confirm'
     (Deal.count - 1).should == count
-    should have_content('Resultados da Busca')
-    should have_link('Titulo da oferta')
+    should have_content('Oferta criada com sucesso!')
   end
 
   it 'creating a deal without a title' do

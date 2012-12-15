@@ -50,6 +50,7 @@ class Sale < ActiveRecord::Base
     sale.user = user if user
     sale.value = params[:total]
     sale.partner_code = params[:id_programa]
+    sale.id_pedido = params[:id_pedido]
     partner = Partner.find_by_code(params[:id_programa])
     if partner
       sale.partner = partner

@@ -26,6 +26,7 @@ ActiveAdmin.register Sale do
   end
 
   index do
+    column :id_pedido
     column 'Loja' do |sale|
       if sale.partner
         truncate_title sale.partner.name

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121225121204) do
+ActiveRecord::Schema.define(:version => 20121225121205) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -220,6 +220,7 @@ ActiveRecord::Schema.define(:version => 20121225121204) do
     t.integer  "status"
     t.integer  "partner_id"
     t.string   "partner_code"
+    t.string   "id_pedido"
   end
 
   create_table "sessions", :force => true do |t|

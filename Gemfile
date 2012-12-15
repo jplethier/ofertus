@@ -17,6 +17,7 @@ gem "friendly_id", "~> 4.0.1"
 gem 'gravtastic'
 gem 'haml'
 gem "haml-rails"
+gem 'httpi'
 gem 'heroku'
 gem 'jquery-rails'
 gem 'json'

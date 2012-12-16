@@ -75,7 +75,7 @@ class DealsController < AuthorizedController
 
   def unvote
     current_user.unvote!(@deal)
-    render json: ['Sucesso',"Voto apagado com sucesso!"]
+    render json: ['Sucesso',"Voto apagado com sucesso!", @deal.up_votes, @deal.down_votes]
   end
 
   def upvote
@@ -88,7 +88,7 @@ class DealsController < AuthorizedController
       unless current_user == @deal.user
         Notification.create(user: @deal.user, message: "<b>#{current_user.name}</b> adorou sua oferta <b>'#{@deal.title}'</b>", url: deal_path(@deal))
       end
-      render json: ['Sucesso', "Oferta adorada com sucesso."]
+      render json: ['Sucesso', "Oferta adorada com sucesso.", @deal.up_votes, @deal.down_votes]
     else
       render json: ['Erro',"Desculpe, ocorreu um erro ao tentar adorar a oferta, nos comunique para que possamos corrigir."]
     end
@@ -101,7 +101,7 @@ class DealsController < AuthorizedController
       unless current_user == @deal.user
         Notification.create(user: @deal.user, message: "Sua oferta <b>'#{@deal.title}'</b> foi denunciada por um usuário", url: deal_path(@deal))
       end
-      render json: ['Sucesso',"Oferta denunciada com sucesso."]
+      render json: ['Sucesso',"Oferta denunciada com sucesso.", @deal.up_votes, @deal.down_votes]
     else
       render json: ['Erro',"Desculpe, ocorreu um erro ao tentar denunciar a oferta, nos comunique para que possamor corrigir."]
     end

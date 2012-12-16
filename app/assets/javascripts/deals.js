@@ -6,8 +6,8 @@ function upvote_deal(deal_id){
       if(data[0] == 'Erro'){
         $('#flashes').append('<div class="alert error" id="flash_notice"><p>' + data[1] + '</p></div>')
       }else{
-        likes_count = parseInt($('.counts .likes').text())
-        $('.counts .likes').text(likes_count + 1)
+        $('.counts .reports').text(data[3])
+        $('.counts .likes').text(data[2])
         $('#like_btn').hide()
         $('#unreport_btn').hide()
         $('#dislike_btn').show()
@@ -29,8 +29,8 @@ function dislike_deal(deal_id){
       if(data[0] == 'Erro'){
         $('#flashes').append('<div class="alert error" id="flash_notice"><p>' + data[1] + '</p></div>')
       }else{
-        likes_count = parseInt($('.counts .likes').text())
-        $('.counts .likes').text(likes_count - 1)
+        $('.counts .reports').text(data[3])
+        $('.counts .likes').text(data[2])
         $('#dislike_btn').hide()
         $('#like_btn').show()
         $('#flashes').append('<div class="alert success" id="flash_notice"><p>' + data[1] + '</p></div>')
@@ -50,8 +50,8 @@ function report_deal(deal_id){
       if(data[0] == 'Erro'){
         $('#flashes').append('<div class="alert error" id="flash_notice"><p>' + data[1] + '</p></div>')
       }else{
-        reports_count = parseInt($('.counts .reports').text())
-        $('.counts .reports').text(reports_count + 1)
+        $('.counts .reports').text(data[3])
+        $('.counts .likes').text(data[2])
         $('#dislike_btn').hide()
         $('#report_btn').hide()
         $('#like_btn').show()
@@ -73,8 +73,8 @@ function unreport_deal(deal_id){
       if(data[0] == 'Erro'){
         $('#flashes').append('<div class="alert error" id="flash_notice"><p>' + data[1] + '</p></div>')
       }else{
-        reports_count = parseInt($('.counts .reports').text())
-        $('.counts .reports').text(reports_count - 1)
+        $('.counts .reports').text(data[3])
+        $('.counts .likes').text(data[2])
         $('#unreport_btn').hide()
         $('#report_btn').show()
         $('#flashes').append('<div class="alert success" id="flash_notice"><p>' + data[1] + '</p></div>')

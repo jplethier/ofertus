@@ -27,6 +27,7 @@
     deals: 'Ofertas'
     deals_history: 'Histórico de Ofertas'
     description: "Descrição da Oferta"
+    description_and_comments: 'Exibir descrição e comentários(%{comments_count})'
     detailed_share: '...ou em alguns cliques a mais'
     discount: "Desconto %{discount}"
     dislike: 'Adorar(Desfazer)'

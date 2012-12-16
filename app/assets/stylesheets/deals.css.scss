@@ -279,8 +279,20 @@ body {
       }
     }
   }
+
+  #description_and_comments {
+    .dc_header {
+      text-align: center;
+      cursor: s-resize;
+      margin-bottom: 1em;
+    }
+
+    .dc_content {
+      display: none;
+    }
+  }
   
-  .desc-off, .comment-off {
+  #description_and_comments, .desc-off, .comment-off {
     h4 {
       background: #1e1e1e;
       padding: 7px 20px 6px;

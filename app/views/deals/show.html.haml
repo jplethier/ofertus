@@ -4,26 +4,29 @@
   
 #sem-col
   .clear
+  #description_and_comments
+    .dc_header{ onclick: "$('.dc_header').hide(); $('.dc_content').slideDown();"}
+      %h4= t('strings.description_and_comments', comments_count: @deal.comments.count)
+    .dc_content
+      = cache [:deal, :description, @deal.id] do
+        .desc-off
+          %h4= t('strings.description')
+          .tx-desc= @deal.description.html_safe
+        
 
-  = cache [:deal, :description, @deal.id] do
-    .desc-off
-      %h4= t('strings.description')
-      .tx-desc= @deal.description.html_safe
-      
+      .right-detalhe-comment-off
+    
+        .comment-off
+          %h4= t('strings.comments')
+          .tx-desc
+            - if can? :manage, @comment
+              = form_for([@deal,@comment]) do |f|
+                = f.text_area :comment
+                = f.submit t("actions.comment"), :class => 'bt-comentar'
+            .clear
 
-  .right-detalhe-comment-off
-  
-    .comment-off
-      %h4= t('strings.comments')
-      .tx-desc
-        - if can? :manage, @comment
-          = form_for([@deal,@comment]) do |f|
-            = f.text_area :comment
-            = f.submit t("actions.comment"), :class => 'bt-comentar'
-        .clear
-
-    #ct-comment-off
-      = render @deal.comments
+        #ct-comment-off
+          = render @deal.comments
 
   .clear
 

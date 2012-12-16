@@ -25,6 +25,12 @@ ActiveAdmin.register Sale do
     redirect_to env['HTTP_REFERER'], :notice => "Venda marcada como cancelada!"
   end
 
+  scope :pending
+  scope :confirmed
+  scope :cancelled
+  scope :this_month
+  scope :withdraw
+
   index do
     column :id_pedido
     column 'Loja' do |sale|

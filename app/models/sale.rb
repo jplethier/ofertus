@@ -27,7 +27,8 @@ class Sale < ActiveRecord::Base
   scope :cancelled, where(status: 4)
   scope :withdraw,  where(status: 5)
 
-  scope :recent,    order("sales.created_at DESC")
+  scope :recent,      order("sales.created_at DESC")
+  scope :this_month,  where("created_at >= ?", Date.today.to_time.beginning_of_month.beginning_of_day)
 
   after_save :recalculate_user_credit
 

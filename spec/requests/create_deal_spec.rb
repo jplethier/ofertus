@@ -58,7 +58,7 @@ describe "New Deal Page" do
         should have_css('div textarea#deal_description', :style => "display: none;")
         should have_css('div span#cke_deal_description')
         should have_css('div label', :for => "deal_end_date", :text => 'Data de Validade')
-        should have_css('div input#deal_end_date.datepicker.hasDatepicker')
+        should have_css('div input#deal_end_date', readonly: true)
         should have_css('div label', :for => "deal_link", :text => 'Link')
         should have_css('div input#deal_link', :type => :text)
         should have_css('div label', :for => "deal_image_url", :text => 'Link para a Imagem')

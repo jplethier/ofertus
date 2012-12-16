@@ -87,7 +87,7 @@ class Deal < ActiveRecord::Base
   def who_likes
     who_likes = []
     self.votings.each do |vote|
-      who_likes << vote.voter if vote.up_vote?
+      who_likes << vote.voter if vote.up_vote? && !vote.voter.blank?
     end
     who_likes
   end

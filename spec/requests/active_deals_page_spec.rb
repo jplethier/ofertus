@@ -23,15 +23,13 @@ describe "Active Deals Page" do
     it "should show the active deal" do
       within "#sem-col .list-conteudo" do
         should have_link(active_deal.title, :href => deal_path(active_deal))
-        should have_css('.col-off h4', :text => "Preço originalR$ #{active_deal.real_price.to_s.gsub('.',',')+(active_deal.real_price.to_s.split('.')[1].size < 2 ? '0' : '')}")
-        should have_css('.col-off h4', :text => "Preço ofertaR$ #{active_deal.price.to_s.gsub('.',',')+(active_deal.price.to_s.split('.')[1].size < 2 ? '0' : '')}")
-        should have_css('.col-off h5', :text => "Desconto #{active_deal.discount.to_i}%")
-        should have_css('.col-off h5', :text => "Válida até #{I18n.l(active_deal.end_date.to_date)}")
-        should have_css('.tx-off .user-off a.user_picture', :href => user_path(active_deal.user.username))
-        should have_css('.tx-off .user-off a.user_picture img', :src => active_deal.user.gravatar_url(:size => 50))
-        should have_css('.tx-off .user-off h4', :text => "Compartilhada por:")
-        should have_css('.tx-off .user-off span', :text => active_deal.user.name)
-        should have_css('.tx-off .user-off span a', :href => user_path(active_deal.user.username))
+        should have_css('.price_and_discount .price .from', :text => "De R$ #{active_deal.real_price.to_s.gsub('.',',')+(active_deal.real_price.to_s.split('.')[1].size < 2 ? '0' : '')}")
+        should have_css('.price_and_discount .price .by', :text => "Por R$ #{active_deal.price.to_s.gsub('.',',')+(active_deal.price.to_s.split('.')[1].size < 2 ? '0' : '')}")
+        should have_css('.discount', :text => "#{active_deal.discount.to_i}%")
+        should have_content("Válida até #{I18n.l(active_deal.end_date.to_date)}")
+        should have_css('.user_picture a', :href => user_path(active_deal.user.username))
+        should have_css('.user_picture a img', :src => active_deal.user.gravatar_url(:size => 50))
+        should have_content("Compartilhada por: #{active_deal.user.name}")
       end
     end
 
@@ -52,7 +50,7 @@ describe "Active Deals Page" do
 
     it "should go to deal's page when I click in deal's picture" do
       within "#sem-col .list-conteudo" do
-        click_link 'deal_photo'
+        click_link 'deal_photo_0'
       end
       should have_css('.offer_details .detalhe-oferta')
     end

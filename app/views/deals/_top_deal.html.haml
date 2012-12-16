@@ -4,7 +4,7 @@
       %span.from= t('strings.from_price', price: number_to_currency(deal.real_price))
       %span.by= t('strings.by_price', price: number_to_currency(deal.price))
   .image
-    %a{ href: deal_path(deal) }
+    %a{ href: deal_path(deal), id: "deal_photo_#{index}" }
       = Rails.cache.fetch([:deal, :image, deal.id], expires_in: 1.month) { "<img alt='#{deal.get_image_url}' title='#{deal.title}' src='#{deal.get_image_url}'>".html_safe }
   
   .details

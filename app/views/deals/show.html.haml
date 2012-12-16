@@ -30,17 +30,6 @@
 
   .clear
 
-  .who_likes
-    .ttGlHome
-      %h2= t('strings.who_likes')
-      %h3= t('strings.which_users_liked')
-    .list-conteudo
-      - @deal.who_likes.each_with_index do |user, index|
-        - if user.provider?
-          = link_to(image_tag(user.facebook_profile_picture("normal"), :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture")
-        - else
-          = link_to(image_tag(user.gravatar_url(:size => 80), :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture")
-
   .similar_offers
     .ttGlHome
       %h2= t('strings.similar_offers')
@@ -52,7 +41,17 @@
             = render :partial => 'deals/small_deal', :locals => {:deal => deal, :index => index }
         = link_to 'Anterior', 'javascript:;', :id => 'list_prev1', :class => 'prev'
         = link_to 'Próximo', 'javascript:;', :id => 'list_next1', :class => 'next'
-        
+
+  .who_likes
+    .ttGlHome
+      %h2= t('strings.who_likes')
+      %h3= t('strings.which_users_liked')
+    .list-conteudo
+      - @deal.who_likes.each_with_index do |user, index|
+        - if user.provider?
+          = link_to(image_tag(user.facebook_profile_picture("normal"), :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture")
+        - else
+          = link_to(image_tag(user.gravatar_url(:size => 80), :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture")
 
   .more_offers
     .ttGlHome

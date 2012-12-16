@@ -75,7 +75,7 @@ class DealsController < AuthorizedController
 
   def unvote
     current_user.unvote!(@deal)
-    redirect_to deal_path(@deal), :notice => "Voto apagado com sucesso!"
+    render json: ['Sucesso',"Voto apagado com sucesso!"]
   end
 
   def upvote
@@ -88,12 +88,12 @@ class DealsController < AuthorizedController
       unless current_user == @deal.user
         Notification.create(user: @deal.user, message: "<b>#{current_user.name}</b> adorou sua oferta <b>'#{@deal.title}'</b>", url: deal_path(@deal))
       end
-      redirect_to deal_path(@deal), :notice => "Oferta adorada com sucesso."
+      render json: ['Sucesso', "Oferta adorada com sucesso."]
     else
-      redirect_to deal_path(@deal), :error => "Desculpe, ocorreu um erro ao tentar adorar a oferta, nos comunique para que possamos corrigir."
+      render json: ['Erro',"Desculpe, ocorreu um erro ao tentar adorar a oferta, nos comunique para que possamos corrigir."]
     end
   rescue MakeVoteable::Exceptions::AlreadyVotedError
-    redirect_to deal_path(@deal), :error => "Oferta já adorada."
+    render json: ['Erro',"Oferta já adorada."]
   end
 
   def downvote
@@ -101,12 +101,12 @@ class DealsController < AuthorizedController
       unless current_user == @deal.user
         Notification.create(user: @deal.user, message: "Sua oferta <b>'#{@deal.title}'</b> foi denunciada por um usuário", url: deal_path(@deal))
       end
-      redirect_to deal_path(@deal), :notice => "Oferta denunciada com sucesso."
+      render json: ['Sucesso',"Oferta denunciada com sucesso."]
     else
-      redirect_to deal_path(@deal), :error => "Desculpe, ocorreu um erro ao tentar denunciar a oferta, nos comunique para que possamor corrigir."
+      render json: ['Erro',"Desculpe, ocorreu um erro ao tentar denunciar a oferta, nos comunique para que possamor corrigir."]
     end
   rescue MakeVoteable::Exceptions::AlreadyVotedError
-    redirect_to deal_path(@deal), :error => "Oferta já denunciada."
+    render json: ['Erro',"Oferta já denunciada."]
   end
 
   def feed

@@ -17,6 +17,8 @@
 //= require_tree .
 
 $(document).ready(function() {
+  center_flash();
+
   $('#header_search_btn').click(function(){
     $('#user_menu_options').hide();
     $('#settings_menu_options').hide();
@@ -62,6 +64,11 @@ $(document).ready(function() {
 
   $('#flashes').effect("pulsate", {}, 200);
 });
+
+function center_flash(){
+  total_width = $("#flashes").width();
+  $("#flashes").css('margin-left', '-' + total_width/2 + 'px')
+}
 
 var hideFlashes = function() {
   $('#flash_notice, #flash_warning, #flash_error').fadeOut(10500);

@@ -46,13 +46,17 @@
 
       .share-off
         - if current_user && current_user.up_voted?(deal)
-          = link_to t('strings.dislike'), unvote_deal_path(deal), class: 'dislike'
+          = link_to t('strings.dislike'), 'javascript:;', class: 'dislike', id:'dislike_btn', onclick: "dislike_deal('#{deal.id}')"
+          = link_to t('strings.like'), 'javascript:;', class: 'like', id: 'like_btn', onclick: "upvote_deal('#{deal.id}')", style: 'display: none;'
         - else
-          = link_to t('strings.like'), upvote_deal_path(deal), class: 'like'
+          = link_to t('strings.like'), 'javascript:;', class: 'like', id: 'like_btn', onclick: "upvote_deal('#{deal.id}')"
+          = link_to t('strings.dislike'), 'javascript:;', class: 'dislike', id: 'dislike_btn', onclick: "dislike_deal('#{deal.id}')", style: 'display: none;'
         - if current_user && current_user.down_voted?(deal)
-          = link_to t('strings.unreport'), unvote_deal_path(deal), class: 'unreport'
+          = link_to t('strings.unreport'), 'javascript:;', class: 'unreport', id: 'unreport_btn', onclick: "unreport_deal('#{deal.id}')"
+          = link_to t('strings.report'), 'javascript:;', class: 'report', id: 'report_btn', onclick: "report_deal('#{deal.id}')", style: 'display: none;'
         - else
-          = link_to t('strings.report'), downvote_deal_path(deal), class: 'report'
+          = link_to t('strings.unreport'), 'javascript:;', class: 'unreport', id: 'unreport_btn', onclick: "unreport_deal('#{deal.id}')", style: 'display: none;'
+          = link_to t('strings.report'), 'javascript:;', class: 'report', id: 'report_btn', onclick: "report_deal('#{deal.id}')"
       
     .right
       = Rails.cache.fetch([:deal, :image, deal.id], expires_in: 1.month) { "<img alt='#{deal.get_image_url}' title='#{deal.title}' src='#{deal.get_image_url}'>".html_safe }

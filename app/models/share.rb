@@ -23,6 +23,7 @@ class Share
   BY_TENNIS = "bytennis.com.br"
   CAMISETERIA = "camiseteria.com"
   CARREFOUR = "carrefour.com.br"
+  CASAS_BAHIA = 'casasbahia.com.br'
   COMPRA_FACIL = "comprafacil.com"
   DAFITI = "dafiti.com.br"
   DISANTINNI = "disantinni.com.br"
@@ -76,6 +77,8 @@ class Share
           @deal = BrinquedosLaura.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(BY_TENNIS)
           @deal = ByTennis.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(CASAS_BAHIA)
+          @deal = CasasBahia.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(COMPRA_FACIL)
           @deal = CompraFacil.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(DAFITI)

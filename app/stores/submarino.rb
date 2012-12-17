@@ -21,7 +21,7 @@ class Submarino
     'Livros' => Deal::CATEGORY_CULTURE,
     'Malas & Acessórios' => Deal::CATEGORY_OTHER,
     'Moda' => Deal::CATEGORY_CLOTHES,
-    'Móveis' => Deal::CATEGORY_HOME_AND_APPLIANCE,
+    'Móveis' => Deal::CATEGORY_HOME_AND_DECORATION,
     'Papelaria' => Deal::CATEGORY_OTHER,
     'Perfumaria' => Deal::CATEGORY_BEAUTY_AND_HEALTH,
     'Relógios' => Deal::CATEGORY_CLOTHES,

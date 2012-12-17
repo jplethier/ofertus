@@ -16,6 +16,7 @@ class Share
   XPATH_TITLE = 'title'
 
   AMERICANAS = "americanas.com"
+  AMOMUITO = 'amomuito.com'
   ANA_HICKMANN = "anahickmann.com.br"
   APPLE = "apple.com"
   BRINQUEDOS_LAURA = "brinquedoslaura.com.br"
@@ -67,6 +68,8 @@ class Share
       begin
         if link.match(AMERICANAS)
           @deal = Americanas.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(AMOMUITO)
+          @deal = AmoMuito.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(ANA_HICKMANN)
           @deal = AnaHickmann.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(BRINQUEDOS_LAURA)

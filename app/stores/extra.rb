@@ -34,7 +34,7 @@ class Extra
     deal = Deal.new
     page = Share.open_page(link)
     
-    deal.link = link
+    deal.link = link.to_s.gsub('%25','%')
     unless page.nil?
       deal.title = page.at_css(".produtoNome h1").try(:text).try(:strip)[0,255] if page.at_css('.produtoNome h1') && page.at_css('.produtoNome h1').try(:text)
       deal.price_mask = page.at_css(".for strong").try(:text).try(:strip)[2..-1].strip if page.at_css(".for strong") && page.at_css(".for").try(:text)

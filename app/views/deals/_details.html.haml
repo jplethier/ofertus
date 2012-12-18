@@ -7,8 +7,15 @@
           - if deal.price?
             %h4= t('strings.original_price', :price => number_to_currency(deal.real_price)).html_safe
 
-          .preco-off
-            %h4= t('strings.offer_price', :price => number_to_currency(deal.price)).html_safe
+          - if deal.discount > 50
+            .preco-off{ style: "background-image: url('#{asset_path('red_discount_big.png')}')" }
+              %h4= t('strings.offer_price', :price => number_to_currency(deal.price)).html_safe
+          - elsif deal.discount > 25
+            .preco-off{ style: "background-image: url('#{asset_path('orange_discount_big.png')}')" }
+              %h4= t('strings.offer_price', :price => number_to_currency(deal.price)).html_safe
+          - else
+            .preco-off
+              %h4= t('strings.offer_price', :price => number_to_currency(deal.price)).html_safe
 
           %h5= t('strings.discount', :discount => "#{deal.discount.to_i}%")
           %h5= t('strings.end_date', :end_date => deal.end_date? ? l(deal.end_date.to_date) : "-")

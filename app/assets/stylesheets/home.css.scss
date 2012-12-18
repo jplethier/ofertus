@@ -83,7 +83,7 @@ body {
         }
 
         .discount {
-          background: image-url('small_offer_discount.png') no-repeat;
+          background: image-url('green_discount_small.png') no-repeat 0px -2px;
           width: 28px;
           height: 24px;
           position: absolute;
@@ -92,7 +92,7 @@ body {
           padding: 9px 8px;
           font-family: 'Lobster';
           font-size: 18px;
-          color: #95A450;
+          color: white;
           text-align: center;
         }
       }
@@ -234,10 +234,10 @@ body {
 
       .discount {
         float: right;
-        background: image-url('big_offer_discount.png') no-repeat -16px -21px;
+        background: image-url('green_discount.png') no-repeat -2px -3px;
         font-family: 'Lobster';
         font-size: 25px;
-        color: #95A450;
+        color: white;
         width: 37px;
         height: 36px;
         padding: 17px 15px;

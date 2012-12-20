@@ -80,6 +80,11 @@ class Deal < ActiveRecord::Base
   scope :by_user_ids,     lambda { |user_ids| where(user_id: user_ids) }
   scope :by_price_range,  lambda { |min, max| where('price >= ? and price <= ?', min, max) }
 
+  #statistic scopes
+  scope :yesterday, where("deals.created_at >= ? and deals.created_at < ?", (Time.zone.now - 1.day).beginning_of_day, Time.zone.now.beginning_of_day)
+  scope :by_month,  lambda { |date| where("deals.created_at >= ? and deals.created_at <= ?", date.beginning_of_month.beginning_of_day, date.end_of_month.end_of_day) }
+  scope :by_year,   lambda { |date| where("deals.created_at >= ? and deals.created_at <= ?", date.beginning_of_year.beginning_of_day, date.end_of_year.end_of_day) }
+
   def self.best_deals
     self.voted.order("(deals.up_votes / (deals.up_votes + deals.down_votes)) DESC, deals.up_votes DESC")
   end

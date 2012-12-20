@@ -30,6 +30,12 @@ class Sale < ActiveRecord::Base
   scope :recent,      order("sales.created_at DESC")
   scope :this_month,  where("created_at >= ?", Date.today.to_time.beginning_of_month.beginning_of_day)
 
+  #statistic scopes
+  scope :today,     where("sales.created_at >= ?", Time.zone.now.beginning_of_day)
+  scope :yesterday, where("sales.created_at >= ? and sales.created_at < ?", (Time.zone.now - 1.day).beginning_of_day, Time.zone.now.beginning_of_day)
+  scope :by_month,  lambda { |date| where("sales.created_at >= ? and sales.created_at <= ?", date.beginning_of_month.beginning_of_day, date.end_of_month.end_of_day) }
+  scope :by_year,   lambda { |date| where("sales.created_at >= ? and sales.created_at <= ?", date.beginning_of_year.beginning_of_day, date.end_of_year.end_of_day) }
+
   after_save :recalculate_user_credit
 
   def recalculate_user_credit

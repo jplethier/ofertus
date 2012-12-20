@@ -1,0 +1,43 @@
+%table.table.table-striped.table-bordered.table-condensed
+  %thead
+    %tr
+      %th
+      %th Hoje
+      %th Ontem
+      %th= t('date.month_names')[Date.today.month]
+      %th= t('date.month_names')[Date.today.month - 1]
+      %th= Date.today.year
+      %th= Date.today.year - 1
+  %tbody
+    %tr
+      %td Usuários Novos
+      %td.center= User.today.count
+      %td.center= User.yesterday.count
+      %td.center= User.by_month(Date.today).count
+      %td.center= User.by_month(Date.today - 1.month).count
+      %td.center= User.by_year(Date.today).count
+      %td.center= User.by_year(Date.today - 1.year).count
+    %tr
+      %td Ofertas
+      %td.center= Deal.today.count
+      %td.center= Deal.yesterday.count
+      %td.center= Deal.by_month(Date.today).count
+      %td.center= Deal.by_month(Date.today - 1.month).count
+      %td.center= Deal.by_year(Date.today).count
+      %td.center= Deal.by_year(Date.today - 1.year).count
+    %tr
+      %td Vendas
+      %td.center= Sale.today.count
+      %td.center= Sale.yesterday.count
+      %td.center= Sale.by_month(Date.today).count
+      %td.center= Sale.by_month(Date.today - 1.month).count
+      %td.center= Sale.by_year(Date.today).count
+      %td.center= Sale.by_year(Date.today - 1.year).count
+    %tr
+      %td Comissões
+      %td.center= Sale.today.sum('commission')
+      %td.center= Sale.yesterday.sum('commission')
+      %td.center= Sale.by_month(Date.today).sum('commission')
+      %td.center= Sale.by_month(Date.today - 1.month).sum('commission')
+      %td.center= Sale.by_year(Date.today).sum('commission')
+      %td.center= Sale.by_year(Date.today - 1.year).sum('commission')

@@ -38,6 +38,12 @@ class User < ActiveRecord::Base
   scope :month_points_rank, where('1 = 1')
   scope :more_points,       where('1 = 1')
   scope :has_deals,         where('id in (select user_id from deals)')
+  
+  #statistic scopes
+  scope :today,     where("users.created_at >= ?", Time.zone.now.beginning_of_day)
+  scope :yesterday, where("users.created_at >= ? and users.created_at < ?", (Time.zone.now - 1.day).beginning_of_day, Time.zone.now.beginning_of_day)
+  scope :by_month,  lambda { |date| where("users.created_at >= ? and users.created_at <= ?", date.beginning_of_month.beginning_of_day, date.end_of_month.end_of_day) }
+  scope :by_year,   lambda { |date| where("users.created_at >= ? and users.created_at <= ?", date.beginning_of_year.beginning_of_day, date.end_of_year.end_of_day) }
 
   # Virtual attribute for authenticating by either username or email
   attr_accessor :login
@@ -196,6 +202,10 @@ class User < ActiveRecord::Base
   #TODO: testar
   def email_required?
     provider.nil?
+  end
+
+  def self.email_list
+    User.select(:email).map { |user| [user.email] }.join(',')
   end
 
   def admin?

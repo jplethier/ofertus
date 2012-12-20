@@ -6,7 +6,7 @@
         #slides.left
           .slides_container
             %div
-              %img{ :src => asset_path('natal.jpg') }
+              %img{ src: asset_path('natal.jpg'), onclick: "Popup.open_url('#{natal_url}')" }
             %div
               %img{ :src => asset_path('foto_1.jpg') }
             %div

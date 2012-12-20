@@ -5,7 +5,7 @@ body {
     min-height: 300px;
     position: absolute;
     left: 25%;
-    top: 30%;
+    top: 15%;
     color: white;
     overflow: hidden;
     opacity: 1;
@@ -26,6 +26,16 @@ body {
       -o-background-size: cover;
       background-size: cover;
       height: 760px;
+    }
+
+    .natal {
+      display: block;
+      background: image-url('natal/promocao.jpg') no-repeat;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      height: 850px;
     }
 
     .banks_list {

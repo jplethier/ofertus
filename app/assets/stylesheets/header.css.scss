@@ -1,10 +1,21 @@
+a#natal_bar{
+  background: image-url('natal/barravermelha.png');
+  width: 150%;
+  height: 28px;
+  display: block;
+  left: -150px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+}
+
 #header {
   height:100px;
   background: #2d2d2d;
   position: fixed;
   width: 100%;
   z-index: 150;
-  top: 0;
+  top: 28px;
 
   .content {
     width:1040px;
@@ -357,5 +368,5 @@
 }
 
 .clear_header_fix {
-  margin-top: 100px;
+  margin-top: 128px;
 }

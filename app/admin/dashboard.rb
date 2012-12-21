@@ -16,6 +16,12 @@ ActiveAdmin.register_page "Dashboard" do
         panel 'Estatísticas' do
           render 'statistics'
         end
+        panel 'Usuarios que mais venderam esse mês' do
+          render 'users_sales_rank', date: Date.today
+        end
+        panel 'Usuarios que mais venderam esse mês passado' do
+          render 'users_sales_rank', date: Date.today - 1.month
+        end
       end
     end
 

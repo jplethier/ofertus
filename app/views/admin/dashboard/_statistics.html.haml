@@ -34,7 +34,7 @@
       %td.center= Sale.by_year(Date.today).count
       %td.center= Sale.by_year(Date.today - 1.year).count
     %tr
-      %td Comissões
+      %td Comissões Total(confirmadas + pendentes + canceladas)
       %td.center= price_to_currency Sale.calculate_total_value(Sale.today, :commission_value)
       %td.center= price_to_currency Sale.calculate_total_value(Sale.yesterday, :commission_value)
       %td.center= price_to_currency Sale.calculate_total_value(Sale.by_month(Date.today), :commission_value)
@@ -42,7 +42,7 @@
       %td.center= price_to_currency Sale.calculate_total_value(Sale.by_year(Date.today), :commission_value)
       %td.center= price_to_currency Sale.calculate_total_value(Sale.by_year(Date.today - 1.year), :commission_value)
     %tr
-      %td Comissões dos Usuários
+      %td Comissões dos Usuários Total(confirmadas + pendentes + canceladas)
       %td.center= price_to_currency Sale.calculate_total_value(Sale.today, :user_commission_value)
       %td.center= price_to_currency Sale.calculate_total_value(Sale.yesterday, :user_commission_value)
       %td.center= price_to_currency Sale.calculate_total_value(Sale.by_month(Date.today), :user_commission_value)

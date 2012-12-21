@@ -1,0 +1,16 @@
+%table.table.table-striped.table-bordered.table-condensed
+  %thead
+    %tr
+      %th Nome
+      %th Email
+      %th Quantidade de Ofertas Compartilhadas
+      %th Quantidade de Vendas
+      %th Total de comissões
+  %tbody
+    - User.more_sales_by_month(date).limit(5).each do |user|
+      %tr
+        %td.center= user.name
+        %td.center= user.email
+        %td.center= user.deals.count
+        %td.center= user.sales.count
+        %td.center= price_to_currency Sale.calculate_total_value(user.sales.by_month(date), :user_commission_value)

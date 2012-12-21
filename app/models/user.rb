@@ -45,6 +45,10 @@ class User < ActiveRecord::Base
   scope :by_month,  lambda { |date| where("users.created_at >= ? and users.created_at <= ?", date.beginning_of_month.beginning_of_day, date.end_of_month.end_of_day) }
   scope :by_year,   lambda { |date| where("users.created_at >= ? and users.created_at <= ?", date.beginning_of_year.beginning_of_day, date.end_of_year.end_of_day) }
 
+  scope :more_sales,          order("(select count(sales.id) from sales where sales.user_id = users.id) DESC")
+  #ver uma maneira melhor de fazer, pois desse jeito esta sem seguranca e permitindo sql injection
+  scope :more_sales_by_month, lambda { |date| order("(select count(sales.id) from sales where sales.user_id = users.id and sales.created_at >= '#{date.beginning_of_month.beginning_of_day}' and sales.created_at <= '#{date.end_of_month.end_of_day}') DESC") }
+
   # Virtual attribute for authenticating by either username or email
   attr_accessor :login
 

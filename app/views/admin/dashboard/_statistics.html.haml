@@ -35,9 +35,17 @@
       %td.center= Sale.by_year(Date.today - 1.year).count
     %tr
       %td Comissões
-      %td.center= Sale.today.sum('commission')
-      %td.center= Sale.yesterday.sum('commission')
-      %td.center= Sale.by_month(Date.today).sum('commission')
-      %td.center= Sale.by_month(Date.today - 1.month).sum('commission')
-      %td.center= Sale.by_year(Date.today).sum('commission')
-      %td.center= Sale.by_year(Date.today - 1.year).sum('commission')
+      %td.center= price_to_currency Sale.calculate_total_value(Sale.today, :commission_value)
+      %td.center= price_to_currency Sale.calculate_total_value(Sale.yesterday, :commission_value)
+      %td.center= price_to_currency Sale.calculate_total_value(Sale.by_month(Date.today), :commission_value)
+      %td.center= price_to_currency Sale.calculate_total_value(Sale.by_month(Date.today - 1.month), :commission_value)
+      %td.center= price_to_currency Sale.calculate_total_value(Sale.by_year(Date.today), :commission_value)
+      %td.center= price_to_currency Sale.calculate_total_value(Sale.by_year(Date.today - 1.year), :commission_value)
+    %tr
+      %td Comissões dos Usuários
+      %td.center= price_to_currency Sale.calculate_total_value(Sale.today, :user_commission_value)
+      %td.center= price_to_currency Sale.calculate_total_value(Sale.yesterday, :user_commission_value)
+      %td.center= price_to_currency Sale.calculate_total_value(Sale.by_month(Date.today), :user_commission_value)
+      %td.center= price_to_currency Sale.calculate_total_value(Sale.by_month(Date.today - 1.month), :user_commission_value)
+      %td.center= price_to_currency Sale.calculate_total_value(Sale.by_year(Date.today), :user_commission_value)
+      %td.center= price_to_currency Sale.calculate_total_value(Sale.by_year(Date.today - 1.year), :user_commission_value)

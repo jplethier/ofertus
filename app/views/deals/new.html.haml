@@ -164,8 +164,7 @@
             %div
               = f.label :end_date
             %div
-              / class: "datepicker"
-              = f.text_field :end_date, value: l(Date.today + 3.days), placeholder: 'dd/mm/aaaa', readonly: true
+              = f.text_field :end_date, value: l(Date.today + 3.days), placeholder: 'dd/mm/aaaa', readonly: true, class: "datepicker2"
         .clear
         .left.small_column
           %p
@@ -229,8 +228,11 @@
   <script type="text/javascript">
     $(function(){
       $(".money").maskMoney({symbol:"R$ ", decimal:",", thousands:"."})
-      $( ".datepicker" ).datepicker({
-        showButtonPanel: true, dateFormat: 'dd/mm/yy', minDate: new Date()
+      $(".datepicker2").datepicker({
+        showButtonPanel: true,
+        dateFormat: 'dd/mm/yy',
+        minDate: 0,
+        maxDate: "+7D"
       });
     });
   </script>

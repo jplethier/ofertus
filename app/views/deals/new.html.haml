@@ -165,7 +165,7 @@
               = f.label :end_date
             %div
               / class: "datepicker"
-              = f.text_field :end_date, value: l(Date.today), placeholder: 'dd/mm/aaaa', readonly: true
+              = f.text_field :end_date, value: l(Date.today + 3.days), placeholder: 'dd/mm/aaaa', readonly: true
         .clear
         .left.small_column
           %p

@@ -27,19 +27,19 @@ describe "Search Deals" do
       fill_in 'search', :with => 'titu'
       click_on 'search_button'
       should have_content('Resultados da Busca')
-      within '#col-left' do
-        should have_link(active_deal.title)
-        should have_link(another_active_deal.title)
-      end
-      all(:xpath, '//div[@id="col-left"]/div[@class="list-conteudo"]/div[@class="deal "]').count.should == 2
+      should have_link(active_deal.title)
+      should have_link(another_active_deal.title)
+      all(:xpath, '//div[@class="top_deal first"]').count.should == 1
+      all(:xpath, '//div[@class="top_deal "]').count.should == 1
+      all(:xpath, '//div[@class="top_deal last"]').count.should == 0
       fill_in 'search', :with => 'titulo 2'
       click_on 'search_button'
       should have_content('Resultados da Busca')
-      within '#col-left' do
-        should_not have_link(active_deal.title)
-        should have_link(another_active_deal.title)
-      end
-      all(:xpath, '//div[@id="col-left"]/div[@class="list-conteudo"]/div[@class="deal "]').count.should == 1
+      should_not have_link(active_deal.title)
+      should have_link(another_active_deal.title)
+      all(:xpath, '//div[@class="top_deal first"]').count.should == 1
+      all(:xpath, '//div[@class="top_deal "]').count.should == 0
+      all(:xpath, '//div[@class="top_deal last"]').count.should == 0
     end
 
     it 'find nothing' do
@@ -47,11 +47,11 @@ describe "Search Deals" do
       fill_in 'search', :with => 'inexistente'
       click_on 'search_button'
       should have_content('Resultados da Busca')
-      within '#col-left' do
-        should_not have_link(active_deal.title)
-        should_not have_link(another_active_deal.title)
-      end
-      all(:xpath, '//div[@id="col-left"]/div[@class="list-conteudo"]/div[@class="deal "]').count.should == 0
+      should_not have_link(active_deal.title)
+      should_not have_link(another_active_deal.title)
+      all(:xpath, '//div[@class="top_deal first"]').count.should == 0
+      all(:xpath, '//div[@class="top_deal "]').count.should == 0
+      all(:xpath, '//div[@class="top_deal last"]').count.should == 0
       should have_content("Não foi encontrada nenhuma oferta com 'inexistente'")
     end
   end
@@ -64,19 +64,19 @@ describe "Search Deals" do
       fill_in 'search', :with => 'desc'
       click_on 'search_button'
       should have_content('Resultados da Busca')
-      within '#col-left' do
-        should have_link(active_deal.title)
-        should have_link(another_active_deal.title)
-      end
-      all(:xpath, '//div[@id="col-left"]/div[@class="list-conteudo"]/div[@class="deal "]').count.should == 2
+      should have_link(active_deal.title)
+      should have_link(another_active_deal.title)
+      all(:xpath, '//div[@class="top_deal first"]').count.should == 1
+      all(:xpath, '//div[@class="top_deal "]').count.should == 1
+      all(:xpath, '//div[@class="top_deal last"]').count.should == 0
       fill_in 'search', :with => 'descrição'
       click_on 'search_button'
       should have_content('Resultados da Busca')
-      within '#col-left' do
-        should_not have_link(active_deal.title)
-        should have_link(another_active_deal.title)
-      end
-      all(:xpath, '//div[@id="col-left"]/div[@class="list-conteudo"]/div[@class="deal "]').count.should == 1
+      should_not have_link(active_deal.title)
+      should have_link(another_active_deal.title)
+      all(:xpath, '//div[@class="top_deal first"]').count.should == 1
+      all(:xpath, '//div[@class="top_deal "]').count.should == 0
+      all(:xpath, '//div[@class="top_deal last"]').count.should == 0
     end
 
     it 'find nothing' do
@@ -84,11 +84,11 @@ describe "Search Deals" do
       fill_in 'search', :with => 'descriçao'
       click_on 'search_button'
       should have_content('Resultados da Busca')
-      within '#col-left' do
-        should_not have_link(active_deal.title)
-        should_not have_link(another_active_deal.title)
-        all(:xpath, '//div[@id="col-left"]/div[@class="list-conteudo"]/div[@class="deal "]').count.should == 0
-      end
+      should_not have_link(active_deal.title)
+      should_not have_link(another_active_deal.title)
+      all(:xpath, '//div[@class="top_deal first"]').count.should == 0
+      all(:xpath, '//div[@class="top_deal "]').count.should == 0
+      all(:xpath, '//div[@class="top_deal last"]').count.should == 0
     end
   end
 end

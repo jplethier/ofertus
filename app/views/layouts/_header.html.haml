@@ -1,7 +1,7 @@
 / %a#natal_bar{ onclick: "Popup.open_url('#{natal_url}')" } Aproveite! Últimos dias para participar da nossa competição e ganhar um incrível pack! Saiba mais clicando aqui!
 #header
   .content
-    .gorro_natal{ onclick: "Popup.open_url('#{natal_url}')" }
+    / .gorro_natal{ onclick: "Popup.open_url('#{natal_url}')" }
     = cache 'logo', expires_in: 1.year do
       %h1.logo
         = link_to 'ofertus', root_path

@@ -34,6 +34,13 @@ body {
         margin: 1em auto;
         clear: both;
 
+        .img {
+          float: left;
+          width: 47px;
+          height: 47px;
+          display: block;
+        }
+
         img, span {
           float: left;
         }
@@ -42,7 +49,6 @@ body {
           height: 50px;
           line-height: 50px;
           font-size: 14pt;
-          padding-left: 50px;
         }
       }
 
@@ -55,8 +61,11 @@ body {
       }
         
       .step1 {
+        .img {
+          background: image-url('numbers.png') no-repeat 0 0;
+        }
+
         span {
-          background: image-url('number_one.png') no-repeat;
           margin-right: 1em;
         }
       }
@@ -68,8 +77,8 @@ body {
           margin-top: -20px;
         }
 
-        span {
-          background: image-url('number_two.png') no-repeat;
+        .img {
+          background: image-url('numbers.png') no-repeat -48px 0;
           margin-left: 1em;
         }
       }
@@ -77,8 +86,11 @@ body {
       .step3 {
         width: 100%;
 
+        .img {
+          background: image-url('numbers.png') no-repeat -96px 0;
+        }
+
         span {
-          background: image-url('number_three.png') no-repeat;
           margin-right: 1em;
         }
       }
@@ -90,8 +102,8 @@ body {
           margin-top: .8em;
         }
 
-        span {
-          background: image-url('number_four.png') no-repeat;
+        .img {
+          background: image-url('numbers.png') no-repeat -144px 0;
           margin-left: 1em;
         }
       }
@@ -100,9 +112,12 @@ body {
         img {
           margin-top: .7em;
         }
+          
+        .img {
+          background: image-url('numbers.png') no-repeat -192px 0;
+        }
 
         span {
-          background: image-url('number_five.png') no-repeat;
           margin-right: 1em;
         }
       }

@@ -13,6 +13,7 @@
 //= require popup
 //= require script
 //= require turbolinks
+//= require uservoice-turbolinks
 //= require slides.min.jquery
 //= require jquery.carouFredSel-5.6.4
 //= require_tree .

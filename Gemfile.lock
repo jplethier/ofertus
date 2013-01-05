@@ -320,6 +320,7 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    uservoice-turbolinks (0.0.1)
     warden (1.1.0)
       rack (>= 1.0)
     webrobots (0.0.13)
@@ -379,4 +380,5 @@ DEPENDENCIES
   turbolinks
   uglifier
   unicorn
+  uservoice-turbolinks
   will_paginate (~> 3.0.0)

@@ -47,6 +47,9 @@ ActiveAdmin.register Sale do
         'Sem usuário'
       end
     end
+    column 'Valor' do |sale|
+      price_to_currency sale.value
+    end
     column 'Comissão' do |sale|
       price_to_currency sale.commission_value
     end

@@ -70,6 +70,16 @@ body {
       width: 196px;
       background: image-url('bg_small_deal.png') no-repeat -42px -39px;
       height: 203px;
+      position: relative;
+
+      .category {
+        position: absolute;
+        top: 0;
+        width: 214px;
+        height: .4em;
+        background: black;
+        left: 1px;
+      }
 
       .price_and_discount {
         width: 90%;
@@ -166,6 +176,16 @@ body {
       margin-bottom: 33px;
       background: image-url('bg_big_deal.png') -30px -27px no-repeat;
       height: 293px;
+      position: relative;
+
+      .category {
+        position: absolute;
+        top: 2em;
+        left: 1px;
+        width: .7em;
+        height: 4.5em;
+        background: black;
+      }
 
       .price_and_discount {
         width: 93%;
@@ -267,6 +287,52 @@ body {
           padding-left: 16px;
           margin-left: 10px;
         }
+      }
+    }
+
+    .small_deal, .top_deal {
+      .category_1 {
+        background: #639;
+      }
+
+      .category_2 {
+        background: #c6c
+      }
+
+      .category_3 {
+        background: #399;
+      }
+
+      .category_4 {
+        background: #633;
+      }
+
+      .category_5 {
+        background: #36c;
+      }
+
+      .category_6 {
+        background: #c66;
+      }
+
+      .category_7 {
+        background: #f63;
+      }
+
+      .category_8 {
+        background: #390;
+      }
+
+      .category_9 {
+        background: #333;
+      }
+
+      .category_10 {
+        background: #f93;
+      }
+
+      .category_11 {
+        background: #0cc;
       }
     }
 

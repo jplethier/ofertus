@@ -1,4 +1,5 @@
 .small_deal
+  %div{ class: "category category_#{deal.category}" }
   .price_and_discount
     .price
       %span.from= t('strings.from_price', price: number_to_currency(deal.real_price))

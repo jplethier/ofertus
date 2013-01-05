@@ -41,7 +41,8 @@
         .right#go_to_site
           = link_to '', deal.link, :class => 'go_to_site_button', :target => '_blank', :id => "big_button"
           %br
-          %div{ :style => "float: right; margin-right: 12px;" }
+          = binding.pry
+          .share_social{ :style => "float: right; margin-right: 12px;" }
             :plain
               <span class='st_fblike'></span>
               <span class='st_facebook'></span>
@@ -67,3 +68,11 @@
       
     .right
       = Rails.cache.fetch([:deal, :image, deal.id], expires_in: 1.month) { "<img alt='#{deal.get_image_url}' title='#{deal.title}' src='#{deal.get_image_url}'>".html_safe }
+
+:javascript
+  $(document).on('page:load', function(){
+    if($('span.st_fblike').children().size() == 0){
+      
+      $('#go_to_site .share_social').append(share)
+    }
+  })

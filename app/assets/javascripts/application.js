@@ -12,13 +12,29 @@
 //= require ckeditor/init
 //= require popup
 //= require script
+//= require turbolinks
 //= require slides.min.jquery
 //= require jquery.carouFredSel-5.6.4
 //= require_tree .
 
 $(document).ready(function() {
+  //User Voice
+  uservoice();
+
   center_flash();
 
+  ready()
+});
+
+$(document).on('page:load', function(){
+  uservoice();
+
+  center_flash();
+
+  ready();
+})
+
+function ready(){
   $('#header_search_btn').click(function(){
     $('#user_menu_options').hide();
     $('#settings_menu_options').hide();
@@ -63,7 +79,16 @@ $(document).ready(function() {
   });
 
   $('#flashes').effect("pulsate", {}, 200);
-});
+}
+
+function uservoice(){
+  var uvOptions = {default_mode: 'ideas'};
+  (function() {
+    var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true;
+    uv.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/KhjBP9Wz0hWPZKkPOj6DbQ.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s);
+  })();
+}
 
 function center_flash(){
   total_width = $("#flashes").width();

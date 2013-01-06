@@ -164,7 +164,7 @@
             %div
               = f.label :end_date
             %div
-              = f.text_field :end_date, value: l(Date.today + 3.days), placeholder: 'dd/mm/aaaa', readonly: true, class: "datepicker2"
+              = f.text_field :end_date, value: @deal.end_date.blank? ? l(Date.today + 3.days) : l(@deal.end_date.to_date), placeholder: 'dd/mm/aaaa', readonly: true, class: "datepicker2"
         .clear
         .left.small_column
           %p

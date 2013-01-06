@@ -49,6 +49,7 @@ class Share
   SEPHA = "sepha.com.br"
   SUBMARINO = "submarino.com"
   TOY_MANIA = "toymania.com.br"
+  VIAJAR_BARATO = "viajarbarato.com.br"
   WALMART = 'walmart.com.br'
 
   CATEGORIES = {
@@ -129,6 +130,8 @@ class Share
           @deal = Submarino.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(TOY_MANIA)
           @deal = ToyMania.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(VIAJAR_BARATO)
+          @deal = ViajarBarato.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(WALMART)
           @deal = Walmart.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         else

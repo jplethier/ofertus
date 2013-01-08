@@ -31,6 +31,7 @@ class Share
   EXTRA = 'extra.com.br'
   FASTSHOP = "fastshop.com.br"
   FNAC = "fnac.com.br"
+  GIMBA = "gimba.com.br"
   GIRAFA = "girafa.com.br"
   GIULIANA_FLORES = "giulianaflores.com.br"
   GROUPON = "groupon.com"
@@ -94,6 +95,8 @@ class Share
           @deal = FastShop.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(FNAC)
           @deal = Fnac.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(GIMBA)
+          @deal = Gimba.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(GIRAFA)
           @deal = Girafa.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(GIULIANA_FLORES)

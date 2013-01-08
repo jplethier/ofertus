@@ -281,10 +281,23 @@ body {
   }
 
   #description_and_comments {
+    position: relative;
+
     .dc_header {
       text-align: center;
       cursor: s-resize;
-      margin-bottom: 1em;
+      margin-bottom: 2em;
+    }
+
+    .dc_header:after {
+      position: absolute;
+      left: 50%;
+      width: 100px;
+      height: 30px;
+      margin: 0 0 0 -50px;
+      bottom: -25px;
+      content: "";
+      background: image-url('desc_arrow.png') no-repeat;
     }
 
     .dc_content {

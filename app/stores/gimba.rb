@@ -12,7 +12,7 @@ class Gimba
       deal.image_url = "http://www.gimba.com.br/" + page.at_css("#zoom1 img")["src"].try(:strip) if page.at_css("#zoom1 img")
       # deal.category = Deal::CATEGORY_TRAVEL
     end
-    deal.link = link
+    deal.link = link.to_s.gsub('%25','%')
     deal.company = "Gimba"
 
     deal

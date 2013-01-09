@@ -45,6 +45,7 @@ class Ability
       can :friends, User, :id => user.id
       can :notifications, User, :id => user.id
       can :withdraw, User, :id => user.id
+      can :update, User, :id => user.id
       can :manage, Notification, :user_id => user.id
     end
 

@@ -31,6 +31,7 @@ class Share
   EXTRA = 'extra.com.br'
   FASTSHOP = "fastshop.com.br"
   FNAC = "fnac.com.br"
+  GIMBA = "gimba.com.br"
   GIRAFA = "girafa.com.br"
   GIULIANA_FLORES = "giulianaflores.com.br"
   GROUPON = "groupon.com"
@@ -40,6 +41,7 @@ class Share
   LIVRARIA_CULTURA = "livrariacultura.com.br"
   LOJAS_MM = "lojasmm.com"
   MAGAZINE = "magazineluiza.com.br"
+  MARISA = "marisa.com.br"
   MOBLY = "mobly.com.br"
   NETSHOES = "netshoes.com.br"
   PEIXE_URBANO = "peixeurbano.com"
@@ -94,6 +96,8 @@ class Share
           @deal = FastShop.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(FNAC)
           @deal = Fnac.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(GIMBA)
+          @deal = Gimba.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(GIRAFA)
           @deal = Girafa.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(GIULIANA_FLORES)
@@ -112,6 +116,8 @@ class Share
           @deal = LojasMm.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(MAGAZINE)
           @deal = Magazine.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(MARISA)
+          @deal = Marisa.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(MOBLY)
           @deal = Mobly.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(NETSHOES)

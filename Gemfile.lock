@@ -84,6 +84,7 @@ GEM
       sass (~> 3.1)
     compass-rails (1.0.3)
       compass (>= 0.12.2, < 0.14)
+    country-select (1.1.1)
     dalli (1.1.4)
     database_cleaner (0.7.1)
     date_validator (0.6.3)
@@ -337,6 +338,7 @@ DEPENDENCIES
   ckeditor
   coffee-script
   compass-rails
+  country-select
   dalli
   database_cleaner (>= 0.6.7)
   date_validator

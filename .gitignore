@@ -91,3 +91,5 @@ tmp/**/*
 /.fr-TEGw5t/slide.jpg
 /.fr-TEGw5t/slides.min.jquery.js
 /"C:\\nppdf32Log\\debuglog.txt"
+/config/database.yml
+/config/database.yml~

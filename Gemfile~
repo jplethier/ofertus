@@ -1,15 +1,18 @@
 source 'http://rubygems.org'
 ruby "1.9.3"
 
+gem 'activeadmin'
 gem 'acts_as_commentable'
 gem 'airbrake'
 gem 'annotate', ">= 2.5.0.pre1"
 gem 'bourbon'
+gem 'cancan'
 gem 'ckeditor'
 gem 'coffee-script'
 gem 'compass-rails'
-gem 'country-select'
 gem 'date_validator'
+gem 'devise', '>= 1.4.2'
+gem 'fb_graph'
 gem "friendly_id", "~> 4.0.1"
 gem 'gravtastic'
 gem 'haml'
@@ -22,37 +25,17 @@ gem 'make_voteable'
 gem 'mechanize'
 gem 'newrelic_rpm'
 gem 'nokogiri'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'paper_trail'
 gem 'paperclip'
-gem 'pg', '0.14.1', :require => 'pg'
-gem 'rails', '3.1.10'
+gem 'pg', '0.14.1'
+gem 'rails', '3.1.1'
 gem 'sass'
 gem 'sass-rails', '3.1.4'
 gem 'uglifier'
 gem 'unicorn'
 gem 'will_paginate', '~> 3.0.0'
-
-#admin
-gem 'activeadmin'
-
-#authorize
-gem 'devise', '>= 1.4.2'
-gem 'omniauth'
-gem 'omniauth-facebook'
-
-#fb integration
-gem 'fb_graph'
-
-#permissions
-gem 'cancan'
-
-#turbolinks
-gem 'turbolinks'
-gem 'uservoice-turbolinks'
-
-#cache
-gem 'memcachier'
-gem 'dalli'
 
 group :development, :test do
   gem 'awesome_print'
@@ -70,3 +53,7 @@ group :test do
   gem 'shoulda-matchers'
   gem 'simplecov', :require => false
 end
+
+#cache
+gem 'memcachier'
+gem 'dalli'

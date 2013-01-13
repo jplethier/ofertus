@@ -22,9 +22,6 @@ $(document).ready(function() {
   //User Voice
   uservoice();
 
-  //sharethis
-  sharethis();
-
   center_flash();
 
   ready()
@@ -34,20 +31,10 @@ $(document).on('page:load', function(){
   //uservoice
   uservoice();
 
-  //sharethis
-  sharethis();
-
   center_flash();
 
   ready();
 })
-
-function sharethis(){
-  var j = document.createElement("script"); /* criando um elemento script: </script><script></script> */
-  j.type = "text/javascript"; /* informando o type como text/javacript: <script type="text/javascript"></script>*/
-  j.src = 'http://w.sharethis.com/button/buttons.js'; /* Inserindo um src com o valor do parâmetro file_path: <script type="javascript" src="+file_path+"></script>*/
-  document.body.appendChild(j); /* Inserindo o seu elemento(no caso o j) como filho(child) do  BODY: <html><body><script type="javascript" src="+file_path+"></script></body></html> */
-}
 
 function ready(){
   $('#header_search_btn').click(function(){

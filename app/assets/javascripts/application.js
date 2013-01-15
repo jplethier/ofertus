@@ -36,7 +36,16 @@ $(document).on('page:load', function(){
   ready();
 })
 
+$(document).on('page:fetch', function(){
+  $('#blocker').height($(document).height());
+  $('#blocker').show();
+  $('#loading').show();
+})
+
 function ready(){
+  $('#blocker').hide();
+  $('#loading').hide();
+
   $('#header_search_btn').click(function(){
     $('#user_menu_options').hide();
     $('#settings_menu_options').hide();

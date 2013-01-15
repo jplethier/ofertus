@@ -15,7 +15,6 @@ var Popup = {
 
   open_url : function(url) {    
     $('#blocker').height($(document).height());
-    console.log('hsoihdauisd')
     $('#blocker').show();
     $('#popup .content').html('');
     $('#popup').show();

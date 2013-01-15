@@ -30,7 +30,7 @@
             <br/>
             <div class="fb-like-box" data-href="https://www.facebook.com/OfertUs" data-width="292" data-colorscheme="dark" data-show-faces="true" data-stream="false" data-header="true"></div>
 
-          = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button"
+          = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button", :'data-no-turbolink' => true
           .register
             Ou cadastre-se
             = link_to 'AQUI', new_user_registration_path

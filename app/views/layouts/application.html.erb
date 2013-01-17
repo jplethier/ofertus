@@ -97,7 +97,7 @@
     <%= render 'layouts/footer' %>
 
     <div id="loading" style='z-index: 5001; display: none;' >
-      <img src='<%= asset_path 'loading.gif' %>' alt='Carregando, aguarde.' title='Aguarde, carregando.' style='position: absolute; top: 40%; left: 40%;'>
+      <img src='<%= asset_path 'loading.gif' %>' alt='Carregando, aguarde.' title='Aguarde, carregando.' style='position: fixed; top: 40%; left: 40%; z-index: 5001;'>
     </div>
 
     <div id="blocker" onclick='Popup.close();'>

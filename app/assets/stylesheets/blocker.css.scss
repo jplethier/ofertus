@@ -12,11 +12,10 @@ body {
     background-color: #404040;
   }
 
-  .loading {
+  #loading {
     display: block;
     margin: auto auto;
     width: 208;
     height: 13px;
-    background: image-url("dialogLoadingAnimation.gif") left top no-repeat;
   }   
 }

@@ -39,7 +39,7 @@ class Deal < ActiveRecord::Base
   validates :description,     :presence => true,       :length => { :maximum => 7000 }
   validates :end_date,        :presence => true,       :date => {:after_or_equal_to => Time.zone.now.beginning_of_day}, :if => 'self.new_record?'
   validates :image_url,       :format => /(^$)|(^https?:\/\/.+)/
-  validates :link,            :unique_link => :end_date, :presence => true,       :format => /^https?:\/\/.+/
+  validates :link,            :unique_link => :original_link, :presence => true,       :format => /^https?:\/\/.+/
   # validates :link,            :uniqueness => true,     :if => 'already_shared?'
   validates :price,           :numericality => true
   validates :real_price,      :numericality => true

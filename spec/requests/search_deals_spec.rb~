@@ -60,7 +60,7 @@ describe "Search Deals" do
     self.use_transactional_fixtures = false
 
     it 'find something' do
-      click_on 'header_search_btn'
+      #click_on 'header_search_btn'
       fill_in 'search', :with => 'desc'
       click_on 'search_button'
       should have_content('Resultados da Busca')
@@ -80,7 +80,7 @@ describe "Search Deals" do
     end
 
     it 'find nothing' do
-      #click_on 'header_search_btn'
+      click_on 'header_search_btn'
       fill_in 'search', :with => 'descriçao'
       click_on 'search_button'
       should have_content('Resultados da Busca')

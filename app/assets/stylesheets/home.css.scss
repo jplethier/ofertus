@@ -245,10 +245,17 @@ body {
         }
 
         .user_infos {
-          a {
-            text-decoration: none;
-            color: #444;
-            font-family: 'Colaborate-Thin';
+          float: left;
+          font-family: 'Colaborate-Thin';
+          padding: .3em .5em;
+          font-size: 11pt;
+
+          p.end_date {
+            background: image-url('calendar.png') no-repeat;
+            padding-left: 1.5em;
+            line-height: 1.5em;
+            margin-top: .3em;
+            font-size: 12pt;
           }
         }
       }

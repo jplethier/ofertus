@@ -15,11 +15,8 @@
         = cache([:user, :small_picture, deal.user.id], expires_in: 4.hours) do
           %img{ src: deal.user.small_picture }
     .user_infos
-      = t('strings.shared_by')
-      %br
-      = link_to truncate_name(deal.user.name), user_path(deal.user.username)
-      %br
-      = t('strings.end_date', :end_date => deal.end_date? ? l(deal.end_date.to_date) : "-")
+      = t('strings.end_date_only')
+      %p.end_date= deal.end_date? ? l(deal.end_date.to_date) : "-"
 
   - if deal.discount > 50
     .discount{ style: "background: url('#{asset_path('red_discount.png')}')  -3px -2px" }= "#{deal.discount.to_i}%"

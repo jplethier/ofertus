@@ -11,7 +11,7 @@
       code: 'Código'
       name: 'Nome'
     best_offers: "Melhores Ofertas"
-    by_price: 'Por %{price}'
+    by_price: 'Por <strong>%{price}</strong>'
     category: "Categoria: %{category}"
     choose_how_to_withdraw: 'escolha a opção desejada'
     city: "Válida para: %{city}"
@@ -47,7 +47,7 @@
     forgot_password: 'Recuperar senha'
     friends_offers: 'Ofertas de amigos'
     friends_recommendations: 'recomendações de quem eu sigo'
-    from_price: 'De %{price}'
+    from_price: 'De <strong>%{price}</strong>'
     getting_paid: "Recebendo comissão sobre as ofertas compartilhadas"
     help: 'Ajuda'
     help_informations: "Informações - Ajuda"

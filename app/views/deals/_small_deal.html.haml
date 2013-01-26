@@ -2,9 +2,9 @@
   %div{ class: "category category_#{deal.category}" }
   .price_and_discount
     .price
-      %span.from= t('strings.from_price', price: number_to_currency(deal.real_price))
+      %span.from= t('strings.from_price', price: number_to_currency(deal.real_price)).html_safe
       %br
-      %span.by= t('strings.by_price', price: number_to_currency(deal.price))
+      %span.by= t('strings.by_price', price: number_to_currency(deal.price)).html_safe
       
       - if deal.discount > 50
         .discount{ style: "background: url('#{asset_path('red_discount_small.png')}') -1px -2px" }= "#{deal.discount.to_i}%"

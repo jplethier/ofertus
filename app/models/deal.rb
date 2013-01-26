@@ -174,6 +174,16 @@ class Deal < ActiveRecord::Base
     Deal.active.find_by_original_link(self.original_link) || self.original_link.match('ofertus.com.br') || Deal.active.find_by_link(self.original_link) || Deal.active.find_by_original_link(self.original_link.split('?')[0])
   end
 
+  #TODO: excluir esse metodo e passar a usar as traducoes sempre
+  def category_string
+    CATEGORIES_DICTIONARY.each do |key, value|
+      if value == self.category
+        return key
+      end
+    end
+    ''
+  end
+
   def average
     ((self.up_votes * 100)/self.votings.length).to_i if self.votings.length != 0
   end

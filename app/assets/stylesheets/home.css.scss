@@ -186,20 +186,59 @@ body {
         width: .7em;
         height: 4.5em;
         background: black;
+
+        p {
+          text-align: center;
+          display: none;
+          @include transform(rotate(-90deg));
+          color: white;
+          text-transform: uppercase;
+          font-weight: bold;
+          width: 130px;
+          height: 2.5em;
+          position: absolute;
+          left: -64px;
+          top: 4em;
+          font-family: 'Colaborate-Thin';
+          font-size: 11pt;
+          padding-left: 30px;
+          line-height: 31px;
+        }
       }
 
       .price_and_discount {
         width: 93%;
-        height: 22px;
+        height: 44px;
         text-align: center;
 
         .price {
           font-size: 16pt;
           width: 100%;
           text-align: center;
+          line-height: 1.1em;
 
-          span {
-            margin-left: 5px;
+          p.from, p.by {
+            float: right;
+          }
+
+          p.from {
+            font-size: 10pt;
+            color: #333;
+
+            strong {
+              font-size: 14pt;
+              text-decoration: line-through;
+            }
+          }
+
+          p.by {
+            clear: right;
+            color: #c33;
+            font-size: 16pt;
+
+            strong {
+              font-size: 20pt;
+            }
           }
         }
       }
@@ -347,6 +386,19 @@ body {
     .small_deal:hover, .top_deal:hover {
       .price_and_discount {
         display: block;
+      }
+
+      .category {
+        position: absolute;
+        top: 2em;
+        left: 1px;
+        width: 2.5em;
+        height: 12em;
+        z-index: 1;
+
+        p {
+          display: block;
+        }
       }
     }
 

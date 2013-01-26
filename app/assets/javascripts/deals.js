@@ -1,4 +1,4 @@
-function upvote_deal(deal_id){
+function upvote_deal(deal_id, prefix){
   $.ajax({
     type: 'GET',
     url: '/deals/' + deal_id + '/upvote',
@@ -6,12 +6,15 @@ function upvote_deal(deal_id){
       if(data[0] == 'Erro'){
         $('#flashes').append('<div class="alert error" id="flash_notice"><p>' + data[1] + '</p></div>')
       }else{
-        $('#deal_'+deal_id+' .counts .reports').text(data[3])
-        $('#deal_'+deal_id+' .counts .likes').text(data[2])
-        $('#deal_'+deal_id+' #like_btn').hide()
-        $('#deal_'+deal_id+' #unreport_btn').hide()
-        $('#deal_'+deal_id+' #dislike_btn').attr('style','')
-        $('#deal_'+deal_id+' #report_btn').show()
+        if(prefix == undefined){
+          prefix = ''
+        }
+        $('#'+prefix+'deal_'+deal_id+' .counts .reports').text(data[3])
+        $('#'+prefix+'deal_'+deal_id+' .counts .likes').text(data[2])
+        $('#'+prefix+'deal_'+deal_id+' #like_btn').hide()
+        $('#'+prefix+'deal_'+deal_id+' #unreport_btn').hide()
+        $('#'+prefix+'deal_'+deal_id+' #dislike_btn').attr('style','')
+        $('#'+prefix+'deal_'+deal_id+' #report_btn').show()
         $('#flashes').append('<div class="alert success" id="flash_notice"><p>' + data[1] + '</p></div>')
       }
       center_flash();
@@ -21,7 +24,7 @@ function upvote_deal(deal_id){
   });
 }
 
-function dislike_deal(deal_id){
+function dislike_deal(deal_id, prefix){
   $.ajax({
     type: 'GET',
     url: '/deals/' + deal_id + '/unvote',
@@ -29,10 +32,13 @@ function dislike_deal(deal_id){
       if(data[0] == 'Erro'){
         $('#flashes').append('<div class="alert error" id="flash_notice"><p>' + data[1] + '</p></div>')
       }else{
-        $('#deal_'+deal_id+' .counts .reports').text(data[3])
-        $('#deal_'+deal_id+' .counts .likes').text(data[2])
-        $('#deal_'+deal_id+' #dislike_btn').hide()
-        $('#deal_'+deal_id+' #like_btn').attr('style','')
+        if(prefix == undefined){
+          prefix = ''
+        }
+        $('#'+prefix+'deal_'+deal_id+' .counts .reports').text(data[3])
+        $('#'+prefix+'deal_'+deal_id+' .counts .likes').text(data[2])
+        $('#'+prefix+'deal_'+deal_id+' #dislike_btn').hide()
+        $('#'+prefix+'deal_'+deal_id+' #like_btn').attr('style','')
         $('#flashes').append('<div class="alert success" id="flash_notice"><p>' + data[1] + '</p></div>')
       }
       center_flash();

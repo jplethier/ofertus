@@ -57,6 +57,27 @@ body {
         height: 29px;
       }
 
+      a.go_to_site_button {
+        background: image-url('buy.png') no-repeat;
+        width: 119px;
+        height: 30px;
+        display: none;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        text-indent: -15000px;
+      }
+
+      a.partner {
+        position: absolute;
+        bottom: 0;
+        right: 130px;
+        width: 30px;
+        height: 30px;
+        text-indent: -15000px;
+        display: none;
+      }
+
       a.fb {
         right: 10px;
         display: none;
@@ -100,8 +121,16 @@ body {
     .small_deal {
       width: 196px;
       background: image-url('bg_small_deal.png') no-repeat -42px -39px;
-      height: 203px;
+      height: 232px;
       position: relative;
+
+      a.like, a.dislike {
+        bottom: 125px; 
+      }
+
+      a.fb {
+        bottom: 95px;
+      }
 
       .category {
         position: absolute;
@@ -110,16 +139,49 @@ body {
         height: .4em;
         background: black;
         left: 1px;
+        text-decoration: none;
+
+        p {
+          text-align: center;
+          display: none;
+          color: white;
+          text-transform: uppercase;
+          font-weight: bold;
+          width: 214px;
+          height: 20px;
+          font-family: 'Colaborate-Thin';
+          font-size: 11pt;
+          line-height: 20px;
+        }
       }
 
       .price_and_discount {
         width: 90%;
         height: 30px;
+        top: 20px;
+        padding: 5px 10px;
+        height: 40px;
 
         .price {
 
-          span.by {
-            font-size: 16px;
+          p.from {
+            font-size: 8pt;
+            color: #333;
+
+            strong {
+              font-size: 12pt;
+              text-decoration: line-through;
+            }
+          }
+
+          p.by {
+            clear: right;
+            color: #c33;
+            font-size: 14pt;
+
+            strong {
+              font-size: 18pt;
+            }
           }
         }
 
@@ -204,17 +266,17 @@ body {
 
     .top_deal {
       width: 284px;
-      margin-bottom: 33px;
+      margin-bottom: 10px;
       background: image-url('bg_big_deal.png') -30px -27px no-repeat;
-      height: 293px;
+      height: 330px;
       position: relative;
 
       a.like, a.dislike {
-        bottom: 135px; 
+        bottom: 175px; 
       }
 
       a.fb {
-        bottom: 105px;
+        bottom: 145px;
       }
 
       .category {
@@ -376,6 +438,110 @@ body {
     }
 
     .small_deal, .top_deal {
+      partner {
+        background: transparent;
+      }
+
+      .partner_americanas {
+        background: image-url('partners/americanas_mini.png');
+      }
+
+      .partner_amomuito, .partner_amo-muito {
+        background: image-url('partners/amomuito_mini.png');
+      }
+
+      .partner_anahickmann, .partner_ana-hickmann {
+        background: image-url('partners/anahickmann_mini.png');
+      }
+
+      .partner_brinquedoslaura, .partner_brinquedos-laura {
+        background: image-url('partners/brinquedoslaura_mini.png');
+      }
+
+      .partner_bytennis, .partner_by-tennis {
+        background: image-url('partners/bytennis_mini.png');
+      }
+
+      .partner_carrefour {
+        background: image-url('partners/carrefour_mini.png');
+      }
+
+      .partner_casasbahia, .partner_casas-bahia {
+        background: image-url('partners/casasbahia_mini.png');
+      }
+
+      .partner_comprafacil, .partner_compra-facil {
+        background: image-url('partners/comprafacil_mini.png');
+      }
+
+      .partner_dafiti {
+        background: image-url('partners/dafiti_mini.png');
+      }
+
+      .partner_extra {
+        background: image-url('partners/extra_mini.png');
+      }
+
+      .partner_fnac {
+        background: image-url('partners/fnac_mini.png');
+      }
+
+      .partner_gimba {
+        background: image-url('partners/gimba_mini.png');
+      }
+
+      .partner_girafa {
+        background: image-url('partners/girafa_mini.png');
+      }
+
+      .partner_giulianaflores, .partner_giuliana-flores {
+        background: image-url('partners/giulianaflores_mini.png');
+      }
+
+      .partner_kanui {
+        background: image-url('partners/kanui_mini.png');
+      }
+
+      .partner_lojasmm, .partner_mm, .partner_lojas-mm, .partner_lojas-m-m {
+        background: image-url('partners/lojasmm_mini.png');
+      }
+
+      .partner_marisa {
+        background: image-url('partners/marisa_mini.png');
+      }
+
+      .partner_mobly {
+        background: image-url('partners/mobly_mini.png');
+      }
+
+      .partner_polishop {
+        background: image-url('partners/polishop_mini.png');
+      }
+
+      .partner_ponto-frio, .partner_pontofrio {
+        background: image-url('partners/pontofrio_mini.png');
+      }
+
+      .partner_saraiva {
+        background: image-url('partners/saraiva_mini.png');
+      }
+
+      .partner-submarino {
+        background: image-url('partners/submarino_mini.png');
+      }
+
+      .partner_toymania, .partner_toy-mania {
+        background: image-url('partners/toymania_mini.png');
+      }
+
+      .partner_viajarbarato, .partner_viajar-barato {
+        background: image-url('partners/viajarbarato_mini.png');
+      }
+
+      .partner_walmart {
+        background: image-url('partners/walmart_mini.png');
+      }
+
       .category_1 {
         background: #639;
       }
@@ -426,6 +592,10 @@ body {
         display: block;
       }
 
+      a.go_to_site_button {
+        display: block;
+      }
+
       a.like, a.dislike {
         display: block;
       }
@@ -434,17 +604,32 @@ body {
         display: block;
       }
 
+      a.partner {
+        display: block;
+      }
+
       .category {
         position: absolute;
-        top: 2em;
-        left: 1px;
-        width: 2.5em;
-        height: 12em;
         z-index: 1;
 
         p {
           display: block;
         }
+      }
+    }
+
+    .top_deal:hover {
+      .category {
+        top: 2em;
+        left: 1px;
+        width: 2.5em;
+        height: 12em;
+      }
+    }
+
+    .small_deal:hover {
+      .category {
+        height: 20px;
       }
     }
 

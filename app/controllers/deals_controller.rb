@@ -132,6 +132,7 @@ class DealsController < AuthorizedController
   def find_deals
     @deals = Deal.paginate(:page => params[:page], :per_page => 12)
     @deals = @deals.send(params[:search_scope].to_sym) if params[:search_scope]
+    @deals = @deals.by_company(params[:company]) if params[:company]
     @deals = @deals.by_category_string(params[:category]) if params[:category]
     @deals = @deals.search(params[:search]) unless params[:search].blank?
     @deals = @deals.by_cities(params[:search_city]) unless params[:search_city].blank?

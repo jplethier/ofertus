@@ -1,6 +1,6 @@
 .offer_details
   
-  .list-conteudo.detalhe-oferta
+  .list-conteudo.detalhe-oferta{ id: "deal_#{deal.id}" }
     = cache [:deal, :left_price, deal.id], expires_in: 1.week do
       .left.off
         .col-off

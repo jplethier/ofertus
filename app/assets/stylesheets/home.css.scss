@@ -48,6 +48,36 @@ body {
       margin-left: 25px;
       position: relative;
 
+      a.like, a.dislike {
+        text-indent: -15000px;
+        position: absolute;
+        right: 10px;
+        display: none;
+        width: 26px;
+        height: 29px;
+      }
+
+      a.fb {
+        right: 10px;
+        display: none;
+        text-indent: -15000px;
+        position: absolute;
+        width: 26px;
+        height: 30px;
+      }
+
+      a.like {
+        background: image-url('small_icons.png') no-repeat;
+      }
+
+      a.dislike {
+        background: image-url('like_button_pressed.png') no-repeat -26px 0px;
+      }
+
+      a.fb {
+        background: image-url('small_icons.png') no-repeat -32px 0;
+      }
+
       .price_and_discount {
         position: absolute;
         top: 0;
@@ -145,12 +175,12 @@ body {
           }
         }
 
-        .interactions {
+        .counts {
           float: right;
           width: 71px;
           margin-top: 5px;
 
-          .love_icon, .report_icon {
+          .likes, .reports {
             width: 10px;
             height: 16px;
             display: block;
@@ -158,11 +188,11 @@ body {
             padding-left: 25px;
           }
 
-          .love_icon {
+          .likes {
             background: image-url('love_count_icon.png') no-repeat;
           }
 
-          .report_icon {
+          .reports {
             background: image-url('report_count_icon.png') no-repeat;
             height: 18px;
             padding-left: 16px;
@@ -178,6 +208,14 @@ body {
       background: image-url('bg_big_deal.png') -30px -27px no-repeat;
       height: 293px;
       position: relative;
+
+      a.like, a.dislike {
+        bottom: 135px; 
+      }
+
+      a.fb {
+        bottom: 105px;
+      }
 
       .category {
         position: absolute;
@@ -311,12 +349,12 @@ body {
         text-align: center;
       }
 
-      .interactions {
+      .counts {
         float: right;
         width: 71px;
         margin-top: 5px;
 
-        .love_icon, .report_icon {
+        .likes, .reports {
           width: 10px;
           height: 16px;
           display: block;
@@ -324,11 +362,11 @@ body {
           padding-left: 25px;
         }
 
-        .love_icon {
+        .likes {
           background: image-url('love_count_icon.png') no-repeat;
         }
 
-        .report_icon {
+        .reports {
           background: image-url('report_count_icon.png') no-repeat;
           height: 18px;
           padding-left: 16px;
@@ -385,6 +423,14 @@ body {
 
     .small_deal:hover, .top_deal:hover {
       .price_and_discount {
+        display: block;
+      }
+
+      a.like, a.dislike {
+        display: block;
+      }
+
+      a.fb {
         display: block;
       }
 

@@ -72,9 +72,9 @@ describe Deal do
         it { should validate_presence_of(:link) }
 
         it "should be unique" do
-          duplicated_link = FactoryGirl.create(:deal, end_date: Date.tomorrow).link
-          deal.link = duplicated_link
-          deal.original_link = duplicated_link
+          active_deal = FactoryGirl.create(:deal, end_date: Date.tomorrow)
+          deal.link = active_deal.link
+          deal.original_link = active_deal.link
           deal.should_not be_valid
         end
         

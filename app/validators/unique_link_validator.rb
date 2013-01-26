@@ -1,6 +1,7 @@
 class UniqueLinkValidator < ActiveModel::EachValidator
   def validate_each(record,attribute,value)
-    if (!Deal.active.where('link = ? and id != ? ', value, record.id).blank?)
+    deal = Deal.active.where(link:value).first
+    if (!deal.blank? && deal != record)
         record.errors.add(attribute,:unique_link,options)
     end
   end

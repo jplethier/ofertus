@@ -1,7 +1,8 @@
 class UniqueLinkValidator < ActiveModel::EachValidator
   def validate_each(record,attribute,value)
-    if (record.send(options[:with]) <= Time.zone.now.beginning_of_day && !Deal.where(link:value).blank?)
-        record.errors[attribute] << (options[:message] || "is not a unique link for an active deal")
+    deal = Deal.active.where(link:value).first
+    if (!deal.blank? && deal != record)
+        record.errors.add(attribute,:unique_link,options)
     end
   end
 end

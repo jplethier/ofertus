@@ -124,6 +124,18 @@ body {
       height: 232px;
       position: relative;
 
+      .user_picture {
+        float: left;
+        margin-right: 3px;
+        min-width: 28px;
+        min-height: 28px;
+
+        img {
+          min-width: 28px;
+          max-height: 28px;
+        }
+      }
+
       a.like, a.dislike {
         bottom: 125px; 
       }
@@ -227,13 +239,20 @@ body {
 
         .user_infos {
           float: left;
-          width: 120px;
+          width: 90px;
           margin-top: 6px;
 
           a {
             text-decoration: none;
             color: #444;
             font-family: 'Colaborate-Thin';
+          }
+
+          p.end_date {
+            background: image-url('calendar.png') no-repeat;
+            padding-left: 1.5em;
+            line-height: 1.5em;
+            font-size: 11pt;
           }
         }
 

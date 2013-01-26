@@ -26,8 +26,12 @@
   
   %h4= link_to truncate_title(deal.title, 21), deal_path(deal)
   .details
+    .user_picture
+      %a{ href: user_path(deal.user.username), onmouseover: "$('#small_deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#small_deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')" }
+        = cache([:user, :small_picture, deal.user.id], expires_in: 4.hours) do
+          %img{ src: deal.user.small_picture }
     .user_infos
-      = t('strings.end_date', :end_date => deal.end_date? ? l(deal.end_date.to_date) : "-")
+      %p.end_date= deal.end_date? ? l(deal.end_date.to_date) : "-"
     .counts
       %span.likes= deal.up_votes
       %span.reports= deal.down_votes

@@ -27,7 +27,7 @@ a#natal_bar{
     float: left;
     height: 75px;
     width: 1px;
-    background: #ececec;
+    background: #595959;
     padding: 0 !important;
     margin-top: 0 !important;
   }
@@ -199,13 +199,14 @@ a#natal_bar{
     }
 
     .logo {
-      width:300px;
+      width: 290px;
       float: left;
       padding-top: 10px;
+      margin: 0 10px;
 
       a {
-        width:378px;
-        height:100px;
+        width: 290px;
+        height: 65px;
         display: block;
         background: url(logo.png) no-repeat;
         text-indent: -15000px;
@@ -214,13 +215,12 @@ a#natal_bar{
 
     .menu-login {
       float: left;
-      margin-left: 5px;
       position: relative;
-      width: 180px;
+      width: 140px;
 
       li {
         float: left;
-        padding:0 10px 0 0;
+        padding:0 10px;
         display: block;
         margin-top: 50px;
 
@@ -326,7 +326,6 @@ a#natal_bar{
     #menu-top {
       float: left;
       width: 351px;
-      margin-left: -35px;
 
       ul {
         padding-left: 0;

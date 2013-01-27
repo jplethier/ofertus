@@ -2,13 +2,25 @@
 #header
   .content
     / .gorro_natal{ onclick: "Popup.open_url('#{natal_url}')" }
+    .border
     = cache 'logo', expires_in: 1.year do
       %h1.logo
         = link_to 'ofertus', root_path
+    .border
+    .menu-login
+      %ul
+        %li
+          %a{ :href => deals_path, :class => "deals_header_btn #{ @current_tab == 'deals' ? 'active' : ''}" }
+            %span= t('actions.deals')
+        %li.border
+        %li
+          %a{ :href => users_path, :class => "users_header_btn #{ @current_tab == 'deals' ? 'active' : ''}" }
+            %span= t('actions.users')
+    .border
 
     #menu-top
       = render "layouts/toolbar"
 
-    #menu-login
+    .menu-login
       = render 'devise/menu/login_items'
 .clear_header_fix

@@ -1,8 +1,8 @@
 %ul
-  %li= link_to t('actions.home'), root_path, :class => "#{ @current_tab == 'home' ? 'active' : ''}"
-  %li= link_to t("actions.share_an_offer"), new_deal_path, :class => "#{ @current_tab == 'new_deal' ? 'active' : ''}"
-  %li= link_to t('actions.how_it_works'), how_it_works_path, :class => "#{@current_tab == 'pages' ? 'active' : ''}"
-  %li= link_to t('actions.blog'), 'http://blog.ofertus.com.br', :class => "#{@current_tab == 'posts' ? 'active' : ''}", :target => '_blank'
+  / %li= link_to t('actions.home'), root_path, :class => "#{ @current_tab == 'home' ? 'active' : ''}"
+  / %li= link_to t("actions.share_an_offer"), new_deal_path, :class => "#{ @current_tab == 'new_deal' ? 'active' : ''}"
+  / %li= link_to t('actions.how_it_works'), how_it_works_path, :class => "#{@current_tab == 'pages' ? 'active' : ''}"
+  / %li= link_to t('actions.blog'), 'http://blog.ofertus.com.br', :class => "#{@current_tab == 'posts' ? 'active' : ''}", :target => '_blank'
   %li= auto_discovery_link_tag :atom, "/feed"
   %li= auto_discovery_link_tag :rss, "/feed.rss"
 

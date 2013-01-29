@@ -5,9 +5,3 @@
   / %li= link_to t('actions.blog'), 'http://blog.ofertus.com.br', :class => "#{@current_tab == 'posts' ? 'active' : ''}", :target => '_blank'
   %li= auto_discovery_link_tag :atom, "/feed"
   %li= auto_discovery_link_tag :rss, "/feed.rss"
-
-#box-compartilhe
-  %form{ action: share_deals_path, method: "get.share_offer_url" }
-    .border-input-busca
-      = text_field_tag :share, params[:share], :title => "Cadastre uma oferta", :placeholder => t('strings.paste_deal_url'), :class => "resetValue input-tx"
-      %button#share.submit{ title: "Compartilhar", value: "OK" } OK

@@ -1,7 +1,7 @@
 %ul
-  %li
-    %a#header_search_btn{ :href => 'javascript:;', :class => "search_header_btn #{ @current_tab == 'deals' ? 'active' : ''}" }
-      %span= t('actions.search')
+  / %li
+  /   %a#header_search_btn{ :href => 'javascript:;', :class => "search_header_btn #{ @current_tab == 'deals' ? 'active' : ''}" }
+  /     %span= t('actions.search')
   
   - if user_signed_in?
     %li.no_margin_top
@@ -14,14 +14,6 @@
     %li
       = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button", :'data-no-turbolink' => true
       = link_to t('strings.login'), new_user_session_path, class: 'login_link'
-
-#search_form_div
-  %form{ :id => "search_form", :action => deals_path, :method => "get", :class => "search"}
-    .border-input-busca
-      = text_field_tag :search, params[:search], :class => "input-tx", :placeholder => 'Pesquisa'
-      %input{ :type => "submit", :value => "", :class => "submit search_button" }
-
-  #search_form_div_after
 
 - if user_signed_in?
   #user_menu_options

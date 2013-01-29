@@ -18,9 +18,24 @@
             %span= t('actions.users')
     .border
 
-    #menu-top
-      = render "layouts/toolbar"
+    / #menu-top
+    = render "layouts/toolbar"
+    #box-compartilhe
+      %form{ action: share_deals_path, method: "get.share_offer_url" }
+        .border-input-busca
+          = text_field_tag :share, params[:share], :title => "Cadastre uma oferta", :placeholder => t('strings.paste_deal_url'), :class => "resetValue input-tx"
+          %button#share.submit{ title: "Compartilhar", value: "OK" } OK
 
-    .menu-login
+    = link_to 'Saiba Mais', 'javascript:;', class: 'how_it_works', onclick: "$('#how_it_works_tab .content').slideDown();"
+
+    #search_form_div
+      %form{ :id => "search_form", :action => deals_path, :method => "get", :class => "search"}
+        .border-input-busca
+          = text_field_tag :search, params[:search], :class => "input-tx", :placeholder => 'Pesquisa'
+
+    .border
+
+    .menu-login{ style: 'width: 119px;' }
       = render 'devise/menu/login_items'
+    .border
 .clear_header_fix

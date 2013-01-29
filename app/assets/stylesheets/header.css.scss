@@ -50,28 +50,24 @@ a#natal_bar{
     }
 
     #search_form_div {
-      position: absolute;
-      top: 85px;
-      right: 40px;
-      display: none;
-      width: 289px;
-      z-index: 151;
-      background: white;
-      padding: 5px;
+      width: 95px;
+      padding: 15px 0;
+      float: left;
+      margin: 0 8px;
 
       .border-input-busca {
-        border: 3px solid #F6F6F6;
-        overflow: hidden;
 
         .input-tx {
           text-transform: uppercase;
-          background: #F6F6F6;
+          background: image-url('search_icon.png') no-repeat 5px 11px #F6F6F6;
           font-size: 12px;
           color: #666;
           border: none;
           float: left;
-          padding: 11px 5px 10px;
-          width: 240px;
+          padding: 10px 5px 10px 22px;
+          width: 68px;
+          border-radius: 19px;
+          height: 20px;
         }
 
         .submit {
@@ -84,43 +80,6 @@ a#natal_bar{
       }
     }
 
-    #search_form_div::before {
-      content: "";
-      position: absolute;
-      top: -13px;
-      left: 50%;
-      width: 100px;
-      height: 13px;
-      margin: 0 0 0 -50px;
-      background: white;
-    }
-
-    #search_form_div::after {
-      content: "";
-      position: absolute;
-      top: -20px;
-      left: 0;
-      width: 59%;
-      height: 20px;
-      background: #2d2d2d;
-      -webkit-border-bottom-right-radius: 15px;
-      -moz-border-radius-bottomright: 15px;
-      border-bottom-right-radius: 15px;
-    }
-
-    #search_form_div_after {
-      content: "";
-      position: absolute;
-      top: -20px;
-      right: 0;
-      width: 41%;
-      height: 20px;
-      background: #2d2d2d;
-      -webkit-border-bottom-left-radius: 15px;
-      -moz-border-radius-bottomleft: 15px;
-      border-bottom-left-radius: 15px;
-    }
-    
     #user_menu_options, #settings_menu_options {
       display: none;
       width: 120px;
@@ -216,11 +175,11 @@ a#natal_bar{
     .menu-login {
       float: left;
       position: relative;
-      width: 140px;
+      width: 132px;
 
       li {
         float: left;
-        padding:0 10px;
+        padding:0 8px;
         display: block;
         margin-top: 50px;
 
@@ -325,7 +284,7 @@ a#natal_bar{
 
     #menu-top {
       float: left;
-      width: 351px;
+      width: 325px;
 
       ul {
         padding-left: 0;
@@ -352,42 +311,54 @@ a#natal_bar{
         }
       }
     }
+
+    a.how_it_works {
+      background: image-url('saibamais.png') no-repeat -10px 0;
+      text-indent: -15000px;
+      width: 60px;
+      height: 80px;
+      float: left;
+    }
   }
 
   #box-compartilhe {
     display: block;
     padding-top: 10px;
     background: transparent;
-    width: 340px;
+    width: 293px;
+    margin: 0 5px;
+    float: left;
+    height: 65px;
 
     .border-input-busca {
-      border: 2px solid #f6f6f6;
+      border: 9px solid #444;
       overflow: hidden;
-      margin-bottom: 20px;
       float: right;
+      border-radius: 4px;
     }
 
     .input-tx {
       background: #f6f6f6;
       font-family: 'Colaborate-Thin';
-      text-transform:uppercase;
-      font-size: 1em;
+      text-transform: uppercase;
+      font-size: 10pt;
       color: #666;
       border:none;
       float: left;
-      padding:11px 5px 10px;
-      width: 291px;
+      padding: 10px 5px 10px;
+      width: 170px;
+      line-height: 17px;
     }
 
     .submit {
-      width:33px;
-      height:33px;
-      text-transform:uppercase;
-      font-weight: normal;
-      float:right;
+      width: 95px;
+      height: 38px;
+      float: right;
       color: #e1e1e1;
-      border:none;
-      background:#2D2D2D;
+      border: none;
+      background: image-url('new_deal_btn.png') no-repeat -9px -5px;
+      text-indent: -15000px;
+      padding: 0;
     }
   }
 }

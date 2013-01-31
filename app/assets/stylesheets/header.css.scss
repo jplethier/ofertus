@@ -335,6 +335,8 @@ a#natal_bar{
       overflow: hidden;
       float: right;
       border-radius: 4px;
+      height: 37px;
+      background: #f6f6f6;
     }
 
     .input-tx {
@@ -363,6 +365,120 @@ a#natal_bar{
   }
 }
 
+#filters {
+  height: 30px;
+  width: 100%;
+  background: image-url('filters_bg.png') repeat-x;
+  position: fixed;
+  top: 75px;
+  z-index: 149;
+
+  .content {
+    width:1040px;
+    margin:0 auto;
+    position: relative;
+    padding-top: 7px;
+  }
+
+  ul.filters_options {
+    li {
+      float: left;
+      border-right: 1px solid #888;
+      padding: 0 9px;
+      position: relative;
+      
+      a {
+        font-family: 'Colaborate-Thin';
+        font-size: 11pt;
+        color: #333;
+        text-transform: uppercase;
+        text-decoration: none;
+      }
+    }
+
+    ul#other_categories {
+      display: none;
+      width: 200px;
+      height: 155px;
+      background: white;
+      border-top: 3px black solid;
+
+      li {
+        padding: 5px 7px;
+        border-left: 5px solid;
+        clear: both;
+        width: 182px;
+        border-bottom: 1px solid #ccc !important;
+        border-right: none;
+      }
+
+      li.food {
+        border-color: #639;
+
+        a {
+          color: #639;
+        }
+      }
+
+      li.car {
+        border-color: #390;
+        
+        a {
+          color: #390;
+        }
+      }
+
+      li.beauty {
+        border-color: #c6c;
+        
+        a {
+          color: #c6c;
+        }
+      }
+
+      li.car {
+        border-color: #390;
+        
+        a {
+          color: #390;
+        }
+      }
+
+      li.entertainment {
+        border-color: #0cc;
+        
+        a {
+          color: #0cc;
+        }
+      }
+
+      li.travel {
+        border-color: #f63;
+        
+        a {
+          color: #f63;
+        }
+      }
+
+      li.other {
+        border-color: #333;
+        
+        a {
+          color: #333;
+        }
+      }
+    }
+
+    li:last-child {
+      border-right: none;
+    }
+
+    li:first-child {
+      padding-left: 0;
+    }
+  }
+}
+
 .clear_header_fix {
-  margin-top: 75px;
+  margin-top: 105px;
 }

@@ -48,7 +48,7 @@ describe "New Deal Page" do
         should have_css('div select#deal_category option', :text => 'Livros, Músicas e Filmes', :value => "3")
         should have_css('div select#deal_category option', :text => 'Eletrodomésticos', :value => "4")
         should have_css('div select#deal_category option', :text => 'Tecnologia', :value => "5")
-        should have_css('div select#deal_category option', :text => 'Vestuário e Acessórios', :value => "6")
+        should have_css('div select#deal_category option', :text => 'Moda', :value => "6")
         should have_css('div select#deal_category option', :text => 'Viagens', :value => "7")
         should have_css('div select#deal_category option', :text => 'Automotivos', :value => "8")
         should have_css('div select#deal_category option', :text => 'Diversos', :value => "9")

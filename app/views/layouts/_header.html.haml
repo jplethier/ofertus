@@ -38,4 +38,22 @@
     .menu-login{ style: 'width: 119px;' }
       = render 'devise/menu/login_items'
     .border
+#filters
+  .content
+    %ul.filters_options
+      %li= link_to Deal.i18n_category(Deal::CATEGORY_COMPUTER), '/deals/active/computer'
+      %li= link_to Deal.i18n_category(Deal::CATEGORY_HOME_AND_APPLIANCE), '/deals/active/home_and_appliance'
+      %li= link_to Deal.i18n_category(Deal::CATEGORY_CULTURE), '/deals/active/culture'
+      %li= link_to Deal.i18n_category(Deal::CATEGORY_CLOTHES), '/deals/active/clothes'
+      %li= link_to Deal.i18n_category(Deal::CATEGORY_HOME_AND_DECORATION), '/deals/active/home_and_decoration'
+      %li
+        = link_to '+ Categorias', 'javascript:;', onclick: "$('#other_categories').slideToggle();"
+        %ul#other_categories
+          %li.food= link_to Deal.i18n_category(Deal::CATEGORY_RESTAURANT), '/deals/active/restaurant'
+          %li.beauty= link_to Deal.i18n_category(Deal::CATEGORY_BEAUTY_AND_HEALTH), '/deals/active/beauty_and_health'
+          %li.car= link_to Deal.i18n_category(Deal::CATEGORY_CAR), '/deals/active/car'
+          %li.entertainment= link_to Deal.i18n_category(Deal::CATEGORY_ENTERTAINMENT), '/deals/active/entertainment'
+          %li.travel= link_to Deal.i18n_category(Deal::CATEGORY_TRAVEL), '/deals/active/travel'
+          %li.other= link_to Deal.i18n_category(Deal::CATEGORY_OTHER), '/deals/active/other'
+
 .clear_header_fix

@@ -71,15 +71,16 @@ class Deal < ActiveRecord::Base
   scope :most_visited, order('visits DESC')
   scope :random, order('RANDOM()')
 
-  scope :today,           lambda { where("deals.created_at >= ?", Time.zone.now.beginning_of_day) }
-  scope :end_today,       lambda { where("deals.end_date <= ?", Time.zone.now.end_of_day) }
-  scope :active,          lambda { where("deals.end_date >= ?", Time.zone.now.beginning_of_day) }
-  scope :voted,           where("(deals.up_votes + deals.down_votes) > 0")
-  scope :inactive,        lambda { where("deals.end_date < ?", Time.zone.now.beginning_of_day) }
-  scope :top,             where(:ofertus_top => true)
-  scope :by_user_ids,     lambda { |user_ids| where(user_id: user_ids) }
-  scope :by_price_range,  lambda { |min, max| where('price >= ? and price <= ?', min, max) }
-  scope :by_company,      lambda { |company| where('company = ? ', company) }
+  scope :today,             lambda { where("deals.created_at >= ?", Time.zone.now.beginning_of_day) }
+  scope :end_today,         lambda { where("deals.end_date <= ?", Time.zone.now.end_of_day) }
+  scope :active,            lambda { where("deals.end_date >= ?", Time.zone.now.beginning_of_day) }
+  scope :voted,             where("(deals.up_votes + deals.down_votes) > 0")
+  scope :inactive,          lambda { where("deals.end_date < ?", Time.zone.now.beginning_of_day) }
+  scope :top,               where(:ofertus_top => true)
+  scope :by_user_ids,       lambda { |user_ids| where(user_id: user_ids) }
+  scope :by_price_range,    lambda { |min, max| where('price >= ? and price <= ?', min, max) }
+  scope :by_discount_range, lambda { |min, max| where('discount >= ? and discount <= ?', min, max) }
+  scope :by_company,        lambda { |company| where('company = ? ', company) }
 
   #statistic scopes
   scope :yesterday, where("deals.created_at >= ? and deals.created_at < ?", (Time.zone.now - 1.day).beginning_of_day, Time.zone.now.beginning_of_day)

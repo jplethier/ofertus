@@ -138,11 +138,11 @@ a#natal_bar{
     }
 
     #user_menu_options {
-      right: 30px;
+      right: 10px;
     }
 
     #settings_menu_options {
-      right: -32px;
+      right: -52px;
     }
 
     #user_menu_options:after, #settings_menu_options:after {
@@ -424,8 +424,14 @@ a#natal_bar{
       }
     }
 
+    ul#options_price, ul#options_discount {
+      li {
+        width: 187px;
+      }
+    }
+
     ul#options_discount {
-      height: 70px;
+      height: 78px;
     }
 
     ul#other_categories {

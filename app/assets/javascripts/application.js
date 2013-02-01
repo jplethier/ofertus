@@ -53,13 +53,11 @@ function ready(){
   });
 
   $('#user_menu_link').click(function(){
-    $('#search_form_div').hide();
     $('#settings_menu_options').hide();
     $('#user_menu_options').toggle();
   });
 
   $('#settings_menu_link').click(function(){
-    $('#search_form_div').hide();
     $('#user_menu_options').hide();
     $('#settings_menu_options').toggle();
   });

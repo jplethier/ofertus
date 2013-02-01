@@ -3,7 +3,7 @@
   .content
     / .gorro_natal{ onclick: "Popup.open_url('#{natal_url}')" }
     .border
-    = cache 'logo', expires_in: 1.year do
+    = cache 'new_logo', expires_in: 1.year do
       %h1.logo
         = link_to 'ofertus', root_path
     .border

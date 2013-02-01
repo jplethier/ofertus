@@ -3,6 +3,7 @@
     filters:
       best: 'Melhores Ofertas'
       categories: 'Categorias'
+      discount: '% Desconto'
       end_today: 'Encerrando Hoje'
       highest_discounts: 'Maiores Descontos'
       month_points_rank: 'Mais Pontos no Mês'
@@ -12,6 +13,7 @@
       more_points: 'Mais Pontos Geral'
       more_popular: 'Mais Populares'
       most_visited: 'Mais Acessadas'
+      price: '$ Preço'
       recent: 'Mais Recentes'
     categories:
       all: 'asd'

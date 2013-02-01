@@ -396,7 +396,19 @@ a#natal_bar{
       }
     }
 
-    ul#other_categories {
+    li.categories {
+      width: 89px;
+    }
+
+    li.discount {
+      width: 83px;
+    }
+
+    li.price {
+      width: 52px;
+    }
+
+    ul#other_categories, ul#options_price, ul#options_discount {
       display: none;
       width: 200px;
       height: 155px;
@@ -405,11 +417,20 @@ a#natal_bar{
 
       li {
         padding: 5px 7px;
-        border-left: 5px solid;
         clear: both;
         width: 182px;
         border-bottom: 1px solid #ccc !important;
         border-right: none;
+      }
+    }
+
+    ul#options_discount {
+      height: 70px;
+    }
+
+    ul#other_categories {
+      li {
+        border-left: 5px solid;
       }
 
       li.food {
@@ -469,12 +490,16 @@ a#natal_bar{
       }
     }
 
-    li:last-child {
+    li:last-child, li.no_border {
       border-right: none;
     }
 
     li:first-child {
       padding-left: 0;
+    }
+
+    li.price {
+      margin-left: 70px;
     }
   }
 }

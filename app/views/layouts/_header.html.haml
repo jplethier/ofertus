@@ -46,7 +46,7 @@
       %li= link_to Deal.i18n_category(Deal::CATEGORY_CULTURE), '/deals/active/culture'
       %li= link_to Deal.i18n_category(Deal::CATEGORY_CLOTHES), '/deals/active/clothes'
       %li= link_to Deal.i18n_category(Deal::CATEGORY_HOME_AND_DECORATION), '/deals/active/home_and_decoration'
-      %li
+      %li.categories.no_border
         = link_to '+ Categorias', 'javascript:;', onclick: "$('#other_categories').slideToggle();"
         %ul#other_categories
           %li.food= link_to Deal.i18n_category(Deal::CATEGORY_RESTAURANT), '/deals/active/restaurant'
@@ -55,5 +55,19 @@
           %li.entertainment= link_to Deal.i18n_category(Deal::CATEGORY_ENTERTAINMENT), '/deals/active/entertainment'
           %li.travel= link_to Deal.i18n_category(Deal::CATEGORY_TRAVEL), '/deals/active/travel'
           %li.other= link_to Deal.i18n_category(Deal::CATEGORY_OTHER), '/deals/active/other'
-
+      %li.price.no_border
+        = link_to t('search.filters.price'), 'javascript:;', onclick: "$('#options_price').slideToggle();"
+        %ul#options_price
+          %li= link_to 'R$ 1,00 à R$ 50,00', '/deals?price_range=R$1+-+R$50'
+          %li= link_to 'R$ 50,00 à R$ 100,00', '/deals?price_range=R$50+-+R$100'
+          %li= link_to 'R$ 100,00 à R$ 200,00', '/deals?price_range=R$100+-+R$200'
+          %li= link_to 'R$ 200,00 à R$ 500,00', '/deals?price_range=R$200+-+R$500'
+          %li= link_to 'R$ 500,00 à R$ 1.000,00', '/deals?price_range=R$500+-+R$1000'
+          %li= link_to '+ R$ 1.000,00', "/deals?price_range=R$1000+-+R$#{Deal.maximum(:price).to_i}"
+      %li.discount.no_border
+        = link_to t('search.filters.discount'), 'javascript:;', onclick: "$('#options_discount').slideToggle();"
+        %ul#options_discount
+          %li.little= link_to '1% - 24%', '/deals?discount_range=1+-+24'
+          %li.medium= link_to '25% - 49%', '/deals?discount_range=25+-+49'
+          %li.higher= link_to '50% - 100%', '/deals?discount_range=50+-+100'
 .clear_header_fix

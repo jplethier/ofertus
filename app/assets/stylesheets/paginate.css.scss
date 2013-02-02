@@ -9,7 +9,7 @@
   }
 
   a, span, em {
-    @include border-radius(3px);
+    border-radius: 3px;
     @include box-shadow(rgba(0, 0, 0, 0.2), 0, 0, 0, 1px);
     
     margin: 1px 2px;

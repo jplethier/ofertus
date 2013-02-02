@@ -206,7 +206,7 @@ body {
             margin-left: 2px;
             width: 93%;
             background: #8c8c8c;
-            @include border-radius(5px);
+            border-radius: 5px;
 
             .ui-slider-range.ui-widget-header {
               background: #2C96D4;

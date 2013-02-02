@@ -42,14 +42,14 @@ body {
       background: image-url('bg2.png');
       display: inline-block;
       width: 100%;
-      @include border-radius(5px);
+      border-radius: 5px;
       max-height: 500px;
       overflow-y: scroll;
 
       table#banks_table {
         width: 100%;
         color: black;
-        @include border-radius(5px);
+        border-radius: 5px;
         max-height: 500px;
       }
     }

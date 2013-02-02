@@ -44,7 +44,7 @@ body {
             text-align: center;
             height: 72px;
             width: 71px;
-            @include border-radius(10px);
+            border-radius: 10px;
             background: #CCC;
             color: #9C9C6C;
             font-size: 42pt;

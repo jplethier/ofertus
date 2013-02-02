@@ -57,7 +57,7 @@ body {
       width: 530px;
       height: 370px;
       background: white;
-      @include border-radius(7px);
+      border-radius: 7px;
       border: 2px solid #c4c4c4;
       position: relative;
       padding-top: 8em;

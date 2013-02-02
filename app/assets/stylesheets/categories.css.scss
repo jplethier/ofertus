@@ -7,7 +7,7 @@
   position: absolute;
   z-index: 5;
   background: white;
-  @include border-radius(5px);
+  border-radius: 5px;
 
   .icon {
     float: left;

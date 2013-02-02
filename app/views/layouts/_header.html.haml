@@ -26,7 +26,7 @@
           = text_field_tag :share, params[:share], :title => "Cadastre uma oferta", :placeholder => t('strings.paste_deal_url'), :class => "resetValue input-tx"
           %button#share.submit{ title: "Compartilhar", value: "OK" } OK
 
-    = link_to 'Saiba Mais', 'javascript:;', class: 'how_it_works', onclick: "$('#how_it_works_tab .content').slideDown();"
+    = link_to 'Saiba Mais', 'javascript:;', class: 'how_it_works', onclick: "$('#how_it_works_tab .content').slideToggle();"
 
     #search_form_div
       %form{ :id => "search_form", :action => deals_path, :method => "get", :class => "search"}

@@ -11,7 +11,7 @@
         = link_to image_tag(current_user.gravatar_url :size => 50), 'javascript:;', class: 'user_menu', id: 'user_menu_link'
     %li.no_margin_top.settings= link_to t('strings.settings'), 'javascript:;', class: 'settings_menu', id: 'settings_menu_link'
   - else
-    %li
+    %li.no_margin_top{ style: 'padding: 0 1px;' }
       = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button", :'data-no-turbolink' => true
       = link_to t('strings.login'), new_user_session_path, class: 'login_link'
 

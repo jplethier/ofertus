@@ -67,7 +67,16 @@
       %li.discount.no_border
         = link_to t('search.filters.discount'), 'javascript:;', onclick: "$('#options_discount').slideToggle();"
         %ul#options_discount
-          %li.little= link_to '1% - 24%', '/deals?discount_range=1+-+24'
-          %li.medium= link_to '25% - 49%', '/deals?discount_range=25+-+49'
-          %li.higher= link_to '51% - 100%', '/deals?discount_range=51+-+100'
+          %li.little
+            %a{ href: '/deals?discount_range=1+-+24' }
+              .img
+              %span 1% - 24%
+          %li.medium
+            %a{ href: '/deals?discount_range=25+-+49' }
+              .img
+              %span 25% - 49%
+          %li.higher
+            %a{ href: '/deals?discount_range=51+-+100' }
+              .img
+              %span 51% - 100%
 .clear_header_fix

@@ -430,7 +430,47 @@ a#natal_bar{
     }
 
     ul#options_discount {
-      height: 78px;
+      height: 98px;
+
+      li {
+        a {
+          .img {
+            width: 23px;
+            float: left;
+            height: 22px;
+            display: block;
+            margin-right: 2px;
+          }
+
+          span {
+            line-height: 22px;
+          }
+        }
+      }
+
+      li.little {
+        a {
+          .img {
+            background: image-url('small_discount_tags.png') 0 0 no-repeat;
+          }
+        }
+      }
+
+      li.medium {
+        a {
+          .img {
+            background: image-url('small_discount_tags.png') -24px 0 no-repeat;
+          }
+        }
+      }
+
+      li.higher {
+        a {
+          .img {
+            background: image-url('small_discount_tags.png') -48px 0 no-repeat;
+          }
+        }
+      }
     }
 
     ul#other_categories {

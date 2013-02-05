@@ -54,6 +54,11 @@ class DealsController < AuthorizedController
 
   def share
     @deal = Deal.new
+    if params[:share].blank?
+      @deal = Deal.new
+      render :new
+      return
+    end
     @deal.original_link = params[:share]
     if @deal.already_shared?
       if @deal.original_link.match('ofertus.com.br')

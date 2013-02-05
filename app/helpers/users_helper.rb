@@ -1,5 +1,5 @@
 module UsersHelper
   def withdraw_available?
-    false
+    true
   end
 end

@@ -34,24 +34,22 @@ class Deal < ActiveRecord::Base
   belongs_to :city
   belongs_to :user
 
-  validates :category,        :presence => true,       :inclusion => CATEGORIES
-  validates :company,         :presence => true
-  validates :description,     :presence => true,       :length => { :maximum => 7000 }
-  validates :end_date,        :presence => true,       :date => {:after_or_equal_to => Time.zone.now.beginning_of_day}, :if => 'self.new_record?'
-  validates :image_url,       :format => /(^$)|(^https?:\/\/.+)/
-  validates :link,            :unique_link => :end_date, :presence => true,       :format => /^https?:\/\/.+/
-  # validates :link,            :uniqueness => true,     :if => 'already_shared?'
-  validates :price,           :numericality => true
-  validates :real_price,      :numericality => true
-  validates :real_price,      :greater_than => :price, :if => "self.price && self.real_price"
+  validates :category,        presence: true,       inclusion: CATEGORIES
+  validates :description,     presence: true,       length: { maximum: 7000 }
+  validates :end_date,        presence: true,       date: { after_or_equal_to: Time.zone.now.beginning_of_day }, if: 'self.new_record?'
+  validates :image_url,       format: /(^$)|(^https?:\/\/.+)/
+  validates :link,            unique_link: :end_date, presence: true,       format: /^https?:\/\/.+/
+  validates :price,           numericality: true
+  validates :real_price,      numericality: true
+  validates :real_price,      greater_than: :price, if: "self.price && self.real_price"
 
-  validates :title,       :presence => true, :length => { :maximum => 255 }
-  validates :city_id,     :presence => true
-  validates :user,        :presence => true
+  validates :title,       presence: true, length: { maximum: 255 }
+  validates :city_id,     presence: true
+  validates :user,        presence: true
 
   # VALIDAÇÕES PARA A MÁSCARA DE PREÇO
-  validates :price_mask,  :presence => true, :if => 'self.new_record?'
-  validates :real_price_mask,  :presence => true, :if => 'self.new_record?'
+  validates :price_mask,  presence: true, if: 'self.new_record?'
+  validates :real_price_mask,  presence: true, if: 'self.new_record?'
 
   after_validation :calculate_discount, :if => "real_price? and price?"
   before_validation :prices_to_number

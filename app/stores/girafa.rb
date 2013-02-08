@@ -1,5 +1,5 @@
 # encoding: UTF-8
-class Girafa    
+class Girafa
 
   CATEGORIES = {
     "Cine/Foto" => Deal::CATEGORY_COMPUTER,
@@ -26,7 +26,12 @@ class Girafa
       deal.image_url = "http://www.girafa.com.br" + page.at_css(".gobig-view").at_xpath("img")[:src].try(:strip) if page.at_css(".gobig-view") && page.at_css(".gobig-view").at_xpath("img")
     end
     deal.company = "Girafa"
-    
+
+    partner = Partner.find_by_name('Girafa')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     # puts "-"*100
     # puts "INICIO DA BUSCA NA PAGINA"
     # puts "-"*100
@@ -44,5 +49,5 @@ class Girafa
 
     deal
   end
-  
+
 end

@@ -13,7 +13,12 @@ class BrinquedosLaura
     end
     deal.category = Deal::CATEGORY_OTHER
     deal.company = "Brinquedos Laura"
-    
+
+    partner = Partner.find_by_name('Brinquedos Laura')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
   end
 end

@@ -40,7 +40,12 @@ class Carrefour
       deal.category = CATEGORIES[page.at_css(".breadcrumb").at_xpath(".//strong").try(:text).split(" ")[2]] if page.at_css(".breadcrumb") && page.at_css(".breadcrumb").at_xpath(".//strong").try(:text)
       deal.image_url = page.at_css(".lp-prod").at_xpath(".//img")[:src] if page.at_css(".lp-prod")
       deal.image_url = page.at_css(".viewBoxMedia").at_xpath(".//img")[:src] if page.at_css(".viewBoxMedia")
-      deal.company = "Carrefour"
+    end
+    deal.company = "Carrefour"
+
+    partner = Partner.find_by_name('Carrefour')
+    unless partner.blank?
+      deal.partner = partner
     end
 
     deal

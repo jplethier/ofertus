@@ -14,7 +14,12 @@ class Polishop
       deal.image_url = page.at_css("#image-main")[:src].try(:strip) if page.at_css("#image-main")
     end
     deal.company = "Polishop"
-    
+
+    partner = Partner.find_by_name('Polishop')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     # puts "-"*100
     # puts "INICIO DA BUSCA NA PAGINA"
     # puts "-"*100

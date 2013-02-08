@@ -33,6 +33,7 @@ class Deal < ActiveRecord::Base
 
   belongs_to :city
   belongs_to :user
+  belongs_to :partner
 
   validates :category,        presence: true,       inclusion: CATEGORIES
   validates :description,     presence: true,       length: { maximum: 7000 }
@@ -58,7 +59,7 @@ class Deal < ActiveRecord::Base
   before_validation :set_default_date, :if => "self.end_date.nil?"
 
   attr_accessor :price_mask, :real_price_mask
-  attr_accessible :address, :category, :city_id, :company, :description, :discount, :end_date, :image_url, :link, :price, :price_mask, :real_price, :real_price_mask, :title, :user_id, :ofertus_top, :visits, :give_power
+  attr_accessible :address, :category, :city_id, :company, :description, :discount, :end_date, :image_url, :link, :price, :price_mask, :real_price, :real_price_mask, :title, :user_id, :ofertus_top, :visits, :give_power, :partner_id
 
   scope :recent, order("deals.created_at DESC")
   scope :lowest_price, order("deals.price ASC")

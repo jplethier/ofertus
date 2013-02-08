@@ -1,5 +1,5 @@
 class Netshoes
-  
+
   def self.fill_deal_fields(link)
     page = Share.open_page(link)
 
@@ -14,7 +14,12 @@ class Netshoes
     end
     deal.company = "Netshoes"
     deal.category = Deal::CATEGORY_CLOTHES
-    
+
+    partner = Partner.find_by_name('Netshoes')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
   end
 end

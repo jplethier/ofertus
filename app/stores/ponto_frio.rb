@@ -42,7 +42,12 @@ class PontoFrio
     end
     deal.link = link
     deal.company = "Ponto Frio"
-    
+
+    partner = Partner.find_by_name('Ponto Frio')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
   end
 end

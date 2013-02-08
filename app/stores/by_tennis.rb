@@ -45,7 +45,12 @@ class ByTennis
     end
     deal.category = Deal::CATEGORY_CLOTHES
     deal.company = "ByTennis"
-    
+
+    partner = Partner.find_by_name('ByTennis')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
   end
 end

@@ -28,8 +28,13 @@ class PeixeUrbano
       #  end
       end
     end
-    
+
+    partner = Partner.find_by_name('Peixe Urbano')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
   end
-  
+
 end

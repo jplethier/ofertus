@@ -17,13 +17,19 @@ class Groupon
       deal.image_url = page.at_css(".nobg").at_xpath(".//img")[:src].try(:strip) if page.at_css(".nobg")
     end
     deal.company = "Groupon"
+
+    partner = Partner.find_by_name('Groupon')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     #TODO: O método consegue setar city_id da oferta, mas não consegue exibir corretamente já na tela de cadastro de nova oferta
     #deal.city = City.find_by_name(page.at_css("#headerCityButton").try(:text).try(:strip))
     #if deal.city
     #  deal.city_id = deal.city.id
     #end
-    
+
     deal
   end
-  
+
 end

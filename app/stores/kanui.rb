@@ -1,5 +1,5 @@
 class Kanui
-  
+
   def self.fill_deal_fields(link)
     deal = Deal.new
     page = Share.open_page(link)
@@ -13,7 +13,12 @@ class Kanui
       deal.description = page.at_css("#productDetails").try(:text).truncate(4000) if page.at_css("#productDetails")
       deal.category = Deal::CATEGORY_CLOTHES
       deal.image_url = page.at_css("#prdZoomBox span img")[:src].try(:strip) if page.at_css("#prdZoomBox span img") && page.at_css("#prdZoomBox span img")[:src]
-      deal.company = "Kanui"
+    end
+    deal.company = "Kanui"
+
+    partner = Partner.find_by_name('Kanui')
+    unless partner.blank?
+      deal.partner = partner
     end
 
     deal

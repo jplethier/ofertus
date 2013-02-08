@@ -14,7 +14,12 @@ class Sepha
       deal.image_url = "http:" + page.at_css("#imagem_descricao")[:src].try(:strip) if page.at_css("#imagem_descricao")
     end
     deal.company = "Sepha"
-    
+
+    partner = Partner.find_by_name('Sepha')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
 
     # puts "-"*100

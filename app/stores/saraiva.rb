@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class Saraiva
-  
+
   CATEGORIES = {
     "Livros" => Deal::CATEGORY_CULTURE,
     "Livros Importados" => Deal::CATEGORY_CULTURE,
@@ -38,10 +38,15 @@ class Saraiva
       deal.category = CATEGORIES[page.at_css("#breadcumbs").try(:text).split('►')[1].try(:strip)] if page.at_css("#breadcumbs")
       deal.image_url = page.at_css("#imgProd")[:src].try(:strip) if page.at_css("#imgProd")
     end
-    
+
     deal.company = "Saraiva"
+
+    partner = Partner.find_by_name('Livraria Saraiva')
+    unless partner.blank?
+      deal.partner = partner
+    end
 
     deal
   end
-  
+
 end

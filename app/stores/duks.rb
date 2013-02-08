@@ -3,7 +3,7 @@
 require 'open-uri'
 
 class Duks
-  
+
   def self.fill_deal_fields(link)
     page = Share.open_page(link)
 
@@ -16,7 +16,12 @@ class Duks
       deal.description = page.at_css("#CommentsFB").to_s.truncate(4000) if page.at_css("#CommentsFB")
       deal.image_url = "http://www.duks.com.br" + page.at_css(".MagicZoom").at_xpath(".//img")[:src][2..-1] if page.at_css(".MagicZoom") && page.at_css(".MagicZoom").at_xpath(".//img")
       deal.category = Deal::CATEGORY_BEAUTY_AND_HEALTH
-      deal.company = "Duks Perfumaria"
+    end
+    deal.company = "Duks Perfumaria"
+
+    partner = Partner.find_by_name('Duks')
+    unless partner.blank?
+      deal.partner = partner
     end
 
     deal

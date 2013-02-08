@@ -8,6 +8,8 @@ namespace :db do
     puts "-------- Criando parceiros -----------"
     puts "-------- Americanas ----------"
     Partner.create(name: 'Americanas', commission: 4, user_commission: 1.5, code: 5632)
+    puts "-------- Americanas ----------"
+    Partner.create(name: 'Americanas', commission: 8, user_commission: 4, code: 5815)
     puts "-------- Ana Hickmann ----------"
     Partner.create(name: 'Ana Hickmann', commission: 12, user_commission: 5, code: 5662)
     puts "-------- Apple Store ----------"
@@ -30,6 +32,8 @@ namespace :db do
     Partner.create(name: 'Cd Point', commission: 4.24, user_commission: 2, code: 10)
     puts "-------- Cestas Michelli ----------"
     Partner.create(name: 'Cestas Michelli', commission: 0, user_commission: 0, code: 5706)
+    puts "-------- Compra Fácil ----------"
+    Partner.create(name: 'Compra Fácil', commission: 0, user_commission: 0, code: nil)
     puts "-------- CVC ----------"
     Partner.create(name: 'CVC', commission: 8, user_commission: 3.5, code: 5708)
     puts "-------- CyberDiet ----------"

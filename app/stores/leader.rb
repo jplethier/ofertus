@@ -39,7 +39,12 @@ class Leader
       deal.image_url = page.at_css(".fotoPrincipal").at_xpath(".//img")[:src].try(:strip) if page.at_css(".fotoPrincipal") && page.at_css(".fotoPrincipal").at_xpath(".//img")
     end
     deal.company = "Leader"
-    
+
+    partner = Partner.find_by_name('Leader')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
-  end  
+  end
 end

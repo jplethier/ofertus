@@ -46,7 +46,12 @@ class CompraFacil
       deal.description = page.at_css("#produto-caracteristicas").to_s.truncate(4000) if page.at_css("#produto-caracteristicas")
       deal.category = CATEGORIES[page.at_css("#breadCrumb").at_xpath(".//ul/li/a").try(:text).try(:strip)] if page.at_css("#breadCrumb") && page.at_css("#breadCrumb").at_xpath(".//ul/li/a") && page.at_css("#breadCrumb").at_xpath(".//ul/li/a").try(:text)
       deal.image_url = page.at_css(".imagens-maisInfo").at_xpath(".//img")[:src].try(:strip) if page.at_css(".imagens-maisInfo") && page.at_css(".imagens-maisInfo").at_xpath(".//img")
-      deal.company = "Compra Fácil"
+    end
+    deal.company = "Compra Fácil"
+
+    partner = Partner.find_by_name('Compra Fácil')
+    unless partner.blank?
+      deal.partner = partner
     end
 
     deal

@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class LojasMm
-  
+
   def self.fill_deal_fields(link)
     page = Share.open_page(link)
 
@@ -15,7 +15,12 @@ class LojasMm
       deal.image_url = page.at_css("#ProdutoImagemAux")["src"].try(:strip) if page.at_css("#ProdutoImagemAux")
     end
     deal.company = "Lojas MM"
-    
+
+    partner = Partner.find_by_name('Lojas MM')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
   end
 end

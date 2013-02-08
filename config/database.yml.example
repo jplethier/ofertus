@@ -1,7 +1,7 @@
 development:
   adapter: postgresql
   encoding: utf8
-  database: dealwitme_development
+  database: ofertus_development
   username: root
   password:
 
@@ -11,7 +11,7 @@ development:
 test:
   adapter: postgreql
   encoding: utf8
-  database: dealwitme_test
+  database: ofertus_test
   username: root
   password:
 
@@ -19,6 +19,6 @@ production:
   host: db_primary
   adapter: mysql2
   encoding: utf8
-  database: dealwitme_production
+  database: ofertus_production
   username: sample
   password: sample

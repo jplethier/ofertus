@@ -13,7 +13,12 @@ class Disantinni
       deal.category = Deal::CATEGORY_CLOTHES
       #TODO: falta colocar a imagem para funcionar
       deal.image_url = page.at_css("#pcPrincipalGrande")[:src] if page.at_css("#pcPrincipalGrande")
-      deal.company = "Di Santinni"
+    end
+    deal.company = "Di Santinni"
+
+    partner = Partner.find_by_name('DiSantinni')
+    unless partner.blank?
+      deal.partner = partner
     end
 
     deal

@@ -44,7 +44,12 @@ class Submarino
       deal.image_url = page.at_css("#imgProduto")[:src].try(:strip) if page.at_css("#imgProduto")
     end
     deal.company = "Submarino"
-    
+
+    partner = Partner.find_by_name('Submarino')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
   end
 end

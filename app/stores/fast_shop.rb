@@ -32,6 +32,12 @@ class FastShop
       deal.image_url = page.at_css(".photo").at_xpath(".//input")[:src] if page.at_css(".photo") && page.at_css(".photo").at_xpath(".//input")
     end
     deal.company = "Fast Shop"
+
+    partner = Partner.find_by_name('FastShop')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
   end
 end

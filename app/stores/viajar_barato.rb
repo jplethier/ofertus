@@ -14,7 +14,12 @@ class ViajarBarato
     deal.category = Deal::CATEGORY_TRAVEL
     deal.end_date = Date.today
     deal.company = "Viajar Barato"
-    
+
+    partner = Partner.find_by_name('Viajar Barato')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
   end
 end

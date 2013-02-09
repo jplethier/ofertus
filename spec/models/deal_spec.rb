@@ -36,7 +36,6 @@ describe Deal do
         deal.city.name.should == 'Oferta Nacional'
       end
 
-      it { should validate_presence_of :company }
       it { should validate_presence_of :description }
 
       describe "#end_date" do

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121225121205) do
+ActiveRecord::Schema.define(:version => 20130209174615) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(:version => 20121225121205) do
     t.integer  "visits",                                      :default => 0
     t.text     "original_link"
     t.boolean  "give_power",                                  :default => false
+    t.integer  "partner_id"
   end
 
   add_index "deals", ["city_id"], :name => "index_deals_on_city_id"
@@ -146,6 +147,13 @@ ActiveRecord::Schema.define(:version => 20121225121205) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "user_commission"
+    t.string   "image_url"
+    t.string   "small_image_url"
+    t.string   "mini_image_url"
+    t.boolean  "active",               :default => false
+    t.string   "url"
+    t.boolean  "promotion",            :default => false
+    t.float    "promotion_commission", :default => 0.0
   end
 
   create_table "powers", :force => true do |t|

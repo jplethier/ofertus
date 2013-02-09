@@ -21,12 +21,17 @@ class HotelUrbano
     end
     deal.category = Deal::CATEGORY_TRAVEL
     deal.company = "Hotel Urbano"
+
+    partner = Partner.find_by_name('Hotel Urbano')
+    unless partner.blank?
+      deal.partner = partner
+    end
     #  #TODO: O método consegue setar city_id da oferta, mas não consegue exibir corretamente já na tela de cadastro de nova oferta
     #  deal.city = City.find_by_name(page.at_css("#headerCityButton").try(:text).try(:strip))
     #  if deal.city
     #    deal.city_id = deal.city.id
     #  end
-    
+
     deal
   end
 end

@@ -1,5 +1,5 @@
 class GiulianaFlores
-  
+
   def self.fill_deal_fields(link)
     page = Share.open_page(link)
 
@@ -14,7 +14,12 @@ class GiulianaFlores
       deal.image_url = page.at_css("#ctl00_ContentSite_vmcImage_imgProductBig")[:src] if page.at_css("#ctl00_ContentSite_vmcImage_imgProductBig")
     end
     deal.company = "Giuliana Flores"
-    
+
+    partner = Partner.find_by_name('Giuliana Flores')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
   end
 end

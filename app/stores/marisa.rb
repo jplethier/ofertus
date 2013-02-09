@@ -15,6 +15,11 @@ class Marisa
     deal.link = link
     deal.company = "Marisa"
 
+    partner = Partner.find_by_name('Marisa')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
   end
 end

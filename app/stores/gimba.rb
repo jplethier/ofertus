@@ -15,6 +15,11 @@ class Gimba
     deal.link = link.to_s.gsub('%25','%')
     deal.company = "Gimba"
 
+    partner = Partner.find_by_name('Gimba')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
   end
 end

@@ -14,7 +14,12 @@ class LivrariaCultura
     end
     deal.category = Deal::CATEGORY_CULTURE
     deal.company = "Livraria Cultura"
-    
+
+    partner = Partner.find_by_name('Livraria Cultura')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
-  end  
+  end
 end

@@ -1,5 +1,5 @@
 class AmoMuito
-  
+
   def self.fill_deal_fields(link)
     deal = Deal.new
     page = Share.open_page(link)
@@ -15,6 +15,10 @@ class AmoMuito
     deal.link = link
     deal.company = "AmoMuito"
 
+    partner = Partner.find_by_name('AmoMuito')
+    unless partner.blank?
+      deal.partner = partner
+    end
     deal
   end
 end

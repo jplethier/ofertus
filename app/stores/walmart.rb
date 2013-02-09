@@ -20,7 +20,7 @@ class Walmart
     "Produtos Sustentáveis" => Deal::CATEGORY_OTHER,
     "Relógios" => Deal::CATEGORY_CLOTHES,
     "Telefonia" => Deal::CATEGORY_COMPUTER,
-    "Utilidades Domésticas" => Deal::CATEGORY_HOME_AND_APPLIANCE  
+    "Utilidades Domésticas" => Deal::CATEGORY_HOME_AND_APPLIANCE
   }
 
   def self.fill_deal_fields(link)
@@ -31,13 +31,13 @@ class Walmart
       deal.link = link
 
       deal.title = page.at_css("h1#product-name").try(:text).try(:strip)[0,255] if page.at_css("h1#product-name").try(:text)
-      
+
       if page.at_css('#___rc-p-dv-id') && page.at_css('#___rc-p-dv-id')[:value]
         price_page = Share.open_page('http://www.walmart.com.br/part/skuPrice?idSku=' + page.at_css('#___rc-p-dv-id')[:value])
 
         unless price_page.nil?
           deal.real_price_mask = price_page.at_css(".valor-de strong").try(:text).try(:strip) if price_page.at_css(".valor-de strong").try(:text)
-          
+
           deal.price_mask = price_page.at_css(".valor-por span").try(:text).try(:strip) if price_page.at_css(".valor-por span").try(:text)
         end
       end
@@ -46,7 +46,12 @@ class Walmart
       deal.category = CATEGORIES[page.xpath('//div[@id="box-Bread-Crumb"]//ul/li').collect(&:text)[1]] if page.xpath('//div[@id="box-Bread-Crumb"]//ul/li') && page.xpath('//div[@id="box-Bread-Crumb"]//ul/li').collect(&:text)
       deal.image_url = 'http://www.walmart.com.br' + page.at_css("#image-main")[:src].try(:strip) if page.at_css("#image-main") && page.at_css("#image-main")[:src]
       deal.image_url = 'http://www.walmart.com.br' + page.at_css("#image a#image-zoom-jq")[:href].try(:strip) if page.at_css("#image a#image-zoom-jq") && page.at_css("#image a#image-zoom-jq")[:href]
-      deal.company = "Walmart"
+    end
+    deal.company = "Walmart"
+
+    partner = Partner.find_by_name('Walmart')
+    unless partner.blank?
+      deal.partner = partner
     end
 
     deal

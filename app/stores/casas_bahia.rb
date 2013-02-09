@@ -24,7 +24,7 @@ class CasasBahia
     'Relógios' => Deal::CATEGORY_CLOTHES,
     'Saúde & Beleza' => Deal::CATEGORY_BEAUTY_AND_HEALTH,
     'Tablets' => Deal::CATEGORY_COMPUTER,
-    'Utilidades Domésticas' => Deal::CATEGORY_HOME_AND_APPLIANCE  
+    'Utilidades Domésticas' => Deal::CATEGORY_HOME_AND_APPLIANCE
   }
 
   def self.fill_deal_fields(link)
@@ -33,7 +33,7 @@ class CasasBahia
 
     deal.link = link.to_s.gsub('%25','%2')
     unless page.nil?
-      
+
       deal.title = page.at_css(".produtoNome").try(:text).try(:strip)[0,255] if page.at_css('.produtoNome')
       deal.price_mask = page.at_css(".for strong").try(:text).split('$')[1].try(:strip) if page.at_css(".for strong") && page.at_css(".for strong").try(:text)
       deal.real_price_mask = page.at_css(".from strong").try(:text).split('$')[1].try(:strip) if page.at_css(".from strong") && page.at_css(".from strong").try(:text)
@@ -42,6 +42,11 @@ class CasasBahia
       deal.image_url = page.at_css(".photo")["src"].try(:strip) if page.at_css(".photo")
     end
     deal.company = "Casas Bahia"
+
+    partner = Partner.find_by_name('Casas Bahia')
+    unless partner.blank?
+      deal.partner = partner
+    end
 
     deal
   end

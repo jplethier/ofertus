@@ -1,5 +1,5 @@
 class Dafiti
-  
+
   def self.fill_deal_fields(link)
     page = Share.open_page(link)
 
@@ -12,7 +12,12 @@ class Dafiti
       deal.description = page.at_css(".productdescription").to_s.truncate(4000) if page.at_css(".productdescription")
       deal.category = Deal::CATEGORY_CLOTHES
       deal.image_url = page.at_css("#product-image-image")[:src].try(:strip) if page.at_css("#product-image-image")
-      deal.company = "Dafiti"
+    end
+    deal.company = "Dafiti"
+
+    partner = Partner.find_by_name('Dafiti')
+    unless partner.blank?
+      deal.partner = partner
     end
 
     # puts "-"*100

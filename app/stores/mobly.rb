@@ -7,7 +7,7 @@ class Mobly
     unless page.nil?
       deal.link = link
       deal.title = page.at_css(".prd-title").try(:text).try(:strip)[0,255] if page.at_css(".prd-title")
-      
+
       deal.price_mask = page.at_css("#special_price_box").try(:text).try(:strip) if page.at_css("#special_price_box") && page.at_css("#special_price_box")
 
       deal.real_price_mask = page.at_css('#price_box').try(:text).try(:strip) if page.at_css('#price_box')
@@ -17,8 +17,13 @@ class Mobly
     end
     deal.category = Deal::CATEGORY_HOME_AND_DECORATION
     deal.company = "Mobly"
-    
+
+    partner = Partner.find_by_name('Mobly')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
   end
-  
+
 end

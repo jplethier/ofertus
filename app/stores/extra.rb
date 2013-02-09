@@ -33,7 +33,7 @@ class Extra
   def self.fill_deal_fields(link)
     deal = Deal.new
     page = Share.open_page(link)
-    
+
     deal.link = link.to_s.gsub('%25','%')
     unless page.nil?
       deal.title = page.at_css(".produtoNome h1").try(:text).try(:strip)[0,255] if page.at_css('.produtoNome h1') && page.at_css('.produtoNome h1').try(:text)
@@ -44,6 +44,11 @@ class Extra
       deal.image_url = page.at_css("#divFullImage a img")["src"].try(:strip) if page.at_css("#divFullImage a img")
     end
     deal.company = "Extra"
+
+    partner = Partner.find_by_name('Extra')
+    unless partner.blank?
+      deal.partner = partner
+    end
 
     deal
   end

@@ -3,7 +3,7 @@ body {
     ul.partners_list {
       width: 90%;
       margin: 0 auto 1em;
-      
+
       li {
         float: left;
         margin: 1em;
@@ -12,6 +12,10 @@ body {
 
         a {
           text-decoration: none;
+
+          img {
+            width: 162px;
+          }
 
           .plus {
             background: image-url('commission_plus.png') no-repeat;
@@ -26,15 +30,15 @@ body {
             .value {
               color: white;
               font-family: 'Lobster';
-              font-size: 18pt;
+              font-size: 17pt;
               /*-webkit-transform: rotate(45deg);
               -moz-transform: rotate(45deg);
               filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1.5);
               -o-transform: rotate(45deg);*/
               @include transform(rotate(45deg));
               position: absolute;
-              top: 15px;
-              right: 8px;
+              top: 12px;
+              right: 2px;
               font-weight: bold;
             }
           }
@@ -43,13 +47,13 @@ body {
             display: none;
             text-align: center;
             height: 72px;
-            width: 71px;
+            width: 104px;
             border-radius: 10px;
             background: #CCC;
             color: #9C9C6C;
             font-size: 42pt;
             font-family: 'Lobster';
-            padding: 45px;
+            padding: 45px 29px;
 
             .old {
               font-size: 15pt;
@@ -59,11 +63,11 @@ body {
           }
 
           .old_and_new {
-            padding: 37px 45px !important;
+            padding: 37px 29px !important;
             height: 88px
           }
         }
-  
+
         a:hover {
           .percent {
             display: block;

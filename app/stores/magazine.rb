@@ -38,7 +38,12 @@ class Magazine
       deal.image_url = page.at_css(".imagem_produto").at_xpath(".//img")[:src].try(:strip) if page.at_css(".imagem_produto") && page.at_css(".imagem_produto").at_xpath(".//img")
     end
     deal.company = "Magazine Luiza"
-    
+
+    partner = Partner.find_by_name('Magazine Luiza')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
   end
 end

@@ -14,8 +14,13 @@ class ToyMania
     end
     deal.category = Deal::CATEGORY_OTHER
     deal.company = "Toy Mania"
-    
+
+    partner = Partner.find_by_name('Toy Mania')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     deal
   end
-  
+
 end

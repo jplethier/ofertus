@@ -1,0 +1,15 @@
+= cache 'partners_list', expires_in: 1.day do
+  .partners_list
+    %h4= t('strings.partners')
+    = link_to t('strings.all'), partners_path, target: '_blank'
+
+    %ul
+      - Partner.active.order('name').each do |partner|
+        %li
+          %a{ href: partner.url, target: "_blank" }
+            %img{ src: partner.small_image_url, alt: partner.name, title: partner.name }
+            .percent
+              - if partner.promotion
+                = partner.promotion_commission.to_s.gsub('.',',') + '%'
+              - else
+                = partner.user_commission.to_s.gsub('.',',') + '%'

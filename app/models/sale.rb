@@ -9,7 +9,7 @@ class Sale < ActiveRecord::Base
   CANCELLED = 4
   WITHDRAW_PENDING = 5
   WITHDRAW = 6
-  
+
   STATUS = [ PENDING, BONUS, CONFIRMED, CANCELLED, WITHDRAW ]
 
   belongs_to :user
@@ -70,7 +70,11 @@ class Sale < ActiveRecord::Base
     if partner
       sale.partner = partner
       sale.commission = partner.commission
-      sale.user_commission = partner.user_commission
+      if partner.promotion
+        sale.user_commission = partner.promotion_commission
+      else
+        sale.user_commission = partner.user_commission
+      end
       # SOMENTE PARA A BLACK FRIDAY
       # sale.user_commission = partner.user_commission * 2
     else

@@ -30,7 +30,12 @@ class Fnac
     end
 
     deal.company = "FNAC"
-    
+
+    partner = Partner.find_by_name('Fnac')
+    unless partner.blank?
+      deal.partner = partner
+    end
+
     # puts "-"*100
     # puts "INICIO DA BUSCA NA PAGINA"
     # puts "-"*100
@@ -48,5 +53,5 @@ class Fnac
 
     deal
   end
-  
+
 end

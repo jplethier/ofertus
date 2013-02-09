@@ -24,8 +24,8 @@ namespace :db do
     Partner.find_by_name('ByTennis').update_attributes(active: true)
     # puts "-------- Camiseteria ----------"
     # Partner.find_by_name('Camiseteria').update_attributes(active: true)
-    puts "-------- Carrefour ----------"
-    Partner.find_by_name('Carrefour').update_attributes(active: true)
+    # puts "-------- Carrefour ----------"
+    # Partner.find_by_name('Carrefour').update_attributes(active: true)
     # puts "-------- CarZ ----------"
     # Partner.find_by_name('CarZ').update_attributes(active: true)
     puts "-------- Casas Bahia ----------"
@@ -76,8 +76,8 @@ namespace :db do
     # Partner.find_by_name('Martins Fontes').update_attributes(active: true)
     puts "-------- Mobly ----------"
     Partner.find_by_name('Mobly').update_attributes(active: true)
-    puts "-------- Netshoes ----------"
-    Partner.find_by_name('Netshoes').update_attributes(active: true)
+    # puts "-------- Netshoes ----------"
+    # Partner.find_by_name('Netshoes').update_attributes(active: true)
     # puts "-------- Nova Flor ----------"
     # Partner.find_by_name('Nova Flor').update_attributes(active: true)
     # puts "-------- Ofertas Tam Compra Coletiva ----------"

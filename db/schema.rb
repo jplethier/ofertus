@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130209122439) do
+ActiveRecord::Schema.define(:version => 20130209174615) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -150,7 +150,10 @@ ActiveRecord::Schema.define(:version => 20130209122439) do
     t.string   "image_url"
     t.string   "small_image_url"
     t.string   "mini_image_url"
-    t.boolean  "active",          :default => false
+    t.boolean  "active",               :default => false
+    t.string   "url"
+    t.boolean  "promotion",            :default => false
+    t.float    "promotion_commission", :default => 0.0
   end
 
   create_table "powers", :force => true do |t|

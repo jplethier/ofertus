@@ -9,7 +9,7 @@ namespace :db do
     puts "-------- Americanas ----------"
     Partner.find_by_name('Americanas').update_attributes(image_url: '/assets/partners/americanas.png', small_image_url: '/assets/partners/americanas_small.png', mini_image_url: '/assets/partners/americanas_mini.png')
     puts "-------- AmoMuito ----------"
-    Partner.find_by_name('AmoMuito').update_attributes(image_url: '/assets/partners/amomuito.png', small_image_url: '/assets/partners/amomuito_small.png', mini_image_url: '/assets/partners/amomuito.png')
+    Partner.find_by_name('AmoMuito').update_attributes(image_url: '/assets/partners/amomuito.png', small_image_url: '/assets/partners/amomuito_small.png', mini_image_url: '/assets/partners/amomuito_mini.png')
     puts "-------- Ana Hickmann ----------"
     Partner.find_by_name('Ana Hickmann').update_attributes(image_url: '/assets/partners/anahickmann.png', small_image_url: '/assets/partners/anahickmann_small.png', mini_image_url: '/assets/partners/anahickmann_mini.png')
     puts "-------- Apple Store ----------"

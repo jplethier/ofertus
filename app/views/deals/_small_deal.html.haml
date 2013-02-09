@@ -5,7 +5,7 @@
     .price
       %p.from= t('strings.from_price', price: number_to_currency(deal.real_price)).html_safe
       %p.by= t('strings.by_price', price: number_to_currency(deal.price)).html_safe
-      
+
       - if deal.discount > 50
         .discount{ style: "background: url('#{asset_path('red_discount_small.png')}') -1px -2px" }= "#{deal.discount.to_i}%"
       - elsif deal.discount > 25
@@ -23,7 +23,7 @@
     = link_to t('strings.like'), 'javascript:;', class: 'like', id: 'like_btn', onclick: "upvote_deal('#{deal.id}','small_')", onmouseover: "$('#small_deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#small_deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')"
     = link_to t('strings.dislike'), 'javascript:;', class: 'dislike', id: 'dislike_btn', onclick: "dislike_deal('#{deal.id}','small_')", style: 'display: none;', onmouseover: "$('#small_deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#small_deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')"
   %a.fb{ href: "https://www.facebook.com/dialog/feed?app_id=146791075437937&link=#{deal_url(deal)}&picture=#{deal.get_image_url}&name=#{deal.title}&caption=Reference%20Documentation&description=#{deal.title}&redirect_uri=#{request.url}", 'data-no-turbolink' => true, onmouseover: "$('#small_deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#small_deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')" }
-  
+
   %h4= link_to truncate_title(deal.title, 21), deal_path(deal)
   .details
     .user_picture
@@ -38,4 +38,6 @@
 
   .bottom
     = link_to 'Comprar', deal.link, :class => 'go_to_site_button', :target => '_blank', :id => "big_button", onmouseover: "$('#deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')"
-    = link_to deal.company, deals_path+'?company='+deal.company, class: "partner partner_#{deal.company.parameterize}", onmouseover: "$('#small_deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#small_deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')"
+    - if !deal.partner.blank?
+      %a.partner{ href: deals_path+'?partner='+deal.partner.id.to_s, onmouseover: "$('#small_deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#small_deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')" }
+        %img{ src: deal.partner.mini_image_url, alt: deal.partner.name, title: deal.partner.name }

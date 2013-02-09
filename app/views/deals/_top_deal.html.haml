@@ -15,7 +15,7 @@
     = link_to t('strings.like'), 'javascript:;', class: 'like', id: 'like_btn', onclick: "upvote_deal('#{deal.id}')", onmouseover: "$('#deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')"
     = link_to t('strings.dislike'), 'javascript:;', class: 'dislike', id: 'dislike_btn', onclick: "dislike_deal('#{deal.id}')", style: 'display: none;', onmouseover: "$('#deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')"
   %a.fb{ href: "https://www.facebook.com/dialog/feed?app_id=146791075437937&link=#{deal_url(deal)}&picture=#{deal.get_image_url}&name=#{deal.title}&caption=Reference%20Documentation&description=#{deal.title}&redirect_uri=#{request.url}", 'data-no-turbolink' => true, onmouseover: "$('#deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')" }
-  
+
   .details
     %h4= link_to truncate_title(deal.title, 50), deal_path(deal), onmouseover: "$('#deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')"
     .user_picture
@@ -40,4 +40,6 @@
 
   .bottom
     = link_to 'Comprar', deal.link, :class => 'go_to_site_button', :target => '_blank', :id => "big_button", onmouseover: "$('#deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')"
-    = link_to deal.company, deals_path+'?company='+deal.company, class: "partner partner_#{deal.company.parameterize}", onmouseover: "$('#deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')"
+    - if !deal.partner.blank?
+      %a.partner{ href: deals_path+'?partner='+deal.partner.id.to_s, onmouseover: "$('#deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')" }
+        %img{ src: deal.partner.mini_image_url, alt: deal.partner.name, title: deal.partner.name }

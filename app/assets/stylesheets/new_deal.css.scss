@@ -23,7 +23,7 @@ body {
       float: left;
       display: inline-block;
       height: auto;
-      
+
       .description {
         padding: 15px;
       }
@@ -59,7 +59,7 @@ body {
       .step2, .step4 {
         float: right;
       }
-        
+
       .step1 {
         .img {
           background: image-url('numbers.png') no-repeat 0 0;
@@ -112,7 +112,7 @@ body {
         img {
           margin-top: .7em;
         }
-          
+
         .img {
           background: image-url('numbers.png') no-repeat -192px 0;
         }
@@ -196,17 +196,21 @@ body {
               text-align: center;
               height: 50px;
 
+              img {
+                width: 50px;
+              }
+
               .percent {
                 display: none;
                 text-align: center;
                 height: 28px;
-                width: 26px;
+                width: 36px;
                 border-radius: 10px;
                 background: #CCC;
                 color: #9C9C6C;
                 font-size: 15pt;
                 font-family: 'Lobster';
-                padding: 11px;
+                padding: 11px 7px;
               }
             }
 

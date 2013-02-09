@@ -21,11 +21,11 @@ namespace :db do
     puts "-------- Brinquedos Laura ----------"
     Partner.find_by_name('Brinquedos Laura').update_attributes(image_url: '/assets/partners/americanas.png', small_image_url: '/assets/partners/americanas_small.png', mini_image_url: '/assets/partners/americanas_mini.png')
     puts "-------- ByTennis ----------"
-    Partner.find_by_name('ByTennis').update_attributes(image_url: '/assets/partners/bytennis.png', small_image_url: '/assets/partners/bytennis.png', mini_image_url: '/assets/partners/bytennis_mini.png')
+    Partner.find_by_name('ByTennis').update_attributes(image_url: '/assets/partners/bytennis.png', small_image_url: '/assets/partners/bytennis_small.png', mini_image_url: '/assets/partners/bytennis_mini.png')
     puts "-------- Camiseteria ----------"
     Partner.find_by_name('Camiseteria').update_attributes(image_url: '/assets/partners/camiseteria.png', small_image_url: '/assets/partners/camiseteria_small.png', mini_image_url: '/assets/partners/camiseteria_mini.png')
     puts "-------- Carrefour ----------"
-    Partner.find_by_name('Carrefour').update_attributes(image_url: '/assets/partners/carrefour.png', small_image_url: '/assets/partners/carrefour.png', mini_image_url: '/assets/partners/carrefour.png')
+    Partner.find_by_name('Carrefour').update_attributes(image_url: '/assets/partners/carrefour.png', small_image_url: '/assets/partners/carrefour_small.png', mini_image_url: '/assets/partners/carrefour_mini.png')
     puts "-------- CarZ ----------"
     Partner.find_by_name('CarZ').update_attributes(image_url: '/assets/partners/carz.png', small_image_url: '/assets/partners/carz_small.png', mini_image_url: '/assets/partners/carz_mini.png')
     puts "-------- Casas Bahia ----------"

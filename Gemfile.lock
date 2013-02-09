@@ -36,6 +36,8 @@ GEM
       activesupport (= 3.1.10)
       arel (~> 2.2.3)
       tzinfo (~> 0.3.29)
+    activerecord-postgresql-adapter (0.0.1)
+      pg
     activeresource (3.1.10)
       activemodel (= 3.1.10)
       activesupport (= 3.1.10)
@@ -334,6 +336,7 @@ PLATFORMS
 
 DEPENDENCIES
   activeadmin
+  activerecord-postgresql-adapter
   acts_as_commentable
   airbrake
   annotate (>= 2.5.0.pre1)

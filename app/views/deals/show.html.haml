@@ -1,7 +1,7 @@
 = content_for :page_head do
   = render 'details', deal: @deal
   #header_background
-  
+
 #sem-col
   .clear
   #description_and_comments
@@ -12,10 +12,10 @@
         .desc-off
           %h4= t('strings.description')
           .tx-desc= @deal.description.html_safe
-        
+
 
       .right-detalhe-comment-off
-    
+
         .comment-off
           %h4= t('strings.comments')
           .tx-desc

@@ -79,4 +79,12 @@
             %a{ href: '/deals?discount_range=51+-+100' }
               .img
               %span 51% - 100%
+      %li.partners.no_border
+        = link_to t('search.filters.partners'), 'javascript:;', onclick: "$('#options_partners').slideToggle();"
+        %ul#options_partners
+          - Partner.active.each do |p|
+            %li
+              %a{ href: deals_path+'?partner='+p.id.to_s }
+                %img{ src: p.mini_image_url, title: p.name, alt: p.name }
+
 .clear_header_fix

@@ -385,7 +385,7 @@ a#natal_bar{
       border-right: 1px solid #888;
       padding: 0 9px;
       position: relative;
-      
+
       a {
         font-family: 'Colaborate-Thin';
         font-size: 11pt;
@@ -407,7 +407,11 @@ a#natal_bar{
       width: 52px;
     }
 
-    ul#other_categories, ul#options_price, ul#options_discount {
+    li.partners {
+      width: 42px;
+    }
+
+    ul#other_categories, ul#options_price, ul#options_discount, ul#options_partners {
       display: none;
       width: 200px;
       height: 155px;
@@ -426,6 +430,20 @@ a#natal_bar{
     ul#options_price, ul#options_discount {
       li {
         width: 187px;
+      }
+    }
+
+    ul#options_partners {
+      position: absolute;
+      right: 0px;
+      height: auto;
+      width: 176px;
+
+      li {
+        float: left;
+        border: none !important;
+        clear: none;
+        width: auto;
       }
     }
 
@@ -488,7 +506,7 @@ a#natal_bar{
 
       li.car {
         border-color: #390;
-        
+
         a {
           color: #390;
         }
@@ -496,7 +514,7 @@ a#natal_bar{
 
       li.beauty {
         border-color: #c6c;
-        
+
         a {
           color: #c6c;
         }
@@ -504,7 +522,7 @@ a#natal_bar{
 
       li.car {
         border-color: #390;
-        
+
         a {
           color: #390;
         }
@@ -512,7 +530,7 @@ a#natal_bar{
 
       li.entertainment {
         border-color: #0cc;
-        
+
         a {
           color: #0cc;
         }
@@ -520,7 +538,7 @@ a#natal_bar{
 
       li.travel {
         border-color: #f63;
-        
+
         a {
           color: #f63;
         }
@@ -528,7 +546,7 @@ a#natal_bar{
 
       li.other {
         border-color: #333;
-        
+
         a {
           color: #333;
         }
@@ -544,7 +562,7 @@ a#natal_bar{
     }
 
     li.price {
-      margin-left: 70px;
+      margin-left: 65px;
     }
   }
 }

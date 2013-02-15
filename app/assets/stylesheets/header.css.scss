@@ -399,22 +399,45 @@ a#natal_bar{
       width: 89px;
     }
 
+    li.categories:hover {
+      ul#other_categories {
+        display: block;
+      }
+    }
+
     li.discount {
       width: 83px;
+    }
+
+    li.discount:hover {
+      ul#options_discount {
+        display: block;
+      }
     }
 
     li.price {
       width: 52px;
     }
 
+    li.price:hover {
+      ul#options_price {
+        display: block;
+      }
+    }
+
     li.partners {
       width: 42px;
+    }
+
+    li.partners:hover {
+      ul#options_partners {
+        display: block;
+      }
     }
 
     ul#other_categories, ul#options_price, ul#options_discount, ul#options_partners {
       display: none;
       width: 200px;
-      height: 155px;
       background: white;
       border-top: 3px black solid;
 
@@ -425,6 +448,14 @@ a#natal_bar{
         border-bottom: 1px solid #ccc !important;
         border-right: none;
       }
+    }
+
+    ul#options_discount {
+      height: 155px;
+    }
+
+    ul#other_categories, ul#options_price {
+      height: 162px;
     }
 
     ul#options_price, ul#options_discount {

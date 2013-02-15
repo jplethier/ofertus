@@ -12,7 +12,8 @@
       - @top_deals.each_with_index do |deal, index|
         = render :partial => 'deals/top_deal', :locals => {:deal => deal, :index => index }
   .ttGlHome
-    %h2= t('strings.users_best')
+    %h2
+      %a{ href: deals_path + "?search_scope=likes" }= t('strings.users_best')
     %h3= t('strings.our_users_recomendations')
     = link_to t('strings.more'), "#{deals_path}?search_scope=likes"
   .list-conteudo.best_deals
@@ -25,7 +26,8 @@
       = link_to 'Anterior', 'javascript:;', :id => 'list_prev1', :class => 'prev'
       = link_to 'Próximo', 'javascript:;', :id => 'list_next1', :class => 'next'
   .ttGlHome
-    %h2= t('strings.recent')
+    %h2
+      %a{ href: deals_path + "?search_scope=recent" }= t('strings.recent')
     %h3= t('strings.recent_deals')
     = link_to t('strings.more'), "#{deals_path}?search_scope=recent"
   .list-conteudo.best_deals

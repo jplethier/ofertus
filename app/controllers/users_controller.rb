@@ -76,18 +76,34 @@ class UsersController < ApplicationController
         me.feed!(:message => current_user.name + " está seguindo as ofertas de " + @user.name + " no Ofertus", :link => user_url(@user.username), :picture => "http://www.ofertus.com.br/assets/logo_beta.png")
       end
       Notification.create(user: @user, message: "<b>#{current_user.name}</b> está te seguindo. Visite o perfil dele(a) para ver as ofertas compartilhadas por ele(a).", url: user_path(current_user.username))
-      redirect_to env['HTTP_REFERER'], :notice => I18n.t('models.user.started_following', :username => @user.username)
+      if request.xhr?
+        render json: { status: 'sucesso', message: I18n.t('models.user.started_following', :username => @user.username) }
+      else
+        redirect_to env['HTTP_REFERER'], :notice => I18n.t('models.user.started_following', :username => @user.username)
+      end
     else
-      redirect_to env['HTTP_REFERER'], :alert => I18n.t('models.user.already_following', :username => @user.username)
+      if request.xhr?
+        render json: { status: 'erro', message: I18n.t('models.user.already_following', :username => @user.username) }
+      else
+        redirect_to env['HTTP_REFERER'], :alert => I18n.t('models.user.already_following', :username => @user.username)
+      end
     end
   end
 
   def unfollow
     if current_user.follow? @user
       current_user.unfollow! @user
-      redirect_to env['HTTP_REFERER'], notice: I18n.t('models.user.stopped_following', username: @user.username)
+      if request.xhr?
+        render json: { status: 'sucesso', message: I18n.t('models.user.stopped_following', username: @user.username) }
+      else
+        redirect_to env['HTTP_REFERER'], notice: I18n.t('models.user.stopped_following', username: @user.username)
+      end
     else
-      redirect_to env['HTTP_REFERER'], alert: I18n.t('models.user.not_following', username: @user.username)
+      if request.xhr?
+        render json: { status: 'sucesso', message: I18n.t('models.user.not_following', username: @user.username) }
+      else
+        redirect_to env['HTTP_REFERER'], alert: I18n.t('models.user.not_following', username: @user.username)
+      end
     end
   end
 

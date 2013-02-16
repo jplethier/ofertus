@@ -18,8 +18,8 @@
 
   .details
     %h4= link_to truncate_title(deal.title, 50), deal_path(deal), onmouseover: "$('#deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')"
-    .user_picture
-      %a{ href: user_path(deal.user.username), onmouseover: "$('#deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')" }
+    .user_picture{ onmouseover: "$('#deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')" }
+      %a{ href: 'javascript:;' }
         = cache([:user, :small_picture, deal.user.id], expires_in: 4.hours) do
           %img{ src: deal.user.small_picture }
       .user_box

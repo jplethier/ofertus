@@ -1,6 +1,16 @@
 .infos
-  %img{ src: user.small_picture }
+  %a{ href: user_path(user.username) }
+    %img{ src: user.small_picture }
   %strong= user.name
   %br
   %span= "#{user.deals.count} Ofertas"
-  = link_to 'Seguir usuário', 'javascript:;', class: 'follow', onclick: "alert('asdasd')", :'data-no-turbolink' => true
+  - unless !user_signed_in? || current_user == user
+    - if user_signed_in?
+      - already_follow = current_user.follow?(user)
+    - else
+      - already_follow = false
+    - if already_follow
+      - function = "unfollow('#{user.username}','follow_user_#{user.id}')"
+    - else
+      - function = "follow('#{user.username}','follow_user_#{user.id}')"
+    = link_to "Seguir usuário#{already_follow ? ' (Desfazer)' : ''}", 'javascript:;', class: "follow #{already_follow ? 'unfollow' : ''}", onclick: function, :'data-no-turbolink' => true, id: "follow_user_#{user.id}"

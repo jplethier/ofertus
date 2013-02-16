@@ -2,6 +2,7 @@ body {
   #home_list {
     padding: 0 30px;
     margin-bottom: 10px;
+    overflow: visible;
 
     h3 {
       height: 25px;
@@ -112,6 +113,87 @@ body {
 
           span.from {
             text-decoration: line-through;
+          }
+        }
+      }
+
+      .details {
+
+        .user_picture {
+          position: relative;
+
+          .user_box {
+            display: none;
+            border: 3px solid #ccc;
+            height: 264px;
+            width: 214px;
+            border-radius: 3px;
+            position: absolute;
+            top: 67px;
+            left: -20px;
+            z-index: 1;
+            background: white;
+            padding: 5px;
+
+            .infos {
+              img {
+                float: left;
+                margin-right: 5px;
+              }
+
+              strong {
+                font-family: 'Colaborate-Thin' !important;
+                font-size: 18px;
+                color: black;
+              }
+
+              span {
+                font-family: 'Lucida Grande';
+                font-size: 12px;
+                color: #888;
+              }
+
+              a.follow, a.unfollow {
+                position: absolute;
+                right: 10px;
+                top: 20px;
+                text-indent: -15000px;
+                display: block;
+                width: 49px;
+                height: 22px;
+                background: image-url('user_box_follow.png') no-repeat;
+              }
+            }
+          }
+
+          .user_box::after {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 29px;
+            border-width: 0px 11px 15px;
+            border-style: solid;
+            border-color: white transparent;
+            display: block;
+            width: 0;
+          }
+
+          .user_box::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: 26px;
+            border-width: 0px 14px 18px;
+            border-style: solid;
+            border-color: #ccc transparent;
+            display: block;
+            width: 0;
+          }
+        }
+
+        .user_picture:hover {
+          .user_box {
+            display: block;
           }
         }
       }

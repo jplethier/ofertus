@@ -1,0 +1,6 @@
+.infos
+  %img{ src: user.small_picture }
+  %strong= user.name
+  %br
+  %span= "#{user.deals.count} Ofertas"
+  = link_to 'Seguir usuário', 'javascript:;', class: 'follow', onclick: "alert('asdasd')", :'data-no-turbolink' => true

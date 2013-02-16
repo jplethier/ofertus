@@ -7,7 +7,7 @@ Author URI: klepper.com.br
 /* Structure
 ------------------------------------------------*/
 html { background:url(bg-html.jpg) repeat; }
-body { font:12px Arial, sans-serif; *font-size:small; font-family: 'Colaborate-Thin', Arial !important; }
+body { font:12px Arial, sans-serif; *font-size:small; font-family: 'Colaborate-Thin', Arial; }
 
 #col-right .ttGlHome { margin-bottom:17px; }
 #col-right .ttGlHome h2 { font-size:21px; line-height:19px; }

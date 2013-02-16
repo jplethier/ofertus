@@ -22,6 +22,8 @@
       %a{ href: user_path(deal.user.username), onmouseover: "$('#deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')" }
         = cache([:user, :small_picture, deal.user.id], expires_in: 4.hours) do
           %img{ src: deal.user.small_picture }
+      .user_box
+        = render 'users/user_box', user: deal.user
     .user_infos
       = t('strings.end_date_only')
       %p.end_date= deal.end_date? ? l(deal.end_date.to_date) : "-"

@@ -13,4 +13,4 @@
       - function = "unfollow('#{user.username}','follow_user_#{user.id}')"
     - else
       - function = "follow('#{user.username}','follow_user_#{user.id}')"
-    = link_to "Seguir usuário#{already_follow ? ' (Desfazer)' : ''}", 'javascript:;', class: "follow #{already_follow ? 'unfollow' : ''}", onclick: function, :'data-no-turbolink' => true, id: "follow_user_#{user.id}"
+    = link_to "Seguir usuário#{already_follow ? ' (Desfazer)' : ''}", 'javascript:;', class: "follow #{already_follow ? 'unfollow' : ''} follow_user_#{user.id}", onclick: function, :'data-no-turbolink' => true

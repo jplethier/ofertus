@@ -12,7 +12,7 @@
           .left
             %span= t('strings.user_show.username', username: @user.username)
             %span= t('strings.user_show.member_since', month: t('date.month_names')[@user.created_at.month], year: @user.created_at.year)
-      
+
       .bottom
         .item
           .deals
@@ -22,8 +22,8 @@
           .text= t('strings.user_show.x_wishes', x: @user.wishes.count).html_safe
         .item
           - if !user_signed_in? || !current_user.follow?(@user)
-            = link_to t('actions.follow'), follow_user_path(@user.username), class: 'follow'
+            = link_to t('actions.follow'), 'javascript:;', class: "follow follow_user_#{@user.id}", onclick: "follow('#{@user.username}','follow_user_#{@user.id}')", :'data-no-turbolink' => true
           - else
-            = link_to t('actions.unfollow'), unfollow_user_path(@user.username), class: 'unfollow'
+            = link_to t('actions.unfollow'), 'javascriot:;', class: 'unfollow', onclick: "unfollow('#{@user.username}','follow_user_#{@user.id}')", :'data-no-turbolink' => true
 
   #header_background

@@ -1,6 +1,6 @@
 function follow(user_username, link){
   $.ajax({
-    url: 'users/'+user_username+'/follow',
+    url: '/users/'+user_username+'/follow',
     success: function(data){
       if(data.status == 'erro'){
         $('#flashes').append('<div class="alert error" id="flash_notice"><p>' + data.message + '</p></div>')
@@ -17,7 +17,7 @@ function follow(user_username, link){
 
 function unfollow(user_username, link){
   $.ajax({
-    url: 'users/'+user_username+'/unfollow',
+    url: '/users/'+user_username+'/unfollow',
     success: function(data){
       if(data.status == 'erro'){
         $('#flashes').append('<div class="alert error" id="flash_notice"><p>' + data.message + '</p></div>')

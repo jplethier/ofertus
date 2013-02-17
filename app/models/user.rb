@@ -62,6 +62,14 @@ class User < ActiveRecord::Base
     self.update_attributes(credit: 0)
   end
 
+  def likes
+    likes = []
+    self.votings.each do |vote|
+      likes << vote.voteable unless vote.voteable.blank?
+    end
+    likes
+  end
+
   def recalculate_credit
     new_credit = 0
     self.sales.each do |sale|

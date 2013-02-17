@@ -14,3 +14,31 @@
     - else
       - function = "follow('#{user.username}','follow_user_#{user.id}')"
     = link_to "Seguir usuário#{already_follow ? ' (Desfazer)' : ''}", 'javascript:;', class: "follow #{already_follow ? 'unfollow' : ''} follow_user_#{user.id}", onclick: function, :'data-no-turbolink' => true
+
+.deals
+  %span Compartilhou:
+  %ul
+    - user.deals.active.random.limit(3).each do |d|
+      %li{ onclick: "Turbolinks.visit('#{deal_path(d)}')" }
+        - if d.discount > 50
+          - src = "background: url('#{asset_path('red_discount_small.png')}') -1px -2px;"
+        - elsif d.discount > 25
+          - src = "background: url('#{asset_path('orange_discount_small.png')}') -1px -2px;"
+        - else
+          - src = "background: url('#{asset_path('green_discount_small.png')}') 0px -2px;"
+        %img{ src: d.image_url }
+        .discount{ style: src }= "#{d.discount.to_i}%"
+
+.deals
+  %span Adorou:
+  %ul
+    - user.likes[0..2].each do |d|
+      %li{ onclick: "Turbolinks.visit('#{deal_path(d)}')" }
+        - if d.discount > 50
+          - src = "background: url('#{asset_path('red_discount_small.png')}') -1px -2px;"
+        - elsif d.discount > 25
+          - src = "background: url('#{asset_path('orange_discount_small.png')}') -1px -2px;"
+        - else
+          - src = "background: url('#{asset_path('green_discount_small.png')}') 0px -2px;"
+        %img{ src: d.image_url }
+        .discount{ style: src }= "#{d.discount.to_i}%"

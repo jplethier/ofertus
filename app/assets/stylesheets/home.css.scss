@@ -125,7 +125,7 @@ body {
           .user_box {
             display: none;
             border: 3px solid #ccc;
-            height: 264px;
+            height: 235px;
             width: 214px;
             border-radius: 3px;
             position: absolute;
@@ -170,6 +170,51 @@ body {
 
               a.unfollow {
                 background: image-url('follow_unfollow_btn.png') no-repeat -68px 0;
+              }
+            }
+
+            .deals {
+              clear: both;
+              font-family: 'Lucida Grande';
+              font-size: 12px;
+              color: #888;
+              display: inline-block;
+              width: 100%;
+              margin-top: 10px;
+
+              span {
+                display: block;
+                margin-bottom: 10px;
+              }
+
+              ul {
+                li {
+                  position: relative;
+                  float: left;
+                  margin-right: 20px;
+
+                  .discount {
+                    position: absolute;
+                    display: none;
+                    height: 19px;
+                    width: 30px;
+                    float: none;
+                    font-size: 16px;
+                    padding: 11px 7px;
+                    top: 5px;
+                    left: 5px;
+                  }
+                }
+
+                li:last-child {
+                  margin-right: 0;
+                }
+
+                li:hover {
+                  .discount {
+                    display: block;
+                  }
+                }
               }
             }
           }

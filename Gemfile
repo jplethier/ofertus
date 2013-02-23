@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 ruby "1.9.3"
 
 gem 'acts_as_commentable'
-gem 'airbrake'
+gem 'airbrake', '3.1.6'
 gem 'annotate', ">= 2.5.0.pre1"
 gem 'bourbon'
 gem 'ckeditor'

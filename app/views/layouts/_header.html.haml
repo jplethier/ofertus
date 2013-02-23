@@ -54,7 +54,7 @@
           %li.car= link_to Deal.i18n_category(Deal::CATEGORY_CAR), '/deals/active/car'
           %li.entertainment= link_to Deal.i18n_category(Deal::CATEGORY_ENTERTAINMENT), '/deals/active/entertainment'
           %li.travel= link_to Deal.i18n_category(Deal::CATEGORY_TRAVEL), '/deals/active/travel'
-          %li.other= link_to Deal.i18n_category(Deal::CATEGORY_OTHER), '/deals/active/other'
+          %li.other= link_to Deal.i18n_category(Deal::CATEGORY_OTHER), '/deals/active/others'
       %li.price.no_border
         = link_to t('search.filters.price'), 'javascript:;'#, onclick: "$('#options_price').slideToggle();"
         %ul#options_price

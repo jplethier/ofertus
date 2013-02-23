@@ -450,12 +450,17 @@ body {
           width: 130px;
           height: 2.5em;
           position: absolute;
-          left: -64px;
-          top: 4em;
+          left: -47px;
+          top: 3em;
           font-family: 'Colaborate-Thin';
           font-size: 11pt;
-          padding-left: 30px;
           line-height: 31px;
+        }
+
+        .img {
+          position: absolute;
+          bottom: 5px;
+          display: none;
         }
       }
 
@@ -597,14 +602,38 @@ body {
 
       .category_1 {
         background: #639;
+
+        .img {
+          background: image-url('category_small_icons.png') -70px -3 no-repeat;
+          width: 22px;
+          height: 22px;
+          left: 4px;
+          bottom: 5px;
+        }
       }
 
       .category_2 {
-        background: #c6c
+        background: #c6c;
+
+        .img {
+          background: image-url('category_small_icons.png') -159px -5px no-repeat;
+          width: 22px;
+          height: 18px;
+          left: 4px;
+          bottom: 1px;
+        }
       }
 
       .category_3 {
         background: #399;
+
+        .img {
+          background: image-url('category_small_icons.png') -47px -5px no-repeat;
+          width: 22px;
+          height: 20px;
+          left: 4px;
+          bottom: 6px;
+        }
       }
 
       .category_4 {
@@ -666,6 +695,10 @@ body {
         z-index: 1;
 
         p {
+          display: block;
+        }
+
+        .img {
           display: block;
         }
       }

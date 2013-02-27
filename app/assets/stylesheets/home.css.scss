@@ -88,11 +88,15 @@ body {
       }
 
       a.like {
-        background: image-url('small_icons.png') no-repeat;
+        background: image-url('likes_btn.png') no-repeat -11px -5px;
       }
 
       a.dislike {
-        background: image-url('adorado.png') no-repeat -6px -2px;
+        background: image-url('likes_btn.png') no-repeat -95px -5px;
+      }
+
+      a.like:hover {
+        background: image-url('likes_btn.png') no-repeat -55px -5px;
       }
 
       a.fb {

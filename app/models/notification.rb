@@ -6,7 +6,7 @@ class Notification < ActiveRecord::Base
   DELETED = 3
 
   belongs_to :user
-  
+
   default_scope order('created_at DESC')
 
   scope :unread,  where(status: 1)
@@ -23,5 +23,9 @@ class Notification < ActiveRecord::Base
 
   def mark_as_read
     self.update_attributes(status: Notification::READ)
+  end
+
+  def self.i18n_status(status)
+    I18n.t("models.deal.category.#{status}")
   end
 end

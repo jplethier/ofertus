@@ -8,7 +8,7 @@ ActiveAdmin.register_page "Dashboard" do
     columns do
       column do
         panel 'Lista de Emails', :style => 'max-width: 500px; word-wrap: break-word;'  do
-          User.email_list
+          text_area_tag :mail_list, User.email_list.to_s, style: 'width: 97%; height: 300px;'
         end
       end
 
@@ -19,7 +19,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel 'Usuarios que mais venderam esse mês' do
           render 'users_sales_rank', date: Date.today
         end
-        panel 'Usuarios que mais venderam esse mês passado' do
+        panel 'Usuarios que mais venderam no mês passado' do
           render 'users_sales_rank', date: Date.today - 1.month
         end
       end

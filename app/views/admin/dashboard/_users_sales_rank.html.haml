@@ -11,6 +11,6 @@
       %tr
         %td.center= user.name
         %td.center= user.email
-        %td.center= user.deals.count
-        %td.center= user.sales.count
+        %td.center= user.deals.by_month(date).count
+        %td.center= user.sales.by_month(date).count
         %td.center= price_to_currency Sale.calculate_total_value(user.sales.by_month(date), :user_commission_value)

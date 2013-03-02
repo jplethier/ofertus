@@ -7,8 +7,8 @@ class PagesController < ApplicationController
       Deal.active.top.limit(6).all
     end
     @top_deals = Rails.cache.read("top_deals_#{Date.today.day}_#{Date.today.month}_#{Date.today.year}")
-    @best_deals = Deal.active.likes.where('up_votes > 0')
-    @recent_deals = Deal.active.recent
+    @best_deals = Deal.active.likes.where('up_votes > 0').limit(8)
+    @recent_deals = Deal.active.recent.limit(8)
     @users = User.has_deals.random.limit(3)
   end
 
@@ -54,6 +54,6 @@ class PagesController < ApplicationController
   end
 
   def partners
-    
+
   end
 end

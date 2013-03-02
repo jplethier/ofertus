@@ -33,7 +33,7 @@ a#natal_bar{
   }
 
   .content {
-    width:1040px;
+    width: 1035px;
     margin:0 auto;
     position: relative;
 
@@ -175,7 +175,7 @@ a#natal_bar{
     .menu-login {
       float: left;
       position: relative;
-      width: 132px;
+      width: 125px;
       font-family: 'Colaborate-Thin' !important;
 
       li {
@@ -199,7 +199,7 @@ a#natal_bar{
 
           span {
             color: #999;
-            font-size: 1.1em;
+            font-size: 11px;
             text-decoration:none;
             text-transform:uppercase;
             font-style: normal;
@@ -208,8 +208,8 @@ a#natal_bar{
 
         a.login_link {
           position: absolute;
-          bottom: -7px;
-          right: 50px;
+          bottom: -10px;
+          right: 42px;
           font-size: 10px;
         }
 
@@ -228,21 +228,21 @@ a#natal_bar{
         }
 
         a.deals_header_btn {
-          background: image-url('tag.png') no-repeat 9px 0;
+          background: image-url('tag.png') no-repeat 5px 0;
           padding-top: 40px;
         }
 
         a.deals_header_btn:hover {
-          background: image-url('tag_hover.png') no-repeat 6px -3px;
+          background: image-url('tag_hover.png') no-repeat 2px -3px;
         }
 
         a.users_header_btn {
-          background: image-url('user.png') no-repeat 13px 0;
+          background: image-url('user.png') no-repeat 9px 0;
           padding-top: 40px;
         }
 
         a.users_header_btn:hover {
-          background: image-url('user_hover.png') no-repeat 13px 0;
+          background: image-url('user_hover.png') no-repeat 9px 0;
         }
 
         a.search_header_btn {
@@ -374,7 +374,7 @@ a#natal_bar{
   z-index: 149;
 
   .content {
-    width:1040px;
+    width:1035px;
     margin:0 auto;
     position: relative;
     padding-top: 7px;
@@ -451,18 +451,23 @@ a#natal_bar{
       }
     }
 
-    ul#options_discount {
-      height: 155px;
-    }
-
-    ul#other_categories, ul#options_price {
-      height: 162px;
-    }
-
     ul#options_price, ul#options_discount {
       li {
         width: 187px;
       }
+    }
+
+    ul#options_discount {
+      height: 155px;
+      width: 110px;
+
+      li {
+        width: 97px;
+      }
+    }
+
+    ul#other_categories, ul#options_price {
+      height: 162px;
     }
 
     ul#options_partners {
@@ -594,7 +599,7 @@ a#natal_bar{
     }
 
     li.price {
-      margin-left: 65px;
+      margin-left: 63px;
     }
   }
 }

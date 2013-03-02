@@ -375,6 +375,20 @@ body {
       .details {
         width: 196px;
 
+        .user_picture {
+          .user_box {
+            top: 47px;
+          }
+
+          .user_box:before {
+            left: 19px;
+          }
+
+          .user_box:after {
+            left: 22px;
+          }
+        }
+
         .user_infos {
           float: left;
           width: 90px;

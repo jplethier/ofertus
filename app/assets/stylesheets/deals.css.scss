@@ -87,7 +87,7 @@ body {
           }
 
           a.unreport {
-            background: image-url('report_button_pressed.png') no-repeat; 
+            background: image-url('report_button_pressed.png') no-repeat;
           }
         }
       }
@@ -250,7 +250,7 @@ body {
       }
     }
   }
-  
+
   .detalhe-oferta, .como-funciona {
     float:none;
     border: 0;
@@ -265,6 +265,7 @@ body {
     width: 730px;
     background: #f6f6f6;
     min-height:400px;
+    margin-bottom: 3em;
 
     .tx-desc {
       p {
@@ -273,7 +274,7 @@ body {
         margin-bottom: 15px;
         line-height:22px;
       }
-      
+
       div {
         width: 100% !important;
       }
@@ -304,7 +305,7 @@ body {
       display: none;
     }
   }
-  
+
   #description_and_comments, .desc-off, .comment-off {
     h4 {
       background: #333;
@@ -321,9 +322,9 @@ body {
 
   .right-detalhe-comment-off {
     float: right;
-    width: 270px;
+    width: 300px;
   }
-  
+
   .comment-off {
     background: #f6f6f6;
     margin-bottom: 10px;

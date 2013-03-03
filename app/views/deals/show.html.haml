@@ -17,16 +17,8 @@
       .right-detalhe-comment-off
 
         .comment-off
-          %h4= t('strings.comments')
-          .tx-desc
-            - if can? :manage, @comment
-              = form_for([@deal,@comment]) do |f|
-                = f.text_area :comment
-                = f.submit t("actions.comment"), :class => 'bt-comentar'
-            .clear
-
-        #ct-comment-off
-          = render @deal.comments
+          :plain
+            <iframe id="f11731d71" name="f26c05d3b" scrolling="no" style="border: none; overflow: hidden; height: 211px; width: 300px;" class="fb_ltr" src="https://www.facebook.com/plugins/comments.php?api_key=146791075437937&amp;locale=en_US&sdk=joey&channel_url=http://static.ak.facebook.com/connect/xd_arbiter.php?version=18&cb=f38fe6d68&origin=#{root_url}%252Fff23f84d4%26domain=#{request.domain}&relation=parent.parent&numposts=10&width=300&href=#{deal_url(@deal)}"></iframe>
 
   .clear
 

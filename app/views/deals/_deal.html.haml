@@ -6,7 +6,7 @@
 
         .preco-off
           %h4= t('strings.offer_price', :price => number_to_currency(deal.price)).html_safe
-      
+
       %h5= t('strings.discount', :discount => "#{deal.discount.to_i}%")
       %h5= t('strings.end_date', :end_date => deal.end_date? ? l(deal.end_date.to_date) : "-")
 
@@ -41,18 +41,18 @@
     .right
       - unless deal.image_url.nil? || deal.image_url.empty?
         = link_to(image_tag(deal.image_url, :alt => deal.image_url, :title => deal.title), deal_path(deal), :class => "deal_picture", :id => "deal_photo")
-      - else  
+      - else
         / = link_to(image_tag(asset_path('no_picture_big.jpg'), :alt => "Oferta sem imagem", :title => deal.title), deal_path(deal), :class => "deal_picture")
   - unless old
     .clear
 
-    /   %ul.discount 
-    /     %li.average 
+    /   %ul.discount
+    /     %li.average
     /       %span Avaliação
-    /       - if deal.average  
-    /         - if deal.average >= 50  
+    /       - if deal.average
+    /         - if deal.average >= 50
     /           %strong.positive= "#{deal.average.to_s}%"
-    /         - else  
+    /         - else
     /           %strong.negative= "#{deal.average.to_s}%"
-    /       - else  
+    /       - else
     /         %strong.none= "-"

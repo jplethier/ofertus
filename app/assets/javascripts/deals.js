@@ -91,3 +91,13 @@ function unreport_deal(deal_id){
     }
   });
 }
+
+$(document).ready(function() {
+  $(window).scroll(function() {
+    url = $('.pagination .next_page').attr('href')
+    if( url &&  $(window).scrollTop() > $(document).height() - $(window).height() - 50){
+      $('.pagination').html('<p>Carregando mais ofertas...</p>')
+      $.getScript(url)
+    }
+  })
+});

@@ -101,9 +101,19 @@ body {
   #sem-col {
     .list-conteudo {
       .pagination {
+        p {
+          font-family: 'Colaborate-Thin';
+          font-size: 20px;
+        }
+
         .pagination {
           width: 380px;
           margin: 0 auto;
+
+          p {
+            font-family: 'Colaborate-Thin';
+            font-size: 20px;
+          }
         }
       }
     }

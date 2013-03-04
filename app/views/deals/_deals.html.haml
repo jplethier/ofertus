@@ -1,0 +1,2 @@
+- @deals.each_with_index do |deal, index|
+  = render :partial => 'deals/top_deal', :locals => {:deal => deal, :index => index, :old => false}

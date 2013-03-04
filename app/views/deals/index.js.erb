@@ -1,2 +1,2 @@
-$('#deals').append('<%= j render("deals", deals: @deals) %>)');
+$('#deals').append('<%= j render("deals", deals: @deals) %>');
 $('.pagination').replaceWith('<%= j will_paginate(@deals) %>');

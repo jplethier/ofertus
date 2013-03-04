@@ -100,7 +100,11 @@ body {
       }
 
       a.fb {
-        background: image-url('small_icons.png') no-repeat -32px 0;
+        background: image-url('fb_btns.png') no-repeat -12px -5px;
+      }
+
+      a.fb:hover {
+        background: image-url('fb_btns.png') no-repeat -55px -5px;
       }
 
       .price_and_discount {

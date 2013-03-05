@@ -7,7 +7,9 @@ ActiveAdmin.register Partner do
 
   index do
     column 'Logo' do |partner|
-      image_tag(partner.mini_image_url)
+      if !partner.mini_image_url.blank?
+        image_tag(partner.mini_image_url)
+      end
     end
     column 'Nome', :name
     column 'Código', :code

@@ -16,7 +16,7 @@ gem 'haml'
 gem "haml-rails"
 gem 'httpi'
 gem 'heroku'
-gem 'jquery-rails'
+gem 'jquery-rails', '2.2.1'
 gem 'json'
 gem 'make_voteable'
 gem 'mechanize'

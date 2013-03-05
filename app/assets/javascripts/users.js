@@ -31,3 +31,15 @@ function unfollow(user_username, link){
     }
   })
 }
+
+$(document).ready(function() {
+  if($('body.users').size()){
+    $(window).scroll(function() {
+      url = $('.pagination .next_page').attr('href')
+      if( url &&  $(window).scrollTop() > $(document).height() - $(window).height() - 250){
+        $('.pagination').html('<p>Carregando mais usuários...</p>')
+        $.getScript(url)
+      }
+    })
+  }
+});

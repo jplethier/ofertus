@@ -1,0 +1,2 @@
+$('#users').append('<%= j render("users", users: @users) %>');
+$('.pagination').replaceWith('<%= j will_paginate(@users) %>');

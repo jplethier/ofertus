@@ -1,7 +1,7 @@
 %div{ class: "top_deal #{index%3 == 0 ? 'first' : ''}", onclick: "Turbolinks.visit('#{deal_path(deal)}')", id: "deal_#{deal.id}" }
   %a{ class: "category category_#{deal.category}", href: "#{deals_path}/active/#{deal.category_string}", onmouseover: "$('#deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')" }
     .img
-    %p= truncate_title(Deal.i18n_category(deal.category), 14)
+    %p= truncate_title(Deal.i18n_category(deal.category), 11)
   .price_and_discount
     .price
       %p.from= t('strings.from_price', price: number_to_currency(deal.real_price)).html_safe

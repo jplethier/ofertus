@@ -1,14 +1,4 @@
 body {
-  #header_image {
-    background: image-url('home_header.jpg') 0 -30px no-repeat;
-    margin: 0;
-    display: block;
-    height: 21em;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
 
   #home_header {
     height: 450px;
@@ -39,7 +29,7 @@ body {
         margin: 0 auto;
         width:100px;
         padding: 0;
-        
+
         li {
           float:left;
           margin:0 1px;
@@ -69,7 +59,7 @@ body {
           height: 10px;
           background: transparent;
           padding-top: 0;
-          
+
           a {
             background-position:0 -12px;
           }
@@ -141,7 +131,7 @@ body {
   #header_background {
     margin-top: 0;
     height:10px;
-    position: relative; 
+    position: relative;
     background: image-url('flag_divisor.png') no-repeat transparent;
   }
 }

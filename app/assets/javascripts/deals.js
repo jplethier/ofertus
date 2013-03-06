@@ -98,7 +98,7 @@ $(document).ready(function() {
 
 $(document).on('page:load', function() {
   endless_deals()
-}
+})
 
 function endless_deals(){
   if($('body.deals').size()){

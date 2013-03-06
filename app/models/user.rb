@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_paper_trail
 
   has_and_belongs_to_many :cities
-  has_many :deals,                  :order => "deals.created_at DESC"
+  has_many :deals,                  order: "deals.created_at DESC", dependent: :destroy
   has_many :relationships,          :foreign_key => "follower_id"
   has_many :followers,              :through => :reverse_relationships, :source => :follower
   has_many :following,              :through => :relationships,         :source => :followed
@@ -229,7 +229,7 @@ class User < ActiveRecord::Base
   def wishes
     deals_wishes = []
     self.votings.each do |vote|
-      deals_wishes << vote.voteable if vote.up_vote? && vote.voteable && vote.voteable.user
+      deals_wishes << vote.voteable if vote.up_vote? && vote.voteable
     end
     deals_wishes
   end

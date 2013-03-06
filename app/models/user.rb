@@ -229,7 +229,7 @@ class User < ActiveRecord::Base
   def wishes
     deals_wishes = []
     self.votings.each do |vote|
-      deals_wishes << vote.voteable if vote.up_vote? && vote.voteable
+      deals_wishes << vote.voteable if vote.up_vote? && vote.voteable && vote.voteable.user
     end
     deals_wishes
   end

@@ -93,6 +93,14 @@ function unreport_deal(deal_id){
 }
 
 $(document).ready(function() {
+  endless_deals()
+});
+
+$(document).on('page:load', function() {
+  endless_deals()
+}
+
+function endless_deals(){
   if($('body.deals').size()){
     $(window).scroll(function() {
       url = $('.pagination .next_page').attr('href')
@@ -102,4 +110,4 @@ $(document).ready(function() {
       }
     })
   }
-});
+}

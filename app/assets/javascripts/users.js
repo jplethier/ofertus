@@ -33,6 +33,14 @@ function unfollow(user_username, link){
 }
 
 $(document).ready(function() {
+  endless_user();
+});
+
+$(document).on('page:load', function() {
+  endless_user();
+});
+
+function endless_user(){
   if($('body.users').size()){
     $(window).scroll(function() {
       url = $('.pagination .next_page').attr('href')
@@ -42,4 +50,4 @@ $(document).ready(function() {
       }
     })
   }
-});
+}

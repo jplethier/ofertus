@@ -1,37 +1,17 @@
-- unless user_signed_in?
-  = cache 'new_header_home', expires_in: 1.year do
-    #home_header
-      .content
-        #slides.left
-          .slides_container
-            %div
-              %img{ :src => asset_path('foto_1.jpg') }
-            %div
-              %a{ :href => "javascript:;", :onclick => "Popup.open_url('#{powers_popup_url}')"}
-                %img{ :src => asset_path('foto_5.jpg') }
-            %div
-              %a{ :href => "javascript:;", :onclick => "Popup.open_url('#{show_video_url}')"}
-                %img{ :src => asset_path('foto_4.jpg') }
-            %div
-              %a{ href: how_it_works_path }
-                %img{ src: asset_path('foto_2.jpg') }
-        #login_home.right
-          :plain
-            <span class='st_fblike_hcount' displayText='Facebook Like'></span>
-            <span class='st_facebook_hcount' displayText='Facebook'></span>
-            <span class='st_twitter_hcount' displayText='Tweet'></span>
-            <br/>
-            <br/>
-            <span class='st_plusone_hcount' displayText='Google +1'></span>
-            <span class='st_googleplus_hcount' displayText='Google +'></span>
-            <span class='st_pinterest_hcount' displayText='Pinterest'></span>
-            <br/>
-            <br/>
-            <div class="fb-like-box" data-href="https://www.facebook.com/OfertUs" data-width="292" data-colorscheme="dark" data-show-faces="true" data-stream="false" data-header="true"></div>
-
-          = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button", :'data-no-turbolink' => true
-          .register
-            Ou cadastre-se
-            = link_to 'AQUI', new_user_registration_path
-    .clear
-    #header_background
+= cache 'new_header_home', expires_in: 1.year do
+  #home_header
+    .content
+      #slides.left
+        .slides_container
+          %div
+            %img{ :src => asset_path('foto_1.jpg') }
+          %div
+            %a{ :href => "javascript:;", :onclick => "Popup.open_url('#{powers_popup_url}')"}
+              %img{ :src => asset_path('foto_5.jpg') }
+          %div
+            %a{ :href => "javascript:;", :onclick => "Popup.open_url('#{show_video_url}')"}
+              %img{ :src => asset_path('foto_4.jpg') }
+          %div
+            %a{ href: how_it_works_path }
+              %img{ src: asset_path('foto_2.jpg') }
+  .clear

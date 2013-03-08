@@ -2,8 +2,8 @@ body {
 
   #home_header {
     height: 450px;
-    margin: 0 -300px;
     padding: 10px 0;
+    background: image-url('bg2.png');
 
     img {
       max-width: 700px;
@@ -12,7 +12,7 @@ body {
 
     .content {
       position: relative;
-      width: 1024px;
+      width: 960px;
       margin: 0 auto;
 
       a.facebook_login_button {
@@ -126,12 +126,5 @@ body {
         }
       }
     }
-  }
-
-  #header_background {
-    margin-top: 0;
-    height:10px;
-    position: relative;
-    background: image-url('flag_divisor.png') no-repeat transparent;
   }
 }

@@ -7,5 +7,23 @@
         #mailing
         #social
       #steps
+        %strong Veja o que fazer aqui:
+
+        .step1
+          .img
+          %span Descubra e compre ofertas incríveis
+
+        .step2
+          .img
+          %span Promova vendas e ganhe dinheiro
+
+        .step3
+          .img
+          %span Compre suas ofertas e receba parte de volta
+
+        - if user_signed_in?
+          = link_to 'Convide e Ganhe', friends_user_path(current_user.username), id: 'steps_call_to_action_btn'
+        - else
+          = link_to 'Convide e Ganhe', new_user_session_path, id: 'steps_call_to_action_btn'
 
   .clear

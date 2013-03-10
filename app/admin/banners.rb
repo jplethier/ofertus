@@ -11,4 +11,19 @@ ActiveAdmin.register Banner do
     end
     f.buttons
   end
+
+  index do
+    column :image do |banner|
+      image_tag banner.image(:thumb)
+    end
+    column :url do |banner|
+      link_to banner.url, banner.url, target: '_blank'
+    end
+    column :title
+    column :alt
+    column :target
+    column :active
+    column :created_at
+    default_actions
+  end
 end

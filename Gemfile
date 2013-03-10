@@ -23,7 +23,6 @@ gem 'mechanize'
 gem 'newrelic_rpm'
 gem 'nokogiri'
 gem 'paper_trail'
-gem 'paperclip'
 gem 'pg', '0.14.1', :require => 'pg'
 gem 'activerecord-postgresql-adapter'
 gem 'rails', '3.1.10'
@@ -32,6 +31,11 @@ gem 'sass-rails', '3.1.4'
 gem 'uglifier'
 gem 'unicorn'
 gem 'will_paginate', '~> 3.0.0'
+
+#upload to amazon
+gem "paperclip", "~> 3.0"
+gem 'fog'
+gem 'aws-sdk'
 
 #admin
 gem 'activeadmin'

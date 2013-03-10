@@ -1,6 +1,9 @@
 DealWitMe::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  #aws
+  AWS_CONFIG = YAML.load_file("#{Rails.root}/config/aws.yml")['production']
+
   # Code is not reloaded between requests
   config.cache_classes = true
 

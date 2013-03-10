@@ -1,0 +1,17 @@
+development:
+  access_key_id: "AKIAJL4S5LHCY3RUOTJA"
+  secret_access_key: "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"
+  bucket: "ofertus-dev"
+  region: "us-east-1"
+
+production:
+  access_key_id: "AKIAJL4S5LHCY3RUOTJA"
+  secret_access_key: "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"
+  bucket: "ofertus"
+  region: "us-east-1"
+
+staging:
+  access_key_id: "AKIAJL4S5LHCY3RUOTJA"
+  secret_access_key: "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"
+  bucket: "ofertus-staging"
+  region: "us-east-1"

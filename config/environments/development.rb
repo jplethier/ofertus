@@ -1,18 +1,6 @@
 DealWitMe::Application.configure do
   #aws
-  ENV['AWS_BUCKET'] = YAML.load_file("#{Rails.root}/config/aws.yml")['development']['AWS_BUCKET']
-  ENV['AWS_ACCESS_KEY_ID'] = YAML.load_file("#{Rails.root}/config/aws.yml")['development']['AWS_ACCESS_KEY_ID']
-  ENV['AWS_SECRET_ACCESS_KEY'] = YAML.load_file("#{Rails.root}/config/aws.yml")['development']['AWS_SECRET_ACCESS_KEY']
-
-  #aws
-  config.paperclip_defaults = {
-    :storage => :s3,
-    :s3_credentials => {
-      :bucket => ENV['AWS_BUCKET'],
-      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
-      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-    }
-  }
+  AWS_CONFIG = YAML.load_file("#{Rails.root}/config/aws.yml")['development']
 
   # Settings specified here will take precedence over those in config/application.rb
 

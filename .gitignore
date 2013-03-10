@@ -25,7 +25,6 @@ tmp/*
 .sass-cache
 /config/config.yml
 /config/database.yml
-/config/aws.yml
 /coverage.data
 /coverage/
 /db/*.javadb/

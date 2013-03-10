@@ -54,6 +54,7 @@ class Ability
       can :manage, Deal
       can :manage, Sale
       can :manage, Product
+      can :manage, Banner
     end
   end
 end

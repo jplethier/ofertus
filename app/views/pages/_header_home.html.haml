@@ -4,6 +4,8 @@
       #banners
       - unless user_signed_in?
         #video
+          = link_to 'Assista ao Vídeo', 'javascript:;', onclick: "Popup.open_url('#{show_video_url}')"
+          %span Veja o vídeo e entenda
         #mailing
         #social
       #steps

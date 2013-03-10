@@ -35,6 +35,7 @@ gem 'will_paginate', '~> 3.0.0'
 #upload to amazon
 gem "paperclip", "~> 3.0"
 gem 'fog'
+gem 'aws-sdk'
 
 #admin
 gem 'activeadmin'

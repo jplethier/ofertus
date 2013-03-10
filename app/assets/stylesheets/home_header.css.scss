@@ -1,14 +1,57 @@
 body {
 
   #home_header {
-    height: 450px;
-    padding: 10px 0;
     background: image-url('bg2.png');
+
+    #background {
+      width: 100%;
+    }
 
     .content {
       position: relative;
       width: 960px;
       margin: 0 auto;
+
+      #banners, #video, #mailing, #steps {
+        background: white;
+      }
+
+      #banners, #video, #mailing, #steps, #social {
+        margin-top: 15px;
+      }
+
+      #banners, #social {
+        width: 665px;
+        height: 300px;
+      }
+
+      #banners {
+        float: left;
+      }
+
+      #video, #mailing, #steps {
+        width: 280px;
+        float: right;
+      }
+
+      #video {
+        height: 200px;
+      }
+
+      #mailing {
+        clear: right;
+        height: 85px;
+      }
+
+      #social {
+        clear: both;
+        float: right;
+        margin-left: 15px;
+      }
+
+      #steps {
+        height: 300px;
+      }
 
       a.facebook_login_button {
         text-indent:-15000px;

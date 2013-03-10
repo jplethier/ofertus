@@ -3,6 +3,7 @@
 */
 @charset 'UTF-8';
 
+@import 'reset';
 @import 'fonts';
 @import "bourbon";
 
@@ -21,7 +22,6 @@
 @import 'home_header';
 @import 'jquery.dataTables';
 @import 'jquery.dataTables_themeroller';
-@import 'reset';
 @import 'general';
 @import 'klepper_css';
 @import 'main';

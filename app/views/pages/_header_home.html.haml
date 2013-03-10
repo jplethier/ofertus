@@ -1,7 +1,11 @@
 = cache 'new_header_home', expires_in: 1.year do
   #home_header
     .content
-      #slides.left
-        .slides_container
+      #banners
+      - unless user_signed_in?
+        #video
+        #mailing
+        #social
+      #steps
 
   .clear

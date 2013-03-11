@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   make_voter
 
-  devise :confirmable, :database_authenticatable, :omniauthable, :recoverable, :registerable, :rememberable, :trackable, :validatable
+  devise :confirmable, :database_authenticatable, :omniauthable, :recoverable, :registerable, :rememberable, :trackable, :validatable, :mailchimp
   gravtastic :size => 150, :default => "mm"
   has_paper_trail
 
@@ -22,7 +22,7 @@ class User < ActiveRecord::Base
   validates :credit,                presence: true
   validates :withdraw_bank_account, confirmation: true
 
-  attr_accessible :access_token, :avatar_url, :credit, :facebook_follow_user, :facebook_vote_offer, :facebook_share_offer, :email, :login, :name, :password, :password_confirmation, :provider, :remember_me, :uid, :username, :invited_by_id, :withdraw_bank_cpf, :withdraw_bank_name, :withdraw_bank_number, :withdraw_bank_account, :withdraw_bank_agency, :withdraw_digital_cpf, :withdraw_digital_email, :withdraw_digital_name, :withdraw_remember
+  attr_accessible :access_token, :avatar_url, :credit, :facebook_follow_user, :facebook_vote_offer, :facebook_share_offer, :email, :join_mailing_list, :login, :name, :password, :password_confirmation, :provider, :remember_me, :uid, :username, :invited_by_id, :withdraw_bank_cpf, :withdraw_bank_name, :withdraw_bank_number, :withdraw_bank_account, :withdraw_bank_agency, :withdraw_digital_cpf, :withdraw_digital_email, :withdraw_digital_name, :withdraw_remember
 
   before_validation :set_credit_to_zero
 

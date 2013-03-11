@@ -12,6 +12,18 @@ class PagesController < ApplicationController
     @users = User.has_deals.random.limit(3)
   end
 
+  def subscribe_to_newsletter
+    binding.pry
+    if params[:subscribe_to_newsletter].blank? || params[:subscribe_to_newsletter][:email].blank?
+      flash[:error] = "Informe um email para assinar a nesletter."
+    else
+      mc_api = Mailchimp::API
+      mc_api.list_subscribe(id: 'b17830ec2c', email_address: '')
+      flash[:notice] = 'Foi enviado um email para confirmação da assinatura da newsletter.'
+    end
+    redirect_to root_path
+  end
+
   def show_video
     render :layout => false
   end

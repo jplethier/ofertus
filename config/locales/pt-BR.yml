@@ -239,6 +239,7 @@
         facebook_share_offer: "Publicar no facebook ao compartilhar oferta"
         facebook_vote_offer: "Publicar no facebook ao votar em uma oferta"
         facebook_follow_user: "Publicar no facebook ao seguir um usuário"
+        join_mailing_list: 'Receber Newsletter'
         login: "Usuário"
         name: "Nome"
         password: "Senha"

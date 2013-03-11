@@ -2,6 +2,9 @@ DealWitMe::Application.configure do
   #aws
   AWS_CONFIG = YAML.load_file("#{Rails.root}/config/aws.yml")['development']
 
+  # mailchimp
+  Mailchimp::API.api_key = "d858c19b9fea13d4a78969dbee52a92d-us5"
+
   # Settings specified here will take precedence over those in config/application.rb
 
   # In the development environment your application's code is reloaded on

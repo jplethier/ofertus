@@ -5,7 +5,7 @@
 
   .edit_user
     .title= t('strings.edit_informations')
-    
+
     .ct-inputs-login.ct-edit
       = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
         .right
@@ -28,7 +28,7 @@
             = f.label :username
             %br
             = f.text_field :username, :class => 'user-senha', :placeholder => 'Limite de 20 caracteres'
-          
+
           %p{ :class => "#{resource.password_required? ? '' : 'last'}" }
             = f.label :name
             %br
@@ -44,11 +44,14 @@
               = f.label :password_confirmation
               %br
               = f.password_field :password_confirmation, :class => 'user-senha'
-            
+
             %p
               = f.label :current_password, :placeholder => 'para confirmar as alterações, é preciso informar sua senha atual'
               %br
               = f.password_field :current_password, :class => 'user-senha'
+          %p.checkbox-login
+            = f.check_box :join_mailing_list
+            = f.label :join_mailing_list
         .clear
         - if resource.provider
           .facebook_share_options
@@ -63,7 +66,7 @@
             %p.checkbox-login
               = f.check_box :facebook_follow_user
               = f.label :facebook_follow_user
-               
+
           = f.submit "", :class => "bt-confirmar"
 
     .links

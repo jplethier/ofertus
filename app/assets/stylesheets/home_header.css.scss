@@ -69,6 +69,50 @@ body {
       #mailing {
         clear: right;
         height: 85px;
+
+        img {
+          position: absolute;
+          top: 7px;
+          left: 7px;
+        }
+
+        span {
+          font-weight: bold;
+          height: 45px;
+          font-size: 15px;
+          text-transform: uppercase;
+          line-height: 20px;
+          position: absolute;
+          top: 5px;
+          left: 70px;
+          width: 160px;
+          text-align: center;
+        }
+
+        form#subscribe_form {
+          input[type='email'] {
+            position: absolute;
+            left: 7px;
+            bottom: 6px;
+            height: 26px;
+            width: 200px;
+            border-radius: 20px;
+            padding-left: 10px;
+            padding-right: 50px;
+          }
+
+          input[type='submit'] {
+            background: image-url('mailing_btn.png') no-repeat;
+            width: 53px;
+            height: 33px;
+            text-indent: -15000px;
+            border: none;
+            position: absolute;
+            bottom: 5px;
+            right: 7px;
+            padding: 0;
+          }
+        }
       }
 
       #social {

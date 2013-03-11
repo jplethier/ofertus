@@ -59,6 +59,10 @@ gem 'uservoice-turbolinks'
 gem 'memcachier'
 gem 'dalli'
 
+#mailchimp
+gem 'devise_mailchimp'
+gem 'mailchimp'
+
 group :development, :test do
   gem 'awesome_print'
   gem 'factory_girl_rails', '>= 1.1.beta1'

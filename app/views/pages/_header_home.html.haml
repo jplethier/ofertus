@@ -7,6 +7,11 @@
           = link_to 'Assista ao Vídeo', 'javascript:;', onclick: "Popup.open_url('#{show_video_url}')"
           %span Veja o vídeo e entenda
         #mailing
+          %img{ src: asset_path('mailing_icon.png'), alt: 'mailing' }
+          %span Receba o melhor do Ofertus por email
+          = form_for('subscribe_to_newsletter', :url => subscribe_to_newsletter_path, :html => { :class => 'subscribe_form', :method => :get, :id => 'subscribe_form' }) do |f|
+            = f.email_field :email, placeholder: 'Insira seu email', value: params[:email] ? params[:subscribe_to_newsletter][:email] : ''
+            = f.submit 'OK'
         #social
       #steps
         %strong Veja o que fazer aqui:

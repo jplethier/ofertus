@@ -5,6 +5,10 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in DeviseMailer.
   config.mailer_sender = "no-reply@ofertus.com.br" #TODO: CONFIGURAR!
 
+  # mailchimp
+  config.mailchimp_api_key = Mailchimp::API.api_key
+  config.mailing_list_name = 'Users'
+
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
 
@@ -185,7 +189,7 @@ Devise.setup do |config|
     config.omniauth :facebook, "549814678368196", "465da7123a8481c3f93703dba615d75f", {:scope => 'email, offline_access, read_stream, publish_stream, user_photos', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}, :display => 'popup'}
   else
     # PRODUCTION URL
-    config.omniauth :facebook, "146791075437937", "9bbac57de01036fefc93a09b45a598d9", {:scope => 'email, offline_access, read_stream, publish_stream, user_photos', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}, :display => 'popup'} 
+    config.omniauth :facebook, "146791075437937", "9bbac57de01036fefc93a09b45a598d9", {:scope => 'email, offline_access, read_stream, publish_stream, user_photos', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'}}, :display => 'popup'}
   end
 
   # ==> Warden configuration

@@ -7,7 +7,7 @@ DealWitMe::Application.routes.draw do
   match 'invite/:username', to: 'users#invite', as: 'invitation'
 
   mount Ckeditor::Engine => '/ckeditor'
-  
+
   match "whoarewe",       :to => "pages#whoarewe"
   match "partners",       :to => "pages#partners"
   match "help",           :to => "pages#help"
@@ -16,10 +16,12 @@ DealWitMe::Application.routes.draw do
   match "how_it_works",   :to => "pages#how_it_works"
   match "show_video",     :to => "pages#show_video",    :as => 'show_video'
   match "powers_popup",   :to => "pages#powers_popup",  :as => 'powers_popup'
-  match "natal",   :to => "pages#natal",  :as => 'natal'
+  match "natal",          :to => "pages#natal",         :as => 'natal'
   match "bank_codes",     :to => "pages#bank_codes",    :as => 'bank_codes'
 
   match '/deals/feed' => 'deals#feed', :as => :feed, :defaults => { :format => 'atom' }
+
+  get 'subscribe_to_newsletter', to: 'pages#subscribe_to_newsletter', as: 'subscribe_to_newsletter'
 
   #TODO: Melhorar as rotas do devise:
   #http://bunwich.blogspot.com/2011/07/make-rails-devise-routes-look-better.html

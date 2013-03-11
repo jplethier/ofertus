@@ -11,13 +11,15 @@
     .already_member
       = t('strings.already_a_member')
       = link_to 'Entre aqui', new_user_session_path
-  
+
   .new_deal_left#signup_form{ style: "display: #{params[:facebook].to_s == '1' || params[:action] == 'create' ? 'block' : 'none'}"}
     .title= t('strings.new_user')
-    
+
     .ct-inputs-login
       = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-        
+        // assinatura automatica da newsletter
+        = f.hidden_field :join_mailing_list, value: true
+
         - if session[:invited_by]
           = f.hidden_field :invited_by_id, value: User.find_by_username(session[:invited_by]).id
 
@@ -51,13 +53,13 @@
             %br
             = f.password_field :password_confirmation
           .clear
-          
+
         %p
           = check_box_tag(:terms_privacy, :terms_privacy)
           %label{ :for => "terms_privacy" }
-            Concordo com os 
+            Concordo com os
             = link_to 'termos de uso', termsofuse_path, :target => '_blank'
-            e 
+            e
             = link_to 'política de privacidade', privacypolicy_path, :target => '_blank'
             do site.
 

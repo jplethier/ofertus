@@ -1,36 +1,61 @@
-= cache 'new_header_home', expires_in: 1.year do
-  #home_header
-    .content
-      #banners
-      - unless user_signed_in?
-        #video
-          = link_to 'Assista ao Vídeo', 'javascript:;', onclick: "Popup.open_url('#{show_video_url}')"
-          %span Veja o vídeo e entenda
-        #mailing
-          %img{ src: asset_path('mailing_icon.png'), alt: 'mailing' }
-          %span Receba o melhor do Ofertus por email
-          = form_for('subscribe_to_newsletter', :url => subscribe_to_newsletter_path, :html => { :class => 'subscribe_form', :method => :get, :id => 'subscribe_form' }) do |f|
-            = f.email_field :email, placeholder: 'Insira seu email', value: params[:email] ? params[:subscribe_to_newsletter][:email] : ''
-            = f.submit 'OK'
-        #social
-      #steps
-        %strong Veja o que fazer aqui:
+- banners = Banner.active
+#home_header
+  .content
+    #banners
+      .banners_content
+        %ul
+          - banners.each_with_index do |banner, index|
+            %li{ class: index == 0 ? 'selected' : '' }= link_to image_tag( banner.image(:thumb), alt: banner.alt, title: banner.title), 'javascript:;', onclick: "$('div.selected').hide(); $('#banner_#{banner.id}').show();", id: "li_banner_#{banner.id}"
+        - banners.each_with_index do |banner, index|
+          .selected{ style: index != 0 ? 'display: none;' : '', id: "banner_#{banner.id}" }= link_to image_tag(banner.image, title: banner.title, alt: banner.alt), banner.url, target: banner.target
 
-        .step1
-          .img
-          %span Descubra e compre ofertas incríveis
+    - unless user_signed_in?
+      #video
+        = link_to 'Assista ao Vídeo', 'javascript:;', onclick: "Popup.open_url('#{show_video_url}')"
+        %span Veja o vídeo e entenda
+      #mailing
+        %img{ src: asset_path('mailing_icon.png'), alt: 'mailing' }
+        %span Receba o melhor do Ofertus por email
+        = form_for('subscribe_to_newsletter', :url => subscribe_to_newsletter_path, :html => { :class => 'subscribe_form', :method => :get, :id => 'subscribe_form' }) do |f|
+          = f.email_field :email, placeholder: 'Insira seu email', value: params[:email] ? params[:subscribe_to_newsletter][:email] : ''
+          = f.submit 'OK'
+      #social
+    #steps
+      %strong Veja o que fazer aqui:
 
-        .step2
-          .img
-          %span Promova vendas e ganhe dinheiro
+      .step1
+        .img
+        %span Descubra e compre ofertas incríveis
 
-        .step3
-          .img
-          %span Compre suas ofertas e receba parte de volta
+      .step2
+        .img
+        %span Promova vendas e ganhe dinheiro
 
-        - if user_signed_in?
-          = link_to 'Convide e Ganhe', friends_user_path(current_user.username), id: 'steps_call_to_action_btn'
-        - else
-          = link_to 'Convide e Ganhe', new_user_session_path, id: 'steps_call_to_action_btn'
+      .step3
+        .img
+        %span Compre suas ofertas e receba parte de volta
+
+      - if user_signed_in?
+        = link_to 'Convide e Ganhe', friends_user_path(current_user.username), id: 'steps_call_to_action_btn'
+      - else
+        = link_to 'Convide e Ganhe', new_user_session_path, id: 'steps_call_to_action_btn'
 
   .clear
+
+:javascript
+  var imagens = #{banners.collect { |b| "li_banner_" + b.id.to_s } };
+  var imagem  = 0;
+
+  $(document).ready(function() {
+    slides()
+  });
+
+  $(document).on('page:load', function(){
+    slides();
+  })
+
+  function slides() {
+    setTimeout(function(){
+      $("#"+imagens[imagem]).click(); imagem++; if(imagem > 2) imagem = 0; slides()
+    }, 5000)
+  }

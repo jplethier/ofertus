@@ -32,6 +32,42 @@ body {
 
       #banners {
         float: left;
+        overflow: hidden;
+
+        .banners_content {
+          margin: 10px;
+
+          img {
+            border-radius: 15px;
+            border: 1px solid #999;
+          }
+
+          ul {
+            float: left;
+            padding: 0;
+
+            li {
+              clear: both;
+              width: 110px;
+              height: 88px;
+              margin-bottom: 8px;
+
+              img {
+                width: 110px;
+                height: 90px;
+              }
+            }
+          }
+
+          div.selected {
+            float: right;
+
+            img {
+              width: 525px;
+              height: 280px;
+            }
+          }
+        }
       }
 
       #video, #mailing, #steps {

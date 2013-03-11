@@ -17,7 +17,7 @@ body {
       }
 
       #banners, #video, #mailing, #steps {
-        @include box-shadow(0 2px 8px 1px hsla(0, 0%, 0%, 0.65));
+        @include box-shadow(0 2px 8px 1px hsla(0, 0%, 0%, 0.45));
         background: white;
       }
 
@@ -91,11 +91,13 @@ body {
 
         form#subscribe_form {
           input[type='email'] {
+            @include box-shadow(0 0px 2px 1px rgba(0,0,0,0.45));
+            border: 0;
             position: absolute;
             left: 7px;
-            bottom: 6px;
+            bottom: 7px;
             height: 26px;
-            width: 200px;
+            width: 203px;
             border-radius: 20px;
             padding-left: 10px;
             padding-right: 50px;

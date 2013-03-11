@@ -4,6 +4,9 @@ DealWitMe::Application.configure do
   #aws
   AWS_CONFIG = YAML.load_file("#{Rails.root}/config/aws.yml")['production']
 
+  # mailchimp
+  Mailchimp::API.api_key = "d858c19b9fea13d4a78969dbee52a92d-us5"
+
   # Code is not reloaded between requests
   config.cache_classes = true
 

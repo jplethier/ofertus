@@ -1,6 +1,12 @@
 DealWitMe::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
+  #aws
+  AWS_CONFIG = YAML.load_file("#{Rails.root}/config/aws.yml")['staging']
+
+  # mailchimp
+  Mailchimp::API.api_key = "d858c19b9fea13d4a78969dbee52a92d-us5"
+
   # Code is not reloaded between requests
   config.cache_classes = true
 

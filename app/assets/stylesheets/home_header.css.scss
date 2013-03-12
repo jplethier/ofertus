@@ -157,6 +157,90 @@ body {
         clear: both;
         float: right;
         margin-left: 15px;
+
+        .text {
+          font-family: 'Colaborate-Thin';
+          font-size: 18px;
+          text-transform: uppercase;
+          width: 460px;
+          float: right;
+          margin-right: 40px;
+          margin-top: 10px;
+          color: #404040;
+
+          strong {
+            font-weight: bold;
+            color: black;
+            font-size: 19px;
+          }
+        }
+
+        .buttons {
+          width: 460px;
+          float: right;
+          margin-right: 40px;
+
+          div {
+            width: 224px;
+            height: 5px;
+            background: black;
+            margin: 0 auto;
+          }
+        }
+
+        a.facebook_login_button, a.buy_button, a.register_button {
+          overflow:hidden;
+          text-indent:-15000px;
+          display: block;
+          margin: 5px auto;
+        }
+
+        a.facebook_login_button, a.buy_button {
+          width: 228px;
+          height: 38px;
+        }
+
+        a.facebook_login_button {
+          background: image-url('home_btns.png') no-repeat 0 0;
+        }
+
+        a.facebook_login_button:hover {
+          background: image-url('home_btns.png') no-repeat 0 -49px;
+        }
+
+        a.buy_button {
+          background: image-url('home_btns.png') no-repeat 0 -142px;
+        }
+
+        a.buy_button:hover {
+          background: image-url('home_btns.png') no-repeat 0 -187px;
+        }
+
+        a.register_button {
+          background: image-url('home_btns.png') no-repeat -45px -94px;
+          width: 136px;
+          height: 18px;
+        }
+
+        .dog {
+          background: image-url('cachorro.png') 0 0 no-repeat;
+          position: absolute;
+          left: 15px;
+          top: 0;
+          z-index: 1;
+          width: 220px;
+          height: 280px;
+        }
+
+        .bottom {
+          @include box-shadow(0 2px 8px 1px hsla(0, 0%, 0%, 0.45));
+          background: white;
+          height: 90px;
+          width: 100%;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+        }
       }
 
       #steps {
@@ -230,22 +314,6 @@ body {
             background: image-url('numbers.png') no-repeat -96px 0;
           }
         }
-      }
-
-      a.facebook_login_button {
-        text-indent:-15000px;
-        overflow:hidden;
-        display: block;
-        width: 256px;
-        height: 38px;
-        background: image-url('home_login_fb.png') no-repeat;
-      }
-
-      .facebook_login_button {
-        background: image-url('home_login_fb.png') no-repeat;
-        width: 260px;
-        height: 40px;
-        margin: 10px auto;
       }
 
       .register {

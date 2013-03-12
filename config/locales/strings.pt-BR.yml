@@ -53,6 +53,7 @@
     help_informations: "Informações - Ajuda"
     how_it_works: 'Como funciona?'
     how_to_share: 'cole seu link ou preencha os campos'
+    i_am_here_to_buy: 'Estou aqui para comprar'
     interation_with_offers: "Interação com as Ofertas"
     instructions: 'Instruções'
     invitation:
@@ -96,6 +97,7 @@
     real_price: 'Preço'
     recent: 'Últimas Cadastradas'
     recent_deals: 'ofertas saídas do forno'
+    register: 'Cadastrar a moda antiga'
     register_offer: 'Cadastre uma oferta'
     register_using_email: 'Crie uma conta usando seu email'
     remember_me: 'Mantenha-me conectado'

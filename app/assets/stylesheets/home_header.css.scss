@@ -188,6 +188,63 @@ body {
           }
         }
 
+        .like, .power {
+          width: 230px;
+          height: 85px;
+          bottom: 0px;
+
+          .icon {
+            width: 37px;
+            height: 37px;
+            float: left;
+            margin-right: 5px;
+          }
+
+          .text {
+            width: 170px;
+            font-family: 'Colaborate-Thin';
+            margin-right: 0;
+            font-size: 12px;
+            float: left;
+            margin-top: 0;
+            text-transform: none;
+
+            strong {
+              line-height: 18px;
+              font-size: 18px;
+              text-transform: uppercase;
+            }
+
+            a {
+              width: 59px;
+              height: 17px;
+              text-indent: -15000px;
+              background: image-url('header_more_btn.png');
+              display: block;
+              float: right;
+              margin-top: 5px;
+            }
+          }
+        }
+
+        .like {
+          position: absolute;
+          left: 210px;
+
+          .icon {
+            background: image-url('like_button.png') no-repeat;
+          }
+        }
+
+        .power {
+          position: absolute;
+          left: 440px;
+
+          .icon {
+            background: image-url('power_icon.png') no-repeat;
+          }
+        }
+
         a.facebook_login_button, a.buy_button, a.register_button {
           overflow:hidden;
           text-indent:-15000px;

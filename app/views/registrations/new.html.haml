@@ -9,7 +9,7 @@
 
     = link_to t('strings.register_using_email'), "javascript:;", id: 'email_register'
     .already_member
-      = t('strings.already_a_member')
+      %span= t('strings.already_a_member')
       = link_to 'Entre aqui', new_user_session_path
 
   .new_deal_left#signup_form{ style: "display: #{params[:facebook].to_s == '1' || params[:action] == 'create' ? 'block' : 'none'}"}

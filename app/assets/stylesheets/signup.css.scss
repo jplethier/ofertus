@@ -212,13 +212,22 @@ body {
         width: 185px;
         margin-top: 3em;
 
+        span, a {
+          float: left;
+        }
+
         a {
           color: #404040;
-          text-decoration: none;
+          text-indent: -15000px;
+          width: 73px;
+          height: 20px;
+          display: block;
+          background: image-url('login_btn.png') no-repeat 0 0;
+          margin-left: 5px;
         }
 
         a:hover {
-          text-decoration: underline;
+          background: image-url('login_btn.png') no-repeat 0 -30px;
         }
       }
     }

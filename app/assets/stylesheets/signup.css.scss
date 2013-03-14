@@ -169,25 +169,32 @@ body {
 
       a#email_register {
         color: #404040;
-        width: 234px;
+        width: 230px;
+        height: 32px;
         display: block;
-        margin: 40px auto 30px;
+        margin: 35px auto 25px;
         font-size: 13pt;
         text-decoration: none;
+        text-indent: -15000px;
+        background: image-url('signup_email_btn.png') no-repeat 0 0;
       }
 
       a#email_register:hover {
-        text-decoration: underline;
+        background: image-url('signup_email_btn.png') no-repeat 0 -40px;
       }
 
       a.facebook_login_button {
-        text-indent: -15000px;
-        overflow: hidden;
+        overflow:hidden;
+        text-indent:-15000px;
         display: block;
-        width: 256px;
-        height: 37px;
-        background: image-url('home_login_fb.png') no-repeat;
         margin: 30px auto;
+        width: 228px;
+        height: 38px;
+        background: image-url('home_btns.png') no-repeat 0 0;
+      }
+
+      a.facebook_login_button:hover {
+        background: image-url('home_btns.png') no-repeat 0 -49px;
       }
 
       .or_background {

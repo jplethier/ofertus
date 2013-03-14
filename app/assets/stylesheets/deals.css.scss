@@ -1,4 +1,17 @@
 body {
+
+  #header_background {
+    margin-top: 0;
+    height: 10px;
+    position: relative;
+    background: image-url('flag_divisor.png') no-repeat transparent;
+}
+
+  #deals_background {
+    width: 100%;
+    background: image-url('bg-html.jpg') repeat;
+  }
+
   .offer_details {
     display: block;
     width: 1040px;

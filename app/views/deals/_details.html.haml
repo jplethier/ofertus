@@ -1,76 +1,77 @@
-.offer_details
+#deals_background
+  .offer_details
 
-  .list-conteudo.detalhe-oferta{ id: "deal_#{deal.id}" }
-    = cache [:deal, :left_price, deal.id], expires_in: 1.week do
-      .left.off
-        .col-off
-          - if deal.price?
-            %h4= t('strings.original_price', :price => number_to_currency(deal.real_price)).html_safe
+    .list-conteudo.detalhe-oferta{ id: "deal_#{deal.id}" }
+      = cache [:deal, :left_price, deal.id], expires_in: 1.week do
+        .left.off
+          .col-off
+            - if deal.price?
+              %h4= t('strings.original_price', :price => number_to_currency(deal.real_price)).html_safe
 
-          - if deal.discount > 50
-            .preco-off{ style: "background-image: url('#{asset_path('red_discount_big.png')}')" }
-              %h4= t('strings.offer_price', :price => number_to_currency(deal.price)).html_safe
-          - elsif deal.discount > 25
-            .preco-off{ style: "background-image: url('#{asset_path('orange_discount_big.png')}')" }
-              %h4= t('strings.offer_price', :price => number_to_currency(deal.price)).html_safe
+            - if deal.discount > 50
+              .preco-off{ style: "background-image: url('#{asset_path('red_discount_big.png')}')" }
+                %h4= t('strings.offer_price', :price => number_to_currency(deal.price)).html_safe
+            - elsif deal.discount > 25
+              .preco-off{ style: "background-image: url('#{asset_path('orange_discount_big.png')}')" }
+                %h4= t('strings.offer_price', :price => number_to_currency(deal.price)).html_safe
+            - else
+              .preco-off
+                %h4= t('strings.offer_price', :price => number_to_currency(deal.price)).html_safe
+
+            %h5= t('strings.discount', :discount => "#{deal.discount.to_i}%")
+            %h5= t('strings.end_date', :end_date => deal.end_date? ? l(deal.end_date.to_date) : "-")
+
+      .left.tx-off
+        %h3
+          %a{ :href => deal.link, :target => '_blank'}= deal.title
+          .counts
+            %span.likes= deal.up_votes
+            %span.reports= deal.down_votes
+
+        .user-off
+          = link_to(image_tag(deal.user.small_picture, :alt => deal.user.username, :title => deal.user.username), user_path(deal.user.username), :class => "user_picture")
+          %h4= t('strings.shared_by')
+          %span= link_to deal.user.name, user_path(deal.user.username)
+
+        %ul
+          %li= t('strings.category', :category => Deal.i18n_category(deal.category))
+          %li= t('strings.company', :company => deal.partner.try(:name))
+          %li= t('strings.city', :city => deal.city.name)
+
+        = cache [:deal, :right_go_to_site, deal.id], expires_in: 30.minutes do
+          .right#go_to_site
+            = link_to '', deal.link, :class => 'go_to_site_button', :target => '_blank', :id => "big_button"
+            %br
+            .social{ :style => "float: right; margin-right: 12px; width: 280px;" }
+              %iframe{ src: "//www.facebook.com/plugins/like.php?href=#{deal_url(deal)}&send=false&layout=button_count&width=82&show_faces=false&font=arial&colorscheme=light&action=like&height=21&appId=146791075437937", scrolling: 'no', frameborder: 0, style: "border: none; overflow: hidden; width: 82px; height: 21px; float: left;", allowTransparency: 'true' }
+
+              %a{ href: "https://www.facebook.com/dialog/feed?app_id=146791075437937&link=#{deal_url(deal)}&picture=#{deal.get_image_url}&name=#{deal.title}&caption=Reference%20Documentation&description=#{deal.title}&redirect_uri=#{deal_url(deal)}", style: 'height: 21px; width: 54px; float: left; margin-right: 6px;' }
+                %img{ src: asset_path('share_fb.png') }
+
+              %iframe{ allowtransparency: "true", frameborder: "0", scrolling: "no", src: "http://platform.twitter.com/widgets/tweet_button.1357735024.html#_=1358021306008&count=horizontal&id=twitter-widget-0&lang=pt&original_referer=#{deal_url(deal)}&size=m&text=#{deal.title}&url=#{deal_url(deal)}&via=ofertusbr", class: "twitter-share-button twitter-count-horizontal", style: "width: 95px; height: 21px; float: left;", title: "Twitter Tweet Button", data: { twttr: { rendered: "true" } } }
+
+              / %a{ href: "https://plus.google.com/share?url={deal_url(deal)}", onclick: "javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;", style: "float: left; margin-right: 10px;" }
+              /   %img{ src: "https://www.gstatic.com/images/icons/gplus-16.png", alt: "Share on Google+", style: 'height: 19px;' }
+
+              / %div{ style: "height: 21px; width: 70px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; background-position: initial initial; background-repeat: initial initial;", id: "___plusone_0"}
+              /   %iframe{ frameborder: "0", hspace: "0", marginheight: "0", marginwidth: "0", scrolling: "no", style: "position: static; top: 0px; width: 100%; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 21px;", tabindex: "0", vspace: "0", width: "100%", id: "I0_1358044382094", name: "I0_1358044382094", src: "https://plusone.google.com/_/+1/fastbutton?bsv&size=medium&annotation=bubble&%2C=&hl=pt-BR&origin=#{deal_url(deal)}&url=#{deal_url(deal)}&ic=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.pt_BR.tqhs4u748ug.O%2Fm%3D__features__%2Fam%3DiQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAItRSTPuUNPD6ivWsPRMP6IQ_6x2WR2P4g#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled&amp;id=I0_1358044382094&parent=#{deal_url(deal)}", allowtransparency: "true", data: { gapiattached: "true" }, title: "+1" }
+
+              %a{ href: "http://pinterest.com/pin/create/button/?url=#{deal_url(deal)}&media=#{deal.get_image_url}&description=#{deal.title}", target: '_blank', class: 'pin-it-button', style: "float: left;", count: { layout: 'horizontal' } }
+                %img{ border: 0, src: '//assets.pinterest.com/images/PinExt.png', title: 'Pin It' }
+
+        .share-off
+          - if current_user && current_user.up_voted?(deal)
+            = link_to t('strings.dislike'), 'javascript:;', class: 'dislike', id:'dislike_btn', onclick: "dislike_deal('#{deal.id}')"
+            = link_to t('strings.like'), 'javascript:;', class: 'like', id: 'like_btn', onclick: "upvote_deal('#{deal.id}')", style: 'display: none;'
           - else
-            .preco-off
-              %h4= t('strings.offer_price', :price => number_to_currency(deal.price)).html_safe
+            = link_to t('strings.like'), 'javascript:;', class: 'like', id: 'like_btn', onclick: "upvote_deal('#{deal.id}')"
+            = link_to t('strings.dislike'), 'javascript:;', class: 'dislike', id: 'dislike_btn', onclick: "dislike_deal('#{deal.id}')", style: 'display: none;'
+          - if current_user && current_user.down_voted?(deal)
+            = link_to t('strings.unreport'), 'javascript:;', class: 'unreport', id: 'unreport_btn', onclick: "unreport_deal('#{deal.id}')"
+            = link_to t('strings.report'), 'javascript:;', class: 'report', id: 'report_btn', onclick: "report_deal('#{deal.id}')", style: 'display: none;'
+          - else
+            = link_to t('strings.unreport'), 'javascript:;', class: 'unreport', id: 'unreport_btn', onclick: "unreport_deal('#{deal.id}')", style: 'display: none;'
+            = link_to t('strings.report'), 'javascript:;', class: 'report', id: 'report_btn', onclick: "report_deal('#{deal.id}')"
 
-          %h5= t('strings.discount', :discount => "#{deal.discount.to_i}%")
-          %h5= t('strings.end_date', :end_date => deal.end_date? ? l(deal.end_date.to_date) : "-")
-
-    .left.tx-off
-      %h3
-        %a{ :href => deal.link, :target => '_blank'}= deal.title
-        .counts
-          %span.likes= deal.up_votes
-          %span.reports= deal.down_votes
-
-      .user-off
-        = link_to(image_tag(deal.user.small_picture, :alt => deal.user.username, :title => deal.user.username), user_path(deal.user.username), :class => "user_picture")
-        %h4= t('strings.shared_by')
-        %span= link_to deal.user.name, user_path(deal.user.username)
-
-      %ul
-        %li= t('strings.category', :category => Deal.i18n_category(deal.category))
-        %li= t('strings.company', :company => deal.partner.try(:name))
-        %li= t('strings.city', :city => deal.city.name)
-
-      = cache [:deal, :right_go_to_site, deal.id], expires_in: 30.minutes do
-        .right#go_to_site
-          = link_to '', deal.link, :class => 'go_to_site_button', :target => '_blank', :id => "big_button"
-          %br
-          .social{ :style => "float: right; margin-right: 12px; width: 280px;" }
-            %iframe{ src: "//www.facebook.com/plugins/like.php?href=#{deal_url(deal)}&send=false&layout=button_count&width=82&show_faces=false&font=arial&colorscheme=light&action=like&height=21&appId=146791075437937", scrolling: 'no', frameborder: 0, style: "border: none; overflow: hidden; width: 82px; height: 21px; float: left;", allowTransparency: 'true' }
-
-            %a{ href: "https://www.facebook.com/dialog/feed?app_id=146791075437937&link=#{deal_url(deal)}&picture=#{deal.get_image_url}&name=#{deal.title}&caption=Reference%20Documentation&description=#{deal.title}&redirect_uri=#{deal_url(deal)}", style: 'height: 21px; width: 54px; float: left; margin-right: 6px;' }
-              %img{ src: asset_path('share_fb.png') }
-
-            %iframe{ allowtransparency: "true", frameborder: "0", scrolling: "no", src: "http://platform.twitter.com/widgets/tweet_button.1357735024.html#_=1358021306008&count=horizontal&id=twitter-widget-0&lang=pt&original_referer=#{deal_url(deal)}&size=m&text=#{deal.title}&url=#{deal_url(deal)}&via=ofertusbr", class: "twitter-share-button twitter-count-horizontal", style: "width: 95px; height: 21px; float: left;", title: "Twitter Tweet Button", data: { twttr: { rendered: "true" } } }
-
-            / %a{ href: "https://plus.google.com/share?url={deal_url(deal)}", onclick: "javascript:window.open(this.href,'', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;", style: "float: left; margin-right: 10px;" }
-            /   %img{ src: "https://www.gstatic.com/images/icons/gplus-16.png", alt: "Share on Google+", style: 'height: 19px;' }
-
-            / %div{ style: "height: 21px; width: 70px; display: inline-block; text-indent: 0px; margin: 0px; padding: 0px; background-color: transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; background-position: initial initial; background-repeat: initial initial;", id: "___plusone_0"}
-            /   %iframe{ frameborder: "0", hspace: "0", marginheight: "0", marginwidth: "0", scrolling: "no", style: "position: static; top: 0px; width: 100%; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 21px;", tabindex: "0", vspace: "0", width: "100%", id: "I0_1358044382094", name: "I0_1358044382094", src: "https://plusone.google.com/_/+1/fastbutton?bsv&size=medium&annotation=bubble&%2C=&hl=pt-BR&origin=#{deal_url(deal)}&url=#{deal_url(deal)}&ic=1&jsh=m%3B%2F_%2Fscs%2Fapps-static%2F_%2Fjs%2Fk%3Doz.gapi.pt_BR.tqhs4u748ug.O%2Fm%3D__features__%2Fam%3DiQ%2Frt%3Dj%2Fd%3D1%2Frs%3DAItRSTPuUNPD6ivWsPRMP6IQ_6x2WR2P4g#_methods=onPlusOne%2C_ready%2C_close%2C_open%2C_resizeMe%2C_renderstart%2Concircled&amp;id=I0_1358044382094&parent=#{deal_url(deal)}", allowtransparency: "true", data: { gapiattached: "true" }, title: "+1" }
-
-            %a{ href: "http://pinterest.com/pin/create/button/?url=#{deal_url(deal)}&media=#{deal.get_image_url}&description=#{deal.title}", target: '_blank', class: 'pin-it-button', style: "float: left;", count: { layout: 'horizontal' } }
-              %img{ border: 0, src: '//assets.pinterest.com/images/PinExt.png', title: 'Pin It' }
-
-      .share-off
-        - if current_user && current_user.up_voted?(deal)
-          = link_to t('strings.dislike'), 'javascript:;', class: 'dislike', id:'dislike_btn', onclick: "dislike_deal('#{deal.id}')"
-          = link_to t('strings.like'), 'javascript:;', class: 'like', id: 'like_btn', onclick: "upvote_deal('#{deal.id}')", style: 'display: none;'
-        - else
-          = link_to t('strings.like'), 'javascript:;', class: 'like', id: 'like_btn', onclick: "upvote_deal('#{deal.id}')"
-          = link_to t('strings.dislike'), 'javascript:;', class: 'dislike', id: 'dislike_btn', onclick: "dislike_deal('#{deal.id}')", style: 'display: none;'
-        - if current_user && current_user.down_voted?(deal)
-          = link_to t('strings.unreport'), 'javascript:;', class: 'unreport', id: 'unreport_btn', onclick: "unreport_deal('#{deal.id}')"
-          = link_to t('strings.report'), 'javascript:;', class: 'report', id: 'report_btn', onclick: "report_deal('#{deal.id}')", style: 'display: none;'
-        - else
-          = link_to t('strings.unreport'), 'javascript:;', class: 'unreport', id: 'unreport_btn', onclick: "unreport_deal('#{deal.id}')", style: 'display: none;'
-          = link_to t('strings.report'), 'javascript:;', class: 'report', id: 'report_btn', onclick: "report_deal('#{deal.id}')"
-
-    .right
-      = Rails.cache.fetch([:deal, :image, deal.id], expires_in: 1.month) { "<img alt='#{deal.get_image_url}' title='#{deal.title}' src='#{deal.get_image_url}'>".html_safe }
+      .right
+        = Rails.cache.fetch([:deal, :image, deal.id], expires_in: 1.month) { "<img alt='#{deal.get_image_url}' title='#{deal.title}' src='#{deal.get_image_url}'>".html_safe }

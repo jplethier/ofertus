@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130309221923) do
+ActiveRecord::Schema.define(:version => 20130314200747) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -40,6 +40,10 @@ ActiveRecord::Schema.define(:version => 20130309221923) do
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "icon_content_type"
+    t.string   "icon_file_name"
+    t.integer  "icon_file_size"
+    t.datetime "icon_updated_at"
   end
 
   create_table "blog_comments", :force => true do |t|

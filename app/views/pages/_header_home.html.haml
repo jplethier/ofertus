@@ -5,7 +5,7 @@
       .banners_content
         %ul
           - banners.each_with_index do |banner, index|
-            %li{ class: index == 0 ? 'selected' : '' }= link_to image_tag( banner.image(:thumb), alt: banner.alt, title: banner.title), 'javascript:;', onclick: "$('div.selected').hide(); $('#banner_#{banner.id}').show();", id: "li_banner_#{banner.id}"
+            %li{ class: index == 0 ? 'selected' : '' }= link_to image_tag( banner.icon(:thumb), alt: banner.alt, title: banner.title), 'javascript:;', onclick: "$('div.selected').hide(); $('#banner_#{banner.id}').show();", id: "li_banner_#{banner.id}"
         - banners.each_with_index do |banner, index|
           .selected{ style: index != 0 ? 'display: none;' : '', id: "banner_#{banner.id}" }= link_to image_tag(banner.image, title: banner.title, alt: banner.alt), banner.url, target: banner.target
 

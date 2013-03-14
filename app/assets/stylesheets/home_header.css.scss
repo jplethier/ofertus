@@ -76,8 +76,8 @@ body {
       }
 
       #video {
-        height: 200px;
-        background: image-url('/assets/boneco_video.png') 2px 85px no-repeat white;
+        height: 190px;
+        background: image-url('/assets/boneco_video.png') 2px 75px no-repeat white;
 
         a {
           text-indent: -15000px;
@@ -86,8 +86,8 @@ body {
           height: 103px;
           display: block;
           position: absolute;
-          top: 20px;
-          left: 80px;
+          top: 15px;
+          left: 85px;
         }
         span {
           font-weight: bold;
@@ -104,12 +104,12 @@ body {
 
       #mailing {
         clear: right;
-        height: 85px;
+        height: 95px;
 
         img {
           position: absolute;
-          top: 7px;
-          left: 7px;
+          top: 9px;
+          left: 9px;
         }
 
         span {
@@ -119,7 +119,7 @@ body {
           text-transform: uppercase;
           line-height: 20px;
           position: absolute;
-          top: 5px;
+          top: 7px;
           left: 70px;
           width: 160px;
           text-align: center;
@@ -131,7 +131,7 @@ body {
             border: 0;
             position: absolute;
             left: 7px;
-            bottom: 7px;
+            bottom: 9px;
             height: 28px;
             width: 203px;
             border-radius: 20px;

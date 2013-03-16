@@ -1,7 +1,7 @@
 body {
   #sem-col {
     .new_deal_left, .new_deal_right, .edit_user, .deals_history, .sales_history {
-      font-family: 'Colaborate-Thin', 'Helvetica Neue';
+      font-family: 'Gotham Book';
       background: image-url('bg-html.jpg');
       width: 48%;
       font-size: 14px;
@@ -9,13 +9,14 @@ body {
       height: 53em;
 
       .title {
-        font-family: 'Colaborate-Thin', 'Helvetica Neue';
+        font-family: 'Gotham Book';
         background: #2d2d2d;
         width: 98%;
-        height: 17px;
+        height: 13px;
         text-transform: uppercase;
         color: white;
-        padding: 5px;
+        padding: 8px 5px 5px;
+        font-size: 13px;
       }
     }
 
@@ -48,7 +49,7 @@ body {
         span {
           height: 50px;
           line-height: 50px;
-          font-size: 14pt;
+          font-size: 11pt;
         }
       }
 
@@ -136,7 +137,7 @@ body {
 
         .input-tx {
           background: #f6f6f6;
-          font-family: 'Colaborate-Thin';
+          font-family: 'Gotham Book';
           text-transform:uppercase;
           font-size:11px;
           color: #666;
@@ -233,7 +234,7 @@ body {
 
       form#new_deal {
         label {
-          font-size: 12pt;
+          font-size: 11pt;
         }
 
         #deal_company {
@@ -242,6 +243,12 @@ body {
 
         input {
           margin-bottom: 1em;
+        }
+
+        .small_column {
+          a {
+            font-size: 10pt !important;
+          }
         }
       }
     }

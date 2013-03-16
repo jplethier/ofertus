@@ -12,3 +12,27 @@
        local('ColabThi'), url("/fonts/ColabThi.ttf") format("truetype"),
        local('ColabThi'), url("/fonts/ColabThi.svg#svgColaborate-Thin") format("svg");
 }
+
+@font-face {
+  font-family: 'Gotham Book';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/Gotham-Book.eot');
+  src: url('/fonts/Gotham-Book.eot?#iefix') format('embedded-opentype'),url('/fonts/Gotham-Book.woff') format('woff'),url('/fonts/Gotham-Book.ttf') format('truetype'),url('/fonts/Gotham-Book.svg#ITCOfficinaSerifBold') format('svg');
+}
+
+@font-face {
+  font-family: 'Gotham Book';
+  font-style: normal;
+  font-weight: bold;
+  src: url('/fonts/Gotham-Bold.eot');
+  src: url('/fonts/Gotham-Bold.eot?#iefix') format('embedded-opentype'),url('/fonts/Gotham-Bold.woff') format('woff'),url('/fonts/Gotham-Bold.ttf') format('truetype'),url('/fonts/Gotham-Bold.svg#ITCOfficinaSerifBold') format('svg');
+}
+
+@font-face {
+  font-family: 'Gotham Medium';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/fonts/Gotham-Medium.eot');
+  src: url('/fonts/Gotham-Medium.eot?#iefix') format('embedded-opentype'),url('/fonts/Gotham-Medium.woff') format('woff'),url('/fonts/Gotham-Medium.ttf') format('truetype'),url('/fonts/Gotham-Medium.svg#ITCOfficinaSerifBold') format('svg');
+}

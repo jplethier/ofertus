@@ -92,13 +92,13 @@ body {
         span {
           font-weight: bold;
           height: 45px;
-          font-size: 15px;
+          font-size: 14px;
           text-transform: uppercase;
           line-height: 20px;
           position: absolute;
           bottom: 10px;
           right: 20px;
-          width: 120px;
+          width: 115px;
         }
       }
 
@@ -115,13 +115,13 @@ body {
         span {
           font-weight: bold;
           height: 45px;
-          font-size: 15px;
+          font-size: 14px;
           text-transform: uppercase;
           line-height: 20px;
           position: absolute;
           top: 7px;
-          left: 70px;
-          width: 160px;
+          left: 65px;
+          width: 170px;
           text-align: center;
         }
 
@@ -159,8 +159,8 @@ body {
         margin-left: 15px;
 
         .text {
-          font-family: 'Colaborate-Thin';
-          font-size: 18px;
+          font-family: 'Gotham Book';
+          font-size: 17px;
           text-transform: uppercase;
           width: 460px;
           float: right;
@@ -169,9 +169,8 @@ body {
           color: #404040;
 
           strong {
-            font-weight: bold;
+            font-family: 'Gotham Medium';
             color: black;
-            font-size: 19px;
           }
         }
 
@@ -179,7 +178,7 @@ body {
           width: 460px;
           float: right;
           margin-right: 40px;
-          margin-top: 8px;
+          margin-top: 12px;
 
           div {
             width: 224px;
@@ -202,8 +201,8 @@ body {
           }
 
           .text {
-            width: 170px;
-            font-family: 'Colaborate-Thin';
+            width: 173px;
+            font-family: 'Gotham Book';
             margin-right: 0;
             font-size: 13px;
             float: left;
@@ -212,8 +211,9 @@ body {
 
             strong {
               line-height: 18px;
-              font-size: 18px;
+              font-size: 17px;
               text-transform: uppercase;
+              font-family: 'Gotham Medium';
             }
 
             a {
@@ -346,7 +346,7 @@ body {
           span {
             font-weight: bold;
             height: 45px;
-            font-size: 15px;
+            font-size: 13px;
             text-transform: uppercase;
             width: 75%;
             line-height: 20px;

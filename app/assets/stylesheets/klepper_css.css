@@ -7,7 +7,7 @@ Author URI: klepper.com.br
 /* Structure
 ------------------------------------------------*/
 html { background:url(bg-html.jpg) repeat; }
-body { font:12px Arial, sans-serif; *font-size:small; font-family: 'Colaborate-Thin', Arial; }
+body { font:12px; *font-size:small; font-family: 'Gotham Book', 'Lucida Grande'; color: #5d5d5d; }
 
 #col-right .ttGlHome { margin-bottom:17px; }
 #col-right .ttGlHome h2 { font-size:21px; line-height:19px; }
@@ -19,18 +19,18 @@ body { font:12px Arial, sans-serif; *font-size:small; font-family: 'Colaborate-T
 .list-conteudo { overflow:hidden; margin-bottom:30px; padding-bottom:30px; border-bottom: none; }
 .list-conteudo .right { width:210px; }
 .list-conteudo h3 { padding-bottom:30px;  }
-.list-conteudo h3 a { font-size:22px; font-weight:normal; margin-bottom:0; color: #404040; line-height:24px; text-decoration:none; }
+.list-conteudo h3 a { font-size: 20px; font-weight:normal; margin-bottom:0; color: #404040; line-height:24px; text-decoration:none; }
 .list-conteudo .left.tx-off { width:360px; }
-.list-conteudo .left.tx-off .user-off { overflow: hidden; margin-bottom: 15px; clear: both; }
+.list-conteudo .left.tx-off .user-off { overflow: hidden; margin-bottom: 10px; clear: both; }
 .list-conteudo .left.tx-off .user-off img { float:left; margin-right:6px; }
 .list-conteudo .left.tx-off .user-off h4 { font-size:12px; font-weight: normal; line-height:20px; }
 .list-conteudo .left.tx-off .user-off span { font-size:14px; }
 .list-conteudo .left.tx-off ul li { font-size:12px; line-height:18px; }
 .list-conteudo .left.off { width:129px; margin-right:26px; }
-.list-conteudo .left.off h5 { display: block; padding:5px 0; font-weight: normal; font-size:14px; text-align: center; width:91px; margin:0 auto;  }
-.list-conteudo .left.off .preco-off { width:129px; padding:45px 0; text-align:center; background: url(green_discount_big.png) no-repeat; min-height: 40px; }
-.list-conteudo .left.off .preco-off h4 { font-size:13px; color: #fff; margin-bottom:0; font-weight: normal; }
-.list-conteudo .left.off .preco-off h4 span { color: white; font-size:23px; text-decoration:none; font-weight: bold; }
+.list-conteudo .left.off h5 { display: block; padding:5px 0; font-weight: normal; font-size: 13px; text-align: center; width:91px; margin:0 auto;  }
+.list-conteudo .left.off .preco-off { width:129px; padding: 51px 0 43px; text-align:center; background: url(green_discount_big.png) no-repeat; min-height: 32px; }
+.list-conteudo .left.off .preco-off h4 { font-size: 11px; color: #fff; margin-bottom:0; font-weight: normal; }
+.list-conteudo .left.off .preco-off h4 span { color: white; font-size: 19px; text-decoration:none; font-weight: bold; }
 .list-conteudo .left.off h4 { text-align:center; font-size:11px; margin-bottom:10px; text-transform:uppercase; font-weight: normal; }
 .list-conteudo .left.off h4 span { color: #ff6162; display: block; font-size:18px; text-decoration:line-through; }
 

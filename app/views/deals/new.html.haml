@@ -47,6 +47,8 @@
             = f.label :description
           %div
             = cktext_area :deal, :description, :toolbar => 'Basic'
+        %br
+        %br
         .clear
         .left.small_column
           %p
@@ -89,6 +91,7 @@
             %div
               = f.select(:city_id, unsorted_grouped_options_for_select(@cities_state_hash), {:include_blank => 'Selecione'} )
 
+        %br
         %br.clear
         = f.submit "", :class => 'bt-confirmar', :id => 'confirm'
 
@@ -115,7 +118,7 @@
       %span= t('strings.steps.five')
       %img{ src: asset_path('steps/step5.png') }
     .clear
-    .description{ style: 'font-size: 14pt;' }= t('strings.ready_just_share').html_safe
+    .description{ style: 'font-size: 12pt;' }= t('strings.ready_just_share').html_safe
 
   .clear
 

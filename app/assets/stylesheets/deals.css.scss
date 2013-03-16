@@ -115,7 +115,7 @@ body {
     .list-conteudo {
       .pagination {
         p {
-          font-family: 'Colaborate-Thin';
+          font-family: 'Gotham Book';
           font-size: 20px;
         }
 
@@ -124,7 +124,7 @@ body {
           margin: 0 auto;
 
           p {
-            font-family: 'Colaborate-Thin';
+            font-family: 'Gotham Book';
             font-size: 20px;
           }
         }
@@ -150,7 +150,7 @@ body {
           width: 291px;
           border-radius: 0;
           margin: 0;
-          font-size: 1em;
+          font-size: 9pt;
         }
 
         .submit {
@@ -174,17 +174,17 @@ body {
         height: 2.5em;
 
         li {
-          width: 14%;
           float: left;
           border-left: 1px solid #666;
           color: #666;
           text-align: center;
+          padding: 0 10px;
 
           a {
             color: #666;
             text-transform: uppercase;
             text-decoration: none;
-            font-size: 1.2em;
+            font-size: 10pt;
           }
 
           a:hover {
@@ -230,6 +230,7 @@ body {
             width: 93%;
             background: #8c8c8c;
             border-radius: 5px;
+            height: 11px;
 
             .ui-slider-range.ui-widget-header {
               background: #2C96D4;
@@ -241,7 +242,7 @@ body {
               border: none;
               width: 18px;
               height: 18px;
-              top: -.35em;
+              top: -5px;
             }
 
             a.ui-state-hover {
@@ -255,10 +256,11 @@ body {
 
           select {
             width: 90%;
+            font-size: 10pt;
           }
 
           label {
-            font-size: 1.2em;
+            font-size: 11pt;
           }
         }
 

@@ -154,13 +154,12 @@ body {
               }
 
               strong {
-                font-family: 'Colaborate-Thin' !important;
+                font-family: 'Gotham Medium' !important;
                 font-size: 18px;
-                color: black;
               }
 
               span {
-                font-family: 'Lucida Grande';
+                font-family: 'Gotham Book';
                 font-size: 12px;
                 color: #888;
               }
@@ -183,7 +182,7 @@ body {
 
             .deals {
               clear: both;
-              font-family: 'Lucida Grande';
+              font-family: 'Gotham Book';
               font-size: 12px;
               color: #888;
               display: inline-block;
@@ -303,9 +302,9 @@ body {
           font-weight: bold;
           width: 214px;
           height: 20px;
-          font-family: 'Colaborate-Thin';
-          font-size: 11pt;
-          line-height: 20px;
+          font-family: 'Gotham Book';
+          font-size: 10pt;
+          line-height: 21px;
         }
       }
 
@@ -313,17 +312,16 @@ body {
         width: 90%;
         height: 30px;
         top: 20px;
-        padding: 5px 10px;
-        height: 40px;
+        padding: 10px;
 
         .price {
 
           p.from {
-            font-size: 8pt;
-            color: #333;
+            font-size: 7pt;
+            color: #7d7d7d;
 
             strong {
-              font-size: 12pt;
+              font-size: 11pt;
               text-decoration: line-through;
             }
           }
@@ -331,10 +329,10 @@ body {
           p.by {
             clear: right;
             color: #c33;
-            font-size: 14pt;
+            font-size: 12pt;
 
             strong {
-              font-size: 18pt;
+              font-size: 15pt;
             }
           }
         }
@@ -369,7 +367,7 @@ body {
       h4 {
 
         a {
-          font-family: 'Colaborate-Thin';
+          font-family: 'Gotham Book';
           font-size: 15px;
           text-decoration: none;
           color: #444;
@@ -401,28 +399,30 @@ body {
           a {
             text-decoration: none;
             color: #444;
-            font-family: 'Colaborate-Thin';
+            font-family: 'Gotham Book';
           }
 
           p.end_date {
             background: image-url('calendar.png') no-repeat;
             padding-left: 1.5em;
-            line-height: 1.5em;
-            font-size: 11pt;
+            line-height: 1.8em;
+            font-size: 10pt;
           }
         }
 
         .counts {
           float: right;
-          width: 71px;
+          width: 65px;
           margin-top: 5px;
 
           .likes, .reports {
-            width: 10px;
+            width: 8px;
             height: 16px;
             display: block;
             float: left;
             padding-left: 25px;
+            font-size: 14px;
+            padding-top: 4px;
           }
 
           .likes {
@@ -432,8 +432,8 @@ body {
           .reports {
             background: image-url('report_count_icon.png') no-repeat;
             height: 18px;
-            padding-left: 16px;
-            margin-left: 10px;
+            padding-left: 13px;
+            margin-left: 8px;
           }
         }
       }
@@ -470,11 +470,11 @@ body {
           text-transform: uppercase;
           font-weight: bold;
           width: 130px;
-          height: 2.5em;
+          height: 34px;
           position: absolute;
           left: -47px;
-          top: 3em;
-          font-family: 'Colaborate-Thin';
+          top: 41px;
+          font-family: 'Gotham Book';
           font-size: 11pt;
           line-height: 31px;
         }
@@ -502,11 +502,11 @@ body {
           }
 
           p.from {
-            font-size: 10pt;
-            color: #333;
+            font-size: 9pt;
+            color: #7d7d7d;
 
             strong {
-              font-size: 14pt;
+              font-size: 13pt;
               text-decoration: line-through;
             }
           }
@@ -514,10 +514,10 @@ body {
           p.by {
             clear: right;
             color: #c33;
-            font-size: 16pt;
+            font-size: 15pt;
 
             strong {
-              font-size: 20pt;
+              font-size: 19pt;
             }
           }
         }
@@ -544,7 +544,7 @@ body {
           height: 35px;
 
           a {
-            font-family: 'Colaborate-Thin';
+            font-family: 'Gotham Book';
             font-size: 15px;
             text-decoration: none;
             color: #444;
@@ -565,7 +565,7 @@ body {
 
         .user_infos {
           float: left;
-          font-family: 'Colaborate-Thin';
+          font-family: 'Gotham Book';
           padding: .3em .5em;
           font-size: 11pt;
 
@@ -601,7 +601,9 @@ body {
           height: 16px;
           display: block;
           float: left;
-          padding-left: 25px;
+          padding-left: 22px;
+          font-size: 14px;
+          padding-top: 4px;
         }
 
         .likes {
@@ -611,7 +613,7 @@ body {
         .reports {
           background: image-url('report_count_icon.png') no-repeat;
           height: 18px;
-          padding-left: 16px;
+          padding-left: 14px;
           margin-left: 10px;
         }
       }
@@ -794,8 +796,8 @@ body {
       .category {
         top: 2em;
         left: 1px;
-        width: 2.5em;
-        height: 12em;
+        width: 30px;
+        height: 144px;
       }
     }
 

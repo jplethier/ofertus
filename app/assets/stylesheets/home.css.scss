@@ -155,7 +155,7 @@ body {
 
               strong {
                 font-family: 'Gotham Medium' !important;
-                font-size: 18px;
+                font-size: 16px;
               }
 
               span {
@@ -299,7 +299,6 @@ body {
           display: none;
           color: white;
           text-transform: uppercase;
-          font-weight: bold;
           width: 214px;
           height: 20px;
           font-family: 'Gotham Book';
@@ -468,7 +467,6 @@ body {
           @include transform(rotate(-90deg));
           color: white;
           text-transform: uppercase;
-          font-weight: bold;
           width: 130px;
           height: 34px;
           position: absolute;
@@ -603,7 +601,7 @@ body {
           float: left;
           padding-left: 22px;
           font-size: 14px;
-          padding-top: 4px;
+          padding-top: 3px;
         }
 
         .likes {

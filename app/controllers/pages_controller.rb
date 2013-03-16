@@ -13,7 +13,6 @@ class PagesController < ApplicationController
   end
 
   def subscribe_to_newsletter
-    binding.pry
     if params[:subscribe_to_newsletter].blank? || params[:subscribe_to_newsletter][:email].blank?
       flash[:error] = "Informe um email para assinar a nesletter."
     else

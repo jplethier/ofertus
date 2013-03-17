@@ -8,6 +8,11 @@
           %li= link_to image_tag(partner.mini_image_url, alt: partner.name, title: partner.name), partner.url, target: '_blank'
       = link_to 'Anterior', 'javascript:;', :id => 'list_prev_partners', :class => 'prev'
       = link_to 'Próximo', 'javascript:;', :id => 'list_next_partners', :class => 'next'
+    #share
+      %iframe{ src: "//www.facebook.com/plugins/like.php?locale=pt_BR&href=http://www.facebook.com/ofertus&send=false&layout=button_count&width=82&show_faces=false&font=arial&colorscheme=light&action=like&height=21&appId=146791075437937", scrolling: 'no', frameborder: 0, style: "border: none; overflow: hidden; width: 115px; height: 21px; float: left; margin: 3px 26px;", allowTransparency: 'true' }
+      :plain
+        <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+        <g:plusone></g:plusone>
     .clear
     #banners
       .banners_content

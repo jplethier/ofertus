@@ -42,8 +42,8 @@
           .right#go_to_site
             = link_to '', deal.link, :class => 'go_to_site_button', :target => '_blank', :id => "big_button"
             %br
-            .social{ :style => "float: right; margin-right: 12px; width: 280px;" }
-              %iframe{ src: "//www.facebook.com/plugins/like.php?href=#{deal_url(deal)}&send=false&layout=button_count&width=82&show_faces=false&font=arial&colorscheme=light&action=like&height=21&appId=146791075437937", scrolling: 'no', frameborder: 0, style: "border: none; overflow: hidden; width: 82px; height: 21px; float: left;", allowTransparency: 'true' }
+            .social{ :style => "float: right; margin-right: 12px; width: 290px;" }
+              %iframe{ src: "//www.facebook.com/plugins/like.php?locale=pt_BR&href=#{deal_url(deal)}&send=false&layout=button_count&width=82&show_faces=false&font=arial&colorscheme=light&action=like&height=21&appId=146791075437937", scrolling: 'no', frameborder: 0, style: "border: none; overflow: hidden; width: 95px; height: 21px; float: left;", allowTransparency: 'true' }
 
               %a{ href: "https://www.facebook.com/dialog/feed?app_id=146791075437937&link=#{deal_url(deal)}&picture=#{deal.get_image_url}&name=#{deal.title}&caption=Reference%20Documentation&description=#{deal.title}&redirect_uri=#{deal_url(deal)}", style: 'height: 21px; width: 54px; float: left; margin-right: 6px;' }
                 %img{ src: asset_path('share_fb.png') }

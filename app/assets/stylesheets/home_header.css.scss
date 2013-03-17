@@ -65,6 +65,14 @@ body {
         }
       }
 
+      #share {
+        float: right;
+        height: 22px;
+        padding-top: 3px;
+        width: 280px;
+        text-align: center;
+      }
+
       #banners, #video, #mailing, #steps, #social {
         position: relative;
       }
@@ -74,7 +82,7 @@ body {
         background: white;
       }
 
-      #banners, #video, #mailing, #steps, #social, #partners {
+      #banners, #video, #mailing, #steps, #social, #partners, #share {
         margin-top: 15px;
       }
 

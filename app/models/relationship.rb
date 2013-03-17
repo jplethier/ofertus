@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: relationships
+#
+#  id          :integer          not null, primary key
+#  followed_id :integer          not null
+#  follower_id :integer          not null
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
 require 'not_equal_validator'
 
 class Relationship < ActiveRecord::Base

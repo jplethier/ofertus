@@ -1,4 +1,25 @@
 # coding: utf-8
+# == Schema Information
+#
+# Table name: sales
+#
+#  id                    :integer          not null, primary key
+#  value                 :float
+#  store                 :integer
+#  affiliate             :string(255)
+#  country               :string(255)
+#  created_at            :datetime
+#  updated_at            :datetime
+#  affiliate_transaction :integer
+#  user_id               :integer
+#  commission            :float
+#  user_commission       :float
+#  status                :integer
+#  partner_id            :integer
+#  partner_code          :string(255)
+#  id_pedido             :string(255)
+#
+
 require 'spec_helper'
 
 describe Sale do

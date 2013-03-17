@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: cities
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)      not null
+#  state      :string(255)      not null
+#  country    :string(255)      not null
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 #coding: UTF-8
 require 'spec_helper'
 

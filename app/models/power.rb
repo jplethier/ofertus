@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: powers
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  quantity   :integer
+#  status     :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Power < ActiveRecord::Base
   has_paper_trail
 

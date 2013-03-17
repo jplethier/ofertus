@@ -1,3 +1,49 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  confirmation_token     :string(255)
+#  confirmed_at           :datetime
+#  confirmation_sent_at   :datetime
+#  email                  :string(255)      default(""), not null
+#  encrypted_password     :string(128)      default(""), not null
+#  reset_password_token   :string(255)
+#  reset_password_sent_at :datetime
+#  remember_created_at    :datetime
+#  sign_in_count          :integer          default(0)
+#  current_sign_in_at     :datetime
+#  last_sign_in_at        :datetime
+#  current_sign_in_ip     :string(255)
+#  last_sign_in_ip        :string(255)
+#  created_at             :datetime
+#  updated_at             :datetime
+#  name                   :string(255)
+#  username               :string(255)      not null
+#  up_votes               :integer          default(0), not null
+#  down_votes             :integer          default(0), not null
+#  uid                    :string(255)
+#  provider               :string(255)
+#  avatar_url             :string(255)
+#  access_token           :string(255)
+#  facebook_share_offer   :boolean          default(TRUE), not null
+#  facebook_vote_offer    :boolean          default(TRUE), not null
+#  facebook_follow_user   :boolean          default(TRUE), not null
+#  credit                 :decimal(8, 2)    default(0.0), not null
+#  admin                  :boolean          default(FALSE)
+#  invited_by_id          :integer
+#  withdraw_option        :integer
+#  withdraw_bank_cpf      :string(255)
+#  withdraw_bank_account  :string(255)
+#  withdraw_bank_agency   :string(255)
+#  withdraw_bank_number   :string(255)
+#  withdraw_bank_name     :string(255)
+#  withdraw_digital_cpf   :string(255)
+#  withdraw_digital_email :string(255)
+#  withdraw_digital_name  :string(255)
+#  withdraw_remember      :boolean          default(TRUE)
+#
+
 #coding: UTF-8
 require 'spec_helper'
 

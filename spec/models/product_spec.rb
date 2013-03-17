@@ -1,3 +1,17 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id          :integer          not null, primary key
+#  description :string(255)
+#  category    :string(255)
+#  quantity    :integer
+#  value       :float
+#  created_at  :datetime
+#  updated_at  :datetime
+#  sale_id     :integer
+#
+
 require 'spec_helper'
 
 describe Product do

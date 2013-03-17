@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: notifications
+#
+#  id         :integer          not null, primary key
+#  user_id    :integer
+#  message    :text
+#  url        :text
+#  created_at :datetime
+#  updated_at :datetime
+#  status     :integer
+#
+
 class Notification < ActiveRecord::Base
   attr_protected :id
 

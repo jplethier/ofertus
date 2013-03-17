@@ -1,4 +1,34 @@
 #encoding: UTF-8
+# == Schema Information
+#
+# Table name: deals
+#
+#  id            :integer          not null, primary key
+#  description   :text             not null
+#  link          :text             not null
+#  title         :string(255)      not null
+#  user_id       :integer          not null
+#  created_at    :datetime
+#  updated_at    :datetime
+#  address       :string(255)
+#  category      :integer          not null
+#  company       :string(255)      not null
+#  discount      :decimal(8, 2)
+#  end_date      :datetime
+#  real_price    :decimal(8, 2)
+#  price         :decimal(8, 2)
+#  city_id       :integer          not null
+#  up_votes      :integer          default(0), not null
+#  down_votes    :integer          default(0), not null
+#  image_url     :string(255)
+#  slug          :string(255)
+#  ofertus_top   :boolean          default(FALSE)
+#  visits        :integer          default(0)
+#  original_link :text
+#  give_power    :boolean          default(FALSE)
+#  partner_id    :integer
+#
+
 require 'spec_helper'
 
 describe Deal do

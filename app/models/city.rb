@@ -1,4 +1,16 @@
 # coding: UTF-8
+# == Schema Information
+#
+# Table name: cities
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)      not null
+#  state      :string(255)      not null
+#  country    :string(255)      not null
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class City < ActiveRecord::Base
   has_paper_trail
 

@@ -3,7 +3,7 @@ ruby "1.9.3"
 
 gem 'acts_as_commentable'
 gem 'airbrake', '3.1.6'
-gem 'annotate', ">= 2.5.0.pre1"
+gem 'annotate', ">= 2.5.0"
 gem 'bourbon'
 gem 'ckeditor'
 gem 'coffee-script'

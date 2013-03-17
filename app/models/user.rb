@@ -1,3 +1,4 @@
+#coding: utf-8
 # == Schema Information
 #
 # Table name: users
@@ -44,7 +45,6 @@
 #  withdraw_remember      :boolean          default(TRUE)
 #
 
-#coding: utf-8
 class User < ActiveRecord::Base
   include  Gravtastic
 

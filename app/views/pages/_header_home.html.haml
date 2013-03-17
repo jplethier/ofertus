@@ -1,6 +1,14 @@
 - banners = Banner.active
 #home_header
   .content
+    #partners
+      %span Ache ofertas para cadastrar:
+      %ul.partners_carousel
+        - Partner.active.each do |partner|
+          %li= link_to image_tag(partner.mini_image_url, alt: partner.name, title: partner.name), partner.url, target: '_blank'
+      = link_to 'Anterior', 'javascript:;', :id => 'list_prev_partners', :class => 'prev'
+      = link_to 'Próximo', 'javascript:;', :id => 'list_next_partners', :class => 'next'
+    .clear
     #banners
       .banners_content
         %ul
@@ -68,6 +76,17 @@
   .clear
 
 :javascript
+  $(".partners_carousel").carouFredSel({
+    circular : true,
+    infinite : true,
+    auto : false,
+    prev : "#list_prev_partners",
+    next : "#list_next_partners",
+    scroll : {
+      items : 1
+    }
+  });
+
   var imagens = #{banners.collect { |b| "li_banner_" + b.id.to_s } };
   var imagem  = 0;
 

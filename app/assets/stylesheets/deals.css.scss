@@ -90,18 +90,44 @@ body {
       padding: 5px 5px 5px 75px;
 
       .preco-off {
-        width:129px;
+        width: 78px;
         padding: 31px 0 16px;
         text-align: center;
         background: image-url('green_discount.png') no-repeat;
         min-height: 32px;
         margin: 2px 15px;
+        float: left;
 
         h4 {
           color: #fff;
           margin-bottom: 0;
           font-size: 18pt;
           font-family: 'Gotham Medium';
+        }
+      }
+
+      .prices {
+        float: left;
+        line-height: 19pt;
+        margin-top: 15px;
+
+        .from {
+          font-size: 10pt;
+          text-decoration: line-through;
+
+          span {
+            font-size: 12pt;
+          }
+        }
+
+        .by {
+          font-size: 14pt;
+          color: #cc3333;
+          font-family: 'Gotham Medium';
+
+          span {
+            font-size: 16pt;
+          }
         }
       }
     }

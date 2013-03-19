@@ -78,13 +78,13 @@
     new_user: 'Novo Usuário'
     not_a_member: 'Não é Membro?'
     notifications: 'Notificações'
-    offer_price: "Preço oferta<span>%{price}</span>"
+    offer_price: "Por <span>%{price}</span>"
     offers_shared_by_me: 'ofertas que compartilhei'
     ofertus_top: 'Favoritas do Ofertus'
     old_deals: 'Ofertas Passadas'
     one_shared_offer: "1 oferta compartilhada!"
     or: 'ou'
-    original_price: "Preço original<span>%{price}</span>"
+    original_price: "De <span>%{price}</span>"
     our_team_recomendations: 'recomendações da nossa equipe'
     our_users_recomendations: 'ofertas que nossos usuários adoram'
     partners: 'Parceiros'

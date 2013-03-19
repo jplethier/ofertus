@@ -81,6 +81,31 @@ body {
       }
     }
 
+    .deals_info_center {
+      float: left;
+      width: 343px;
+      height: 230px;
+      background: image-url('deals_background.png') no-repeat 0 0;
+      margin: 15px;
+      padding: 5px 5px 5px 75px;
+
+      .preco-off {
+        width:129px;
+        padding: 31px 0 16px;
+        text-align: center;
+        background: image-url('green_discount.png') no-repeat;
+        min-height: 32px;
+        margin: 2px 15px;
+
+        h4 {
+          color: #fff;
+          margin-bottom: 0;
+          font-size: 18pt;
+          font-family: 'Gotham Medium';
+        }
+      }
+    }
+
     .detalhe-oferta {
 
       .left.tx-off {

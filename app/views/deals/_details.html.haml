@@ -16,6 +16,17 @@
     .clear
     .deal_image= Rails.cache.fetch([:deal, :image, deal.id], expires_in: 1.month) { "<img alt='#{deal.get_image_url}' title='#{deal.title}' src='#{deal.get_image_url}'>".html_safe }
 
+    .deals_info_center
+      - if deal.discount > 50
+        .preco-off{ style: "background-image: url('#{asset_path('red_discount.png')}')" }
+          %h4= "#{deal.discount.to_i}%"
+      - elsif deal.discount > 25
+        .preco-off{ style: "background-image: url('#{asset_path('orange_discount.png')}')" }
+          %h4= "#{deal.discount.to_i}%"
+      - else
+        .preco-off
+          %h4= "#{deal.discount.to_i}%"
+
 
     = cache [:deal, :left_price, deal.id], expires_in: 1.week do
       .left.off

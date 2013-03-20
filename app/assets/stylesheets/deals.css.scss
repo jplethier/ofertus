@@ -95,7 +95,7 @@ body {
         text-align: center;
         background: image-url('green_discount.png') no-repeat;
         min-height: 32px;
-        margin: 2px 15px;
+        margin: 2px 12px;
         float: left;
 
         h4 {
@@ -128,6 +128,43 @@ body {
           span {
             font-size: 16pt;
           }
+        }
+      }
+
+      .end_date {
+        background: image-url('calendar_background.png') no-repeat;
+        width: 75px;
+        height: 89px;
+        margin-left: 5px;
+        margin-top: 4px;
+        float: left;
+        position: relative;
+
+        .year, .label, .day {
+          position: absolute;
+        }
+
+        .year {
+          top: 3px;
+          left: 19px;
+          color: white;
+          font-size: 12pt;
+        }
+
+        .label, .day {
+          color: black;
+        }
+
+        .label {
+          top: 40px;
+          left: 5px;
+          font-size: 9pt;
+        }
+
+        .day {
+          left: 6px;
+          bottom: 10px;
+          font-size: 14pt;
         }
       }
     }

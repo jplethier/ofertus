@@ -32,16 +32,17 @@
           .from= t('strings.original_price', :price => number_to_currency(deal.real_price)).html_safe
         .by= t('strings.offer_price', :price => number_to_currency(deal.price)).html_safe
 
-
-    = cache [:deal, :left_price, deal.id], expires_in: 1.week do
-      .left.off
-        .col-off
-          %h5= t('strings.end_date', :end_date => deal.end_date? ? l(deal.end_date.to_date) : "-")
+      .end_date
+        - year = '-'
+        - day = '-'
+        - if deal.end_date?
+          - year = deal.end_date.strftime('%Y')
+          - day = deal.end_date.strftime('%d/%m')
+        .year= year
+        .label= t('strings.end_date_only')
+        .day= day
 
     .left.tx-off
-
-
-
       .user-off
         = link_to(image_tag(deal.user.small_picture, :alt => deal.user.username, :title => deal.user.username), user_path(deal.user.username), :class => "user_picture")
         %h4= t('strings.shared_by')

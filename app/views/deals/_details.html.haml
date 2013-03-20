@@ -18,10 +18,10 @@
 
     .deals_info_center
       - if deal.discount > 50
-        .preco-off{ style: "background-image: url('#{asset_path('red_discount.png')}')" }
+        .preco-off{ style: "background-image: url('#{asset_path('red_discount_big.png')}')" }
           %h4= "#{deal.discount.to_i}%"
       - elsif deal.discount > 25
-        .preco-off{ style: "background-image: url('#{asset_path('orange_discount.png')}')" }
+        .preco-off{ style: "background-image: url('#{asset_path('orange_discount_big.png')}')" }
           %h4= "#{deal.discount.to_i}%"
       - else
         .preco-off

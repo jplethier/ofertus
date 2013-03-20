@@ -12,7 +12,7 @@
       name: 'Nome'
     best_offers: "Melhores Ofertas"
     by_price: 'Por <strong>%{price}</strong>'
-    category: "Categoria: %{category}"
+    category: "Categoria:"
     choose_how_to_withdraw: 'escolha a opção desejada'
     city: "Válida para: %{city}"
     click_count: 'Cliques'

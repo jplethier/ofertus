@@ -42,6 +42,11 @@
         .label= t('strings.end_date_only')
         .day= day
 
+      %div{ class: "category category_#{deal.category_string}" }
+        .label= t('strings.category')
+        .icon
+        .name= Deal.i18n_category(deal.category)
+
     .left.tx-off
       .user-off
         = link_to(image_tag(deal.user.small_picture, :alt => deal.user.username, :title => deal.user.username), user_path(deal.user.username), :class => "user_picture")
@@ -49,7 +54,6 @@
         %span= link_to deal.user.name, user_path(deal.user.username)
 
       %ul
-        %li= t('strings.category', :category => Deal.i18n_category(deal.category))
         %li= t('strings.company', :company => deal.partner.try(:name))
         %li= t('strings.city', :city => deal.city.name)
 

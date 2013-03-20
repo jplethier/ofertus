@@ -167,6 +167,138 @@ body {
           font-size: 14pt;
         }
       }
+
+      .category {
+        float: left;
+        margin-left: 10px;
+        clear: left;
+
+        .label, .name {
+          font-size: 9pt;
+          color: #1e1e1e;
+          text-transform: uppercase;
+          float: left;
+          line-height: 28px;
+        }
+
+        .icon {
+          float: left;
+          background: image-url('icon-cat-small.png') no-repeat;
+          margin: 0 5px;
+          width: 26px;
+          height: 26px;
+        }
+      }
+
+      .category_computer {
+        .icon {
+          background-position: 0 0;
+        }
+
+        .name {
+          color: #3366cc;
+        }
+      }
+
+      .category_travel {
+        .icon {
+          background-position: -33px 0;
+        }
+
+        .name {
+          color: #ff6633;
+        }
+      }
+
+      .category_culture {
+        .icon {
+          background-position: -66px 0;
+        }
+
+        .name {
+          color: #339999;
+        }
+      }
+
+      .category_restaurant {
+        .icon {
+          background-position: -100px 0;
+        }
+
+        .name {
+          color: #663399;
+        }
+      }
+
+      .category_home_and_decoration {
+        .icon {
+          background-position: -132px 0;
+        }
+
+        .name {
+          color: #ff9933;
+        }
+      }
+
+      .category_home_and_appliance {
+        .icon {
+          background-position: -166px 0;
+        }
+
+        .name {
+          color: #663333;
+        }
+      }
+
+      .category_entertainment {
+        .icon {
+          background-position: -199px 0;
+        }
+
+        .name {
+          color: #00cccc;
+        }
+      }
+
+      .category_car {
+        .icon {
+          background-position: -232px 0;
+        }
+
+        .name {
+          color: #339900;
+        }
+      }
+
+      .category_beauty_and_health {
+        .icon {
+          background-position: -266px 0;
+        }
+
+        .name {
+          color: #cc66cc;
+        }
+      }
+
+      .category_clothes {
+        .icon {
+          background-position: -299px 0;
+        }
+
+        .name {
+          color: #cc6666;
+        }
+      }
+
+      .category_others {
+        .icon {
+          background-position: -331px 0;
+        }
+
+        .name {
+          color: #333;
+        }
+      }
     }
 
     .detalhe-oferta {

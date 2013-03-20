@@ -1,7 +1,7 @@
 #deals_background
   .offer_details{ id: "deal_#{deal.id}" }
     %h3
-      %a{ :href => deal.link, :target => '_blank'}= truncate_title deal.title, 59
+      %a{ :href => deal.link, :target => '_blank'}= deal.title
     .counts
       %span.likes= deal.up_votes
       %span.reports= deal.down_votes

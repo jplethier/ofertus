@@ -460,7 +460,6 @@ a#natal_bar{
     }
 
     ul#options_discount {
-      height: 155px;
       width: 110px;
 
       li {
@@ -468,8 +467,12 @@ a#natal_bar{
       }
     }
 
-    ul#other_categories, ul#options_price {
-      height: 162px;
+    ul#other_categories {
+      height: 184px;
+    }
+
+    ul#options_price {
+      height: 168px;
     }
 
     ul#options_partners {
@@ -487,7 +490,7 @@ a#natal_bar{
     }
 
     ul#options_discount {
-      height: 98px;
+      height: 102px;
 
       li {
         a {

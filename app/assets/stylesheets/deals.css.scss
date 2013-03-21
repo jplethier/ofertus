@@ -84,10 +84,10 @@ body {
     .deals_info_center {
       float: left;
       width: 364px;
-      height: 230px;
+      height: 220px;
       background: image-url('deals_background.png') no-repeat 0 0;
       margin: 15px;
-      padding: 5px 5px 5px 75px;
+      padding: 10px 5px 10px 75px;
 
       .preco-off {
         width: 78px;
@@ -172,6 +172,11 @@ body {
         float: left;
         margin-left: 10px;
         clear: left;
+        margin-top: 7px;
+
+        .label {
+          margin-top: 8px;
+        }
 
         .label, .name {
           font-size: 9pt;
@@ -299,32 +304,55 @@ body {
           color: #333;
         }
       }
+
+      .partner {
+        clear: both;
+        float: left;
+        margin: 10px 3px 10px 7px;
+
+        .label {
+          float: left;
+          font-size: 9pt;
+          color: #1e1e1e;
+          text-transform: uppercase;
+          margin-top: 20px;
+          margin-right: 5px;
+          text-align: center;
+
+          a {
+            text-indent: -15000px;
+            background: image-url('filter_partner.png') no-repeat;
+            width: 138px;
+            height: 18pt;
+            display: block;
+            float: none;
+            margin-top: 3px;
+          }
+        }
+
+        a {
+          display: block;
+          float: left;
+          width: 48px;
+          height: 48px;
+        }
+      }
+
+      a.buy {
+        text-indent: -15000px;
+        width: 158px;
+        height: 40px;
+        background: image-url('buy_big.png') no-repeat -1px 0;
+        float: right;
+        margin-top: 24px;
+
+      }
     }
 
     .detalhe-oferta {
 
       .left.tx-off {
         width: 620px;
-
-        #go_to_site {
-          width: 210px;
-          margin-right: 70px;
-
-          a#big_button {
-            background: image-url('big_go_to_site.png') no-repeat;
-            display: block;
-            width: 197px;
-            height: 49px;
-          }
-        }
-
-        ul {
-          float: left;
-
-          li {
-            line-height: 20px;
-          }
-        }
 
         .share-off {
           a {

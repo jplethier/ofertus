@@ -13,6 +13,12 @@
       = link_to t('strings.unreport'), 'javascript:;', class: 'unreport', id: 'unreport_btn', onclick: "unreport_deal('#{deal.id}')", style: 'display: none;'
       = link_to t('strings.report'), 'javascript:;', class: 'report', id: 'report_btn', onclick: "report_deal('#{deal.id}')"
 
+    .shared_by
+      .label
+        Compartilhada por:
+      %a{ href: user_path(deal.user.username), title: deal.user.username }
+        %img{ src: deal.user.small_picture, alt: deal.user.username }
+
     .clear
     .deal_image= Rails.cache.fetch([:deal, :image, deal.id], expires_in: 1.month) { "<img alt='#{deal.get_image_url}' title='#{deal.title}' src='#{deal.get_image_url}'>".html_safe }
 
@@ -59,13 +65,7 @@
 
 
     .left.tx-off
-      .user-off
-        = link_to(image_tag(deal.user.small_picture, :alt => deal.user.username, :title => deal.user.username), user_path(deal.user.username), :class => "user_picture")
-        %h4= t('strings.shared_by')
-        %span= link_to deal.user.name, user_path(deal.user.username)
-
       %ul
-        %li= t('strings.company', :company => deal.partner.try(:name))
         %li= t('strings.city', :city => deal.city.name)
 
       = cache [:deal, :right_go_to_site, deal.id], expires_in: 30.minutes do

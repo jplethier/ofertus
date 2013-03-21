@@ -349,6 +349,22 @@ body {
       }
     }
 
+    .shared_by {
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 200px;
+      margin-right: 7px;
+      margin-top: 7px;
+
+      .label {
+        float: left;
+        font-size: 9pt;
+        color: #1e1e1e;
+        text-transform: uppercase;
+      }
+    }
+
     .detalhe-oferta {
 
       .left.tx-off {

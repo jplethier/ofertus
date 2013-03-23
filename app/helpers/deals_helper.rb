@@ -45,7 +45,7 @@ module DealsHelper
   def search_city_options(selected = nil)
     # body = 'Todas'
     body = content_tag(:option, "Todas Cidades", { :value => "" }, true)
-    
+
     City.hash_by_states.each do |group|
       body << content_tag(:optgroup, options_for_select(group[1], selected), :label => group[0])
     end
@@ -56,5 +56,4 @@ module DealsHelper
   def truncate_title(title, length = 60)
     truncate(title, :length => length)
   end
-
 end

@@ -16,6 +16,9 @@
     .shared_by
       .label
         Compartilhada por:
+        %br
+        %br
+        %span= 'Há ' + time_ago_in_words(deal.created_at)
       %a{ href: user_path(deal.user.username), title: deal.user.username }
         %img{ src: deal.user.small_picture, alt: deal.user.username }
 

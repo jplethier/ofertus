@@ -362,6 +362,20 @@ body {
         font-size: 9pt;
         color: #1e1e1e;
         text-transform: uppercase;
+        margin: 7px 3px 0 0;
+
+        span {
+          text-transform: none;
+          background: image-url('time_clock.png') no-repeat;
+          padding-left: 17px;
+        }
+      }
+
+      a {
+        img {
+          max-width: 50px;
+          max-height: 50px;
+        }
       }
     }
 

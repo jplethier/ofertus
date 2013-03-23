@@ -66,11 +66,9 @@
 
       %a.buy{ href: deal.link, target: '_blank', title: 'Comprar' } Comprar
 
+    .who_likes
 
     .left.tx-off
-      %ul
-        %li= t('strings.city', :city => deal.city.name)
-
       = cache [:deal, :right_go_to_site, deal.id], expires_in: 30.minutes do
         .right#go_to_site
           %br

@@ -2,6 +2,7 @@
 module DealsHelper
   include ActionView::Helpers::NumberHelper
   def price_to_currency(number, options = {})
+    not_html = options[:not_html]
     return nil if number.nil?
 
     options.symbolize_keys!
@@ -25,8 +26,11 @@ module DealsHelper
       value = number_with_precision(number, options.merge(:raise => true))
       integer = value.split(defaults[:separator])[0]
       decimal = value.split(defaults[:separator])[1]
-
-      format.gsub(/%n/, "<strong>#{integer}</strong>#{defaults[:separator]}#{decimal}").gsub(/%u/, unit).html_safe
+      if not_html
+        format.gsub(/%n/, "#{integer}#{defaults[:separator]}#{decimal}").gsub(/%u/, unit)
+      else
+        format.gsub(/%n/, "<strong>#{integer}</strong>#{defaults[:separator]}#{decimal}").gsub(/%u/, unit).html_safe
+      end
     rescue InvalidNumberError => e
       if options[:raise]
         raise

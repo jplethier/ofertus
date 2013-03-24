@@ -97,6 +97,8 @@ class User < ActiveRecord::Base
   #ver uma maneira melhor de fazer, pois desse jeito esta sem seguranca e permitindo sql injection
   scope :more_sales_by_month, lambda { |date| order("(select count(sales.id) from sales where sales.user_id = users.id and sales.created_at >= '#{date.beginning_of_month.beginning_of_day}' and sales.created_at <= '#{date.end_of_month.end_of_day}') DESC") }
 
+  scope :liked_deal,  lambda { |deal_id| joins(:votings).where('votings.voteable_id = ? and votings.up_vote is true', deal_id) }
+
   # Virtual attribute for authenticating by either username or email
   attr_accessor :login
 

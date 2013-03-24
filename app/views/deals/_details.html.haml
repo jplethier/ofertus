@@ -67,6 +67,12 @@
       %a.buy{ href: deal.link, target: '_blank', title: 'Comprar' } Comprar
 
     .who_likes
+      .title= t('strings.who_likes').capitalize
+      - User.liked_deal(deal.id).limit(6).each do |user|
+        = link_to image_tag(user.small_picture, alt: user.name), user_path(user.username), title: user.name
+      .bottom
+        .users_count= deal.up_votes
+        = link_to 'Ver todos', users_path + '?deal_liked_id=' + deal.id.to_s
 
     .left.tx-off
       = cache [:deal, :right_go_to_site, deal.id], expires_in: 30.minutes do

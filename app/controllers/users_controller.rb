@@ -119,5 +119,6 @@ class UsersController < ApplicationController
     @users = User.paginate(page: params[:page], per_page: 12)
     @users = @users.search(params[:search].gsub(" ", "%")) if params[:search]
     @users = @users.send(params[:search_scope].to_sym) unless params[:search_scope].blank?
+    @users = @users.liked_deal(params[:deal_liked_id]) if params[:deal_liked_id]
   end
 end

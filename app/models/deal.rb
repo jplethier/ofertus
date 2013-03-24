@@ -120,14 +120,6 @@ class Deal < ActiveRecord::Base
     self.voted.order("(deals.up_votes / (deals.up_votes + deals.down_votes)) DESC, deals.up_votes DESC")
   end
 
-  def who_likes
-    who_likes = []
-    self.votings.each do |vote|
-      who_likes << vote.voter if vote.up_vote? && !vote.voter.blank?
-    end
-    who_likes
-  end
-
   def user_provider?
     Rails.cache.fetch(['provider', self.user.id]) do
       self.user.provider?
@@ -156,7 +148,7 @@ class Deal < ActiveRecord::Base
 
   def similar_offers
     similar_offers = []
-    who_likes.each do |user|
+    User.liked_deal(self.id).each do |user|
       user.votings.each do |vote|
         unless vote.voteable == self
           similar_offers << vote.voteable if vote.up_vote? && !vote.voteable.blank?

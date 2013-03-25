@@ -59,15 +59,16 @@
         .icon
         .name= Deal.i18n_category(deal.category)
 
-      - unless deal.partner.blank?
-        .partner
+      .partner
+        %div{ style: 'float: left; width: 1px; height: 48px;'}
+        - unless deal.partner.blank?
           .label
             Encontrada em:
             %a{ href: "#{deals_path}?partner=#{deal.partner.id}", title: deal.partner.name }
           %a{ href: "#{deals_path}?partner=#{deal.partner.id}", title: deal.partner.name }
             %img{ src: deal.partner.small_image_url, alt: deal.partner.name }
 
-      %a.buy{ href: deal.link, target: '_blank', title: 'Comprar', rel: "nofollow" } Comprar
+        %a.buy{ href: deal.link, target: '_blank', title: 'Comprar', rel: "nofollow" } Comprar
 
     .who_likes
       .title= t('strings.who_likes').capitalize

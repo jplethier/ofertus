@@ -305,15 +305,16 @@ body {
         clear: both;
         float: left;
         margin: 10px 3px 10px 7px;
+        width: 357px;
 
         .label {
           float: left;
           font-size: 9pt;
           color: #1e1e1e;
           text-transform: uppercase;
-          margin-top: 20px;
           margin-right: 5px;
           text-align: center;
+          line-height: 25px;
 
           a {
             text-indent: -15000px;
@@ -322,7 +323,6 @@ body {
             height: 18pt;
             display: block;
             float: none;
-            margin-top: 3px;
           }
         }
 
@@ -332,16 +332,15 @@ body {
           width: 48px;
           height: 48px;
         }
-      }
 
-      a.buy {
-        text-indent: -15000px;
-        width: 158px;
-        height: 40px;
-        background: image-url('buy_big.png') no-repeat -1px 0;
-        float: right;
-        margin-top: 24px;
-
+        a.buy {
+          text-indent: -15000px;
+          width: 158px;
+          height: 40px;
+          background: image-url('buy_big.png') no-repeat -1px 0;
+          float: right;
+          margin-top: 5px;
+        }
       }
     }
 

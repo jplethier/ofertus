@@ -51,7 +51,10 @@
         .label= t('strings.end_date_only')
         .day= day
 
+      .clear
+
       %div{ class: "category category_#{deal.category_string}" }
+        %div{ style: 'float: left; width: 1px; height: 26px;'}
         .label= t('strings.category')
         .icon
         .name= Deal.i18n_category(deal.category)

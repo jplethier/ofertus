@@ -74,6 +74,7 @@ body {
       width: 250px;
       height: 250px;
       float: left;
+      margin-top: 12px;
 
       img {
         max-width: 250px;
@@ -173,6 +174,8 @@ body {
         margin-left: 10px;
         clear: left;
         margin-top: 7px;
+        width: 357px;
+        margin-bottom: 5px;
 
         .label, .name {
           font-size: 9pt;
@@ -419,7 +422,7 @@ body {
       position: absolute;
       top: 131px;
       width: 200px;
-      height: 210px;
+      height: 188px;
       right: 7px;
 
       .title {
@@ -449,12 +452,14 @@ body {
         border-top: 1px solid #dedede;
         margin-top: 5px;
         clear: both;
+        position: absolute;
+        width: 100%;
+        bottom: 0;
 
         .users_count {
           background: image-url('users_liked_count.png') no-repeat;
           padding-left: 15px;
           font-size: 10pt;
-          padding-top: 1px;
           float: left;
         }
 

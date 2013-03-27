@@ -2,7 +2,7 @@
   / %li
   /   %a#header_search_btn{ :href => 'javascript:;', :class => "search_header_btn #{ @current_tab == 'deals' ? 'active' : ''}" }
   /     %span= t('actions.search')
-  
+
   - if user_signed_in?
     %li.no_margin_top
       - if current_user.provider
@@ -21,16 +21,16 @@
       %li.first= link_to t('strings.my_profile'), user_path(current_user.username)
       %li
         = link_to t('strings.notifications'), user_notifications_path(current_user.username)
-        %span.number= current_user.notifications.unread.count
+        %span.number= current_user.notifications.unread.size
       %li
         = link_to t('strings.deals'), sales_user_path(current_user.username)
-        %span.number= current_user.deals.count
+        %span.number= current_user.deals.size
       %li
         = link_to t('strings.following'), following_user_path(current_user.username)
-        %span.number= current_user.following.count
+        %span.number= current_user.following.size
       %li
         = link_to t('strings.followers'), followers_user_path(current_user.username)
-        %span.number= current_user.followers.count
+        %span.number= current_user.followers.size
       %li.last
         = link_to t('strings.credit'), sales_user_path(current_user.username)
         %span.credit= number_to_currency current_user.credit

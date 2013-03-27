@@ -4,27 +4,27 @@
       = link_to(image_tag(user.facebook_profile_picture, :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture")
     - else
       = link_to(image_tag(user.gravatar_url, :alt => user.username, :title => user.username), user_path(user.username), :class => "user_picture")
-  
+
 
   %h3= link_to user.name, user_path(user.username), :title => user.name
 
   %ul
     %li= t('strings.username', :username => user.username)
     %li
-      - if user.deals.length == 1
+      - if user.deals.count == 1
         = t('strings.one_shared_offer')
       - else
-        = t('strings.x_shared_offers', :x => user.deals.length)
+        = t('strings.x_shared_offers', :x => user.deals.count)
     %li
-      - if user.following.length == 1
+      - if user.following.count == 1
         = t('strings.following_one_user')
       - else
-        = t('strings.following_x_users', :x => user.following.length)
+        = t('strings.following_x_users', :x => user.following.count)
     %li
-      - if user.followers.length == 1
+      - if user.followers.count == 1
         = t('strings.followed_by_one_users')
       - else
-        = t('strings.followed_by_x_users', :x => user.followers.length)
+        = t('strings.followed_by_x_users', :x => user.followers.count)
   %a{ :href => user_path(user.username), :class => "view-profile" }= t('buttons.user_profile')
 
 /   - if user_signed_in? && current_user != user
@@ -32,7 +32,7 @@
 /       - if current_user.follow? user
 /         .unfollow
 /           = link_to I18n.t("actions.unfollow"), unfollow_user_path(user.username), :class => :unfollow
-        
+
 /       - else
 /         .follow
 /           = link_to I18n.t("actions.follow"), follow_user_path(user.username), :class => :follow

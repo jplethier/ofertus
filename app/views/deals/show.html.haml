@@ -38,7 +38,7 @@
     .ttGlHome
       %h2= t('strings.more_offers')
     .list-conteudo#home_list
-      - Deal.active.random.limit(6).each_with_index do |deal, index|
+      - Deal.active.random.limit(6).includes(:user).includes(:partner).each_with_index do |deal, index|
         = render :partial => 'deals/top_deal', :locals => {:deal => deal, :index => index }
 
 .clear

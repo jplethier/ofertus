@@ -114,7 +114,7 @@ class User < ActiveRecord::Base
 
   def likes
     likes = []
-    self.votings.each do |vote|
+    self.votings.includes(:voteable).each do |vote|
       likes << vote.voteable unless vote.voteable.blank?
     end
     likes

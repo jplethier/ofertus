@@ -47,8 +47,6 @@ class DealsController < AuthorizedController
 
   def show
     @comment = Comment.new
-    @title = @deal.title
-    @description = @deal.title + ' - ' + Deal.i18n_category(@deal.category)
     @deal.update_visit_count if @deal.user != current_user
   end
 
@@ -169,15 +167,6 @@ class DealsController < AuthorizedController
 
   def define_title
     @title = @deal.title
-    @description = @deal.title
-  end
-
-  def fill_in_old_deals
-    @old_deals = Deal.inactive
-    @old_deals = search_order(@old_deals, params)
-    @old_deals = @old_deals.by_category_string(params[:category]) if params[:category]
-    @old_deals = @old_deals.search(params[:search]) if params[:search]
-    @old_deals = @old_deals.by_cities(params[:search_city]) if params[:search_city] && not(params[:search_city].empty?)
-    @old_deals = @old_deals.limit(3)
+    @description = @deal.title + ' - ' + Deal.i18n_category(@deal.category)
   end
 end

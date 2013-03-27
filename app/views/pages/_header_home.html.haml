@@ -15,12 +15,13 @@
         <g:plusone></g:plusone>
     .clear
     #banners
-      .banners_content
-        %ul
+      = cache 'banners', expires_in: 1.hour do
+        .banners_content
+          %ul
+            - banners.each_with_index do |banner, index|
+              %li{ class: index == 0 ? 'selected' : '' }= link_to image_tag( banner.icon(:thumb), alt: banner.alt, title: banner.title), 'javascript:;', onclick: "$('div.selected').hide(); $('#banner_#{banner.id}').show();", id: "li_banner_#{banner.id}"
           - banners.each_with_index do |banner, index|
-            %li{ class: index == 0 ? 'selected' : '' }= link_to image_tag( banner.icon(:thumb), alt: banner.alt, title: banner.title), 'javascript:;', onclick: "$('div.selected').hide(); $('#banner_#{banner.id}').show();", id: "li_banner_#{banner.id}"
-        - banners.each_with_index do |banner, index|
-          .selected{ style: index != 0 ? 'display: none;' : '', id: "banner_#{banner.id}" }= link_to image_tag(banner.image, title: banner.title, alt: banner.alt), banner.url, target: banner.target
+            .selected{ style: index != 0 ? 'display: none;' : '', id: "banner_#{banner.id}" }= link_to image_tag(banner.image, title: banner.title, alt: banner.alt), banner.url, target: banner.target
 
     - unless user_signed_in?
       #video

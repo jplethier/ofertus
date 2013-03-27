@@ -2,7 +2,6 @@ source 'http://rubygems.org'
 ruby "1.9.3"
 
 gem 'acts_as_commentable'
-gem 'airbrake', '3.1.6'
 gem 'annotate', ">= 2.5.0"
 gem 'bourbon'
 gem 'ckeditor'
@@ -31,6 +30,9 @@ gem 'sass-rails', '3.1.4'
 gem 'uglifier'
 gem 'unicorn'
 gem 'will_paginate', '~> 3.0.0'
+
+#errors
+gem 'airbrake', '3.1.6'
 
 #upload to amazon
 gem "paperclip", "~> 3.0"
@@ -62,6 +64,11 @@ gem 'dalli'
 #mailchimp
 gem 'devise_mailchimp'
 gem 'mailchimp'
+
+group :development do
+  #performance
+  gem 'rack-mini-profiler'
+end
 
 group :development, :test do
   gem 'awesome_print'

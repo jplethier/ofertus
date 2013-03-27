@@ -68,6 +68,7 @@ gem 'mailchimp'
 group :development do
   #performance
   gem 'rack-mini-profiler'
+  gem 'bullet'
 end
 
 group :development, :test do

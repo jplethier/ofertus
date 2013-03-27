@@ -130,6 +130,18 @@ class Deal < ActiveRecord::Base
     self.description.gsub(/<.*>/,'')
   end
 
+  def partner_name
+    read_attribute('partner_name') || partner.try(:name)
+  end
+
+  def partner_mini_image_url
+    read_attribute('partner_mini_image_url') || partner.try(:mini_image_url)
+  end
+
+  def partner_id
+    read_attribute('partner_id') || partner.try(:id)
+  end
+
   def update_visit_count
     if self.visits.blank?
       self.visits = 1

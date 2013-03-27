@@ -44,5 +44,5 @@
   .bottom
     = link_to 'Comprar', deal.link, :class => 'go_to_site_button', :target => '_blank', :id => "big_button", onmouseover: "$('#deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')"
     - if !deal.partner.blank?
-      %a.partner{ href: deals_path+'?partner='+deal.partner.id.to_s, onmouseover: "$('#deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')" }
-        %img{ src: deal.partner.mini_image_url, alt: deal.partner.name, title: deal.partner.name }
+      %a.partner{ href: deals_path+'?partner='+deal.partner_id.to_s, onmouseover: "$('#deal_#{deal.id}').attr('onclick','')", onmouseout: "$('#deal_#{deal.id}').attr('onclick','Turbolinks.visit(\"#{deal_path(deal)}\")')" }
+        %img{ src: deal.partner_mini_image_url, alt: deal.partner_name, title: deal.partner_name }

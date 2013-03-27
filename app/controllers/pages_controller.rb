@@ -4,11 +4,11 @@ class PagesController < ApplicationController
   def home
     @current_tab = 'home'
     Rails.cache.fetch("top_deals_#{Date.today.day}_#{Date.today.month}_#{Date.today.year}", expires_in: 1.hour) do
-      Deal.active.top.limit(6).all
+      Deal.active.top.limit(6).includes(:user).includes(:partner).select('deal.*, users.*, partners.name as partner_name, partners.mini_image_url as partner_mini_image_url, partners.id as partner_id').all
     end
     @top_deals = Rails.cache.read("top_deals_#{Date.today.day}_#{Date.today.month}_#{Date.today.year}")
-    @best_deals = Deal.active.likes.where('up_votes > 0').limit(8)
-    @recent_deals = Deal.active.recent.limit(8)
+    @best_deals = Deal.active.likes.where('up_votes > 0').limit(8).includes(:user).includes(:partner)
+    @recent_deals = Deal.active.recent.limit(8).includes(:user).includes(:partner)
     @users = User.has_deals.random.limit(3)
   end
 

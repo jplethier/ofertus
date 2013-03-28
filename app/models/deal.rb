@@ -111,6 +111,8 @@ class Deal < ActiveRecord::Base
   scope :by_discount_range, lambda { |min, max| where('discount >= ? and discount <= ?', min, max) }
   scope :by_partner,        lambda { |partner|  where('partner_id = ? ', partner) }
 
+  scope :wished_by, lambda { |user_id| joins(:votings).where('votings.voter_id = ? and votings.up_vote is true', user_id) }
+
   #statistic scopes
   scope :yesterday, where("deals.created_at >= ? and deals.created_at < ?", (Time.zone.now - 1.day).beginning_of_day, Time.zone.now.beginning_of_day)
   scope :by_month,  lambda { |date| where("deals.created_at >= ? and deals.created_at <= ?", date.beginning_of_month.beginning_of_day, date.end_of_month.end_of_day) }

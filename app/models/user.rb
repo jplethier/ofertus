@@ -99,6 +99,10 @@ class User < ActiveRecord::Base
 
   scope :liked_deal,  lambda { |deal_id| joins(:votings).where('votings.voteable_id = ? and votings.up_vote is true', deal_id) }
 
+  def wishes
+    Deal.wished_by(self.id)
+  end
+
   # Virtual attribute for authenticating by either username or email
   attr_accessor :login
 
@@ -272,14 +276,6 @@ class User < ActiveRecord::Base
 
   def admin?
     self.admin
-  end
-
-  def wishes
-    deals_wishes = []
-    self.votings.each do |vote|
-      deals_wishes << vote.voteable if vote.up_vote? && vote.voteable
-    end
-    deals_wishes
   end
 
   protected

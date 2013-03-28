@@ -32,11 +32,11 @@
         - else
           %h2 O resgate estará disponível entre os dias 5 e 10 de cada mês
 
-  
+
   .deals_history
     .title= t('strings.deals_history')
     .content
-      %table.table.table-striped.table-bordered.table-condensed#deals_table
+      %table.table.table-striped.table-bordered.table-condensed#deals_table{ style: "width: 100%; display: block; overflow: scroll;" }
         %thead
           %tr
             %th= t('strings.date')

@@ -290,6 +290,12 @@ class Deal < ActiveRecord::Base
   def lomadee_link(link)
     agent = Mechanize.new
     agent.get("https://wwws.lomadee.com/member/publisher/apps/direto/create.html?applicationId=176&sourceName=ofertus#{self.user.username}&siteId=33562998&siteName=&publisherId=22509651&campaignList=&locale=pt_BR&t=48566c6e5a3762306b35396e38784d796b657962704c59684f694f633136444c66346175497544535a56733d&dimensionId=-1&ga=UA-5739472-10&directLink=&advertiserId=&lomadeeCountryId=1&countryCode=BR")
+    form = agent.page.forms.first
+    unless form.field_with(name: 'j_username').blank?
+      form.field_with(name: 'j_username').value = 'jplethier@ofertus.com.br'
+      form.field_with(name: 'j_password').value = '123ofertus'
+      form.submit
+    end
 
    # form_login = agent.form_with
     form = agent.page.forms.first

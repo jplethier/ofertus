@@ -28,12 +28,11 @@
 
     <link rel="icon" href="http://www.ofertus.com.br/favicon.png" />
     <link rel="shortcut icon" href="http://www.ofertus.com.br/favicon.ico" />
-    <link href='http://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
 
     <!-- SCRIPTS -->
     <!-- <%= airbrake_javascript_notifier %> -->
-    <%= javascript_include_tag "application" %>
     <%= stylesheet_link_tag "application" , :media => "screen"%>
+    <%= javascript_include_tag "application" %>
     <!-- /SCRIPTS -->
 
     <%= csrf_meta_tags %>
@@ -55,14 +54,6 @@
   </head>
 
   <body id="inicio" class="<%= controller_name %>">
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=146791075437937";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
 
     <%= render 'layouts/header' %>
 
@@ -120,6 +111,15 @@
     </script>
 
     <!-- <script type="text/javascript" src="//assets.pinterest.com/js/pinit.js"></script> -->
+
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=146791075437937";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
   </body>
 </html>

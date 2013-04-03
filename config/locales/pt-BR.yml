@@ -149,7 +149,7 @@
         one: '1 segundo'
         other: '%{count} segundos'
       less_than_x_minutes:
-        one: 'menos de 1 minuto'
+        one: 'segundos atrás'
         other: 'menos de %{count} minutos'
       x_minutes:
         one: '1 minuto'

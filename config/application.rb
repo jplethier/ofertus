@@ -58,7 +58,7 @@ module DealWitMe
     # Forcing your application to not access the DB or load models when precompiling your assets.
     config.assets.initialize_on_precompile = false
 
-    config.assets.precompile += %w[ active_admin.css active_admin.js active_admin/print.css ]
+    config.assets.precompile += %w[ application.js active_admin.css active_admin.js active_admin/print.css ]
 
     I18n.locale = 'pt-BR'
   end

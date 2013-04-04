@@ -14,10 +14,10 @@ class PagesController < ApplicationController
 
   def subscribe_to_newsletter
     if params[:subscribe_to_newsletter].blank? || params[:subscribe_to_newsletter][:email].blank?
-      flash[:error] = "Informe um email para assinar a nesletter."
+      flash[:error] = "Informe um email para assinar a newsletter."
     else
       mc_api = Mailchimp::API
-      mc_api.list_subscribe(id: 'b17830ec2c', email_address: '')
+      mc_api.list_subscribe(id: 'b17830ec2c', email_address: params[:subscribe_to_newsletter][:email])
       flash[:notice] = 'Foi enviado um email para confirmação da assinatura da newsletter.'
     end
     redirect_to root_path

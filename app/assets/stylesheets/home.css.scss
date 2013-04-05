@@ -44,7 +44,7 @@ body {
 
     .top_deal, .small_deal {
       cursor: pointer;
-      padding: 10px;
+      padding: 0 0 10px;
       float: left;
       margin-left: 25px;
       position: relative;
@@ -260,10 +260,16 @@ body {
     }
 
     .small_deal {
-      width: 196px;
-      background: image-url('bg_small_deal.png') no-repeat -42px -39px;
-      height: 232px;
+      width: 216px;
+      height: 242px;
       position: relative;
+
+      .bg {
+        @include box-shadow(0 2px 8px 1px hsla(0, 0%, 0%, 0.45));
+        background: white;
+        padding: 10px 10px 0;
+        height: 208px;
+      }
 
       .user_picture {
         float: left;
@@ -288,10 +294,10 @@ body {
       .category {
         position: absolute;
         top: 0;
-        width: 214px;
+        width: 216px;
         height: .4em;
         background: black;
-        left: 1px;
+        left: 0;
         text-decoration: none;
 
         p {
@@ -439,11 +445,17 @@ body {
     }
 
     .top_deal {
-      width: 284px;
+      width: 304px;
       margin-bottom: 10px;
-      background: image-url('bg_big_deal.png') -30px -27px no-repeat;
-      height: 330px;
+      height: 340px;
       position: relative;
+
+      .bg {
+        @include box-shadow(0 2px 8px 1px hsla(0, 0%, 0%, 0.45));
+        background: white;
+        padding: 10px 10px 0;
+        height: 300px;
+      }
 
       a.like, a.dislike {
         bottom: 175px;
@@ -456,7 +468,7 @@ body {
       .category {
         position: absolute;
         top: 2em;
-        left: 1px;
+        left: 0;
         width: .7em;
         height: 4.5em;
         background: black;
@@ -793,7 +805,6 @@ body {
     .top_deal:hover {
       .category {
         top: 2em;
-        left: 1px;
         width: 30px;
         height: 144px;
       }

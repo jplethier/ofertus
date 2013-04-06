@@ -174,7 +174,7 @@ class Share
       deal.title = page.at_css(XPATH_TITLE).try(:text).try(:strip)[0,255]
     end
     deal
-  end 
+  end
 
   private
 

@@ -235,7 +235,13 @@ class Deal < ActiveRecord::Base
   end
 
   def calculate_discount
-    (self.discount = ((self.real_price - self.price)/self.real_price * 100).to_i) if self.real_price?
+    if self.price.to_f == 0.0
+      self.discount = 100
+    elsif self.real_price
+      (self.discount = ((self.real_price - self.price)/self.real_price * 100).to_i)
+    else
+      0
+    end
   end
 
   def prices_to_number

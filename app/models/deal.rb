@@ -82,7 +82,7 @@ class Deal < ActiveRecord::Base
   validates :price_mask,  presence: true, if: 'self.new_record?'
   validates :real_price_mask,  presence: true, if: 'self.new_record?'
 
-  after_validation :calculate_discount, :if => "real_price? and price?"
+  after_validation :calculate_discount
   before_validation :prices_to_number
   before_validation :set_national_offer, :if => "self.city_id.nil?"
   before_create :add_affiliate_code_to_link

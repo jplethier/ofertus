@@ -26,8 +26,12 @@ class FastShop
       deal.link = link
       deal.title = page.at_css("h1.name").try(:text).try(:strip)[0,255] if page.at_css("h1.name") && page.at_css("h1.name").try(:text)
       if page.at_css('.novo_conteudo_preco_detalhe_produto span') && page.at_css('.novo_conteudo_preco_detalhe_produto span').try(:text)
-        deal.price_mask = page.at_css('.novo_conteudo_preco_detalhe_produto span').try(:text).split(" ")[5]
-        deal.real_price_mask = page.at_css(".novo_conteudo_preco_detalhe_produto span").try(:text).split(" ")[2]
+        if page.at_css(".novo_conteudo_preco_detalhe_produto span").try(:text).split(" ")[2].downcase.match('de')
+          deal.real_price_mask = page.at_css(".novo_conteudo_preco_detalhe_produto span").try(:text).split(" ")[2]
+          deal.price_mask = page.at_css('.novo_conteudo_preco_detalhe_produto span').try(:text).split(" ")[5]
+        else
+          deal.price_mask = page.at_css(".novo_conteudo_preco_detalhe_produto span").try(:text).split(" ")[2]
+        end
       end
       deal.description = page.at_css("#divDescr1").to_s.truncate(4000) if page.at_css("#divDescr1")
       deal.category = CATEGORIES[page.at_css(".breadcrumb").try(:text).try(:strip).split(" ")[1]] if page.at_css(".breadcrumb") && page.at_css(".breadcrumb").try(:text)

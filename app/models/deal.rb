@@ -72,7 +72,7 @@ class Deal < ActiveRecord::Base
   validates :link,            unique_link: :end_date, presence: true,       format: /^https?:\/\/.+/
   validates :price,           numericality: true
   validates :real_price,      numericality: true
-  validates :real_price,      greater_than: :price, if: "self.price && self.real_price"
+  validates :real_price,      greater_than: :price, if: "self.price"
 
   validates :title,       presence: true, length: { maximum: 255 }
   validates :city_id,     presence: true
@@ -82,7 +82,7 @@ class Deal < ActiveRecord::Base
   validates :price_mask,  presence: true, if: 'self.new_record?'
   validates :real_price_mask,  presence: true, if: 'self.new_record?'
 
-  after_validation :calculate_discount
+  before_save :calculate_discount
   before_validation :prices_to_number
   before_validation :set_national_offer, :if => "self.city_id.nil?"
   before_create :add_affiliate_code_to_link

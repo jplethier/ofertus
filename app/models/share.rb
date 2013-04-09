@@ -171,7 +171,7 @@ class Share
     page = open_page(link)
     deal = Deal.new :link => link
     unless page.nil?
-      deal.title = page.at_css(XPATH_TITLE).try(:text).try(:strip)[0,255]
+      deal.title = page.at_css(XPATH_TITLE).try(:text).try(:strip)[0,255] if page.at_css(XPATH_TITLE).try(:text)
     end
     deal
   end

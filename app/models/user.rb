@@ -183,7 +183,7 @@ class User < ActiveRecord::Base
   end
 
   def picture
-    if !self.provider.blank?
+    if !self.provider.blank? && !self.facebook_profile_picture.blank?
       self.facebook_profile_picture
     else
       self.gravatar_url
@@ -191,7 +191,7 @@ class User < ActiveRecord::Base
   end
 
   def medium_picture
-    if !self.provider.blank?
+    if !self.provider.blank? && !self.facebook_profile_picture(:medium).blank?
       self.facebook_profile_picture(:normal)
     else
       self.gravatar_url(size: 100)
@@ -199,7 +199,7 @@ class User < ActiveRecord::Base
   end
 
   def small_picture
-    if !self.provider.blank?
+    if !self.provider.blank? && !self.facebook_profile_picture(:small).blank?
       self.facebook_profile_picture(:small)
     else
       self.gravatar_url(size: 50)

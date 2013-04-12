@@ -53,7 +53,7 @@
     range: true,
     min: 0,
     max: #{Deal.active.maximum(:price).to_i || 0},
-    values: [ #{params[:price_range] ? params[:price_range].split('-')[0].gsub('R$','').to_i : 0}, #{params[:price_range] ? params[:price_range].split('-')[1].gsub('R$','').to_i : Deal.active.maximum(:price).to_i || 0} ],
+    values: [ #{params[:price_range] && params[:price_range].split('-')[0] ? params[:price_range].split('-')[0].gsub('R$','').to_i : 0}, #{params[:price_range] && params[:price_range].split('-')[1] ? params[:price_range].split('-')[1].gsub('R$','').to_i : Deal.active.maximum(:price).to_i || 0} ],
     slide: function( event, ui ) {
       $("#price_range").val("R$" + ui.values[ 0 ] + " - R$" + ui.values[ 1 ]);
       $("#hidden_price_range").val("R$" + ui.values[ 0 ] + " - R$" + ui.values[ 1 ]);

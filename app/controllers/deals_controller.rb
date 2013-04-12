@@ -139,7 +139,7 @@ class DealsController < AuthorizedController
     @deals = @deals.by_category_string(params[:category]) if params[:category]
     @deals = @deals.search(params[:search]) unless params[:search].blank?
     @deals = @deals.by_cities(params[:search_city]) unless params[:search_city].blank?
-    @deals = @deals.by_price_range(params[:price_range].split('-')[0].gsub('R$','').to_i, params[:price_range].split('-')[1].gsub('R$','').to_i) if params[:price_range]
+    @deals = @deals.by_price_range(params[:price_range].split('-')[0].gsub('R$','').to_i, params[:price_range].split('-')[1].gsub('R$','').to_i) if params[:price_range] && params[:price_range].split('-').size >= 2
     @deals = @deals.by_discount_range(params[:discount_range].split('-')[0].to_i, params[:discount_range].split('-')[1].to_i) if params[:discount_range]
     @deals = @deals.send(params[:search_order]) if params[:search_order]
     @deals = @deals.active.includes(:user).includes(:partner)

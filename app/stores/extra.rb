@@ -38,7 +38,7 @@ class Extra
     unless page.nil?
       deal.title = page.at_css(".produtoNome h1").try(:text).try(:strip)[0,255] if page.at_css('.produtoNome h1') && page.at_css('.produtoNome h1').try(:text)
       deal.price_mask = page.at_css(".for strong").try(:text).try(:strip)[2..-1].strip if page.at_css(".for strong") && page.at_css(".for").try(:text)
-      deal.real_price_mask = page.at_css(".from strong").try(:text).try(:strip)[2..-1].strip if page.at_css(".from strong") && page.at_css(".from strong").try(:text)
+      deal.real_price_mask = page.at_css(".from strong").try(:text).try(:strip)[2..-1].strip if page.at_css(".from strong") && !page.at_css(".from strong").try(:text).blank?
       deal.description = page.at_css("#descricao").to_s.truncate(4000) if page.at_css("#descricao")
       deal.category = CATEGORIES[page.at_css('.breadcrumb').try(:text).split('>')[1].try(:strip)] if page.at_css('.breadcrumb') && page.at_css('.breadcrumb').try(:text) && page.at_css('.breadcrumb').try(:text).split('>')[1]
       deal.image_url = page.at_css("#divFullImage a img")["src"].try(:strip) if page.at_css("#divFullImage a img")

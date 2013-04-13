@@ -5,7 +5,7 @@
 
   - if user_signed_in?
     %li.no_margin_top
-      - if current_user.provider
+      - if current_user.provider && !current_user.facebook_profile_picture(:square).blank?
         = link_to image_tag(current_user.facebook_profile_picture :square), 'javascript:;', class: 'user_menu', id: 'user_menu_link'
       - else
         = link_to image_tag(current_user.gravatar_url :size => 50), 'javascript:;', class: 'user_menu', id: 'user_menu_link'

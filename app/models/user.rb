@@ -191,6 +191,7 @@ class User < ActiveRecord::Base
   end
 
   def medium_picture
+    # verificar o porque usuarios do facebook nao estao retornando as fotos
     if !self.provider.blank? && !self.facebook_profile_picture(:medium).blank?
       self.facebook_profile_picture(:normal)
     else

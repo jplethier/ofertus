@@ -271,10 +271,6 @@ a#natal_bar{
           }
         }
 
-        #user_menu_options {
-          left: -42px;
-        }
-
         #settings_menu_options {
           left: -48px;
         }
@@ -301,6 +297,152 @@ a#natal_bar{
           border-color: #ccc transparent;
           display: block;
           width: 0;
+        }
+      }
+
+      li.user_options {
+        #user_menu_options {
+          padding: 0;
+          width: 150px;
+          right: 0px;
+
+          h5 {
+            font-family: 'Gotham Book';
+            font-size: 14pt;
+            color: #333;
+            margin: 8px 10px 0;
+          }
+
+          .deals_count {
+            font-family: 'Gotham Book';
+            font-size: 10px;
+            color: #1e1e1e;
+            width: 63px;
+            padding: 5px;
+            margin: 5px 0 5px 5px;
+            text-align: center;
+            border-right: 2px dotted #ccc;
+            float: left;
+
+            a {
+              @include button(#fcfcfc);
+              @include linear-gradient(#fcfcfc, #afafaf);
+              font-size: 8px;
+              padding: 4px 6px;
+              font-family: 'Gotham Book';
+              text-transform: none;
+            }
+          }
+
+          .powers {
+            padding: 15px 7px;
+            float: left;
+            width: 55px;
+            text-align: center;
+
+            .icon {
+              background: image-url('small_powers_icon.png') no-repeat -2px -1px;
+              float: left;
+              width: 21px;
+              height: 21px;
+              margin-right: 5px;
+            }
+
+            .text {
+              font-family: 'Lobster';
+              color: #669999;
+              font-size: 21px;
+              float: left;
+              line-height: 20px;
+            }
+          }
+
+          a.notifications, a.followers, a.following, a.credit {
+            margin-bottom: 0;
+          }
+
+          a.notifications {
+            clear: both;
+            text-align: center;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            padding: 15px 5px;
+            display: block;
+            font-family: 'Gotham Book';
+            font-size: 12px;
+
+            span.count {
+              @include linear-gradient(#fff166, #ffd63b);
+              padding: 6px 4px;
+              color: #666;
+              font-weight: bold;
+              font-family: 'Gotham Book';
+              @include box-shadow(1px 1px 3px 1px hsla(0, 0%, 0%, 0.5));
+              border-radius: 25px;
+              margin-right: 3px;
+            }
+
+            span {
+              color: #1e1e1e;
+              font-family: 'Gotham Book';
+            }
+          }
+
+          a.following, a.followers {
+            padding-top: 40px;
+            padding-bottom: 10px;
+            font-family: 'Gotham Book';
+            font-size: 12px;
+            color: #1e1e1e;
+            text-align: center;
+
+            span.count {
+              font-weight: bold;
+              font-size: 15px;
+            }
+          }
+
+          a.following {
+            border-right: 1px solid #ccc;
+            background: image-url('following_icon.png') no-repeat 14px 8px;
+          }
+
+          a.followers {
+            background: image-url('followers_icon.png') no-repeat 14px 8px;
+          }
+
+          a.credit {
+            border-top: 1px solid #ccc;
+            clear: both;
+            display: block;
+            font-family: 'Lobster';
+            padding: 5px 27px;
+            height: 21px;
+            display: block;
+
+            .icon {
+              background: image-url('small_credit_icon.png') no-repeat;
+              width: 21px;
+              height: 21px;
+              float: left;
+              margin-right: 3px;
+            }
+
+            .text {
+              float: left;
+              line-height: 21px;
+              font-size: 20px;
+              color: #669900;
+            }
+          }
+        }
+
+        #user_menu_options:after {
+          left: 111px;
+        }
+
+        #user_menu_options:before {
+          left: 108px;
         }
       }
     }

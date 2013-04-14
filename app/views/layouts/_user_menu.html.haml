@@ -1,0 +1,30 @@
+#user_menu_options
+  %h5= truncate(current_user.name, length: 30)
+
+  .deals_count
+    = current_user.deals.count
+    ofertas
+    %br
+    = link_to 'Ver Perfil', user_path(current_user.username)
+
+  .powers
+    .icon
+    .text= current_user.powers.count
+
+  %a.notifications{ href: user_notifications_path(current_user.username) }
+    %span.count= current_user.notifications.unread.count
+    %span Notificações
+
+  %a.following{ href: following_user_path(current_user.username) }
+    %span.count= current_user.following.count
+    %br
+    %span Seguindo
+
+  %a.followers{ href: followers_user_path(current_user.username) }
+    %span.count= current_user.followers.count
+    %br
+    %span Seguidores
+
+  %a.credit{ href: sales_user_path(current_user.username) }
+    .icon
+    .text= number_to_currency current_user.credit

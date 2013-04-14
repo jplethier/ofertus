@@ -213,30 +213,32 @@ a#natal_bar{
         position: relative;
 
         #user_menu_options, #settings_menu_options {
-          display: none;
           width: 120px;
           min-height: 90px;
-          background: #0098be;
-          position: absolute;
           top: 65px;
-          border-radius: 5px;
           padding: 10px;
+          display: none;
+          border: 3px solid #ccc;
+          border-radius: 3px;
+          position: absolute;
+          z-index: 1;
+          background: white;
 
           ul {
             list-style: none;
-            color: white;
+            color: #5d5d5d;
 
             li {
               clear: both;
               width: 100%;
               margin: 0;
               padding: 10px 0;
-              border-bottom: 1px solid rgba(255,255,255,.2);
+              border-bottom: 1px solid rgba(93,93,93,.2);
               text-transform: uppercase;
               font-size: 11px;
 
               a {
-                color: white;
+                color: #5d5d5d;
                 font-size: 11px;
               }
 
@@ -270,23 +272,35 @@ a#natal_bar{
         }
 
         #user_menu_options {
-          left: -30px;
+          left: -42px;
         }
 
         #settings_menu_options {
-          left: -35px;
+          left: -48px;
         }
 
         #user_menu_options:after, #settings_menu_options:after {
           content: "";
           position: absolute;
-          left: 40%;
-          border-width: 0 9px 15px;
+          top: -15px;
+          left: 58px;
+          border-width: 0px 11px 15px;
           border-style: solid;
-          border-color: #0098be transparent;
+          border-color: white transparent;
           display: block;
           width: 0;
-          top: -10px;
+        }
+
+        #user_menu_options:before, #settings_menu_options:before {
+          content: "";
+          position: absolute;
+          top: -20px;
+          left: 55px;
+          border-width: 0px 14px 18px;
+          border-style: solid;
+          border-color: #ccc transparent;
+          display: block;
+          width: 0;
         }
       }
     }

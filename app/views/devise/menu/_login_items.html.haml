@@ -4,39 +4,39 @@
   /     %span= t('actions.search')
 
   - if user_signed_in?
-    %li.no_margin_top
+    %li.no_margin_top.user_options
       - if current_user.provider && !current_user.facebook_profile_picture(:square).blank?
         = link_to image_tag(current_user.facebook_profile_picture :square), 'javascript:;', class: 'user_menu', id: 'user_menu_link'
       - else
         = link_to image_tag(current_user.gravatar_url :size => 50), 'javascript:;', class: 'user_menu', id: 'user_menu_link'
-    %li.no_margin_top.settings= link_to t('strings.settings'), 'javascript:;', class: 'settings_menu', id: 'settings_menu_link'
+      #user_menu_options
+        %ul
+          %li.first= link_to t('strings.my_profile'), user_path(current_user.username)
+          %li
+            = link_to t('strings.notifications'), user_notifications_path(current_user.username)
+            %span.number= current_user.notifications.unread.size
+          %li
+            = link_to t('strings.deals'), sales_user_path(current_user.username)
+            %span.number= current_user.deals.size
+          %li
+            = link_to t('strings.following'), following_user_path(current_user.username)
+            %span.number= current_user.following.size
+          %li
+            = link_to t('strings.followers'), followers_user_path(current_user.username)
+            %span.number= current_user.followers.size
+          %li.last
+            = link_to t('strings.credit'), sales_user_path(current_user.username)
+            %span.credit= number_to_currency current_user.credit
+
+    %li.no_margin_top.settings
+      = link_to t('strings.settings'), 'javascript:;', class: 'settings_menu', id: 'settings_menu_link'
+      #settings_menu_options
+        %ul
+          %li.first= link_to t('strings.edit_profile'), edit_user_registration_path
+          %li= link_to t('strings.invite_friends'), friends_user_path(current_user.username)
+          %li= link_to t('strings.help'), help_path
+          %li.last= link_to t('strings.logout'), destroy_user_session_path
   - else
     %li.no_margin_top{ style: 'padding: 0 1px;' }
       = link_to t('strings.login_with_facebook'), user_omniauth_authorize_path(:facebook), :class => "facebook_login_button", :'data-no-turbolink' => true
       = link_to t('strings.login'), new_user_session_path, class: 'login_link'
-
-- if user_signed_in?
-  #user_menu_options
-    %ul
-      %li.first= link_to t('strings.my_profile'), user_path(current_user.username)
-      %li
-        = link_to t('strings.notifications'), user_notifications_path(current_user.username)
-        %span.number= current_user.notifications.unread.size
-      %li
-        = link_to t('strings.deals'), sales_user_path(current_user.username)
-        %span.number= current_user.deals.size
-      %li
-        = link_to t('strings.following'), following_user_path(current_user.username)
-        %span.number= current_user.following.size
-      %li
-        = link_to t('strings.followers'), followers_user_path(current_user.username)
-        %span.number= current_user.followers.size
-      %li.last
-        = link_to t('strings.credit'), sales_user_path(current_user.username)
-        %span.credit= number_to_currency current_user.credit
-  #settings_menu_options
-    %ul
-      %li.first= link_to t('strings.edit_profile'), edit_user_registration_path
-      %li= link_to t('strings.invite_friends'), friends_user_path(current_user.username)
-      %li= link_to t('strings.help'), help_path
-      %li.last= link_to t('strings.logout'), destroy_user_session_path

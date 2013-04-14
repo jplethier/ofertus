@@ -80,83 +80,6 @@ a#natal_bar{
       }
     }
 
-    #user_menu_options, #settings_menu_options {
-      display: none;
-      width: 120px;
-      min-height: 90px;
-      background: #0098be;
-      position: absolute;
-      top: 75px;
-      border-radius: 5px;
-      padding: 10px;
-
-      ul {
-        list-style: none;
-        color: white;
-
-        li {
-          clear: both;
-          width: 100%;
-          margin: 0;
-          padding: 10px 0;
-          border-bottom: 1px solid rgba(255,255,255,.2);
-          text-transform: uppercase;
-          font-size: 11px;
-
-          a {
-            color: white;
-            font-size: 11px;
-          }
-
-          span {
-            float: right;
-            font-weight: bold;
-            font-size: 11px;
-          }
-
-          span.number {
-            background: black;
-            padding: 5px 5px 3px;
-            margin-top: -6px;
-            border-radius: 2px;
-          }
-
-          span.credit {
-            font-size: 9pt;
-            color: #00cc00;
-          }
-        }
-
-        li.first {
-          padding-top: 0;
-        }
-
-        li.last {
-          border-bottom: none;
-        }
-      }
-    }
-
-    #user_menu_options {
-      right: 10px;
-    }
-
-    #settings_menu_options {
-      right: -52px;
-    }
-
-    #user_menu_options:after, #settings_menu_options:after {
-      content: "";
-      position: absolute;
-      left: 40%;
-      border-width: 0 9px 15px;
-      border-style: solid;
-      border-color: #0098be transparent;
-      display: block;
-      width: 0;
-      top: -10px;
-    }
-
     .logo {
       width: 290px;
       float: left;
@@ -278,6 +201,93 @@ a#natal_bar{
         border-left: 1px solid #595959;
         padding-left: 10px;
         height: 50px;
+      }
+
+      li.settings:hover, li.user_options:hover {
+        #user_menu_options, #settings_menu_options {
+          display: block;
+        }
+      }
+
+      li.user_options, li.settings {
+        position: relative;
+
+        #user_menu_options, #settings_menu_options {
+          display: none;
+          width: 120px;
+          min-height: 90px;
+          background: #0098be;
+          position: absolute;
+          top: 65px;
+          border-radius: 5px;
+          padding: 10px;
+
+          ul {
+            list-style: none;
+            color: white;
+
+            li {
+              clear: both;
+              width: 100%;
+              margin: 0;
+              padding: 10px 0;
+              border-bottom: 1px solid rgba(255,255,255,.2);
+              text-transform: uppercase;
+              font-size: 11px;
+
+              a {
+                color: white;
+                font-size: 11px;
+              }
+
+              span {
+                float: right;
+                font-weight: bold;
+                font-size: 11px;
+              }
+
+              span.number {
+                background: black;
+                padding: 5px 5px 3px;
+                margin-top: -6px;
+                border-radius: 2px;
+              }
+
+              span.credit {
+                font-size: 9pt;
+                color: #00cc00;
+              }
+            }
+
+            li.first {
+              padding-top: 0;
+            }
+
+            li.last {
+              border-bottom: none;
+            }
+          }
+        }
+
+        #user_menu_options {
+          left: -30px;
+        }
+
+        #settings_menu_options {
+          left: -35px;
+        }
+
+        #user_menu_options:after, #settings_menu_options:after {
+          content: "";
+          position: absolute;
+          left: 40%;
+          border-width: 0 9px 15px;
+          border-style: solid;
+          border-color: #0098be transparent;
+          display: block;
+          width: 0;
+          top: -10px;
+        }
       }
     }
 

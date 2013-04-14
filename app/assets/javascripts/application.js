@@ -52,16 +52,6 @@ function ready(){
     $('#search_form_div').toggle();
   });
 
-  $('#user_menu_link').click(function(){
-    $('#settings_menu_options').hide();
-    $('#user_menu_options').toggle();
-  });
-
-  $('#settings_menu_link').click(function(){
-    $('#user_menu_options').hide();
-    $('#settings_menu_options').toggle();
-  });
-
   $('#help dd').hide();
 
   $('#help dt a').click(function(){

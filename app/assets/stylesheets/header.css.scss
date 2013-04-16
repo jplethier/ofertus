@@ -216,63 +216,12 @@ a#natal_bar{
           width: 120px;
           min-height: 90px;
           top: 65px;
-          padding: 10px;
           display: none;
           border: 3px solid #ccc;
           border-radius: 3px;
           position: absolute;
           z-index: 1;
           background: white;
-
-          ul {
-            list-style: none;
-            color: #5d5d5d;
-
-            li {
-              clear: both;
-              width: 100%;
-              margin: 0;
-              padding: 10px 0;
-              border-bottom: 1px solid rgba(93,93,93,.2);
-              text-transform: uppercase;
-              font-size: 11px;
-
-              a {
-                color: #5d5d5d;
-                font-size: 11px;
-              }
-
-              span {
-                float: right;
-                font-weight: bold;
-                font-size: 11px;
-              }
-
-              span.number {
-                background: black;
-                padding: 5px 5px 3px;
-                margin-top: -6px;
-                border-radius: 2px;
-              }
-
-              span.credit {
-                font-size: 9pt;
-                color: #00cc00;
-              }
-            }
-
-            li.first {
-              padding-top: 0;
-            }
-
-            li.last {
-              border-bottom: none;
-            }
-          }
-        }
-
-        #settings_menu_options {
-          left: -48px;
         }
 
         #user_menu_options:after, #settings_menu_options:after {
@@ -443,6 +392,62 @@ a#natal_bar{
 
         #user_menu_options:before {
           left: 108px;
+        }
+      }
+
+      li.settings {
+        #settings_menu_options:after {
+          left: 106px;
+        }
+
+        #settings_menu_options:before {
+          left: 103px;
+        }
+
+        #settings_menu_options {
+          right: 0;
+          padding: 0;
+          width: 140px;
+
+          ul {
+            list-style: none;
+            color: #5d5d5d;
+
+            li {
+              clear: both;
+              width: 120px;
+              margin: 0;
+              padding: 10px;
+              border-bottom: 1px solid rgba(93,93,93,.2);
+              text-transform: uppercase;
+              font-size: 12px;
+
+              a {
+                color: #5d5d5d;
+                font-size: 12px;
+              }
+
+              span {
+                float: right;
+                font-weight: bold;
+                font-size: 12px;
+              }
+            }
+
+            li.last {
+              border-bottom: none;
+
+              a {
+                background: image-url('logout_icon.png') no-repeat 1px;
+                height: 16px;
+                display: block;
+                line-height: 20px;
+                padding-left: 20px;
+                margin: 0 auto;
+                width: 30px;
+              }
+            }
+          }
         }
       }
     }

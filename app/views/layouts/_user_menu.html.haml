@@ -1,3 +1,7 @@
+- unless current_user.notifications.unread.blank?
+  %a#notifications{ href: user_notifications_path(current_user.username) }
+    %span.count= current_user.notifications.unread.count
+
 #user_menu_options
   %h5= truncate(current_user.name, length: 30)
 

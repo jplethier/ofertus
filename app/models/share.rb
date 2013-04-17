@@ -28,6 +28,7 @@ class Share
   DAFITI = "dafiti.com.br"
   DISANTINNI = "disantinni.com.br"
   DUKS = "duks.com.br"
+  EPOCA_COSMETICOS = 'epocacosmeticos.com.br'
   EXTRA = 'extra.com.br'
   FASTSHOP = "fastshop.com.br"
   FNAC = "fnac.com.br"
@@ -90,6 +91,8 @@ class Share
           @deal = Disantinni.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(DUKS)
           @deal = Duks.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(EPOCA_COSMETICOS)
+          @deal = EpocaCosmeticos.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(EXTRA)
           @deal = Extra.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(FASTSHOP)

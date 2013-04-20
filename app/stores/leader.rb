@@ -11,6 +11,7 @@ class Leader
     "Calçados e Acessórios" => Deal::CATEGORY_CLOTHES,
     "Cama, Mesa e Banho" => Deal::CATEGORY_HOME_AND_APPLIANCE,
     "Cine e Foto" => Deal::CATEGORY_COMPUTER,
+    'Celulares' => Deal::CATEGORY_COMPUTER,
     "Eletrodomésticos" => Deal::CATEGORY_HOME_AND_APPLIANCE,
     "Eletrônicos" => Deal::CATEGORY_COMPUTER,
     "Esporte e Lazer" => Deal::CATEGORY_ENTERTAINMENT,
@@ -30,14 +31,18 @@ class Leader
 
     deal = Deal.new
     unless page.nil?
-      deal.link = link
-      deal.title = page.at_css(".name").try(:text).try(:strip)[0,255] if page.at_css(".name") && page.at_css(".name").try(:text)
-      deal.price_mask = page.at_css(".sale").try(:text).try(:strip)[7..-1].try(:strip) if page.at_css(".sale") && page.at_css(".sale").try(:text)
-      deal.real_price_mask = page.at_css(".regular").try(:text).try(:strip)[6..-1].try(:strip) if page.at_css(".regular") && page.at_css(".regular").try(:text)
-      deal.description = page.at_css("#descricao").to_s.truncate(4000) if page.at_css("#descricao")
-      deal.category = CATEGORIES[page.at_css("#ctl00_BreadCrumb_lnkDepartamento").try(:text).try(:strip)] if page.at_css("#ctl00_BreadCrumb_lnkDepartamento") && page.at_css("#ctl00_BreadCrumb_lnkDepartamento").try(:text)
-      deal.image_url = page.at_css(".fotoPrincipal").at_xpath(".//img")[:src].try(:strip) if page.at_css(".fotoPrincipal") && page.at_css(".fotoPrincipal").at_xpath(".//img")
+      deal.title = page.at_css(".productName").try(:text).try(:strip)[0,255] if page.at_css(".productName") && page.at_css(".productName").try(:text)
+      deal.price_mask = page.at_css(".valor-por strong").try(:text).split[1] if page.at_css(".valor-por strong").try(:text) && page.at_css(".valor-por strong").try(:text).split
+      deal.real_price_mask = page.at_css(".valor-de strong").try(:text).split[1] if page.at_css(".valor-de strong").try(:text) && page.at_css(".valor-de strong").try(:text).split
+
+      deal.description = page.at_css(".productDescription").try(:text).truncate(4000) if page.at_css(".productDescription").try(:text)
+      deal.category = CATEGORIES[page.at_css(".bread-crumb").try(:text).split[1]] if page.at_css(".bread-crumb").try(:text)
+      # binding.pry
+      if page.at_css("#image-main") && page.at_css("#image-main")[:src]
+        deal.image_url = 'http://www.leader.com.br/' + page.at_css("#image-main")[:src]
+      end
     end
+    deal.link = link
     deal.company = "Leader"
 
     partner = Partner.find_by_name('Leader')

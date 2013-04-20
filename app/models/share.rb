@@ -31,6 +31,7 @@ class Share
   EPOCA_COSMETICOS = 'epocacosmeticos.com.br'
   EXTRA = 'extra.com.br'
   FASTSHOP = "fastshop.com.br"
+  FIVEBLU = 'fiveblu.com'
   FNAC = "fnac.com.br"
   GIMBA = "gimba.com.br"
   GIRAFA = "girafa.com.br"
@@ -97,6 +98,8 @@ class Share
           @deal = Extra.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(FASTSHOP)
           @deal = FastShop.fill_deal_fields(URI.parse(URI.encode(link.strip)))
+        elsif link.match(FIVEBLU)
+          @deal = Fiveblu.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(FNAC)
           @deal = Fnac.fill_deal_fields(URI.parse(URI.encode(link.strip)))
         elsif link.match(GIMBA)

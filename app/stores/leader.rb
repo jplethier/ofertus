@@ -36,8 +36,7 @@ class Leader
       deal.real_price_mask = page.at_css(".valor-de strong").try(:text).split[1] if page.at_css(".valor-de strong").try(:text) && page.at_css(".valor-de strong").try(:text).split
 
       deal.description = page.at_css(".productDescription").try(:text).truncate(4000) if page.at_css(".productDescription").try(:text)
-      deal.category = CATEGORIES[page.at_css(".bread-crumb").try(:text).split[1]] if page.at_css(".bread-crumb").try(:text)
-      # binding.pry
+      deal.category = CATEGORIES[page.css(".bread-crumb ul li")[1].try(:text)] if page.css(".bread-crumb ul li")[1]
       if page.at_css("#image-main") && page.at_css("#image-main")[:src]
         deal.image_url = 'http://www.leader.com.br/' + page.at_css("#image-main")[:src]
       end

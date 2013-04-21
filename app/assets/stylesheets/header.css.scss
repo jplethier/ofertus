@@ -560,16 +560,24 @@ a#natal_bar{
   @include box-shadow(0 0 5px 3px hsla(0, 0%, 0%, 0.65));
   height: 30px;
   width: 100%;
-  background: image-url('filters_bg.png') repeat-x;
+  background: white;
   position: fixed;
   top: 75px;
   z-index: 149;
+
+  .border {
+    width: 100%;
+    margin: 3px 0;
+    height: 23px;
+    border-top: 1px dashed #ccc;
+    border-bottom: 1px dashed #ccc;
+  }
 
   .content {
     width:1035px;
     margin:0 auto;
     position: relative;
-    padding-top: 7px;
+    padding-top: 3px;
   }
 
   ul.filters_options {

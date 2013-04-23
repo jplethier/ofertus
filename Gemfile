@@ -48,7 +48,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 #fb integration
-gem 'fb_graph'
+gem 'fb_graph', '> 2.3.1'
 
 #permissions
 gem 'cancan'

@@ -134,9 +134,8 @@ GEM
       multipart-post (~> 1.1)
       rack (~> 1.1)
     fastercsv (1.5.5)
-    fb_graph (2.6.0)
+    fb_graph (2.4.20)
       httpclient (>= 2.2.0.2)
-      multi_json
       rack-oauth2 (>= 0.14.4)
       tzinfo
     ffi (1.1.5)
@@ -402,7 +401,7 @@ DEPENDENCIES
   devise (>= 1.4.2)
   devise_mailchimp
   factory_girl_rails (>= 1.1.beta1)
-  fb_graph (> 2.3.1)
+  fb_graph (~> 2.4.0)
   fog
   friendly_id (~> 4.0.1)
   gravtastic

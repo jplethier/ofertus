@@ -19,10 +19,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from FbGraph::InvalidToken do |exception|
-    auth = FbGraph::Auth.new('146791075437937', '9bbac57de01036fefc93a09b45a598d9')
-    auth.exchange_token! current_user.access_token # Needs fb_graph 2.3.1+
-    current_user.access_token = auth.access_token # => new token
-    current_user.save(validate: false)
+    sign_out :user
     redirect_to root_url
   end
 

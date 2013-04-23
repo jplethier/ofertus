@@ -18,6 +18,14 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, :alert => exception.message
   end
 
+  rescue_from FbGraph::InvalidToken do |exception|
+    auth = FbGraph::Auth.new('146791075437937', '9bbac57de01036fefc93a09b45a598d9')
+    auth.exchange_token! current_user.access_token # Needs fb_graph 2.3.1+
+    current_user.access_token = auth.access_token # => new token
+    current_user.save(validate: false)
+    redirect_to root_url
+  end
+
   def error_routing
     redirect_to root_url, :alert => I18n.t("exceptions.page_does_not_exists")
   end

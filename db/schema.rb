@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130423132101) do
+ActiveRecord::Schema.define(:version => 20130423172832) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -282,7 +282,7 @@ ActiveRecord::Schema.define(:version => 20130423132101) do
     t.string   "uid"
     t.string   "provider"
     t.string   "avatar_url"
-    t.string   "access_token"
+    t.text     "access_token"
     t.boolean  "facebook_share_offer",                                                 :default => true,  :null => false
     t.boolean  "facebook_vote_offer",                                                  :default => true,  :null => false
     t.boolean  "facebook_follow_user",                                                 :default => true,  :null => false

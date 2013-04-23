@@ -6,7 +6,7 @@ class AuthorizedController < ApplicationController
   before_filter :check_access_token
 
   def check_access_token
-    if user_signed_in? && (current_user.access_token_expires_at.blank? || current_user.access_token_expires_at <= (Time.now - 1.day))
+    if user_signed_in? && (current_user.access_token_expires_at.blank? || current_user.access_token_expires_at <= (Time.now - 1.day)) && !current_user.provider.blank?
       auth = FbGraph::Auth.new('146791075437937', '9bbac57de01036fefc93a09b45a598d9')
       auth.exchange_token! current_user.access_token # Needs fb_graph 2.3.1+
       current_user.access_token = auth.access_token # => new token

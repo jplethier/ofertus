@@ -11,12 +11,12 @@ class AuthorizedController < ApplicationController
       auth.exchange_token! current_user.access_token # Needs fb_graph 2.3.1+
       current_user.access_token = auth.access_token # => new token
 
-      app = FbGraph::Application.new('146791075437937', :secret => '9bbac57de01036fefc93a09b45a598d9')
-      result = app.debug_token current_user.access_token
+      # app = FbGraph::Application.new('146791075437937', :secret => '9bbac57de01036fefc93a09b45a598d9')
+      # result = app.debug_token current_user.access_token
       # result.application # => FbGraph::Application
       # result.user        # => FbGraph::User
       # result.is_valid    # => Boolean
-      current_user.access_token_expires_at = result.expires_at  # => Time
+      # current_user.access_token_expires_at = result.expires_at  # => Time
       # result.issued_at   # => Time or nil
       # result.scopes      # => Array of String
       # result.metadata    # => Hash or nil

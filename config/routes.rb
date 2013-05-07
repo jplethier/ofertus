@@ -1,5 +1,7 @@
 DealWitMe::Application.routes.draw do
 
+  root :to => "pages#home"
+
   ActiveAdmin.routes(self)
 
   match 'lomadee', :to => 'application#lomadee'

@@ -1,7 +1,0 @@
-<p><%= I18n.t('devise.mailer.welcome') %> <%= @resource.username %>!</p>
-
-<%= I18n.t('devise.mailer.confirmation_instructions.message').html_safe %>
-
-<p><%= link_to(I18n.t('devise.mailer.confirmation_instructions.confirm'), confirmation_url(@resource, :confirmation_token => @resource.confirmation_token)) %></p>
-
-<%= I18n.t('devise.mailer.confirmation_instructions.last_instructions').html_safe %>

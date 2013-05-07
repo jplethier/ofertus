@@ -1,25 +1,27 @@
-#col-left
-  .ttGlHome
-    %h2= t('strings.forgot_password')
+#sem-col
+  .signup_description{ style: "height: 150px;" }
+    .ttGlHome
+      %h2{ style: "font-size: 33px; margin: 36px 16px; width: 220px;" }= t('strings.forgot_password')
 
-  .page-login
-    %h3= t('strings.fill_fields')
     .ct-inputs-login
       = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
         %p
-          = f.label :email
-          %br
-          = f.text_field :email, :class => 'user-senha'
+          = f.text_field :email, placeholder: t('activerecord.attributes.user.email') + ':'
+
+        .links
+          = render :partial => "devise/shared/links"
+
         .clear
         = f.submit '', :class => 'bt-confirmar'
+        / <p class="checkbox-login"><input type="checkbox" value="" name="Checkbox"> Mantenha-me Conectado</p>
+
+    .clear
 
 
-    = render :partial => "devise/shared/links"
+    .clear
 
-#col-right
-  .list-box-sidebar.sidebar-last
-    .ttGlHome
-      %h2 facebook
-    
-    %iframe{ :src => "//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2Fplatform&amp;width=270&amp;height=258&amp;colorscheme=light&amp;show_faces=true&amp;border_color&amp;stream=false&amp;header=false", :scrolling => "no", :frameborder => "0", :style => "border:none; overflow:hidden; width:270px; height:258px;", :allowTransparency => "true" }
+  .register
+    %span= t('strings.not_a_member')
+    = link_to 'CADASTRE-SE', new_user_registration_path
+
 .clear

@@ -236,6 +236,7 @@
         avatar_url: Foto do facebook
         credit: "Saldo"
         current_password: "Senha atual"
+        email: 'Email'
         facebook_share_offer: "Publicar no facebook ao compartilhar oferta"
         facebook_vote_offer: "Publicar no facebook ao votar em uma oferta"
         facebook_follow_user: "Publicar no facebook ao seguir um usuário"

@@ -40,7 +40,7 @@ gem 'fog'
 gem 'aws-sdk'
 
 #admin
-gem 'activeadmin'
+gem 'activeadmin', '0.5.0'
 
 #authorize
 gem 'devise', '>= 1.4.2'

@@ -1,3 +1,4 @@
+- banners = Banner.active
 #home_header
   .content
     #partners
@@ -15,7 +16,6 @@
     .clear
     #banners
       = cache 'banners', expires_in: 1.hour do
-        - banners = Banner.active
         .banners_content
           %ul
             - banners.each_with_index do |banner, index|

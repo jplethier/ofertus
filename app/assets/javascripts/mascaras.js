@@ -53,7 +53,7 @@ function alfaupper(v) {
 function alfanumupper(v) {
   v=v.replace(/\W/,"")
   v=v.toUpperCase()
-  return v  
+  return v
 }
 
 function alfalower(v) {
@@ -70,7 +70,7 @@ function alfanum(v){
 
 function documento(v){
   v=v.replace(/[^\d\-\\\(\).\/]/g,"") //Remove tudo o que nao e digito
-  return v  
+  return v
 }
 
 function email(v){
@@ -79,12 +79,12 @@ function email(v){
   v=v.replace(/\.\./g,".") // remove pontos duplos
   v=v.replace(/^\@/g,"") // remove @ no comeco
   v=v.replace(/^\./g,"") // remove pontos no comeco
-  return v  
+  return v
 }
 
 function numero(v){
   v=v.replace(/\D/g,"") //Remove tudo o que nao e digito
-  return v  
+  return v
 }
 
 function numero_comsinal(v){
@@ -92,7 +92,7 @@ function numero_comsinal(v){
   if (v.indexOf('-') >= 0) {
     v='-'+v.replace(/\D/g,'')
   }
-  return v  
+  return v
 }
 
 function decimal_comsinal(v){
@@ -109,16 +109,16 @@ function decimal_comsinal(v){
   } else if (v.length == 2) {
     v="0."+v
   } else {
-    v=v.replace(/(\d)(\d{2})$/g,"$1,$2") // coloca decimal    
+    v=v.replace(/(\d)(\d{2})$/g,"$1,$2") // coloca decimal
   }
-  return v  
+  return v
 }
 
 function decimal(v){
   v=v+'';
   v=v.replace(/\D/g,"") //Remove tudo o que nao e digito
   v=v.replace(/^0/g,"") //Remove tudo o que nao e digito
-  
+
   // remove ponto e virgula
   v=v.replace('.', "")
   v=v.replace(',', "")
@@ -129,9 +129,9 @@ function decimal(v){
   } else if (v.length == 2) {
     v="0."+v
   } else {
-    v=v.replace(/(\d)(\d{2})$/g,"$1.$2") // coloca decimal    
+    v=v.replace(/(\d)(\d{2})$/g,"$1.$2") // coloca decimal
   }
-  return v  
+  return v
 }
 
 function datahora(v){
@@ -142,7 +142,7 @@ function dia(v) {
   v=v.replace(/\D/g,"") //Remove tudo o que nao e digito
   v=v.replace(/^[4-9]$/,"3")
   v=v.replace(/^3[2-9]$/,"31")
-  return v  
+  return v
 }
 
 function data(v){
